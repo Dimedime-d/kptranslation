@@ -1,0 +1,2458 @@
+//Define Table
+#VAR(Table, TABLE)	//Declare a variable named "Table" and type TABLE
+
+//Load and Activate Table
+#ADDTBL("text\kp.tbl", Table)
+#ACTIVETBL(Table)
+
+// Setup GBA pointers and Pointer Table (Name GBA, type CUSTOMPOINTER)
+#VAR(GBA, CUSTOMPOINTER)
+// Create our pointer type (use GBA Ptr, 32-bit ptrs
+#CREATEPTR(GBA, "LINEAR", $-08000000, 32)
+
+//Set current position for text insertion
+#JMP($800000)
+#STRINGALIGN(4)
+
+//Each write command: (ptr, aNumber) <- writes text AT current pointer's offset, writes
+//pointer's offset to aNumber
+
+//GAME NAME:		
+
+//BLOCK #000 NAME:		Script 1 - Kappado Intro
+//Block Range: $962EC - $96320
+
+//マジック大魔術団、<line>			Great Magical Mages?
+//りゃくしてマダ魔団へようこそ！<end>	Welcome back to the Mada Demon Club!
+
+
+//BLOCK #001 NAME:		Script 2
+//Block Range: $9638C - $963AA
+
+//ボクのなまえは、カッパード！<end>		My name is Kappado!
+
+
+//BLOCK #002 NAME:		Script 3
+//Block Range: $96404 - $96430
+
+//おまえの家族は、<line>			Your family,
+//われわれがあーずかったー<end>		we are here
+
+
+//BLOCK #003 NAME:		Script 4
+//Block Range: $96494 - $964AE
+
+//ぼくの兄弟、みなかった？<end>		Haven't you seen by brothers?
+
+
+//BLOCK #004 NAME:		Script 5
+//Block Range: $96504 - $9652A
+
+//・・・マダ魔団が<line>				...The Mada Demons might have them
+//あずかったってばー<end>
+
+
+//BLOCK #005 NAME:		Script 6
+//Block Range: $9658C - $965A6
+
+//なんでそんなことするの？<end>		Why are you doing that?
+
+
+//BLOCK #006 NAME:		Script 7
+//Block Range: $965FC - $9661C
+
+//マジックのタネをのぞくからさー<end>		Take a peek to the Magic's
+
+
+//BLOCK #007 NAME:		Script 8
+//Block Range: $96674 - $966A6
+
+//かえしてほしければ・・・<line>		If you want them back...
+//このゲームで勝負だよー<end>		then win this game!
+
+
+//BLOCK #008 NAME:		Script 9 - Kappado Lose
+//Block Range: $9680C - $96828
+
+//あらら、しっぱいしちゃった<end>		Oh no, I failed
+
+
+//BLOCK #009 NAME:		Script 10
+//Block Range: $9687C - $9688C
+
+//ざーんねーん！<end>				How unfortunate
+
+
+//BLOCK #010 NAME:		Script 11
+//Block Range: $968D4 - $96900
+
+//先に行ってもいいけど<line>			I can go on but
+//兄弟はかえせないなー<end>			my siblings won't return
+
+
+//BLOCK #011 NAME:		Script 12
+//Block Range: $96964 - $9697C
+
+//またちょうせんしてねー<end>			I wouldn't dare to try again
+//								if I were you
+
+
+//BLOCK #012 NAME:		Script 13
+//Block Range: $96AD4 - $96B02
+
+//いらっしゃーい<line>
+//こんどはクリアできるかなー？<end>		Will I win next time?
+
+
+//BLOCK #013 NAME:		Script 14
+//Block Range: $96B6C - $96B7A
+
+//もちろんさー<end>					Of course
+
+
+//BLOCK #014 NAME:		Script 15
+//Block Range: $96BC4 - $96BDE
+
+//・・・マネしないでよねー<end>			...you won't manage
+
+
+//BLOCK #015 NAME:		Script 16
+//Block Range: $96D2C - $96D46
+
+//ぎゃふん！　やられたよー<end>		*gasp* You did it!
+
+
+//BLOCK #016 NAME:		Script 17
+//Block Range: $96D9C - $96DB6
+
+//チクリン、だいじょうぶ？<end>
+
+
+//BLOCK #017 NAME:		Script 18
+//Block Range: $96E0C - $96E3E
+
+//やぁ、お兄ちゃん！<line>
+//ボクマジックをおぼえたんだ！<end>
+
+
+//BLOCK #018 NAME:		Script 19
+//Block Range: $96EAC - $96ECA
+
+//お兄ちゃんにも教えてあげる！<end>
+
+
+//BLOCK #019 NAME:		Script 20
+//Block Range: $97088 - $970B4
+
+//じゃじゃじゃーん<line>
+//カッパードとうじょうー！<end>
+
+
+//BLOCK #020 NAME:		Script 21
+//Block Range: $97120 - $97140
+
+//あれ？　さっきみたような・・・<end>
+
+
+//BLOCK #021 NAME:		Script 22
+//Block Range: $97198 - $971CA
+
+//ひとつの国でー<line>
+//３回チャレンジしてもらうんだよー<end>
+
+
+//BLOCK #022 NAME:		Script 23
+//Block Range: $97238 - $9726C
+
+//３回ともボクに勝たないとー<line>
+//兄弟は助けられないよー<end>
+
+
+//BLOCK #023 NAME:		Script 24
+//Block Range: $972D8 - $972EE
+
+//ようし、がんばるぞ！<end>
+
+
+//BLOCK #024 NAME:		Script 25
+//Block Range: $97438 - $97458
+
+//カッパさんに負けちゃった・・・<end>
+
+
+//BLOCK #025 NAME:		Script 26
+//Block Range: $974B0 - $974EA
+
+//ちがうよーカッパじゃないよー<line>
+//ボクはカッパードだってばー<end>
+
+
+//BLOCK #026 NAME:		Script 27
+//Block Range: $97668 - $97676
+
+//たのもーう！<end>
+
+
+//BLOCK #027 NAME:		Script 28
+//Block Range: $976C0 - $976E8
+
+//やるきまんまんだねー<line>
+//がんばってよねー<end>
+
+
+//BLOCK #028 NAME:		Script 29
+//Block Range: $97840 - $97872
+
+//うえーん、マジック男爵さんに<line>
+//おこられちゃうよー<end>
+
+
+//BLOCK #029 NAME:		Script 30
+//Block Range: $978E0 - $978FE
+
+//ホヨリーン！　助けに来たよー<end>
+
+
+//BLOCK #030 NAME:		Script 31
+//Block Range: $97958 - $97974
+
+//マジックっておもしろいホヨ<end>
+
+
+//BLOCK #031 NAME:		Script 32
+//Block Range: $979C8 - $979E6
+
+//でもタネをのぞくのはダメだよ<end>
+
+
+//BLOCK #032 NAME:		Script 33
+//Block Range: $97A40 - $97A5E
+
+//ホヨ～！　ごめんなさいだホヨ<end>
+
+
+//BLOCK #033 NAME:		Script 34
+//Block Range: $97C20 - $97C62
+
+//ボクはー　おとうさんみたいなー<line>
+//りっぱなマジシャンにーなるのさー<end>
+
+
+//BLOCK #034 NAME:		Script 35
+//Block Range: $97CE0 - $97CFE
+
+//おとうさんて　マジック男爵？<end>
+
+
+//BLOCK #035 NAME:		Script 36
+//Block Range: $97D58 - $97D84
+
+//ちがうよ　男爵さんは<line>
+//ボクの先生なんだよ～<end>
+
+
+//BLOCK #036 NAME:		Script 37
+//Block Range: $97DE8 - $97E14
+
+//それはそれとしてー<line>
+//これってクリアできる？<end>
+
+
+//BLOCK #037 NAME:		Script 38
+//Block Range: $97F70 - $97F8E
+
+//あちゃー　しっぱいしちゃった<end>
+
+
+//BLOCK #038 NAME:		Script 39
+//Block Range: $97FE8 - $98026
+
+//んふふふー　むずかしかったー？<line>
+//またこんど　がんばってよねー<end>
+
+
+//BLOCK #039 NAME:		Script 40
+//Block Range: $981A8 - $981C2
+
+//こんどこそ　がんばるぞ！<end>
+
+
+//BLOCK #040 NAME:		Script 41
+//Block Range: $98218 - $9822C
+
+//ボクもがんばるぞ！<end>
+
+
+//BLOCK #041 NAME:		Script 42
+//Block Range: $98388 - $983AE
+
+//にいちゃん<line>
+//このマジックできるヒヨ？<end>
+
+
+//BLOCK #042 NAME:		Script 43
+//Block Range: $98410 - $98430
+
+//ヒョコリンが元気そうでよかった<end>
+
+
+//BLOCK #043 NAME:		Script 44
+//Block Range: $98494 - $984D0
+
+//うぇーん　ボクのマジックがぁー<line>
+//男爵さんにいいつけてやるぅ<end>
+
+
+//BLOCK #044 NAME:		Script 45
+//Block Range: $9854C - $98568
+
+//わるいことしちゃったかな？<end>
+
+
+//BLOCK #045 NAME:		Script 46
+//Block Range: $98700 - $98712
+
+//うふふふふ・・・<end>
+
+
+//BLOCK #046 NAME:		Script 47
+//Block Range: $98880 - $988BA
+
+//くくくく、ようこそいらっしゃい<line>
+//わたしのあおいトリちゃん<end>
+
+
+//BLOCK #047 NAME:		Script 48
+//Block Range: $98930 - $9893E
+
+//あんただれ？<end>
+
+
+//BLOCK #048 NAME:		Script 49
+//Block Range: $98988 - $989AE
+
+//うふふふふ<line>
+//よくぞきいてくれました！<end>
+
+
+//BLOCK #049 NAME:		Script 50
+//Block Range: $98A10 - $98A40
+
+//マジック界の<line>
+//地上におりたさいごの天使こと・・<end>
+
+
+//BLOCK #050 NAME:		Script 51
+//Block Range: $98AA8 - $98AD2
+
+//エンジェル・テン子とは<line>
+//わたしのことよ！<end>
+
+
+//BLOCK #051 NAME:		Script 52
+//Block Range: $98B38 - $98B4C
+
+//ながいなまえだねぇ<end>
+
+
+//BLOCK #052 NAME:		Script 53
+//Block Range: $98B98 - $98BB6
+
+//ぜんぶがなまえじゃないわよ！<end>
+
+
+//BLOCK #053 NAME:		Script 54
+//Block Range: $98C10 - $98C36
+
+//もういい！<line>
+//このゲームでしょうぶよ！<end>
+
+
+//BLOCK #054 NAME:		Script 55
+//Block Range: $98D90 - $98DB4
+
+//お子さまには<line>
+//むずかしかったかしら<end>
+
+
+//BLOCK #055 NAME:		Script 56
+//Block Range: $98E10 - $98E3C
+
+//ボクのほうが<line>
+//大きいとおもうんだけど・・・<end>
+
+
+//BLOCK #056 NAME:		Script 57
+//Block Range: $98EA0 - $98EC0
+
+//頭のくるくるのとこだけでしょ！<end>
+
+
+//BLOCK #057 NAME:		Script 58
+//Block Range: $98F18 - $98F3A
+
+//身長は<line>
+//わたしのほうが高いわよ！<end>
+
+
+//BLOCK #058 NAME:		Script 59
+//Block Range: $990A0 - $990B0
+
+//またきたのぉ？<end>
+
+
+//BLOCK #059 NAME:		Script 60
+//Block Range: $990F8 - $99126
+
+//コドモとあそんでるほど<line>
+//ヒマじゃないのよねぇ<end>
+
+
+//BLOCK #060 NAME:		Script 61
+//Block Range: $99190 - $991A8
+
+//こんどはクリアするぞ！<end>
+
+
+//BLOCK #061 NAME:		Script 62
+//Block Range: $992F0 - $9930A
+
+//えーん、マジック男爵ぅー<end>
+
+
+//BLOCK #062 NAME:		Script 63
+//Block Range: $99360 - $99386
+
+//あ、フワリン！<line>
+//だいじょうぶだった？<end>
+
+
+//BLOCK #063 NAME:		Script 64
+//Block Range: $993E8 - $9940A
+
+//マジックってタネがあるんだフワ～<end>
+
+
+//BLOCK #064 NAME:		Script 65
+//Block Range: $99468 - $99482
+
+//マホウかとおもってたフワ<end>
+
+
+//BLOCK #065 NAME:		Script 66
+//Block Range: $99648 - $99658
+
+//いらっしゃーい<end>
+
+
+//BLOCK #066 NAME:		Script 67
+//Block Range: $996A0 - $996BE
+
+//わたしにまた会えてうれしい？<end>
+
+
+//BLOCK #067 NAME:		Script 68
+//Block Range: $99718 - $9972E
+
+//うーん、ふつうかなぁ<end>
+
+
+//BLOCK #068 NAME:		Script 69
+//Block Range: $99780 - $997B2
+
+//そんなときは「そうですね」と<line>
+//いっておくものよ！<end>
+
+
+//BLOCK #069 NAME:		Script 70
+//Block Range: $99820 - $99848
+
+//まったく！<line>
+//女ごころがわからないのね！<end>
+
+
+//BLOCK #070 NAME:		Script 71
+//Block Range: $998A8 - $998AC
+
+//？<end>
+
+
+//BLOCK #071 NAME:		Script 72
+//Block Range: $998E8 - $99908
+
+//もういい！　ゲームのじかんよ！<end>
+
+
+//BLOCK #072 NAME:		Script 73
+//Block Range: $99A58 - $99A78
+
+//ありゃーしっぱいしちゃったなぁ<end>
+
+
+//BLOCK #073 NAME:		Script 74
+//Block Range: $99AD0 - $99AEC
+
+//もっとくやしがりなさいよ！<end>
+
+
+//BLOCK #074 NAME:		Script 75
+//Block Range: $99B40 - $99B60
+
+//くやしいーぃ・・・これでいい？<end>
+
+
+//BLOCK #075 NAME:		Script 76
+//Block Range: $99BB8 - $99BD6
+
+//もういいから、かえって・・・<end>
+
+
+//BLOCK #076 NAME:		Script 77
+//Block Range: $99D38 - $99D4C
+
+//おーい、ラブリーン<end>
+
+
+//BLOCK #077 NAME:		Script 78
+//Block Range: $99D98 - $99DC2
+
+//だめだめ！<line>
+//こいつをクリアしてからよっ！<end>
+
+
+//BLOCK #078 NAME:		Script 79
+//Block Range: $99F20 - $99F52
+
+//お兄ちゃんにいいつけてやるぅー<line>
+//うえええええーん<end>
+
+
+//BLOCK #079 NAME:		Script 80
+//Block Range: $99FC0 - $99FE8
+
+//テン子ちゃんに<line>
+//教えてもらっちゃったー<end>
+
+
+//BLOCK #080 NAME:		Script 81
+//Block Range: $9A048 - $9A068
+
+//お兄ちゃんにも教えてあげるラブ<end>
+
+
+//BLOCK #081 NAME:		Script 82
+//Block Range: $9A0C0 - $9A0D6
+
+//ラブリン、ありがとう<end>
+
+
+//BLOCK #082 NAME:		Script 83
+//Block Range: $9A278 - $9A282
+
+//ねぇねぇ<end>
+
+
+//BLOCK #083 NAME:		Script 84
+//Block Range: $9A2C8 - $9A2D2
+
+//なによ？<end>
+
+
+//BLOCK #084 NAME:		Script 85
+//Block Range: $9A318 - $9A338
+
+//マジックって手品のことでしょ？<end>
+
+
+//BLOCK #085 NAME:		Script 86
+//Block Range: $9A390 - $9A3A6
+
+//あたりまえじゃないの<end>
+
+
+//BLOCK #086 NAME:		Script 87
+//Block Range: $9A3F8 - $9A40C
+
+//魔術もそうだよねぇ<end>
+
+
+//BLOCK #087 NAME:		Script 88
+//Block Range: $9A458 - $9A470
+
+//まぁ、たいていは・・・<end>
+
+
+//BLOCK #088 NAME:		Script 89
+//Block Range: $9A4C0 - $9A4F4
+
+//マジック大魔術団って<line>
+//おなじこと２回いってるよねぇ<end>
+
+
+//BLOCK #089 NAME:		Script 90
+//Block Range: $9A560 - $9A57E
+
+//な・・・！　なにいってんの！<end>
+
+
+//BLOCK #090 NAME:		Script 91
+//Block Range: $9A5D8 - $9A60A
+
+//２回いうくらいに<line>
+//すごいマジックってことなの！！<end>
+
+
+//BLOCK #091 NAME:		Script 92
+//Block Range: $9A678 - $9A68C
+
+//ふーん、まぁいいや<end>
+
+
+//BLOCK #092 NAME:		Script 93
+//Block Range: $9A6D8 - $9A6F0
+
+//こんどはどんなゲーム？<end>
+
+
+//BLOCK #093 NAME:		Script 94
+//Block Range: $9A838 - $9A866
+
+//こまかいこといってるから<line>
+//しっぱいするのよ！<end>
+
+
+//BLOCK #094 NAME:		Script 95
+//Block Range: $9A8D0 - $9A8EC
+
+//うーん　はんせい、はんせい<end>
+
+
+//BLOCK #095 NAME:		Script 96
+//Block Range: $9A940 - $9A95E
+
+//イヤミがつうじないわね・・・<end>
+
+
+//BLOCK #096 NAME:		Script 97
+//Block Range: $9AAC0 - $9AACE
+
+//またきたよー<end>
+
+
+//BLOCK #097 NAME:		Script 98
+//Block Range: $9AB18 - $9AB50
+
+//あんたねぇ、もうすこし<line>
+//きんちょうかんをもちなさいよ！<end>
+
+
+//BLOCK #098 NAME:		Script 99
+//Block Range: $9ABC0 - $9ABDC
+
+//うーん　はんせい、はんせい<end>
+
+
+//BLOCK #099 NAME:		Script 100
+//Block Range: $9AD28 - $9AD4E
+
+//ええー<line>
+//ほんとにクリアしちゃったの？<end>
+
+
+//BLOCK #100 NAME:		Script 101
+//Block Range: $9ADB0 - $9ADD0
+
+//こうりゃくぼん見たでしょー！？<end>
+
+
+//BLOCK #101 NAME:		Script 102
+//Block Range: $9AE28 - $9AE38
+
+//にいちゃーん！<end>
+
+
+//BLOCK #102 NAME:		Script 103
+//Block Range: $9AE80 - $9AE9C
+
+//ゲキリン　げんきそうだね！<end>
+
+
+//BLOCK #103 NAME:		Script 104
+//Block Range: $9AEF0 - $9AF22
+
+//マジックって　すごいゲキ！<line>
+//ゲキリン、カンゲキ！<end>
+
+
+//BLOCK #104 NAME:		Script 105
+//Block Range: $9B0E8 - $9B11E
+
+//ワイはマダ魔団いちのハンサムガイ<line>
+//ナポロンいうものや<end>
+
+
+//BLOCK #105 NAME:		Script 106
+//Block Range: $9B190 - $9B1A6
+
+//よろしゅうたのむで～<end>
+
+
+//BLOCK #106 NAME:		Script 107
+//Block Range: $9B1F8 - $9B218
+
+//ねぇねぇ、おとうとをかえしてよ<end>
+
+
+//BLOCK #107 NAME:		Script 108
+//Block Range: $9B270 - $9B2A0
+
+//あんなぁ、マジックのタネを<line>
+//のぞくいうのはなぁ<end>
+
+
+//BLOCK #108 NAME:		Script 109
+//Block Range: $9B308 - $9B33A
+
+//マジシャンにとったら<line>
+//とんでもないことなんやで？<end>
+
+
+//BLOCK #109 NAME:		Script 110
+//Block Range: $9B3A8 - $9B3D8
+
+//そんなコトしたヤツらを<line>
+//かんたんにはかえせんな<end>
+
+
+//BLOCK #110 NAME:		Script 111
+//Block Range: $9B440 - $9B45C
+
+//うーん、あやまってもだめ？<end>
+
+
+//BLOCK #111 NAME:		Script 112
+//Block Range: $9B4B0 - $9B4E8
+
+//まぁ、はなしはあとや<line>
+//コレをクリアできたらかんがえよか<end>
+
+
+//BLOCK #112 NAME:		Script 113
+//Block Range: $9B650 - $9B666
+
+//あかんねぇ、コレじゃ<end>
+
+
+//BLOCK #113 NAME:		Script 114
+//Block Range: $9B6B8 - $9B6D0
+
+//またこんど、おいでやー<end>
+
+
+//BLOCK #114 NAME:		Script 115
+//Block Range: $9B720 - $9B748
+
+//うーん・・・<line>
+//れんしゅうしてこようかな<end>
+
+
+//BLOCK #115 NAME:		Script 116
+//Block Range: $9B8B0 - $9B8BE
+
+//こんにちはー<end>
+
+
+//BLOCK #116 NAME:		Script 117
+//Block Range: $9B908 - $9B934
+
+//またきたんかいな<line>
+//まぁ、ゆっくりやってんか<end>
+
+
+//BLOCK #117 NAME:		Script 118
+//Block Range: $9BA90 - $9BAB0
+
+//うーん、まぁやくそくやからねぇ<end>
+
+
+//BLOCK #118 NAME:		Script 119
+//Block Range: $9BB08 - $9BB22
+
+//家族はかえしたるけどなぁ<end>
+
+
+//BLOCK #119 NAME:		Script 120
+//Block Range: $9BB78 - $9BBAC
+
+//くれぐれもマジックのタネは<line>
+//人にいうたらあかんでー<end>
+
+
+//BLOCK #120 NAME:		Script 121
+//Block Range: $9BC18 - $9BC22
+
+//そっかー<end>
+
+
+//BLOCK #121 NAME:		Script 122
+//Block Range: $9BC68 - $9BC92
+
+//でもお兄ちゃんだけには<line>
+//教えてあげるね！<end>
+
+
+//BLOCK #122 NAME:		Script 123
+//Block Range: $9BCF8 - $9BD12
+
+//みんなにはないしょだよ！<end>
+
+
+//BLOCK #123 NAME:		Script 124
+//Block Range: $9BEC0 - $9BED0
+
+//お、またきたね<end>
+
+
+//BLOCK #124 NAME:		Script 125
+//Block Range: $9BF18 - $9BF38
+
+//ねぇ、ボクにもマジックみせてよ<end>
+
+
+//BLOCK #125 NAME:		Script 126
+//Block Range: $9BF90 - $9BFC2
+
+//・・・ワイはこうみえても<line>
+//プロのマジシャンやで？<end>
+
+
+//BLOCK #126 NAME:		Script 127
+//Block Range: $9C030 - $9C06A
+
+//つまり、マジックを見せて<line>
+//まいにちのゴハンをたべとるんや<end>
+
+
+//BLOCK #127 NAME:		Script 128
+//Block Range: $9C0E0 - $9C0FE
+
+//それをタダで　みせろちうのは<end>
+
+
+//BLOCK #128 NAME:		Script 129
+//Block Range: $9C158 - $9C184
+
+//「お金ください」て<line>
+//いうとるのとおなじや！<end>
+
+
+//BLOCK #129 NAME:		Script 130
+//Block Range: $9C1E8 - $9C1F2
+
+//がーん！<end>
+
+
+//BLOCK #130 NAME:		Script 131
+//Block Range: $9C238 - $9C262
+
+//ま、わかってくれたら<line>
+//かまへんのやけどね<end>
+
+
+//BLOCK #131 NAME:		Script 132
+//Block Range: $9C2C8 - $9C2E6
+
+//じゃ、いつものやってもらおか<end>
+
+
+//BLOCK #132 NAME:		Script 133
+//Block Range: $9C438 - $9C466
+
+//しっぱいするいうのは<line>
+//どりょくがたりひんのや<end>
+
+
+//BLOCK #133 NAME:		Script 134
+//Block Range: $9C4D0 - $9C50E
+
+//つまり、どういうことかというと<line>
+//じぶんにアマいちうことやでー<end>
+
+
+//BLOCK #134 NAME:		Script 135
+//Block Range: $9C588 - $9C592
+
+//しょぼん<end>
+
+
+//BLOCK #135 NAME:		Script 136
+//Block Range: $9C6E0 - $9C6FC
+
+//こんどは　クリアするぞぉ！<end>
+
+
+//BLOCK #136 NAME:		Script 137
+//Block Range: $9C750 - $9C766
+
+//お、いい目しとるねぇ<end>
+
+
+//BLOCK #137 NAME:		Script 138
+//Block Range: $9C7B8 - $9C7D2
+
+//ほんなら、やってもらおか<end>
+
+
+//BLOCK #138 NAME:		Script 139
+//Block Range: $9C920 - $9C956
+
+//うわー、またやられたがな<line>
+//しょうばい　あがったりやー<end>
+
+
+//BLOCK #139 NAME:		Script 140
+//Block Range: $9C9E8 - $9CA08
+
+//こいつぁシビれるマジックピカ！<end>
+
+
+//BLOCK #140 NAME:		Script 141
+//Block Range: $9CA60 - $9CA78
+
+//うーん、たのしみぃー！<end>
+
+
+//BLOCK #141 NAME:		Script 142
+//Block Range: $9CC20 - $9CC3E
+
+//ボクにもマジックできるかな？<end>
+
+
+//BLOCK #142 NAME:		Script 143
+//Block Range: $9CC98 - $9CCB8
+
+//ようカンちがいされるんやけどな<end>
+
+
+//BLOCK #143 NAME:		Script 144
+//Block Range: $9CD10 - $9CD44
+
+//タネがわかればできるかというと<line>
+//そんなことないねん<end>
+
+
+//BLOCK #144 NAME:		Script 145
+//Block Range: $9CDB0 - $9CDE0
+
+//おなじネタでも<line>
+//みせかたによってウケがちがうし<end>
+
+
+//BLOCK #145 NAME:		Script 146
+//Block Range: $9CE48 - $9CE82
+
+//なんにせよ、ひびのべんきょうや<line>
+//れんしゅうがだいじなんや<end>
+
+
+//BLOCK #146 NAME:		Script 147
+//Block Range: $9CEF8 - $9CF14
+
+//うわー、たいへんなんだねぇ<end>
+
+
+//BLOCK #147 NAME:		Script 148
+//Block Range: $9CF68 - $9CF9A
+
+//ま、ワイみたいなテンサイは<line>
+//べつにしてやけどもな<end>
+
+
+//BLOCK #148 NAME:		Script 149
+//Block Range: $9D008 - $9D01A
+
+//ほな　はじめよか<end>
+
+
+//BLOCK #149 NAME:		Script 150
+//Block Range: $9D160 - $9D180
+
+//あちゃー！　しっぱい、しっぱい<end>
+
+
+//BLOCK #150 NAME:		Script 151
+//Block Range: $9D1D8 - $9D20A
+
+//タダのしっぱいというのは<line>
+//そんざいせんのんやでー<end>
+
+
+//BLOCK #151 NAME:		Script 152
+//Block Range: $9D278 - $9D2A6
+
+//かならず　げんいんがあって<line>
+//けっかがあるんや<end>
+
+
+//BLOCK #152 NAME:		Script 153
+//Block Range: $9D310 - $9D33A
+
+//ようハンセイせんと<line>
+//またしっぱいするで～<end>
+
+
+//BLOCK #153 NAME:		Script 154
+//Block Range: $9D3A0 - $9D3AC
+
+//なるほどー<end>
+
+
+//BLOCK #154 NAME:		Script 155
+//Block Range: $9D4F8 - $9D50A
+
+//またきたんかいな<end>
+
+
+//BLOCK #155 NAME:		Script 156
+//Block Range: $9D558 - $9D566
+
+//ダメだった？<end>
+
+
+//BLOCK #156 NAME:		Script 157
+//Block Range: $9D5B0 - $9D5DC
+
+//いや、そんなことあらへんよー<line>
+//がんばりやー<end>
+
+
+//BLOCK #157 NAME:		Script 158
+//Block Range: $9D738 - $9D74A
+
+//あ、あかんがなー<end>
+
+
+//BLOCK #158 NAME:		Script 159
+//Block Range: $9D798 - $9D7C6
+
+//ワイともあろうモンが<line>
+//ゆだんしてしもたがなー<end>
+
+
+//BLOCK #159 NAME:		Script 160
+//Block Range: $9D850 - $9D86C
+
+//あいて！　またころんだポコ<end>
+
+
+//BLOCK #160 NAME:		Script 161
+//Block Range: $9D8C0 - $9D8FA
+
+//ポコリン、だいじょうぶ？<line>
+//気をつけないと　だめじゃないか<end>
+
+
+//BLOCK #161 NAME:		Script 162
+//Block Range: $9D970 - $9D990
+
+//しんぱいかけてごめんポコ・・・<end>
+
+
+//BLOCK #162 NAME:		Script 163
+//Block Range: $9DB40 - $9DB60
+
+//バァー　よぉこそマジック城へ！<end>
+
+
+//BLOCK #163 NAME:		Script 164
+//Block Range: $9DBB8 - $9DBD2
+
+//うわー、そらにういてるー<end>
+
+
+//BLOCK #164 NAME:		Script 165
+//Block Range: $9DC28 - $9DC5E
+
+//ワガハイはひとよんでぇ・・・<line>
+//マジック男爵ぅ！！！！<end>
+
+
+//BLOCK #165 NAME:		Script 166
+//Block Range: $9DCD0 - $9DCE2
+
+//クルリンくん！！<end>
+
+
+//BLOCK #166 NAME:		Script 167
+//Block Range: $9DD30 - $9DD66
+
+//キミにこれがクリアできるとでも<line>
+//言うのかなぁ！！！！<end>
+
+
+//BLOCK #167 NAME:		Script 168
+//Block Range: $9DDD8 - $9DDF0
+
+//うん、がんばってみるよ<end>
+
+
+//BLOCK #168 NAME:		Script 169
+//Block Range: $9DF38 - $9DF48
+
+//むははははは！<end>
+
+
+//BLOCK #169 NAME:		Script 170
+//Block Range: $9DF90 - $9DFC6
+
+//どうした？　そんなことでは<line>
+//家族は助けられないぞぉ！<end>
+
+
+//BLOCK #170 NAME:		Script 171
+//Block Range: $9E038 - $9E054
+
+//あちゃー　しっぱいしっぱい<end>
+
+
+//BLOCK #171 NAME:		Script 172
+//Block Range: $9E0A8 - $9E0B8
+
+//むははははは！<end>
+
+
+//BLOCK #172 NAME:		Script 173
+//Block Range: $9E208 - $9E222
+
+//なんどきても、ムダだぁ！<end>
+
+
+//BLOCK #173 NAME:		Script 174
+//Block Range: $9E278 - $9E2AA
+
+//しかし、そのチャレンジせいしんは<line>
+//ほめてやるぅ！<end>
+
+
+//BLOCK #174 NAME:		Script 175
+//Block Range: $9E318 - $9E334
+
+//わーい　ほめられちゃったー<end>
+
+
+//BLOCK #175 NAME:		Script 176
+//Block Range: $9E388 - $9E398
+
+//がんばるぞー！<end>
+
+
+//BLOCK #176 NAME:		Script 177
+//Block Range: $9E4D8 - $9E4F8
+
+//ぬおおおおおおおおおおおおお！<end>
+
+
+//BLOCK #177 NAME:		Script 178
+//Block Range: $9E550 - $9E580
+
+//やるなぁ・・・<line>
+//だが次はそうはいかんからなぁ！<end>
+
+
+//BLOCK #178 NAME:		Script 179
+//Block Range: $9E5E8 - $9E602
+
+//マリリン、ここにいたの？<end>
+
+
+//BLOCK #179 NAME:		Script 180
+//Block Range: $9E660 - $9E698
+
+//わたし、きめたマリ～<line>
+//このマジックでスターになるマリ～<end>
+
+
+//BLOCK #180 NAME:		Script 181
+//Block Range: $9E880 - $9E89E
+
+//んふふふふふふふふふふふふふ<end>
+
+
+//BLOCK #181 NAME:		Script 182
+//Block Range: $9E8F8 - $9E922
+
+//どうかなぁ<line>
+//キミのあたらしいぼうけんは！<end>
+
+
+//BLOCK #182 NAME:		Script 183
+//Block Range: $9E988 - $9E9AA
+
+//うん！　ゲームっておもしろいねぇ<end>
+
+
+//BLOCK #183 NAME:		Script 184
+//Block Range: $9EA08 - $9EA26
+
+//たいせんも　おもしろいぞぉ！<end>
+
+
+//BLOCK #184 NAME:		Script 185
+//Block Range: $9EB78 - $9EB96
+
+//みそこなったよ、クルリンくん<end>
+
+
+//BLOCK #185 NAME:		Script 186
+//Block Range: $9EBF0 - $9EC0E
+
+//おとうさんにわらわれるぞぉ！<end>
+
+
+//BLOCK #186 NAME:		Script 187
+//Block Range: $9EC68 - $9EC7A
+
+//おとうさんって？<end>
+
+
+//BLOCK #187 NAME:		Script 188
+//Block Range: $9ECC8 - $9ECE6
+
+//ふははははははははははははは<end>
+
+
+//BLOCK #188 NAME:		Script 189
+//Block Range: $9EE48 - $9EE6A
+
+//またちょうせんしたい、と・・・？<end>
+
+
+//BLOCK #189 NAME:		Script 190
+//Block Range: $9EEC8 - $9EEFE
+
+//よかろう、おもうぞんぶんに<line>
+//たのしんでもらおうかぁ！<end>
+
+
+//BLOCK #190 NAME:		Script 191
+//Block Range: $9EF70 - $9EF8E
+
+//こんどこそクリアしちゃうぞ！<end>
+
+
+//BLOCK #191 NAME:		Script 192
+//Block Range: $9F0E0 - $9F10C
+
+//なんと・・・！<line>
+//カエルの子はカエルだなぁ！<end>
+
+
+//BLOCK #192 NAME:		Script 193
+//Block Range: $9F170 - $9F190
+
+//ボク鳥だよーカエルじゃないよー<end>
+
+
+//BLOCK #193 NAME:		Script 194
+//Block Range: $9F1E8 - $9F200
+
+//クルリン、ありがとう！<end>
+
+
+//BLOCK #194 NAME:		Script 195
+//Block Range: $9F250 - $9F272
+
+//うさぎせんせい、マジック教えて！<end>
+
+
+//BLOCK #195 NAME:		Script 196
+//Block Range: $9F2D0 - $9F2FE
+
+//かまわないけど、<line>
+//タネを人に教えちゃダメだよ<end>
+
+
+//BLOCK #196 NAME:		Script 197
+//Block Range: $9F368 - $9F370
+
+//はーい<end>
+
+
+//BLOCK #197 NAME:		Script 198
+//Block Range: $9F528 - $9F55A
+
+//ここまでたどりついたことを<line>
+//まずはほめてやろう！<end>
+
+
+//BLOCK #198 NAME:		Script 199
+//Block Range: $9F5C8 - $9F5E4
+
+//けっこうたいへんだったよー<end>
+
+
+//BLOCK #199 NAME:		Script 200
+//Block Range: $9F638 - $9F65A
+
+//しかしぃ！　それもここまでだぁ！<end>
+
+
+//BLOCK #200 NAME:		Script 201
+//Block Range: $9F6B8 - $9F6D4
+
+//ボクにもマジックみせてよー<end>
+
+
+//BLOCK #201 NAME:		Script 202
+//Block Range: $9F728 - $9F74A
+
+//・・・これがクリアできたらなぁ！<end>
+
+
+//BLOCK #202 NAME:		Script 203
+//Block Range: $9F8A0 - $9F8BE
+
+//ありゃー、しっぱいしちゃった<end>
+
+
+//BLOCK #203 NAME:		Script 204
+//Block Range: $9F918 - $9F956
+
+//どうした？どうした？どうした？<line>
+//それがキミのげんかいかねぇ？<end>
+
+
+//BLOCK #204 NAME:		Script 205
+//Block Range: $9F9D0 - $9F9F0
+
+//またこんどちょうせんしよっと！<end>
+
+
+//BLOCK #205 NAME:		Script 206
+//Block Range: $9FB50 - $9FB7A
+
+//こんにちはー<line>
+//もういっかいやってもいい？<end>
+
+
+//BLOCK #206 NAME:		Script 207
+//Block Range: $9FBE0 - $9FC0E
+
+//ワガハイのゲームに<line>
+//さいちょうせんしたいと？<end>
+
+
+//BLOCK #207 NAME:		Script 208
+//Block Range: $9FC78 - $9FC96
+
+//ふふふ、そうでなくてはなぁ！<end>
+
+
+//BLOCK #208 NAME:		Script 209
+//Block Range: $9FDE8 - $9FE24
+
+//うぬぬぬぬぬぬぬぬぬぬぬぬ！<line>
+//これで勝ったと思うなよぉー！<end>
+
+
+//BLOCK #209 NAME:		Script 210
+//Block Range: $9FE98 - $9FEB0
+
+//クルリン、ごくろうさま<end>
+
+
+//BLOCK #210 NAME:		Script 211
+//Block Range: $9FF00 - $9FF22
+
+//おかあさん！　みつかってよかった<end>
+
+
+//BLOCK #211 NAME:		Script 212
+//Block Range: $9FF80 - $9FFA0
+
+//でも、まだたりないみたいだねぇ<end>
+
+
+//BLOCK #212 NAME:		Script 213
+//Block Range: $9FFF8 - $A0014
+
+//ええー、どこにいるのかなぁ<end>
+
+
+//BLOCK #213 NAME:		Script 214
+//Block Range: $A0068 - $A00A4
+
+//マジックを教えてあげるから<line>
+//もういちど、さがしてきておくれ<end>
+
+
+//BLOCK #214 NAME:		Script 215
+//Block Range: $A0234 - $A0270
+
+//うぬぬぬぬぬぬぬぬぬぬぬぬ！<line>
+//これで勝ったと思うなよぉー！<end>
+
+
+//BLOCK #215 NAME:		Script 216
+//Block Range: $A02E4 - $A02FC
+
+//クルリン、ごくろうさま<end>
+
+
+//BLOCK #216 NAME:		Script 217
+//Block Range: $A034C - $A036E
+
+//おかあさん！　みつかってよかった<end>
+
+
+//BLOCK #217 NAME:		Script 218
+//Block Range: $A03CC - $A03FE
+
+//みんなをみつけてくれて<line>
+//ほんとうに　ごくろうさま<end>
+
+
+//BLOCK #218 NAME:		Script 219
+//Block Range: $A046C - $A048C
+
+//えへへへへ　どうってことないよ<end>
+
+
+//BLOCK #219 NAME:		Script 220
+//Block Range: $A04E4 - $A051E
+
+//がんばってくれた　ごほうびに<line>
+//いいことをおしえてあげるよ<end>
+
+
+//BLOCK #220 NAME:		Script 221
+//Block Range: $A06D0 - $A0706
+
+//おめでとう、クルリン！<line>
+//ボクのタイムをこえたようだね<end>
+
+
+//BLOCK #221 NAME:		Script 222
+//Block Range: $A0778 - $A07A2
+
+//きみは「先生」とよばれるに<line>
+//ふさわしい！<end>
+
+
+//BLOCK #222 NAME:		Script 223
+//Block Range: $A0808 - $A082E
+
+//やったね！<line>
+//うさぎ先生、ありがとう！<end>
+
+
+//BLOCK #223 NAME:		Script 224
+//Block Range: $A09A8 - $A09DE
+
+//おめでとう、クルリン！<line>
+//ボクのタイムをこえたようだね<end>
+
+
+//BLOCK #224 NAME:		Script 225
+//Block Range: $A0A50 - $A0A7A
+
+//きみは「先生」とよばれるに<line>
+//ふさわしい！<end>
+
+
+//BLOCK #225 NAME:		Script 226
+//Block Range: $A0AE0 - $A0B06
+
+//やったね！<line>
+//うさぎ先生、ありがとう！<end>
+
+
+//BLOCK #226 NAME:		Script 227
+//Block Range: $A0C80 - $A0CB6
+
+//おめでとう、クルリン！<line>
+//ボクのタイムをこえたようだね<end>
+
+
+//BLOCK #227 NAME:		Script 228
+//Block Range: $A0D28 - $A0D52
+
+//きみは「先生」とよばれるに<line>
+//ふさわしい！<end>
+
+
+//BLOCK #228 NAME:		Script 229
+//Block Range: $A0DB8 - $A0DDE
+
+//やったね！<line>
+//うさぎ先生、ありがとう！<end>
+
+
+//BLOCK #229 NAME:		Script 230
+//Block Range: $A0F58 - $A0F8E
+
+//おめでとう、クルリン！<line>
+//ボクのタイムをこえたようだね<end>
+
+
+//BLOCK #230 NAME:		Script 231
+//Block Range: $A1000 - $A102A
+
+//きみは「先生」とよばれるに<line>
+//ふさわしい！<end>
+
+
+//BLOCK #231 NAME:		Script 232
+//Block Range: $A1090 - $A10B6
+
+//やったね！<line>
+//うさぎ先生、ありがとう！<end>
+
+
+//BLOCK #232 NAME:		Script 233
+//Block Range: $A1230 - $A1256
+
+//わーい！<line>
+//いまのタイムはどうだった？<end>
+
+
+//BLOCK #233 NAME:		Script 234
+//Block Range: $A12B8 - $A12F8
+
+//むむむむむむむむむむむむむむ<line>
+//まさか、ここまでやるとは・・・！<end>
+
+
+//BLOCK #234 NAME:		Script 235
+//Block Range: $A1370 - $A13A2
+
+//コングラッチュレーションと<line>
+//いわせていただくよ！<end>
+
+
+//BLOCK #235 NAME:		Script 236
+//Block Range: $A1410 - $A144A
+
+//まったく　すばらしい！<line>
+//きょうから「男爵」をなのるがよい<end>
+
+
+//BLOCK #236 NAME:		Script 237
+//Block Range: $A14C0 - $A14EA
+
+//クルリン男爵か・・・<line>
+//わるくないかもね！<end>
+
+
+//BLOCK #237 NAME:		Script 238
+//Block Range: $A1668 - $A168E
+
+//わーい！<line>
+//いまのタイムはどうだった？<end>
+
+
+//BLOCK #238 NAME:		Script 239
+//Block Range: $A16F0 - $A1730
+
+//むむむむむむむむむむむむむむ<line>
+//まさか、ここまでやるとは・・・！<end>
+
+
+//BLOCK #239 NAME:		Script 240
+//Block Range: $A17A8 - $A17DA
+
+//コングラッチュレーションと<line>
+//いわせていただくよ！<end>
+
+
+//BLOCK #240 NAME:		Script 241
+//Block Range: $A1848 - $A1882
+
+//まったく　すばらしい！<line>
+//きょうから「男爵」をなのるがよい<end>
+
+
+//BLOCK #241 NAME:		Script 242
+//Block Range: $A18F8 - $A1922
+
+//クルリン男爵か・・・<line>
+//わるくないかもね！<end>
+
+
+//BLOCK #242 NAME:		Script 243
+//Block Range: $A1AA0 - $A1AC6
+
+//わーい！<line>
+//いまのタイムはどうだった？<end>
+
+
+//BLOCK #243 NAME:		Script 244
+//Block Range: $A1B28 - $A1B68
+
+//むむむむむむむむむむむむむむ<line>
+//まさか、ここまでやるとは・・・！<end>
+
+
+//BLOCK #244 NAME:		Script 245
+//Block Range: $A1BE0 - $A1C12
+
+//コングラッチュレーションと<line>
+//いわせていただくよ！<end>
+
+
+//BLOCK #245 NAME:		Script 246
+//Block Range: $A1C80 - $A1CBA
+
+//まったく　すばらしい！<line>
+//きょうから「男爵」をなのるがよい<end>
+
+
+//BLOCK #246 NAME:		Script 247
+//Block Range: $A1D30 - $A1D5A
+
+//クルリン男爵か・・・<line>
+//わるくないかもね！<end>
+
+
+//BLOCK #247 NAME:		Script 248
+//Block Range: $A1ED8 - $A1EFE
+
+//わーい！<line>
+//いまのタイムはどうだった？<end>
+
+
+//BLOCK #248 NAME:		Script 249
+//Block Range: $A1F60 - $A1FA0
+
+//むむむむむむむむむむむむむむ<line>
+//まさか、ここまでやるとは・・・！<end>
+
+
+//BLOCK #249 NAME:		Script 250
+//Block Range: $A2018 - $A204A
+
+//コングラッチュレーションと<line>
+//いわせていただくよ！<end>
+
+
+//BLOCK #250 NAME:		Script 251
+//Block Range: $A20B8 - $A20F2
+
+//まったく　すばらしい！<line>
+//きょうから「男爵」をなのるがよい<end>
+
+
+//BLOCK #251 NAME:		Script 252
+//Block Range: $A2168 - $A2192
+
+//クルリン男爵か・・・<line>
+//わるくないかもね！<end>
+
+
+//BLOCK #252 NAME:		Script 253
+//Block Range: $A2310 - $A233E
+
+//クルリン、よくやった<line>
+//おまえは父をこえたな！<end>
+
+
+//BLOCK #253 NAME:		Script 254
+//Block Range: $A23A8 - $A23D6
+
+//おとうさん！<line>
+//どう？　ちょっとすごいでしょ！<end>
+
+
+//BLOCK #254 NAME:		Script 255
+//Block Range: $A2440 - $A245A
+
+//ほんとうに　よくやった！<end>
+
+
+//BLOCK #255 NAME:		Script 256
+//Block Range: $A24B0 - $A24E0
+
+//これいじょう<line>
+//おまえにおしえることはなにもない<end>
+
+
+//BLOCK #256 NAME:		Script 257
+//Block Range: $A2548 - $A257A
+
+//これからも　ゆだんしないで<line>
+//うでをみがくんだぞ！<end>
+
+
+//BLOCK #257 NAME:		Script 258
+//Block Range: $A25E8 - $A2614
+
+//おとうさん、ありがとう！<line>
+//ボクがんばるよ！<end>
+
+
+//BLOCK #258 NAME:		Script 259
+//Block Range: $A2790 - $A27BE
+
+//クルリン、よくやった<line>
+//おまえは父をこえたな！<end>
+
+
+//BLOCK #259 NAME:		Script 260
+//Block Range: $A2828 - $A2856
+
+//おとうさん！<line>
+//どう？　ちょっとすごいでしょ！<end>
+
+
+//BLOCK #260 NAME:		Script 261
+//Block Range: $A28C0 - $A28DA
+
+//ほんとうに　よくやった！<end>
+
+
+//BLOCK #261 NAME:		Script 262
+//Block Range: $A2930 - $A2960
+
+//これいじょう<line>
+//おまえにおしえることはなにもない<end>
+
+
+//BLOCK #262 NAME:		Script 263
+//Block Range: $A29C8 - $A29FA
+
+//これからも　ゆだんしないで<line>
+//うでをみがくんだぞ！<end>
+
+
+//BLOCK #263 NAME:		Script 264
+//Block Range: $A2A68 - $A2A94
+
+//おとうさん、ありがとう！<line>
+//ボクがんばるよ！<end>
+
+
+//BLOCK #264 NAME:		Script 265
+//Block Range: $A2C10 - $A2C3E
+
+//クルリン、よくやった<line>
+//おまえは父をこえたな！<end>
+
+
+//BLOCK #265 NAME:		Script 266
+//Block Range: $A2CA8 - $A2CD6
+
+//おとうさん！<line>
+//どう？　ちょっとすごいでしょ！<end>
+
+
+//BLOCK #266 NAME:		Script 267
+//Block Range: $A2D40 - $A2D5A
+
+//ほんとうに　よくやった！<end>
+
+
+//BLOCK #267 NAME:		Script 268
+//Block Range: $A2DB0 - $A2DE0
+
+//これいじょう<line>
+//おまえにおしえることはなにもない<end>
+
+
+//BLOCK #268 NAME:		Script 269
+//Block Range: $A2E48 - $A2E7A
+
+//これからも　ゆだんしないで<line>
+//うでをみがくんだぞ！<end>
+
+
+//BLOCK #269 NAME:		Script 270
+//Block Range: $A2EE8 - $A2F14
+
+//おとうさん、ありがとう！<line>
+//ボクがんばるよ！<end>
+
+
+//BLOCK #270 NAME:		Script 271
+//Block Range: $A3090 - $A30BE
+
+//クルリン、よくやった<line>
+//おまえは父をこえたな！<end>
+
+
+//BLOCK #271 NAME:		Script 272
+//Block Range: $A3128 - $A3154
+
+//おとうさん！<line>
+//どう？ちょっとすごいでしょ！<end>
+
+
+//BLOCK #272 NAME:		Script 273
+//Block Range: $A31B8 - $A31D2
+
+//ほんとうに　よくやった！<end>
+
+
+//BLOCK #273 NAME:		Script 274
+//Block Range: $A3228 - $A3258
+
+//これいじょう<line>
+//おまえにおしえることはなにもない<end>
+
+
+//BLOCK #274 NAME:		Script 275
+//Block Range: $A32C0 - $A32F2
+
+//これからも　ゆだんしないで<line>
+//うでをみがくんだぞ！<end>
+
+
+//BLOCK #275 NAME:		Script 276
+//Block Range: $A3360 - $A338C
+
+//おとうさん、ありがとう！<line>
+//ボクがんばるよ！<end>
+
+
+//BLOCK #276 NAME:		Script 277
+//Block Range: $A3E1C - $A3E54
+
+//ふはははははははははははぁ！<line>
+//みごとだよ、クルリンくん<end>
+
+
+//BLOCK #277 NAME:		Script 278
+//Block Range: $A3EAC - $A3EE8
+
+//ぜんぶのゲームをクリアした<line>
+//キミのじつりょくをみとめよう！<end>
+
+
+//BLOCK #278 NAME:		Script 279
+//Block Range: $A3F44 - $A3F72
+
+//だが、ワガハイも<line>
+//マジック男爵とよばれた男！<end>
+
+
+//BLOCK #279 NAME:		Script 280
+//Block Range: $A3FC4 - $A3FE4
+
+//このままおわるわけにはいかん！<end>
+
+
+//BLOCK #280 NAME:		Script 281
+//Block Range: $A4024 - $A4052
+
+//このさいごのコースを<line>
+//クリアしてみるのだぁ！<end>
+
+
+//BLOCK #281 NAME:		Script 282
+//Block Range: $A40A4 - $A40D6
+
+//そこにキミのたいせつなものが<line>
+//まっているだろう！<end>
+
+
+//BLOCK #282 NAME:		Script 283
+//Block Range: $A412C - $A414A
+
+//んははははははははははははぁ<end>
+
+
+//BLOCK #283 NAME:		Script 284
+//Block Range: $A41B0 - $A41E0
+
+//ボクのたいせつなものって<line>
+//いったいなんだろう？<end>
+
+
+//BLOCK #284 NAME:		Script 285
+//Block Range: $A4230 - $A4242
+
+//たのしみだなぁ！<end>
+
+
+//BLOCK #285 NAME:		Script 286 - Ending convo
+//Block Range: $A4D20 - $A4D56
+
+//あ、あれをクリアしちゃうとは！<line>
+//さすが団長のむすこ！<end>
+
+
+//BLOCK #286 NAME:		Script 287
+//Block Range: $A4DC8 - $A4DD6
+
+//団長・・・？<end>
+
+
+//BLOCK #287 NAME:		Script 288
+//Block Range: $A4E58 - $A4E72
+
+//クルリン、大きくなったな<end>
+
+
+//BLOCK #288 NAME:		Script 289
+//Block Range: $A4ED4 - $A4EE2
+
+//おとーさん！<end>
+
+
+//BLOCK #289 NAME:		Script 290
+//Block Range: $A4F38 - $A4F6A
+
+//そう、まちからまちへ<line>
+//旅をつづけるマジシャン一座<end>
+
+
+//BLOCK #290 NAME:		Script 291
+//Block Range: $A4FE4 - $A5000
+
+//マダ魔団の団長こそが・・・<end>
+
+
+//BLOCK #291 NAME:		Script 292
+//Block Range: $A5060 - $A5080
+
+//キミのお父さんだったのだぁ！！<end>
+
+
+//BLOCK #292 NAME:		Script 293
+//Block Range: $A50E4 - $A5118
+
+//おとーさんのおしごとって<line>
+//マジシャンだったのかぁ！<end>
+
+
+//BLOCK #293 NAME:		Script 294
+//Block Range: $A5190 - $A51C2
+
+//たくさんのマジックを<line>
+//おぼえたようだね、クルリン<end>
+
+
+//BLOCK #294 NAME:		Script 295
+//Block Range: $A523C - $A524A
+
+//どうだった？<end>
+
+
+//BLOCK #295 NAME:		Script 296
+//Block Range: $A52A0 - $A52B6
+
+//うん、サイコーだよ！<end>
+
+
+//BLOCK #296 NAME:		Script 297
+//Block Range: $A5314 - $A5330
+
+//マジックっておもしろいね！<end>
+
+
+//BLOCK #297 NAME:		Script 298
+//Block Range: $A5390 - $A53A2
+
+//そうか、よかった<end>
+
+
+//BLOCK #298 NAME:		Script 299
+//Block Range: $A53FC - $A5426
+
+//それこそがおまえに<line>
+//つたえたかったことだ<end>
+
+
+//BLOCK #299 NAME:		Script 300
+//Block Range: $A5498 - $A54AE
+
+//さぁ、こっちにおいで<end>
+
+
+//BLOCK #300 NAME:		Script 301 - Ending
+//Block Range: $A5788 - $A5794
+
+//クルリン！<end>
+
+
+//BLOCK #301 NAME:		Script 302
+//Block Range: $A57D0 - $A57EC
+
+//たんじょうび　おめでとう！<end>
+
+
+//BLOCK #302 NAME:		Script 303
+//Block Range: $A58E0 - $A5900
+
+//あれ！　みんなどうしてここに？<end>
+
+
+//BLOCK #303 NAME:		Script 304
+//Block Range: $A59D4 - $A59EC
+
+//おまえのたんじょうびに<end>
+
+
+//BLOCK #304 NAME:		Script 305
+//Block Range: $A5A3C - $A5A60
+
+//マジックを教えてやろうとおもってな<end>
+
+
+//BLOCK #305 NAME:		Script 306
+//Block Range: $A5BB8 - $A5BC8
+
+//せっかくだから<end>
+
+
+//BLOCK #306 NAME:		Script 307
+//Block Range: $A5C18 - $A5C36
+
+//びっくりさせようってワケだ！<end>
+
+
+//BLOCK #307 NAME:		Script 308
+//Block Range: $A5C88 - $A5CA8
+
+//なんだー、おどろいちゃったよ！<end>
+
+
+//BLOCK #308 NAME:		Script 309
+//Block Range: $A5CF8 - $A5D1A
+
+//あっはっはっはっは、ごめんごめん<end>
+
+
+//BLOCK #309 NAME:		Script 310
+//Block Range: $A5D6C - $A5D82
+
+//あっはっはっはっは！<end>
+
+
+//BLOCK #310 NAME:		Script 311
+//Block Range: $A651C - $A6526
+
+//おしまい<end>
+
+
+//BLOCK #311 NAME:		Script 312 - Intro
+//Block Range: $A7C08 - $A7C2C
+
+#WRITE(GBA,$A7C08)
+//いつもしずかな、くるりんむら・・・<end>		
+Kururin Village, always quiet...<end>
+
+
+//BLOCK #312 NAME:		Script 313
+//Block Range: $A7CEC - $A7CFC
+
+#WRITE(GBA,$A7CEC)	
+//ところが・・・<end>	
+Until...<end>
+
+
+//BLOCK #313 NAME:		Script 314
+//Block Range: $A8828 - $A8848
+
+//「マダ魔団」公演　６：００より<end>		
+
+#WRITE(GBA,$A8828)	
+"Mada Magic Show" at 6:00 PM<end>
+
+
+//BLOCK #314 NAME:		Script 315
+//Block Range: $A8B38 - $A8B42
+
+#WRITE(GBA,$A8B38)	
+//５：１６<end>
+5:16<end>
+
+
+//BLOCK #315 NAME:		Script 316
+//Block Range: $A8B94 - $A8BAC
+
+#WRITE(GBA,$A8B94)
+//みんなで、みにいこう！<end>				
+Let's go see, everyone!<end>
+
+
+//BLOCK #316 NAME:		Script 317
+//Block Range: $A9024 - $A902E
+
+#WRITE(GBA,$A9024)
+//５：１６<end>
+5:16<end>
+
+//BLOCK #317 NAME:		Script 318
+//Block Range: $A9188 - $A919E
+
+#WRITE(GBA,$A9188)
+//おくれた、おくれた！<end>				
+I'm late! I'm late!<end>
+
+
+//BLOCK #318 NAME:		Script 319
+//Block Range: $A92A4 - $A92AE
+
+#WRITE(GBA,$A92A4)
+//５：１６<end>
+5:16<end>
+
+//BLOCK #319 NAME:		Script 320
+//Block Range: $A92E0 - $A92EA
+
+#WRITE(GBA,$A92E0)
+//５：１８<end>
+5:18<end>
+
+//BLOCK #320 NAME:		Script 321
+//Block Range: $A931C - $A9326
+
+#WRITE(GBA,$A931C)
+//５：２１<end>
+5:21<end>
+
+//BLOCK #321 NAME:		Script 322
+//Block Range: $A9358 - $A9362
+
+#WRITE(GBA,$A9358)
+//５：２４<end>
+5:24<end>
+
+//BLOCK #322 NAME:		Script 323
+//Block Range: $A9394 - $A939E
+
+#WRITE(GBA,$A9394)
+//５：２７<end>
+5:27<end>
+
+//BLOCK #323 NAME:		Script 324
+//Block Range: $A93D0 - $A93DA
+
+#WRITE(GBA,$A93D0)
+//５：３０<end>
+5:30<end>
+
+//BLOCK #324 NAME:		Script 325
+//Block Range: $A940C - $A9416
+
+#WRITE(GBA,$A940C)
+//５：３４<end>
+5:34<end>
+
+//BLOCK #325 NAME:		Script 326
+//Block Range: $A9448 - $A9452
+
+#WRITE(GBA,$A9448)
+//５：４０<end>
+5:40<end>
+
+//BLOCK #326 NAME:		Script 327
+//Block Range: $A9484 - $A948E
+
+#WRITE(GBA,$A9484)
+//５：４５<end>
+5:45<end>
+
+//BLOCK #327 NAME:		Script 328
+//Block Range: $A94C0 - $A94CA
+
+#WRITE(GBA,$A94C0)
+//５：４９<end>
+5:49<end>
+
+//BLOCK #328 NAME:		Script 329
+//Block Range: $A94FC - $A9506
+
+#WRITE(GBA,$A94FC)
+//５：５４<end>
+5:54<end>
+
+//BLOCK #329 NAME:		Script 330
+//Block Range: $A9538 - $A9542
+
+#WRITE(GBA,$A9538)
+//５：５７<end>
+5:57<end>
+
+//BLOCK #330 NAME:		Script 331
+//Block Range: $A9574 - $A957E
+
+#WRITE(GBA,$A9574)
+//６：００<end>
+6:00<end>
+
+//BLOCK #331 NAME:		Script 332
+//Block Range: $A95B0 - $A95BA
+
+#WRITE(GBA,$A95B0)
+//６：０３<end>
+6:03<end>
+
+//BLOCK #332 NAME:		Script 333
+//Block Range: $A95EC - $A95F6
+
+#WRITE(GBA,$A95EC)
+//６：０８<end>
+6:08<end>
+
+//BLOCK #333 NAME:		Script 334
+//Block Range: $A9628 - $A9632
+
+#WRITE(GBA,$A9628)
+//６：１２<end>
+6:12<end>
+
+//BLOCK #334 NAME:		Script 335
+//Block Range: $A9664 - $A966E
+
+#WRITE(GBA,$A9664)
+//６：１５<end>
+6:15<end>
+
+//BLOCK #335 NAME:		Script 336
+//Block Range: $A97F4 - $A9802
+
+#WRITE(GBA,$A97F4)
+//・・・あれ？<end>						
+...Huh?<end>
+
+
+//BLOCK #336 NAME:		Script 337
+//Block Range: $A9948 - $A9956
+
+#WRITE(GBA,$A9948)
+//おかしいな～<end>					
+How strange~<end>
+
+
+//BLOCK #337 NAME:		Script 338
+//Block Range: $A9AB0 - $A9AB8
+
+#WRITE(GBA,$A9AB0)
+//よし！<end>							
+To the Helirin!<end>
+
+
+//BLOCK #338 NAME:		Script 339
+//Block Range: $ABC64 - $ABCA4
+
+//「チューチュー・パニック」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #339 NAME:		Script 340
+//Block Range: $ABCEC - $ABD28
+
+//「クロス・ファイアー」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #340 NAME:		Script 341
+//Block Range: $ABD70 - $ABDB2
+
+//「スター・ライト・ロマンス」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #341 NAME:		Script 342
+//Block Range: $ABDFC - $ABE3A
+
+//「スーパー・ジャンパー」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #342 NAME:		Script 343
+//Block Range: $ABE84 - $ABEC2
+
+//「スマッシュ・フォース」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #343 NAME:		Script 344
+//Block Range: $ABF0C - $ABF42
+
+//「ジントリーナ」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #344 NAME:		Script 345
+//Block Range: $ABF8C - $ABFC6
+
+//「グラス・カッター」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #345 NAME:		Script 346
+//Block Range: $AC010 - $AC04C
+
+//「スリップ・ドロップ」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #346 NAME:		Script 347
+//Block Range: $AC094 - $AC0CE
+
+//「イン・ザ・スカイ」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #347 NAME:		Script 348
+//Block Range: $AC118 - $AC154
+
+//「クイック・フリップ」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #348 NAME:		Script 349
+//Block Range: $AC19C - $AC1D4
+
+//「ラブ・アタック」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #349 NAME:		Script 350
+//Block Range: $AC21C - $AC258
+
+//「フォーリン・ダウン」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #350 NAME:		Script 351
+//Block Range: $AC2A0 - $AC2D8
+
+//「マグネ・マグネ」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #351 NAME:		Script 352
+//Block Range: $AC320 - $AC362
+
+//「ピット・パット・レーサー」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #352 NAME:		Script 353
+//Block Range: $AC3AC - $AC3E6
+
+//「スピン・ショット」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #353 NAME:		Script 354
+//Block Range: $AC430 - $AC46A
+
+//「ツイン・ホッパー」が<line>
+//「ちょうせん」についかされたよ！<end>
+
+
+//BLOCK #354 NAME:		Script 355
+//Block Range: $AC7DC - $AC816
+
+//「クルリン・ショック」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #355 NAME:		Script 356
+//Block Range: $AC860 - $AC8A2
+
+//「テン・アンド・ハンドレッド」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #356 NAME:		Script 357
+//Block Range: $AC8EC - $AC922
+
+//「ブック・テスト」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #357 NAME:		Script 358
+//Block Range: $AC96C - $AC9A6
+
+//「タイム・パラドクス」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #358 NAME:		Script 359
+//Block Range: $AC9F0 - $ACA2A
+
+//「サウンド・キャッチ」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #359 NAME:		Script 360
+//Block Range: $ACA74 - $ACAAE
+
+//「センター・ポイント」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #360 NAME:		Script 361
+//Block Range: $ACAF8 - $ACB36
+
+//「ゲームボーイ・パニック」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #361 NAME:		Script 362
+//Block Range: $ACB80 - $ACBB8
+
+//「インプレッション」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #362 NAME:		Script 363
+//Block Range: $ACC00 - $ACC30
+
+//「ツイスト」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #363 NAME:		Script 364
+//Block Range: $ACC78 - $ACCA8
+
+//「イマジン」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #364 NAME:		Script 365
+//Block Range: $ACCF0 - $ACD26
+
+//「ラブ・テスター」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #365 NAME:		Script 366
+//Block Range: $ACD70 - $ACDB0
+
+//「カリフォルニア・フリップ」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #366 NAME:		Script 367
+//Block Range: $ACDF8 - $ACE32
+
+//「ドクター・クルリン」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #367 NAME:		Script 368
+//Block Range: $ACE7C - $ACEB6
+
+//「マイクロ・ウェーブ」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #368 NAME:		Script 369
+//Block Range: $ACF00 - $ACF36
+
+//「アップ・ダウン」が<line>
+//「マジック」についかされたよ！<end>
+
+
+//BLOCK #369 NAME:		Script 370
+//Block Range: $ACF80 - $ACFB4
+
+//「ドン・タッチ」が<line>
+//「マジック」についかされたよ！<end>
+

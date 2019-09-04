@@ -1,0 +1,2 @@
+0x880 = width of a space
+0x888 = width of a period
