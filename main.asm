@@ -1,4 +1,4 @@
-.gba				; Set the architecture to GBA
+.gba				; Set the architecture to GBA 
 .open "kp_patched.gba",0x08000000		; Open input.gba for output.
 					; 0x08000000 will be used as the
 					; header size
