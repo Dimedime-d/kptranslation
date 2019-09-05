@@ -55,10 +55,6 @@
 	.word @StopReplay	::	.word @RestartDemo	::	.word @SeeCourse	::	.word @SavePassword  :: \
 	.word @StopReplay
 
-;bird names
-;the bird names: Chikurin,  Hoyorin,	Gizarin (Kakurin?),	Loverin,	Gekirin
-;	Fuwarin,	Maririn,	Pokorin,	Hikarin,	Hyokorin
-;bird name pointer list: 0x08029098?
 .org 0x08024CE0
 	.asciiz "Pokorin"	::	.align
 	.asciiz "Pikarin"	::	.align
@@ -101,12 +97,13 @@
 	@Continue:	.asciiz "Continue"	::	.align
 	MiniParaTitles: .incbin "bin/minigameparadiselabels.bin"
 .endarea
-	
-	
+;---------------------------------------------
 .org 0x080172FE
 	bl MiniParaTitleHook
 .org 0x08017B18
 	bl CreateMiniParaTitleObjs
+.org 0x0801DE7A
+	mov r0,60h ;centers "continue" text in password menu
 ;---------------------------------------------
 
 ;misc stuff
