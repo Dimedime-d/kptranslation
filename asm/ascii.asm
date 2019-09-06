@@ -18,7 +18,7 @@
 	.ascii "Dad" :: .byte 0x00, 0x00
 	
 .org 0x0803C269
-	.ascii " T " :: .ascii " B " :: .ascii " M "
+	.ascii " T":: .byte 0x00 :: .ascii " B" :: .byte 0x00 :: .ascii " M" :: .byte 0x00
 			
 ;---------------------------------------------
 ;In-game menus:	
@@ -104,8 +104,8 @@
 ;file select stuff
 .org 0x08025044	::	.asciiz "One Player"
 .org 0x08025318	::	.asciiz "Compact"
-.org 0x0802535C	::	.asciiz "Confirm"
-.org 0x08025364	::	.asciiz "Delete"
+.org 0x0802535C	::	.asciiz "Done"
+.org 0x08025364	::	.asciiz "Back"
 .org 0x080253B0	::	.asciiz "Yeah"
 .org 0x080253B8	::	.asciiz "Nope!"
 
@@ -150,4 +150,24 @@
 .org 0x08025897	::	.asciiz "CHAR"
 .org 0x08025854	::	.asciiz "Stop"
 .org 0x0801DE80	::	.word @Continue
+
+;------------------------
+;fix name select keyboard to get rid of Japanese characters!
+.org 0x080250CC
+	.ascii "@\+-*/<>  " :: .align
+	.ascii "!$%&'()~^=" :: .align
+	.ascii "0123456789" :: .align
+	.ascii "uvwxyz,.;:" :: .align
+	.ascii "klmnopqrst" :: .align
+	.ascii "abcdefghij" :: .align
+	.ascii "#@\+-*/<>  " :: .align
+	.ascii "#!$%&'()~^=" :: .align
+	.ascii "#0123456789" :: .align
+	.ascii "#UVWXYZ,.;:" :: .align
+	.ascii "#KLMNOPQRST" :: .align
+	.ascii "#ABCDEFGHIJ" :: .align
+.org 0x08025340
+	.ascii " ABCD "
+.org 0x08025348
+	.ascii " abcd "
 
