@@ -1,10 +1,6 @@
 .org 0x080AFB18	;new data with widths of the ascii font
 	.incbin "bin/asciiwidthtable.bin"
 
-;custom grade graphics
-.org 0x08139854
-	.incbin "bin/customgradeascii.bin"
-	
 ;mirror lowercase ASCII characters to fix them in challenge pause menus
 .org 0x08139D14
 	.incbin "bin/lowercaseascii.bin"
@@ -13,18 +9,16 @@
 	.incbin "bin/minigamepausemenu.bin"
 
 .org 0x08024D7D ;teacher hare
-	.byte 0x86,0x87,0x88,0x89,0x8A,0x8B ;see table corresponding to replaced characters in gfx
+	.ascii "Hare"
 	
 .org 0x08024D87 ;baron magic
-	.byte 0x8C,0x8D,0x8E,0x8F,0x90,0x91
+	.ascii "Magic"
 	
 .org 0x08024D91 ;kururin's dad
-	.byte 0x92,0x93,0x94,0x95,0x96,0x97
+	.ascii "Dad" :: .byte 0x00, 0x00
 	
 .org 0x0803C269
-	.byte 	0x82,0x80,0x00, \ ;T grade
-			0x83,0x80,0x00, \ ;B grade
-			0x84,0x80,0x00    ;M grade
+	.ascii " T " :: .ascii " B " :: .ascii " M "
 			
 ;---------------------------------------------
 ;In-game menus:	
