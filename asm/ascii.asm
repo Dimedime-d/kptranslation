@@ -4,6 +4,16 @@
 ;mirror lowercase ASCII characters to fix them in challenge pause menus
 .org 0x08139D14
 	.incbin "bin/lowercaseascii.bin"
+	
+;custom grade graphics
+.org 0x08139854
+	.incbin "bin/customgrade.bin"
+	
+;palette editing for custom grades
+.org 0x08149CD8
+	.byte 0x3F :: .byte 0x01
+.org 0x0819C378
+	.byte 0xFF :: .byte 0x02
 
 .org 0x08280230	;rewrite graphics in minigame pause menu
 	.incbin "bin/minigamepausemenu.bin"
@@ -18,7 +28,9 @@
 	.ascii "Dad" :: .byte 0x00, 0x00
 	
 .org 0x0803C269
-	.ascii " T":: .byte 0x00 :: .ascii " B" :: .byte 0x00 :: .ascii " M" :: .byte 0x00
+	.ascii " " :: .byte 0x80 :: .byte 0x00 ;T
+	.ascii " " :: .byte 0x81 :: .byte 0x00 ;B
+	.ascii " " :: .byte 0x82 :: .byte 0x00 ;M
 			
 ;---------------------------------------------
 ;In-game menus:	
