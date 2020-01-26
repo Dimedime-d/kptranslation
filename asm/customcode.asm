@@ -263,6 +263,7 @@ WidthTable:
 InstaText:	;pls work
 .include "asm/vwfInstaText.asm"
 
+.word 0x00000000
 ;generates an additional DMA transfer to get custom
 ;Minigame Paradise titles in the Obj VRAM
 MiniParaTitleHook:
