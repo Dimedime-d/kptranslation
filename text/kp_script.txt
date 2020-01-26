@@ -12,7 +12,6 @@
 
 //Set current position for text insertion
 #JMP($800000)
-#STRINGALIGN(4)
 
 //Each write command: (ptr, aNumber) <- writes text AT current pointer's offset, writes
 //pointer's offset to aNumber
