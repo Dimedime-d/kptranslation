@@ -1,4 +1,7 @@
 ;Now, in EVERY script, put at offset +0x04 from the beginning of the text (after the pointer) to offset of next script
+.org 0x080960EA
+.byte 0x0F ;vwf code in 1st Kappado encounter
+
 .org 0x080962EC+4
 .word 0x08096320
 

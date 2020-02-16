@@ -23,7 +23,8 @@
 
 //マジック大魔術団、<line>			Great Magical Mages?
 //りゃくしてマダ魔団へようこそ！<end>	Welcome back to the Mada Demon Club!
-
+//#WRITE(GBA,$962EC)
+//Stuffs.<end>
 
 //BLOCK #001 NAME:		Script 2
 //Block Range: $9638C - $963AA
