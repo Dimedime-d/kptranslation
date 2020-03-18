@@ -1118,3 +1118,11 @@
 
 .org 0x080ACF80+4
 .word 0x080ACFB4
+
+;menu description edits
+.org 0x08023288
+	bl MenuAddVW
+
+;hack
+.org 0x080231BE
+	b 0x08023288

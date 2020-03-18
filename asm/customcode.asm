@@ -386,3 +386,83 @@ CreateMiniParaTitleObjs:
 	pop r0
 	bx r0
 .endarea
+
+MenuAddVW:
+	;r4 contains text, r5 contains x-coord
+	
+	push r0
+	push r1
+	sub r4, r4, 2h
+	ldrh r2,[r4] ;get current character
+	
+	;reverse the bytes (mimic 0x080231C4)
+	mov r0, r2
+	lsr r0, r0, 8h
+	lsl r1, r2, 8h
+	orr r0, r1
+	lsl r0, r0, 10h
+	lsr r2, r0, 10h ;r2 contains reversed bytes
+	
+	;PARTIAL, it's a hack
+	ldr r0, =0x833F
+	cmp r2, r0
+	bls @MCheck2
+	
+	ldr r0, =0x3005858
+	ldr r1, [r0]
+	lsl r0, r2, 2h
+	add r0, r0, r1
+	ldr r1, =0xFFFDF300
+	b @MBranch1
+	.pool
+	
+	@MCheck2:
+		ldr r0, =0x823F
+		cmp r2, r0
+		bls @MCheck3
+		
+		ldr r0, =0x0300585C
+		ldr r1, [r0]
+		lsl r0, r2, 2h
+		add r0, r0, r1
+		ldr r1, =0xFFFDF700
+		b @MBranch1
+		.pool
+		
+	@MCheck3:
+		;ldr r0, =0x813F not really a check lol
+		ldr r0, =0x03005850
+		ldr r1, [r0]
+		lsl r0, r2, 2h
+		add r0, r0, r1
+		ldr r1, =0xFFFDFB00
+		b @MBranch1
+		.pool
+	
+	@MBranch1:
+		add r0, r0, r1
+		ldr r2, [r0] ;<-- The relative offset I need!! (just chop off the 1st 16 bits)
+		
+		lsl r0, r2, 0x10
+		lsr r0, r0, 0x10
+		;new - add corresponding width from width table to r11
+		lsr r0, r0,5h	;some bit-shifting due to how I put in my width table
+		lsl r0, r0,1h
+		mov r1, r0
+		ldr r0, =WidthTable
+		ldrb r0, [r0,r1] ;r0 contains width!!!
+		
+		add r5, r5, r0
+		add r4, 2h
+		
+		pop r1
+		pop r0
+@MRead:
+		ldrh r2, [r4]
+		
+		bx r14
+		.pool
+		
+		
+	
+	

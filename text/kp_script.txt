@@ -2055,7 +2055,7 @@ Until...<end>
 
 //「マダ魔団」公演　６：００より<end>		
 
-#WRITE(GBA,$A8828)	
+#WRITE(GBA,$A8828)
 "Mada Magic Show" at 6:00 PM<end>
 
 
@@ -2455,4 +2455,116 @@ To the Helirin!<end>
 
 //「ドン・タッチ」が<line>
 //「マジック」についかされたよ！<end>
+
+//BLOCK #000 NAME:		Menu Script A0 Adventure
+//Block Range: $25264 - $25276
+
+//かぞくをさがして<end>
+#WRITE(GBA,$2DF70)
+Venture many lands and<end>
+
+//BLOCK #001 NAME:		Menu Script A1
+//Block Range: $25248 - $25264
+
+//いろんな国をぼうけんします<end>
+#WRITE(GBA,$2DF74)
+Search for your family!<end>
+
+//BLOCK #002 NAME:		Menu Script A2
+//Block Range: $2522C - $25246
+
+//ぼうけんモードのにがてな<end>
+#WRITE(GBA,$2DF78)
+Practice courses from the<end>
+
+//BLOCK #003 NAME:		Menu Script A3
+//Block Range: $25210 - $2522C
+
+//コースをれんしゅうできます<end>
+#WRITE(GBA,$2DF7C)
+Adventure mode!<end>
+
+//BLOCK #004 NAME:		Menu Script A4
+//Block Range: $251F0 - $25210
+
+//レベルべつのコースといろいろな<end>
+#WRITE(GBA,$2DF80)
+Test your skills on<end>
+
+//BLOCK #005 NAME:		Menu Script A5
+//Block Range: $251D0 - $251EE
+
+//ミニゲームでうでだめしします<end>
+#WRITE(GBA,$2DF84)
+courses and minigames!<end>
+
+//BLOCK #006 NAME:		Menu Script A6
+//Block Range: $251BC - $251CE
+
+//GBAをつかって<end>
+#WRITE(GBA,$2DF88)
+Perform magic using<end>
+
+//BLOCK #007 NAME:		Menu Script A7
+//Block Range: $251A0 - $251BA
+
+//マジックをえんぎできます<end>
+#WRITE(GBA,$2DF8C)
+your GBA!<end>
+
+//BLOCK #008 NAME:		Menu Script A8
+//Block Range: $252A8 - $252C0
+
+//フルサイズのヘリリンで<end>
+#WRITE(GBA,$2DF90)
+Take the big Helirin for<end>
+
+//BLOCK #009 NAME:		Menu Script A9
+//Block Range: $25298 - $252A8
+
+//ぼうけんします<end>
+#WRITE(GBA,$2DF94)
+your adventure!<end>
+
+//BLOCK #010 NAME:		Menu Script A10
+//Block Range: $25278 - $25296
+
+//コンパクトサイズのヘリリンで<end>
+#WRITE(GBA,$2DF98)
+Take the small Helirin for<end>
+
+//BLOCK #011 NAME:		Menu Script A11
+//Block Range: $25298 - $252A8
+
+//ぼうけんします<end>
+#WRITE(GBA,$2DF9C)
+your adventure!<end>
+
+//BLOCK #012 NAME:		Menu Script A12
+//Block Range: $252EC - $2530A
+
+//レベルべつのみじかいコースに<end>
+#WRITE(GBA,$2DFA0)
+Challenge short courses!<end>
+
+//BLOCK #013 NAME:		Menu Script A13
+//Block Range: $252D8 - $252EA
+
+//ちょうせんします<end>
+#WRITE(GBA,$2DFA4)
+ <end>
+
+//BLOCK #014 NAME:		Menu Script A14
+//Block Range: $252C0 - $252D6
+
+//いろんなミニゲームに<end>
+#WRITE(GBA,$2DFA8)
+Challenge various minigames!<end>
+
+//BLOCK #015 NAME:		Menu Script A15
+//Block Range: $252D8 - $252EA
+
+//ちょうせんします<end>
+#WRITE(GBA,$2DFAC)
+ <end>
 
