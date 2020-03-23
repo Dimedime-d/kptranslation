@@ -2456,7 +2456,7 @@ To the Helirin!<end>
 //「ドン・タッチ」が<line>
 //「マジック」についかされたよ！<end>
 
-//BLOCK #000 NAME:		Menu Script A0 Adventure
+//BLOCK #000 NAME:		Menu Script A0 Adventure - Ptr table 0x2DF70
 //Block Range: $25264 - $25276
 
 //かぞくをさがして<end>
@@ -2567,4 +2567,116 @@ Challenge various minigames!<end>
 //ちょうせんします<end>
 #WRITE(GBA,$2DFAC)
  <end>
+ 
+//BLOCK #016 NAME:		MultiP Script 0 - Ptr Table 0x2E5F4
+//Block Range: $25428 - $25446
 
+//レベルべつのみじかいコースで<end>
+#WRITE(GBA, $2E5F4)
+Compete in short courses!<end>
+
+//BLOCK #017 NAME:		MultiP Script 1
+//Block Range: $25418 - $25428
+
+//たいせんします<end>
+#WRITE(GBA, $2E5F8)
+ <end>
+
+//BLOCK #018 NAME:		MultiP Script 2
+//Block Range: $25400 - $25416
+
+//いろんなミニゲームで<end>
+#WRITE(GBA, $2E5FC)
+Compete in various minigames!<end>
+
+//BLOCK #019 NAME:		MultiP Script 3
+//Block Range: $25418 - $25428
+
+//たいせんします<end>
+#WRITE(GBA, $2E600)
+ <end>
+ 
+//BLOCK #020 NAME:		MultiP Challenge Script 0 - ptr table 0x2EB98
+//Block Range: $25828 - $25838
+
+//すきなコースを<end>
+#WRITE(GBA, $2EB98)
+Freely play your favorite<end>
+
+//BLOCK #021 NAME:		MultiP Challenge Script 1
+//Block Range: $25810 - $25828
+
+//何回も自由にあそべます<end>
+#WRITE(GBA, $2EB9C)
+courses over and over again!<end>
+
+//BLOCK #022 NAME:		MultiP Challenge Script 2
+//Block Range: $257F4 - $2580E
+
+//たいせんする回数をきめて<end>
+#WRITE(GBA, $2EBA0)
+Play for a set number of rounds.<end>
+
+//BLOCK #023 NAME:		MultiP Challenge Script 3
+//Block Range: $257E8 - $257F4
+
+//あそびます<end>
+#WRITE(GBA, $2EBA4)
+Get the most points to win!<end>
+
+//BLOCK #024 NAME:		MultiP Challenge Script 4
+//Block Range: $257CC - $257E6
+
+//たいせんする時間をきめて<end>
+#WRITE(GBA, $2EBA8)
+Play many rounds under the<end>
+
+//BLOCK #025 NAME:		MultiP Challenge Script 5
+//Block Range: $257B0 - $257CA
+
+//時間になるまであそびます<end>
+#WRITE(GBA, $2EBAC)
+time limit. Most points wins!<end>
+
+//BLOCK #026 NAME:		MultiP Minigame Desc Script 0
+//Block Range: $25838 - $2584C
+
+//すきなミニゲームを<end>
+#WRITE(GBA, $2EBB0)
+Freely play any minigame!<end>
+
+//BLOCK #027 NAME:		MultiP Minigame Desc Script 1
+//Block Range: $25810 - $25828
+
+//何回も自由にあそべます<end>
+#WRITE(GBA, $2EBB4)
+ <end>
+
+//BLOCK #028 NAME:		MultiP Minigame Desc Script 2
+//Block Range: $257F4 - $2580E
+
+//たいせんする回数をきめて<end>
+#WRITE(GBA, $2EBB8)
+Play a set number of minigames.<end>
+
+//BLOCK #029 NAME:		MultiP Minigame Desc Script 3
+//Block Range: $257E8 - $257F4
+
+//あそびます<end>
+#WRITE(GBA, $2EBBC)
+Get the most points to win!<end>
+
+
+//BLOCK #030 NAME:		MultiP Minigame Desc Script 4
+//Block Range: $257CC - $257E6
+
+//たいせんする時間をきめて<end>
+#WRITE(GBA, $2EBC0)
+Play many minigames under the<end>
+
+//BLOCK #031 NAME:		MultiP Minigame Desc Script 5
+//Block Range: $257B0 - $257CA
+
+//時間になるまであそびます<end>
+#WRITE(GBA, $2EBC4)
+time limit. Most points wins!<end>
