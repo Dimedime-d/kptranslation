@@ -101,6 +101,14 @@
 	@FallingDown:	.asciiz "Falling Down"	::	.align
 	@MagnetForce:	.asciiz "Magnet Force"	::	.align
 	@Continue:	.asciiz "Continue"	::	.align
+	@Name0:		.asciiz "Kururin"	::	.align
+	@Name1:		.asciiz "Kurukuru"	::	.align
+	@Name2:		.asciiz "Nanashi"	::	.align
+	@Name3:		.asciiz "Dimedime"	::	.align
+	@Name4:		.asciiz "Tekitou"	::	.align
+	@Name5:		.asciiz "Guest"		::	.align
+	@Name6:		.asciiz "KuruPara"	::	.align
+	@Name7:		.asciiz "Paradise"	::	.align
 	MiniParaTitles: .incbin "bin/minigameparadiselabels.bin"
 .endarea
 ;---------------------------------------------
@@ -183,3 +191,14 @@
 .org 0x08025348
 	.ascii " abcd "
 
+;---------------------------
+;Random names in name select when you press START when name is blank
+.org 0x0802DF30
+	.word @Name0
+	.word @Name1
+	.word @Name2
+	.word @Name3
+	.word @Name4
+	.word @Name5
+	.word @Name6
+	.word @Name7
