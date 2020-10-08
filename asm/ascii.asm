@@ -109,7 +109,19 @@
 	@Name5:		.asciiz "Guest"		::	.align
 	@Name6:		.asciiz "KuruPara"	::	.align
 	@Name7:		.asciiz "Paradise"	::	.align
+	@Learn:		.asciiz "   Learn" ::	.align
 	MiniParaTitles: .incbin "bin/minigameparadiselabels.bin"
+	@Adventure:		.incbin "bin/menus/adventure_EN.bin"
+	@Practice:		.incbin "bin/menus/practice_EN.bin"
+	@Challenge:		.incbin "bin/menus/challenge_EN.bin"
+	@Magic:			.incbin "bin/menus/magic_EN.bin"
+	@KuruKururin:	.incbin "bin/menus/kurukurukururin_EN.bin"
+	@MinigameParadise:	.incbin "bin/menus/minigameparadise_EN.bin"
+	@OneCartVersus:
+		.byte 	0x05,0xF0,0x48,0x08,0xB7,0xF8,0x24,0x08, \
+				0xD7,0xF8,0x24,0x08,0xF6,0xF8,0x24,0x08, \
+				0x15,0xF8,0x24,0x08,0x34,0xF8,0x24,0x08
+		.incbin "bin/menus/singlepakversus_EN_comp.bin"
 .endarea
 ;---------------------------------------------
 .org 0x080172FE
@@ -171,6 +183,13 @@
 .org 0x08025854	::	.asciiz "Stop"
 .org 0x0801DE80	::	.word @Continue
 
+;Magic Menu
+.org 0x08022EC4 ::	.word @Learn
+.org 0x08028CE8 ::	.asciiz "Perform"
+;HACK
+.org 0x08022EAA
+	add r0, 0Ah ;instead of 10h
+
 ;------------------------
 ;fix name select keyboard to get rid of Japanese characters!
 .org 0x080250CC
@@ -202,3 +221,19 @@
 	.word @Name5
 	.word @Name6
 	.word @Name7
+	
+;----------------------
+;Single-Player Menus repointing GFX
+.org 0x0802DF50
+	.word @Adventure
+	.word @Practice
+	.word @Challenge
+	.word @Magic
+.org 0x0802DF68
+	.word @KuruKururin
+	.word @MinigameParadise
+	
+;----------------------
+;Multiplayer Menus repointing compressed GFX TODO: fix compression algorithim
+.org 0x08015CA8
+	.word @OneCartVersus

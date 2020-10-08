@@ -2056,7 +2056,7 @@ Until...<end>
 //「マダ魔団」公演　６：００より<end>		
 
 #WRITE(GBA,$A8828)
-"Mada Magic Show" at 6:00 PM<end>
+Magic show at 6:00 PM<end>
 
 
 //BLOCK #314 NAME:		Script 315
@@ -2680,3 +2680,39 @@ Play many minigames under the<end>
 //時間になるまであそびます<end>
 #WRITE(GBA, $2EBC4)
 time limit. Most points wins!<end>
+
+//BLOCK #032 NAME:		Magic Perform Script 0 Table @ 0x228D0
+//Block Range: $28C58 - $28C6C
+
+//えんじるマジックを<end>
+#WRITE(GBA, $228D0)
+To perform the Magic you've<end>
+
+
+//BLOCK #033 NAME:		Magic Perform Script 1
+//Block Range: $28C6C - $28C8C
+
+//カートリッジにセットしました。<end>
+#WRITE(GBA, $228D4)
+selected, turn off the power<end>
+
+//BLOCK #034 NAME:		Magic Perform Script 2
+//Block Range: $28C8C - $28CAE
+
+//つぎにでんげんをいれたときだけ、<end>
+#WRITE(GBA, $228D8)
+now. Remove the cartridge,<end>
+
+//BLOCK #035 NAME:		Magic Perform Script 3
+//Block Range: $28CB0 - $28CCA
+
+//いまセットしたマジックの<end>
+#WRITE(GBA, $228DC)
+turn the power back on again<end>
+
+//BLOCK #036 NAME:		Magic Perform Script 4
+//Block Range: $28CCC - $28CE0
+
+//えんぎができます。<end>
+#WRITE(GBA, $228E0)
+and the Magic will begin!<end>

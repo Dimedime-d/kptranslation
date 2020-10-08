@@ -1123,6 +1123,6 @@
 .org 0x08023288
 	bl MenuAddVW
 
-;hack
+;hack to above
 .org 0x080231BE
 	b 0x08023288

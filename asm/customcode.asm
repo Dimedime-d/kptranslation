@@ -347,7 +347,7 @@ CreateMiniParaTitleObjs:
 	ldr r3,[sp]
 	cmp r2,0x00
 	beq @EndSubroutine
-	;OAM Attribute 1
+	;OAM Attribute 1 (2nd one, 1st one is Attr 0)
 	lsl r0,r5,0x10 ;x-coord
 	ldr r1,=0x1FF0000
 	and r0,r1 ;only bits 0-8 coorespond to x-coordinate (16-24 here)
@@ -357,9 +357,11 @@ CreateMiniParaTitleObjs:
 	mov r1,0x01
 	lsl r1,r1,0x0E
 	orr r0,r1 ;sets shape to horizontal
-	mov r1,r9
+	mov r1,r9 ;y-coord
 	orr r0,r1
 	str r0,[r2]
+	
+	;OAM Attr 2
 	mov r0,r8
 	orr r0,r7
 	strh r0,[r2,0x04]
