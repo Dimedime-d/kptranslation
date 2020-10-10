@@ -391,7 +391,8 @@ CreateMiniParaTitleObjs:
 
 MenuAddVW:
 	;r4 contains text, r5 contains x-coord
-	
+	cmp r4, 0h
+	beq @NullPtr
 	push r0
 	push r1
 	sub r4, r4, 2h
@@ -461,7 +462,7 @@ MenuAddVW:
 		pop r0
 @MRead:
 		ldrh r2, [r4]
-		
+@NullPtr:	
 		bx r14
 		.pool
 		
