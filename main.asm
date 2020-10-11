@@ -9,5 +9,6 @@
 .include "asm/vwfalpha.asm"
 .include "asm/nextscriptpointer.asm"
 .include "asm/ascii.asm"
+.include "asm/text-weld.asm"
 
 .close
