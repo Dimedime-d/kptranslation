@@ -45,12 +45,7 @@
 		add r2,20h
 		ldrh r0,[r0,r2]		; Relative offset for current character (only halfword)
 
-		lsr r0,r0,5h	;some bit-shifting due to how I put in my width table
-		lsl r0,r0,1h
-		
-		mov r3,r0
-		ldr r0,=WidthTable
-		ldrb r0,[r0,r3]
+		bl RelOffsetToWidth
 		
 		add r0,r0,r7
 		str r0,[r1]
@@ -193,11 +188,7 @@
 		
 		;new - add corresponding width from width table to r11
 		ldrh r0, [r2]
-		lsr r0, r0,5h	;some bit-shifting due to how I put in my width table
-		lsl r0, r0,1h
-		mov r1, r0
-		ldr r0, =WidthTable
-		ldrb r0, [r0,r1]
+		bl RelOffsetToWidth
 		mov r1, r11
 		add r0, r0, r1
 		mov r11, r0
@@ -391,6 +382,7 @@ CreateMiniParaTitleObjs:
 
 MenuAddVW:
 	;r4 contains text, r5 contains x-coord
+	push r14
 	cmp r4, 0h
 	beq @NullPtr
 	push r0
@@ -444,16 +436,9 @@ MenuAddVW:
 	
 	@MBranch1:
 		add r0, r0, r1
-		ldr r2, [r0] ;<-- The relative offset I need!! (just chop off the 1st 16 bits)
+		ldr r0, [r0] ;<-- The relative offset I need!! (just chop off the 1st 16 bits)
 		
-		lsl r0, r2, 0x10
-		lsr r0, r0, 0x10
-		;new - add corresponding width from width table to r11
-		lsr r0, r0,5h	;some bit-shifting due to how I put in my width table
-		lsl r0, r0,1h
-		mov r1, r0
-		ldr r0, =WidthTable
-		ldrb r0, [r0,r1] ;r0 contains width!!!
+		bl RelOffsetToWidth
 		
 		add r5, r5, r0
 		add r4, 2h
@@ -463,9 +448,23 @@ MenuAddVW:
 @MRead:
 		ldrh r2, [r4]
 @NullPtr:	
+		pop r14
 		bx r14
 		.pool
 		
+RelOffsetToWidth:
+	push r1
+	lsl r0, r0, 0x10
+	lsr r0, r0, 0x10
+	lsr r0, r0,5h	;some bit-shifting due to how I put in my width table
+	lsl r0, r0,1h
+	mov r1, r0
+	ldr r0, =WidthTable
+	ldrb r0, [r0,r1]
+	pop r1
+	bx r14
+	.pool
+
 text_weld_test:
 	
 	
