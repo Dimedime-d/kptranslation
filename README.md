@@ -24,6 +24,7 @@ SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
 * Correct minigame names
 * Put in translations for the rest of the dialogue
 * Fork over my title screen/overworld title hacks from a private repository
+* Remove dependency on Atlas, and manage all my text through armips to manage my space better
 * Translate the end credits (and add credits pertaining to my translation work)
 * Implement text welding (meshing different letter objects whose individual widths are small into the same object to save object slots) to show all the English text correctly in the magic description
 * Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
