@@ -9,9 +9,10 @@ mov r5, r0 ;x
 mov r6, r1 ;y
 mov r7, r3 ;pal
 
-sub sp, 0x04
+sub sp, 0x08
 mov r0, 0x00
 str r0, [sp]
+str r0, [sp, 0x04]
 
 mov r0, 0x10
 neg r0, r0
@@ -57,7 +58,9 @@ b @branch_1
 
 @get_relative_offset:
 	add r0, r0, r1
-	ldr r2, [r0] ;to be continued...
+	ldr r0, [r0] ;to be continued...
+	bl RelOffsetToWidth ;width is now contained in r0
+	;BOLDLY assume no characters are 8x16 pixels for this merging process... (but 16x16? ugh)
 	
 
 @branch_1:
@@ -77,7 +80,7 @@ ldr r0, =0x030005D0
 mov r1, r7
 bl 0x08091D58
 
-add sp, 0x04
+add sp, 0x08
 pop {r4, r5, r6, r7, r8}
 pop r1
 bx r1
