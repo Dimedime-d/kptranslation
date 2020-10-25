@@ -1,6 +1,5 @@
 This is a translation of the game Kururin Paradise. I moved this repo from a private one on Bitbucket. I'm cleaning up my code to make it more presentable for public users.
 
----
 ## How to use
 
 * Get a ROM of Kururin Paradise. Should match these hashes:
@@ -15,12 +14,11 @@ SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
 * Run "build.bat"
 * Output ROM is "kp_patched.gba"
 
----
+
 ## Known Bugs
 
 * Game softlocks upon entering any minigame (magic hat in overworld) when the text box loads, because I didn't put any text yet.
 
----
 ## To-do List
 
 * Correct minigame names
@@ -30,7 +28,6 @@ SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
 * Implement text welding (meshing different letter objects whose individual widths are small into the same object to save object slots) to show all the English text correctly in the magic description
 * Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
 
----
 ## Space Used
 
 0x080B000 (0x8000)
@@ -42,4 +39,3 @@ SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
 0x0883000 (0x10000)
 	-Text/Menu Labels that do not fit in the original space
 
----
