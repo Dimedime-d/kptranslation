@@ -1,7 +1,7 @@
  ; Attempt to formulate a variable-width font in Kururin Paradise
 .org 0x08800000	;padding to extend the ROM
-.area 0x0800000,00
-.endarea
+.region 0x0800000,00
+.endregion
  
 .org 0x08021680	;repoint to other character bank!
 .area 0x080216AC - 0x08021680
@@ -35,6 +35,7 @@
 	cmp r0,1Ah ; 1A custom code to center text
 	bls 0x080210C0
 .endarea
+
 .org 0x080210C0
 .area 4h
 	bl CmdParse2 ; new branch
@@ -42,9 +43,6 @@
 
 .org 0x08021120 ;pointer to script parser
 	.word ScriptParse
-
-.org 0x080A9ABC ;repoint pointer that parses last line of intro
-	.word InstaText
 
 .org 0x082ed78c
 .incbin "bin/2ed78c.bin" ;fixes x-pos of each character
@@ -60,3 +58,14 @@
 
 .org 0x080A701C
 	.word 0x20; placeholder on max # of characters per line
+
+;menu description edits
+.org 0x08023288
+	bl MenuAddVW
+
+;hack to above
+.org 0x080231BE
+	b 0x08023288
+	
+.org 0x080960EA ;taken from nextscriptpointer.asm
+.byte 0x0F ;vwf code in 1st Kappado encounter (TODO: Repoint every cutscene script and change code that adds width)
