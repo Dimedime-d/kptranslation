@@ -1,5 +1,7 @@
-.org 0x08010DC4
+.org 0x08010DC4 ;starting intro cutscene from game boot
 	.word @NewIntroScript
+.org 0x08011DD0 ;starting intro cutscene from mode select
+	.word script_loc1
 	
 .org 0x08010DF0
 	.word script_loc1
