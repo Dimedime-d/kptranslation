@@ -8,6 +8,7 @@
 .include "asm/customcode.asm"
 .include "asm/vwfalpha.asm"
 .include "asm/ascii.asm"
-.include "text/customintro.asm"
+.include "text/intro.asm"
+.include "text/menu.asm"
 
 .close
