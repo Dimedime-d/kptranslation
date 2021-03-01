@@ -82,29 +82,31 @@
 		.pool
 		StoreToR12:
 		mov r12,r1
-		mov r1,r8 ;original code	
+		mov r1,r8 ;original code - r8 stores script location
 		add r1,4h
 		mov r0,r7
 		bl 0x0801EBAC ;sets where in RAM to put char offsets
 		mov r4,r0
 		add r6,r4,1h
 		mov r1,r8
-		;ldrh r3,[r1,8h] ;this loads the char - new code ahead - have a pointer ;to where the text should go
-			ldr r2,[r1,0x0C] ;points to next script to parse
+		ldrh r3,[r1,8h] ;this loads the char - new code ahead - have a pointer ;to where the text should go
+		mov r2, 0h
+		mov r11, r2
+/*			ldr r2,[r1,0x0C] ;points to next script to parse
 			mov r9,r2
 			ldr r3,[r1,8h]
-			mov r10,r3 ;storing - end of new code
+			mov r10,r3 ;storing - end of new code - r10 contains pointer to text
 			
 			mov r2,0h	;new - use r11 to store a running total of total width of characters
 			mov r11,r2
 			
 			ldrh r3,[r3] ;points to next char within script pointer
 			mov r2, 2h
-			add r10,r2
+			add r10,r2*/
 		lsl r0,r3,10h
-		;mov r2,0Ah
-		;add r2,r8
-		;mov r9,r2
+		mov r2,0Ah
+		add r2,r8
+		mov r9,r2
 		cmp r0,0h
 		beq DoneWithText ; need to change
 		lsl r1, r6, 2h
@@ -207,12 +209,12 @@
 		mov r2, 4h
 		add r8, r2
 		add r6, 1h
-			mov r0, r10	;the mov
+			mov r0, r9	;the mov
 		ldrh r3, [r0, 0h]
 		lsl r0, r3, 10h
 			mov r1, 2h ; increment
-		;add r9, r1
-			add r10, r1
+		add r9, r1
+			;add r9, r1
 		cmp r0, 0h
 		bne NextChar 
 	DoneWithText: ;all done with text
@@ -224,7 +226,7 @@
 		str r0, [r1] ;store number of chars?
 		bl WriteNewX
 		mov r0, r9
-		add r0, 3h
+		add r0, 3h ;r0 = next scripcode to parse
 		;restore r12
 		add sp,4h
 		pop r1
@@ -232,7 +234,7 @@
 		
 		mov r1, 4h
 		neg r1, r1
-		and r0, r1
+		and r0, r1 ;align r0 to 4 bytes
 		
 		;readjust stack
 		pop r3-r4
@@ -261,7 +263,7 @@ WidthTable:
 .incbin "bin/width.bin"
 
 InstaText:	;pls work
-.include "asm/vwfInstaText.asm"
+.include "asm/scriptcode/vwfInstaText.asm"
 
 .word 0x00000000
 ;generates an additional DMA transfer to get custom
