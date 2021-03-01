@@ -3,6 +3,10 @@
 	
 .org 0x08010DF0
 	.word script_loc1
+	
+.org 0x080A77C8
+.region 0xABC64-0xA77C8, 00 ;deletes original intro cutscene data
+.endregion
 
 ;Intro modifications
 	.org 0x080A6FE2
