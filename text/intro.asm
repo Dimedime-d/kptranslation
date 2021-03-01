@@ -18,30 +18,18 @@
 	.stringn msg+"<end>" :: .align 4
 .endmacro
 
-.macro introscript,num
-	.include "asm/scriptcode/intro/intro" + num + ".asm"
-.endmacro
-
 .loadtable "text/kp_eng.tbl" ;original table bugs out with capital M's
+
+;TODO: move these to own file
+s_intro1 equ "Kururin Village, always quiet..."
+s_intro2 equ "Until..."
+s_intro3 equ "Magic show at 6:00 PM"
+s_intro4 equ "Let's go see, everyone!"
+s_intro5 equ "I'm late! I'm late!"
+s_intro6 equ "...Huh? Where is everyone?"
+s_intro7 equ "How strange~"
+s_intro8 equ "To the Helirin!"
 
 .org 0x08840000
 @NewIntroScript:
-	introscript 1 ;Nintendo logo, fade-in to village
-	_str "Kururin Village, always quiet..."
-	introscript 2 ;Fadeout
-	_str "Until..."
-	introscript 3 ;Magic show on TV
-	_str "Magic show at 6:00 PM"
-	introscript 4 ;Cut to outside tent
-	_str "5:16"
-	introscript 5 ;Birds walk inside tent
-	_str "Let's go see, everyone!"
-	introscript 6 ;Kururin runs toward tent, other times are included here
-	_str "I'm late! I'm late!"
-	introscript 7 ;Kururin looks around in tent
-	_str "...Huh?"
-	introscript 8 ;Close-up of Kururin
-	_str "How strange~"
-	introscript 9
-	_str "To the Helirin!"
-	introscript 10 ;Long-ish sequence of Kururin running back, jumping into Helirin, and flying away
+	.include "asm/scriptcode/intro_sc.asm"
