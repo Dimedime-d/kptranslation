@@ -1,5 +1,13 @@
 .loadtable "text/kp_eng.tbl" ;original table bugs out with capital M's
 
+;menu description edits
+.org 0x08023288
+	bl MenuAddVW
+
+;hack to above
+.org 0x080231BE
+	b 0x08023288
+
 .macro repointText,ptrLoc,msg
 	.autoregion
 	@txtPtr:

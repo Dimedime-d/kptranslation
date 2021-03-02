@@ -56,16 +56,5 @@
 .org 0x08039190
 	.incbin "bin/punct3.bin" ;repoints tilda
 
-.org 0x080A701C
-	.word 0x20; placeholder on max # of characters per line
 
-;menu description edits
-.org 0x08023288
-	bl MenuAddVW
-
-;hack to above
-.org 0x080231BE
-	b 0x08023288
 	
-.org 0x080960EA ;taken from nextscriptpointer.asm
-.byte 0x0F ;vwf code in 1st Kappado encounter (TODO: Repoint every cutscene script and change code that adds width)
