@@ -7,7 +7,7 @@
 ;file paths are relative to armips.exe
 .include "asm/customcode.asm"
 .include "asm/vwfalpha.asm"
-.include "text/intro.asm"
+.include "text/insertscripts.asm"
 .include "text/ascii.asm"
 .include "text/menu.asm"
 
