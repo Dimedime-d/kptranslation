@@ -28,6 +28,6 @@ s_kappado1redo2 equ "You bet!" ;もちろんさー
 s_kappado1redo3 equ "Okay, now stop imitating me." ;・・・マネしないでよねー
 
 s_kappado1win1 equ "Wow! You actually beat me!" ;ぎゃふん！　やられたよー
-s_kappado1win2 equ "Chikurin, are you alright?" ;チクリン、だいじょうぶ？
+s_kappado1win2 equ "There you are, Chikurin!<line>Are you alright?" ;チクリン、だいじょうぶ？
 s_kappado1win3 equ "Yeah, big brother! I even<line>learned a magic trick." ;やぁ、お兄ちゃん！<line>ボクマジックをおぼえたんだ！
 s_kappado1win4 equ "I can teach you!" ;お兄ちゃんにも教えてあげる！
