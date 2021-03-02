@@ -33,20 +33,20 @@
 .org 0x08096118
 .byte 0x30 ;max # characters per line (dialogue), shouldn't need this 'cause I'd just use <line>s.
 
-sndOffset equ 0x60 ;originally 0x40, makes more space for characters
+sndOffset equ 0x78 ;originally 0x40, makes more space for characters
 
 .org 0x08096044
 .byte sndOffset + 1 ;hack related to storage sound effects
 
 .org 0x0809583C
-.byte 0xA0 ;originally 0x60, gives more space
+.byte 0xC0 ;originally 0x60, gives more space for text/sounds
 
 .org 0x0803A360 ;sounds for lowercase letters
 .byte 0x3E,0x39,0x3F,0x3A,0x40,0x3B,0x41,0x3C,0x42,0x3D,0x39,0x3E,0x3A, \
 	  0x3F,0x3B,0x40,0x3C,0x41,0x3D,0x3C,0x39,0x3E,0x3A,0x3F,0x3B,0x40
 	  
 .org 0x0809608C
-.byte 0x03 ;lower = faster dialogue speed
+.byte 0x03 ;lower = faster dialogue speed (at the cost of audio) 0x06 originally
 
 .org 0x08095CE4
 .byte 0x50 ;originally 0x26, deletes all text chars
@@ -54,6 +54,15 @@ sndOffset equ 0x60 ;originally 0x40, makes more space for characters
 
 .macro _str,msg
 	.stringn msg+"<end>" :: .align 4
+.endmacro
+
+.macro loadCharsAndSfx,msg
+	.byte 0x0A,0x00,0x14,0x00
+	.byte 0x18,0xFF,0xFF,0x7F
+	_str msg
+	.byte 0x0F,0x00,0x04,0x00
+	.byte sndOffset,0xFF,0xFF,0x7F
+	_str msg
 .endmacro
 
 .loadtable "text/kp_eng.tbl" ;original table bugs out with capital M's
