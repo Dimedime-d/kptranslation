@@ -1,3 +1,12 @@
+;repointing stuff
+.org 0x0802E4B4
+	.word @Kappado1start
+	.word @Kappado1redo
+
+.org 0x0802EA9C
+	.word @Kappado1lose
+	.word @Kappado1win
+
 .org 0x08010DC4 ;starting intro cutscene from game boot
 	.word @NewIntroScript
 .org 0x08011DD0 ;starting intro cutscene from mode select
@@ -10,9 +19,38 @@
 .region 0xABC1C-0xA77C8, 00 ;deletes original intro cutscene data
 .endregion
 
-;Intro modifications
-	.org 0x080A6FE2
-		.byte 0x0F ;custom command to add variable width
+;---------------- Intro modifications
+.org 0x080A6FE2
+.byte 0x0F ;custom command to add variable width
+	
+.org 0x080A701C
+.word 0x30; placeholder on max # of characters per line (intro)
+	
+;---------------- Dialogue modifications
+.org 0x080960EA ;taken from nextscriptpointer.asm
+.byte 0x0F ;vwf code in 1st Kappado encounter (TODO: Repoint every cutscene script and change code that adds width)
+
+.org 0x08096118
+.byte 0x30 ;max # characters per line (dialogue), shouldn't need this 'cause I'd just use <line>s.
+
+sndOffset equ 0x60 ;originally 0x40, makes more space for characters
+
+.org 0x08096044
+.byte sndOffset + 1 ;hack related to storage sound effects
+
+.org 0x0809583C
+.byte 0xA0 ;originally 0x60, gives more space
+
+.org 0x0803A360 ;sounds for lowercase letters
+.byte 0x3E,0x39,0x3F,0x3A,0x40,0x3B,0x41,0x3C,0x42,0x3D,0x39,0x3E,0x3A, \
+	  0x3F,0x3B,0x40,0x3C,0x41,0x3D,0x3C,0x39,0x3E,0x3A,0x3F,0x3B,0x40
+	  
+.org 0x0809608C
+.byte 0x03 ;lower = faster dialogue speed
+
+.org 0x08095CE4
+.byte 0x50 ;originally 0x26, deletes all text chars
+;-----------------
 
 .macro _str,msg
 	.stringn msg+"<end>" :: .align 4
@@ -20,16 +58,16 @@
 
 .loadtable "text/kp_eng.tbl" ;original table bugs out with capital M's
 
-;TODO: move these to own file
-s_intro1 equ "Kururin Village, always quiet..."
-s_intro2 equ "Until..."
-s_intro3 equ "Magic show at 6:00 PM"
-s_intro4 equ "Let's go see, everyone!"
-s_intro5 equ "I'm late! I'm late!"
-s_intro6 equ "...Huh? Where is everyone?"
-s_intro7 equ "How strange~"
-s_intro8 equ "To the Helirin!"
+.include "text/dialogue.asm"
 
 .org 0x08840000
 @NewIntroScript:
 	.include "asm/scriptcode/intro_sc.asm"
+@Kappado1start:
+	.include "asm/scriptcode/kappado/kappado1start.asm"
+@Kappado1lose:
+	.include "asm/scriptcode/kappado/kappado1lose.asm"
+@Kappado1redo:
+	.include "asm/scriptcode/kappado/kappado1redo.asm"
+@Kappado1win:
+	.include "asm/scriptcode/kappado/kappado1win.asm"
