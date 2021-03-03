@@ -50,18 +50,40 @@ sndOffset equ 0x78 ;originally 0x40, makes more space for characters
 
 .org 0x08095CE4
 .byte 0x50 ;originally 0x26, deletes all text chars
+;----------------- Special text box (green/pink) modifications
+.org 0x080AC574
+.byte 0x50 ;delete all chars
+
+.org 0x080AC6D0
+.byte 0x03 ;dialogue speed
+
+.org 0x080AC716
+.byte 0x0F ;custom vwf code
+
+.org 0x080AC744
+.byte 0x30 ;max chars per line
 ;-----------------
 
 .macro _str,msg
 	.stringn msg+"<end>" :: .align 4
 .endmacro
 
-.macro loadCharsAndSfx,msg
-	.byte 0x0A,0x00,0x14,0x00
-	.byte 0x18,0xFF,0xFF,0x7F
+.macro S_unlockMinigame,game
+	_str "\""+game+"\""+" was added<line>to the Challenge menu!"
+.endmacro
+
+.macro S_unlockMagic,magic
+	_str "\""+magic+"\""+" was added<line> to the Magic menu!"
+.endmacro
+
+.macro loadChars,msg
+	.byte 0x0A,0x00,0x14,0x00,0x18,0xFF,0xFF,0x7F
 	_str msg
-	.byte 0x0F,0x00,0x04,0x00
-	.byte sndOffset,0xFF,0xFF,0x7F
+.endmacro
+
+.macro loadCharsAndSfx,msg
+	loadChars msg
+	.byte 0x0F,0x00,0x04,0x00,sndOffset,0xFF,0xFF,0x7F
 	_str msg
 .endmacro
 
@@ -80,3 +102,7 @@ sndOffset equ 0x78 ;originally 0x40, makes more space for characters
 	.include "asm/scriptcode/kappado/kappado1redo.asm"
 @Kappado1win:
 	.include "asm/scriptcode/kappado/kappado1win.asm"
+MinigameUnlock:
+	.include "asm/scriptcode/minigameunlock.asm"
+MagicUnlock:
+	.include "asm/scriptcode/magicunlock.asm"
