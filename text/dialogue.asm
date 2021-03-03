@@ -9,6 +9,40 @@ s_intro6 equ "...Huh? Where is everyone?" ;・・・あれ？
 s_intro7 equ "How strange~" ;おかしいな～
 s_intro8 equ "To the Helirin!" ;よし！
 
+s_minigame0 equ "Chu-Chu Panic" ;チューチュー・パニック
+s_minigame1 equ "Crossfire" ;クロス・ファイアー
+s_minigame2 equ "Starlight Romance" ;スター・ライト・ロマンス
+s_minigame3 equ "Super Jumper" ;スーパー・ジャンパー
+s_minigame4 equ "Smash Force" ;スマッシュ・フォース
+s_minigame5 equ "Occupy" ;"Jintorina", ジントリーナ
+s_minigame6 equ "Grass Cutter" ;グラス・カッター
+s_minigame7 equ "Slip Drop" ;スリップ・ドロップ
+s_minigame8 equ "In the Sky" ;イン・ザ・スカイ
+s_minigame9 equ "Quick Flip" ;クイック・フリップ
+s_minigameA equ "Love Attack" ;ラブ・アタック
+s_minigameB equ "Falling Down" ;フォーリン・ダウン
+s_minigameC equ "Magnet Force" ;マグネ・マグネ
+s_minigameD equ "Pit-Pat Racer" ;ピット・パット・レーサー
+s_minigameE equ "Spin Shot" ;スピン・ショット
+s_minigameF equ "Twin Hopper" ;ツイン・ホッパー
+
+s_magic0 equ "Kururin Shock" ;クルリン・ショック
+s_magic1 equ "Ten and Hundred" ;テン・アンド・ハンドレッド
+s_magic2 equ "Book Test" ;ブック・テスト
+s_magic3 equ "Time Paradox" ;タイム・パラドクス
+s_magic4 equ "Sound Catch" ;サウンド・キャッチ
+s_magic5 equ "Center Point" ;センター・ポイント
+s_magic6 equ "Gameboy Panic" ;ゲームボーイ・パニック
+s_magic7 equ "Impression" ;インプレッション
+s_magic8 equ "Twist" ;ツイスト
+s_magic9 equ "Imagine" ;イマジン
+s_magicA equ "Love Tester" ;ラブ・テスター
+s_magicB equ "California Flip" ;カリフォルニア・フリップ
+s_magicC equ "Doctor Kururin" ;ドクター・クルリン
+s_magicD equ "Microwave" ;マイクロ・ウェーブ
+s_magicE equ "Up Down" ;アップ・ダウン
+s_magicF equ "Don't Touch" ;ドン・タッチ
+
 s_kappado1start1 equ "Welcome to our currently<line>unnamed magic group!" ;マジック大魔術団、<line>りゃくしてマダ魔団へようこそ！
 s_kappado1start2 equ "Brought to you by yours truly,<line>Kappado!" ;ボクのなまえは、カッパード！
 s_kappado1start3 equ "All your family are with us." ;おまえの家族は、<line>われわれがあーずかったー
