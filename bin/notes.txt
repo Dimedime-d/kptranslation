@@ -1,2 +1,3 @@
 0x880 = width of a space
 0x888 = width of a period
+0x910 = width of apostrophe
