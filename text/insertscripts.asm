@@ -1,3 +1,7 @@
+.macro _str,msg
+	.stringn msg+"<end>" :: .align 4
+.endmacro
+
 ;repointing stuff
 .org 0x0802E4B4
 	.word @Kappado1start
@@ -50,6 +54,7 @@ sndOffset equ 0x78 ;originally 0x40, makes more space for characters
 
 .org 0x08095CE4
 .byte 0x50 ;originally 0x26, deletes all text chars
+
 ;----------------- Special text box (green/pink) modifications
 .org 0x080AC574
 .byte 0x50 ;delete all chars
@@ -62,11 +67,15 @@ sndOffset equ 0x78 ;originally 0x40, makes more space for characters
 
 .org 0x080AC744
 .byte 0x30 ;max chars per line
-;-----------------
 
-.macro _str,msg
-	.stringn msg+"<end>" :: .align 4
-.endmacro
+;----------------- Credits modifications
+.org 0x080A6504
+.byte 0x5D ;reposition "The end"
+
+.org 0x080A651C
+_str " FIN"
+
+;-----------------
 
 .macro S_unlockMinigame,game
 	_str "\""+game+"\""+" was added<line>to the Challenge menu!"

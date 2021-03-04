@@ -211,6 +211,76 @@
 .org 0x08025348
 	.ascii " abcd "
 
+;--------------------------- Credits Hacking
+.include "text/credits.asm"
+
+bytesPerLine equ 0x1E
+
+.macro creditLine,line
+	.ascii line
+	.skip bytesPerLine - strlen(line)
+.endmacro
+
+.org  0x0803A448
+.fill 0x0803BD7C-0x0803A448,0
+.org  0x0803A448
+.area 0x0803BD7C-.
+creditLine s_credits0 :: .skip bytesPerLine*6
+creditLine s_credits1 :: .skip bytesPerLine
+creditLine s_credits2 :: .skip bytesPerLine*7
+creditLine s_credits3 :: .skip bytesPerLine
+creditLine s_credits4 :: .skip bytesPerLine
+creditLine s_credits5 :: .skip bytesPerLine
+creditLine s_credits6 :: .skip bytesPerLine
+creditLine s_credits7 :: .skip bytesPerLine*7
+creditLine s_credits8 :: .skip bytesPerLine
+creditLine s_credits9 :: .skip bytesPerLine*7
+creditLine s_credits10:: .skip bytesPerLine
+creditLine s_credits11:: .skip bytesPerLine*7
+creditLine s_credits12:: .skip bytesPerLine
+creditLine s_credits13:: .skip bytesPerLine
+creditLine s_credits14:: .skip bytesPerLine*7
+creditLine s_credits15:: .skip bytesPerLine
+creditLine s_credits16:: .skip bytesPerLine*2
+creditLine s_credits17:: .skip bytesPerLine
+creditLine s_credits18:: .skip bytesPerLine
+creditLine s_credits19:: .skip bytesPerLine*2
+creditLine s_credits20:: .skip bytesPerLine*7
+creditLine s_credits21:: .skip bytesPerLine
+creditLine s_credits22:: .skip bytesPerLine*7
+creditLine s_credits23:: .skip bytesPerLine
+creditLine s_credits24:: .skip bytesPerLine*7
+creditLine s_credits25:: .skip bytesPerLine
+creditLine s_credits26:: .skip bytesPerLine
+creditLine s_credits27:: .skip bytesPerLine*7
+creditLine s_credits28:: .skip bytesPerLine
+creditLine s_credits29:: .skip bytesPerLine*7
+creditLine s_credits30:: .skip bytesPerLine
+creditLine s_credits31:: .skip bytesPerLine
+creditLine s_credits32:: .skip bytesPerLine*7
+creditLine s_credits33:: .skip bytesPerLine
+creditLine s_credits34:: .skip bytesPerLine*7
+creditLine s_credits35:: .skip bytesPerLine
+creditLine s_credits36:: .skip bytesPerLine
+creditLine s_credits37:: .skip bytesPerLine*7
+creditLine s_credits38:: .skip bytesPerLine
+creditLine s_credits39:: .skip bytesPerLine*7
+creditLine s_credits40:: .skip bytesPerLine
+creditLine s_credits41:: .skip bytesPerLine*7
+creditLine s_credits42:: .skip bytesPerLine
+creditLine s_credits43:: .skip bytesPerLine
+creditLine s_credits44:: .skip bytesPerLine*7
+creditLine s_credits45:: .skip bytesPerLine
+creditLine s_credits46:: .skip bytesPerLine
+creditLine s_credits47:: .skip bytesPerLine*7
+creditLine s_credits48:: .skip bytesPerLine
+creditLine s_credits49:: .skip bytesPerLine*2
+creditLine s_credits50:: .skip bytesPerLine
+creditLine s_credits51:: .skip bytesPerLine
+creditLine s_credits52
+
+.endarea
+
 ;---------------------------
 ;Random names in name select when you press START when name is blank
 .org 0x0802DF30
