@@ -33,6 +33,9 @@
 .org 0x080A701C
 .word 0x30 ;placeholder on max # of characters per line (intro)
 
+.org 0x080A6F9C
+.byte 0x04 ;faster text, 0x04 originally
+
 ;---------------- Ending modifications
 .org 0x080959DE
 .byte 0x0F ;vwf
@@ -41,7 +44,7 @@
 .byte 0x30 ;chars per line
 
 .org 0x08095998
-.byte 0x03 ;faster text, needed to sync with ending music (need to lose ~40 frames)
+.byte 0x03 ;faster text, needed to sync with ending music (need to lose ~40 frames) 0x06 originally
 
 ;---------------- Dialogue modifications
 .org 0x080960EA ;taken from nextscriptpointer.asm
@@ -100,6 +103,11 @@ _str " FIN"
 
 .macro loadChars,msg
 	.byte 0x0A,0x00,0x14,0x00,0x18,0xFF,0xFF,0x7F
+	_str msg
+.endmacro
+
+.macro loadCharsInstant,msg
+	.byte 0x0A,0x00,0x1A,0x00,0x18,0xFF,0xFF,0x7F ;0x1A custom code auto-centers instantly displayed text
 	_str msg
 .endmacro
 
