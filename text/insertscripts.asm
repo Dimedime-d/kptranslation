@@ -3,6 +3,9 @@
 .endmacro
 
 ;repointing stuff
+.org 0x08006E9C
+	.word @NewEndingScript
+
 .org 0x0802E4B4
 	.word @Kappado1start
 	.word @Kappado1redo
@@ -28,8 +31,18 @@
 .byte 0x0F ;custom command to add variable width
 	
 .org 0x080A701C
-.word 0x30; placeholder on max # of characters per line (intro)
-	
+.word 0x30 ;placeholder on max # of characters per line (intro)
+
+;---------------- Ending modifications
+.org 0x080959DE
+.byte 0x0F ;vwf
+
+.org 0x08095A18
+.byte 0x30 ;chars per line
+
+.org 0x08095998
+.byte 0x03 ;faster text, needed to sync with ending music (need to lose ~40 frames)
+
 ;---------------- Dialogue modifications
 .org 0x080960EA ;taken from nextscriptpointer.asm
 .byte 0x0F ;vwf code in 1st Kappado encounter (TODO: Repoint every cutscene script and change code that adds width)
@@ -111,6 +124,8 @@ _str " FIN"
 	.include "asm/scriptcode/kappado/kappado1redo.asm"
 @Kappado1win:
 	.include "asm/scriptcode/kappado/kappado1win.asm"
+@NewEndingScript:
+	.include "asm/scriptcode/ending.asm"
 MinigameUnlock:
 	.include "asm/scriptcode/minigameunlock.asm"
 MagicUnlock:

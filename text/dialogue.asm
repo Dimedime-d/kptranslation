@@ -65,3 +65,30 @@ s_kappado1win1 equ "Wow! You actually beat me!" ;ぎゃふん！　やられた�
 s_kappado1win2 equ "There you are, Chikurin!<line>Are you alright?" ;チクリン、だいじょうぶ？
 s_kappado1win3 equ "Yeah, big brother! I even<line>learned a magic trick." ;やぁ、お兄ちゃん！<line>ボクマジックをおぼえたんだ！
 s_kappado1win4 equ "I can teach you!" ;お兄ちゃんにも教えてあげる！
+
+s_ending1_1 equ "Oh, that's how you clear that!<line>As I'd expect from the leader's son." ;あ、あれをクリアしちゃうとは！<line>さすが団長のむすこ！<end>
+s_ending1_2 equ "...leader?" ;団長・・・？
+s_ending1_3 equ "Kururin, you've grown a lot." ;クルリン、大きくなったな
+s_ending1_4 equ "Dad! It's really you!" ;おとーさん！
+s_ending1_5 equ "Yep, he's with us magicians who travel<line>from town to town." ;そう、まちからまちへ旅をつづけるマジシャン一座
+s_ending1_6 equ "So the leader of our<line>unnamed magic group..." ;マダ魔団の団長こそが・・・
+s_ending1_7 equ "...was your father all along!" ; キミのお父さんだったのだぁ！！
+s_ending1_8 equ "I didn't know my dad was a magician!" ;おとーさんのおしごとって<line>マジシャンだったのかぁ！
+s_ending1_9 equ "You've learned a lot of magic tricks,<line>Kururin." ;たくさんのマジックを<line>おぼえたようだね、クルリン
+s_ending1_10 equ "What do you think?" ;どうだった？
+s_ending1_11 equ "Magic is amazing, dad!" ;うん、サイコーだよ！
+s_ending1_12 equ "I find it really fun!" ;マジックっておもしろいね！
+s_ending1_13 equ "Good to hear." ;そうか、よかった
+s_ending1_14 equ "That's what I wanted to show you." ;それこそがおまえに<line>つたえたかったことだ
+s_ending1_15 equ "Now, come this way." ;さぁ、こっちにおいで
+
+s_ending2_1 equ "Kururin!" ;クルリン！
+s_ending2_2 equ "Happy birthday!" ;たんじょうび　おめでとう！
+s_ending2_3 equ "Huh? What are you all doing here?";あれ！　みんなどうしてここに？
+s_ending2_4 equ "To celebrate your birthday." ;おまえのたんじょうびに
+s_ending2_5 equ "I thought I'd teach you some magic" ;マジックを教えてやろうとおもってな
+s_ending2_6 equ "and this was my chance" ;せっかくだから
+s_ending2_7 equ "to surprise you!" ;びっくりさせようってワケだ！
+s_ending2_8 equ "Well, you had me scared at first." ;なんだー、おどろいちゃったよ！
+s_ending2_9 equ "Haha, sorry about that." ;あっはっはっはっは、ごめんごめん
+s_ending2_10 equ "Hahahahaha!" ;あっはっはっはっは！
