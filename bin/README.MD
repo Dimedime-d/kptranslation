@@ -1,0 +1,1 @@
+Raw binary files representing graphical text used by the game. Mostly contains GBA 4bpp graphics, relative offsets, and binaries used to construct objects consisting of multiple blocks.
