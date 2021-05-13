@@ -239,7 +239,78 @@ s_naporon3win1 equ "Pellentesque aliquam est elit,<line>eget feugiat velit accum
 s_naporon3win2 equ "Fusce vel neque felis."
 s_naporon3win3 equ "Cras a nunc sit amet<line>massa hendrerit fringilla."
 s_naporon3win4 equ "Vivamus eget fringilla nulla."
-s_naporon3win5 equ "Phasellus rhoncus lectus a sem<line>ultrices, nec vestibulum sollicitudin. "
+s_naporon3win5 equ "Phasellus rhoncus lectus a sem<line>ultrices, nec vestibulum sollicitudin."
+
+s_baron1start1 equ "In laoreet nunc in velit<line>facilisis fermentum."
+s_baron1start2 equ "Suspendisse pretium, justo<line>eleifend maximus fermentum."
+s_baron1start3 equ "Ante turpis condimentum tortor,<line>vel hendrerit odio augue et metus."
+s_baron1start4 equ "Praesent consequat convallis urna."
+s_baron1start5 equ "Sed vestibulum lacus dictum urna<line>posuere, a elementum libero rutrum."
+s_baron1start6 equ "Ut vel sapien feugiat, elementum<line>est et, tempus libero."
+
+s_baron1lose1 equ "Phasellus sagittis diam mauris,<line>id porta sapien scelerisque vitae."
+s_baron1lose2 equ "Quisque mi magna, faucibus vitae<line>nunc rhoncus, dapibus ultricies ipsum."
+s_baron1lose3 equ "Praesent tellus ipsum, tempus in<line>fermentum quis, feugiat ut nisi."
+s_baron1lose4 equ "Aenean sapien justo, pharetra sed<line>orci sed, lobortis accumsan urna."
+
+s_baron1redo1 equ "Suspendisse erat erat, rutrum et<line>posuere id, posuere sit amet orci."
+s_baron1redo2 equ "Praesent in mauris vitae ipsum<line>ornare vulputate id vel ipsum."
+s_baron1redo3 equ "Morbi eu metus feugiat, bibendum<line>dui quis, porta lacus."
+s_baron1redo4 equ "Vivamus quis ultrices odio.<line>Etiam malesuada fringilla volutpat."
+
+s_baron1win1 equ "Etiam pharetra convallis enim,<line>id viverra neque."
+s_baron1win2 equ "Quisque facilisis libero ut<line>urna sollicitudin commodo."
+s_baron1win3 equ "Fusce lacus metus, vestibulum amet<line>ligula non, imperdiet rhoncus libero."
+s_baron1win4 equ "Sed non massa in nisl facilisis<line>condimentum ac egestas libero."
+
+s_baron2start1 equ "Aliquam a dui imperdiet ultricies.<line>Sed vel volutpat lorem."
+s_baron2start2 equ "Vivamus varius magna non<line>tellus volutpat aliquam."
+s_baron2start3 equ "Nulla hendrerit, vitae elementum<line>turpis odio et tortor."
+s_baron2start4 equ "Phasellus consequat lobortis fermentum."
+
+s_baron2lose1 equ "Ut vitae accumsan magna."
+s_baron2lose2 equ "Nunc volutpat, leo sed ultricies<line>placerat, odio ante laoreet ipsum."
+s_baron2lose3 equ "Sed tempor, ligula eu aliquam,<line>est ipsum viverra justo."
+s_baron2lose4 equ "Curabitur eget lacus tempus,<line>rutrum augue vel, accumsan nisl."
+
+s_baron2redo1 equ "Nullam lorem, congue vulputate<line>dui a, varius facilisis enim."
+s_baron2redo2 equ "Nullam ullamcorper tempor risus<line>in egestas."
+s_baron2redo3 equ "Vestibulum pharetra tortor<line>vitae eleifend consequat."
+
+s_baron2win1 equ "Integer iaculis eros pellentesque,<line>pharetra dignissim nulla tincidunt."
+s_baron2win2 equ "Sed placerat ornare diam<line>eget pellentesque."
+s_baron2win3 equ "Phasellus a neque sed massa<line>faucibus maximus."
+s_baron2win4 equ "Sed elementum sed eros non<line>tristique."
+s_baron2win5 equ "Morbi orci velit, rhoncus eu<line>bibendum a, tincidunt vitae ex."
+s_baron2win6 equ "Integer at felis sagittis, luctus<line>felis semper, feugiat risus."
+
+s_baron3start1 equ "Sed libero sapien, ullamcorper et<line>rhoncus et, dignissim quis magna."
+s_baron3start2 equ "Ut dignissim nec purus sit<line>amet vulputate."
+s_baron3start3 equ "Vivamus aliquet mollis aliquet.<line>Vestibulum id ultrices ligula."
+s_baron3start4 equ "Aliquam vestibulum pellentesque<line>turpis id aliquam. "
+s_baron3start5 equ "Cras nec turpis at est accumsan<line>commodo eleifend eget tortor."
+
+s_baron3lose1 equ "Praesent venis vehicula consectetur."
+s_baron3lose2 equ "Etiam commodo id felis a gravida.<line>Phasellus nec mauris risus."
+s_baron3lose3 equ "Nunc auctor sapien quis<line>varius pharetra."
+
+s_baron3redo1 equ "Nullam condimentum enim ut facilisis<line>aliquet."
+s_baron3redo2 equ "Etiam vehicula massa vitae dapibus<line>tincidunt."
+s_baron3redo3 equ "Sed ac magna efficitur, convallis<line>risus eu, pharetra nibh."
+
+s_baron3win1 equ "Vestibulum auctor maximus tellus,<line>et feugiat elit maximus sed."
+s_baron3win2 equ "Duis sagittis malesuada leo.<line>Praesent eget fringilla nibh."
+s_baron3win3 equ "Donec sodales molestie sem dictum."
+s_baron3win4 equ "Suspendisse sollicitudin ullamcorper."
+s_baron3win5 equ "Cras dignissim est in lectus varius,<line>ac vehicula nunc hendrerit."
+s_baron3win6 equ "Mauris quis neque erat."
+
+s_baron3winlast1 equ "Pellente habitant morbi tristique<line>et malesuada fames turpis egestas." ; if the last minigame you beat is Baron Magic
+s_baron3winlast2 equ "Fusce faucibus congue lacus,<line>non tempus urna lobortis vitae."
+s_baron3winlast3 equ "In rutrum justo lacus,<line>sed rhoncus turpis vulputate vitae."
+s_baron3winlast4 equ "Praesent pretium semper purus,<line>ac hendrerit ex ultricies non."
+s_baron3winlast5 equ "Duis placerat lacus eget orci<line>facilisis ornare."
+s_baron3winlast6 equ "Quisque suscipit imperdiet purus<line>vitae eleifend."
 
 s_ending1_1 equ "Oh, that's how you clear that!<line>As I'd expect from the leader's son." ;あ、あれをクリアしちゃうとは！<line>さすが団長のむすこ！<end>
 s_ending1_2 equ "...leader?" ;団長・・・？

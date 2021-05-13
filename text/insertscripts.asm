@@ -25,6 +25,12 @@
 	.word @Naporon2redo
 	.word @Naporon3start
 	.word @Naporon3redo
+	.word @Baron1start
+	.word @Baron1redo
+	.word @Baron2start
+	.word @Baron2redo
+	.word @Baron3start
+	.word @Baron3redo
 
 .org 0x0802EA9C
 	.word @Kappado1lose
@@ -45,11 +51,20 @@
 	.word @Naporon2win
 	.word @Naporon3lose
 	.word @Naporon3win
+	.word @Baron1lose
+	.word @Baron1win
+	.word @Baron2lose
+	.word @Baron2win
+	.word @Baron3lose
+	.word @Baron3win
 
 .org 0x08010DC4 ;starting intro cutscene from game boot
 	.word @NewIntroScript
 .org 0x08011DD0 ;starting intro cutscene from mode select
 	.word script_loc1
+
+.org 0x0801A38C ;beat Baron Magic's 3rd minigame, and it's the last one 
+	.word @Baron3winlast
 	
 .org 0x08010DF0
 	.word script_loc1
@@ -229,6 +244,32 @@ _str " FIN"
 	.include "asm/scriptcode/naporon/naporon3redo.asm"
 @Naporon3win:
 	.include "asm/scriptcode/naporon/naporon3win.asm"
+@Baron1start:
+	.include "asm/scriptcode/baron/baron1start.asm"
+@Baron1lose:
+	.include "asm/scriptcode/baron/baron1lose.asm"
+@Baron1redo:
+	.include "asm/scriptcode/baron/baron1redo.asm"
+@Baron1win:
+	.include "asm/scriptcode/baron/baron1win.asm"
+@Baron2start:
+	.include "asm/scriptcode/baron/baron2start.asm"
+@Baron2lose:
+	.include "asm/scriptcode/baron/baron2lose.asm"
+@Baron2redo:
+	.include "asm/scriptcode/baron/baron2redo.asm"
+@Baron2win:
+	.include "asm/scriptcode/baron/baron2win.asm"
+@Baron3start:
+	.include "asm/scriptcode/baron/baron3start.asm"
+@Baron3lose:
+	.include "asm/scriptcode/baron/baron3lose.asm"
+@Baron3redo:
+	.include "asm/scriptcode/baron/baron3redo.asm"
+@Baron3win:
+	.include "asm/scriptcode/baron/baron3win.asm"
+@Baron3winlast:
+	.include "asm/scriptcode/baron/baron3winlast.asm"
 @NewEndingScript:
 	.include "asm/scriptcode/ending.asm"
 MinigameUnlock:
