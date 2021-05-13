@@ -66,6 +66,111 @@ s_kappado1win2 equ "There you are, Chikurin!<line>Are you alright?" ;チクリ�
 s_kappado1win3 equ "Yeah, big brother! I even<line>learned a magic trick." ;やぁ、お兄ちゃん！<line>ボクマジックをおぼえたんだ！
 s_kappado1win4 equ "I can teach you!" ;お兄ちゃんにも教えてあげる！
 
+s_kappado2start1 equ "Nunc non porta metus.<line>Vestibulum ante ipsum." ; Lorem ipsum here on out; see my pastebin for the rest of the scripts https://pastebin.com/Tti7R01L
+s_kappado2start2 equ "In semper ultricies.<line>Suspendisse a tincidunt."
+s_kappado2start3 equ "Suspendisse sit amet arcu<line>id nulla eget ut massa."
+s_kappado2start4 equ "Duis fermentum et nulla<line>vitae fringilla."
+s_kappado2start5 equ "Suspendisse at risus eget<line>ipsum tempor facilisis."
+
+s_kappado2lose1 equ "Donec maximus elit eget<line>justo gravida fermentum."
+s_kappado2lose2 equ "Cras et ipsum neque.<line>Praesent in egestas risus."
+
+s_kappado2redo1 equ "Nulla facilisis rhoncus lectus,<line>vel pharetra dui tincidunt et."
+s_kappado2redo2 equ "In vitae mi molestie,<line>pretium nisl sit amet."
+
+s_kappado2win1 equ "Sed non ullamcorper magna."
+s_kappado2win2 equ "Etiam at metus ac justo<line>tempus sit amet vel lorem."
+s_kappado2win3 equ "Aenean eleifend quam nec<line>dolor sollicitudin sodales."
+s_kappado2win4 equ "Curabitur nisi ex,<line>suscipit vel ullamcorper qui."
+s_kappado2win5 equ "Pellentesque vel risus congue,<line>vel imperdiet nisi maximus."
+
+s_kappado3start1 equ "Mauris finibus purus metus,<line>in imperdiet nisl ultrices quis."
+s_kappado3start2 equ "Donec nunc justo,<line>dictum a fringilla nec."
+s_kappado3start3 equ "Quisque faucibus gravida<line>nisi quis mattis."
+s_kappado3start4 equ "Quisque pretium metus nulla,<line>id sodales neque aliquet nec."
+
+s_kappado3lose1 equ "Proin sagittis metus lectus,<line>eget vehicula mollis porta."
+s_kappado3lose2 equ "Suspendisse ultricies lorem,<line>ac molestie ligula sodales ut."
+
+s_kappado3redo1 equ "Praesent lacinia vehicula posuere."
+s_kappado3redo2 equ "Nunc a dolor et sapien sodales."
+
+s_kappado3win1 equ "Sed turpis nisl,<line>accumsan at congue vitae."
+s_kappado3win2 equ "Cras euismod lacus eget ultricies."
+s_kappado3win3 equ "Nam congue porttitor fringilla.<line>Ut laoreet vitae pellentesque."
+s_kappado3win4 equ "Vestibulum non porta justo,<line>et venenatis risus."
+
+s_tenko1start1 equ "Phasellus mattis mollis vehicula."
+s_tenko1start2 equ "Aliquam ut molestie quam,<line>eu condimentum tortor."
+s_tenko1start3 equ "Integer feugiat ullamcorper tristique."
+s_tenko1start4 equ "Donec euismod,<line>arcu eget tristique iaculis."
+s_tenko1start5 equ "Quisque porttitor nulla magna,<line>nec porta augue viverra ut."
+s_tenko1start6 equ "Aliquam at tempor enim.<line>Quisque sapien nisl."
+s_tenko1start7 equ "Dictum non varius ac,<line>interdum sed tortor."
+s_tenko1start8 equ "Nullam magna sem,<line>laoreet id ultricies eget."
+s_tenko1start9 equ "Etiam a nibh quis risus<line>molestie tristique in ac velit."
+
+s_tenko1lose1 equ "Aenean eget tellus porttitor,<line>dapibus metus et, efficitur augue."
+s_tenko1lose2 equ "Maecenas mattis auctor<line>metus sed rhoncus."
+s_tenko1lose3 equ "Praesent eget lectus eget dolor<line>lobortis faucibus non eget libero."
+s_tenko1lose4 equ "Integer bibendum nunc<line>quis laoreet egestas."
+
+s_tenko1redo1 equ "Pellentesque nisi mi,<line>fringilla a enim facilisis."
+s_tenko1redo2 equ "Curabitur et nibh ligula.<line>Fusce commodo nunc at bibendum."
+s_tenko1redo3 equ "Etiam eget nibh a mauris<line>scelerisque feugiat nec placerat urna."
+
+s_tenko1win1 equ "Nulla blandit ante vel<line>scelerisque fermentum."
+s_tenko1win2 equ "Quisque eget magna sodales,<line>efficitur tortor nec, blandit purus."
+s_tenko1win3 equ "Vesbulum gravida sagitis interdum."
+s_tenko1win4 equ "Morbi magna felis, mollis a<line>volutpat in, auctor ultricies diam."
+
+s_tenko2start1 equ "Lorem ipsum dolor sit amet,<line>consectetur adipiscing elit."
+s_tenko2start2 equ "Sed ullamcorper<line>dui id varius vehicula."
+s_tenko2start3 equ "Sed eget lectus sit amet urna<line>egestas lobortis sit amet at neque."
+s_tenko2start4 equ "Curabitur arcu felis, ultrices at<line>massa sed, pretium finibus dui."
+s_tenko2start5 equ "Sed feugiat facilisis quam,<line>id convallis orci convallis porta."
+s_tenko2start6 equ "?"
+s_tenko2start7 equ "Nunc tincidunt accumsan feugiat."
+
+s_tenko2lose1 equ "Integer fermentum cursus turpis,<line>sit amet commodo orci."
+s_tenko2lose2 equ "Etiam aliquam tincidunt lacinia.<line>Proin quis ante dolor eleifend eleifend."
+s_tenko2lose3 equ "Ut ornare varius tellus,<line>ultrices malesuada ligula ultricies eu."
+s_tenko2lose4 equ "Ut turpis tortor, gravida ac<line>viverra ut, ornare quis orci."
+
+s_tenko2redo1 equ "Sed sed tempus tortor,<line>ut condimentum ligula."
+s_tenko2redo2 equ "Aliquam pellente molestie tempor."
+
+s_tenko2win1 equ "Donec vestibulum nunc sagittis,<line>faucibus lectus eget, varius diam."
+s_tenko2win2 equ "Cras elemum arcu sed pellentesque."
+s_tenko2win3 equ "Curabitur id condimentum ex."
+s_tenko2win4 equ "Fusce congue nisl et ante mattis,<line>vel ornare est sodales."
+
+s_tenko3start1 equ "Phasellus erat leo, dignissim nec<line>urna iaculis, finibus feugiat nibh."
+s_tenko3start2 equ "Nullam ac volutpat sem."
+s_tenko3start3 equ "Fusce rutrum ante ullamcorper,<line>et mollis urna vehicula."
+s_tenko3start4 equ "Donec turpis massa, commodo et<line>sem sed, malesuada posuere ex."
+s_tenko3start5 equ "Aliquam placerat vitae tristique,<line>in blandit ante ultricies."
+s_tenko3start6 equ "Pellentesque laoreet neque in mauris<line>laoreet, efficitur purus consectetur."
+s_tenko3start7 equ "Ut orci metus, interdum eget<line>scelerisque et, posuere at nisi."
+s_tenko3start8 equ "Curabitur sed ante porta, ultrices<line>ante ac, dictum diam."
+s_tenko3start9 equ "Maecenas non neque erat.<line>Morbi eleifend turpis sed viverra."
+s_tenko3start10 equ "Sed vel eros lorem mollis imperdiet."
+s_tenko3start11 equ "Vivamus dolor velit, blandit id<line>nibh vitae, sodales hendrerit eros."
+
+s_tenko3lose1 equ "Vestibulum ante ipsum primis<line>et ultrices posuere cubilia curae."
+s_tenko3lose2 equ "Sed quis ipsum rutrum, bibendum<line>orci eu, hendrerit lacus."
+s_tenko3lose3 equ "Nunc id purus nisl."
+
+s_tenko3redo1 equ "Mauris eu dolor sit amet<line>nibh feugiat tincidunt."
+s_tenko3redo2 equ "In sed blandit metus.<line>Aliquam ac urna suscipit tempor."
+s_tenko3redo3 equ "Maecenas porttitor tortor ut<line>consectetur porttitor."
+
+s_tenko3win1 equ "Curabitur quis mi imperdiet, rhoncus<line>sit amet, imperdiet libero."
+s_tenko3win2 equ "Vivamus tempor libero libero,<line>quis dignissim augue ultrices at."
+s_tenko3win3 equ "Vestibulum ultrices scelerisque<line>turpis quis tincidunt."
+s_tenko3win4 equ "Morbi quis tempus enim,<line>et dapibus massa."
+s_tenko3win5 equ "Nunc in diam vitae urna<line>lacinia pulvinar ut a sapien. "
+
 s_ending1_1 equ "Oh, that's how you clear that!<line>As I'd expect from the leader's son." ;あ、あれをクリアしちゃうとは！<line>さすが団長のむすこ！<end>
 s_ending1_2 equ "...leader?" ;団長・・・？
 s_ending1_3 equ "Kururin, you've grown a lot." ;クルリン、大きくなったな
