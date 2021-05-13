@@ -43,7 +43,7 @@
 		lsl r3,r3,1h
 		add r2,r2,r3
 		add r2,20h
-		ldrh r0,[r0,r2]		; Relative offset for current character (only halfword)
+		ldrh r0,[r0,r2]		; Relative offset for current character (only halfword) (to 0x284F70)
 
 		lsr r0,r0,5h	;some bit-shifting due to how I put in my width table
 		lsl r0,r0,1h

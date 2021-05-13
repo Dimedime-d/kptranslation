@@ -45,7 +45,10 @@
 	.word ScriptParse
 
 .org 0x082ed78c
-.incbin "bin/2ed78c.bin" ;fixes x-pos of each character
+	.incbin "bin/2ed78c.bin" ;fixes x-pos of each character
+
+.org 0x082E5294
+	.incbin "bin/minus.bin" ;fixes x-pos of minus sign
 
 .org 0x08039128
 	.incbin "bin/punct.bin" ;repoints punctuation
