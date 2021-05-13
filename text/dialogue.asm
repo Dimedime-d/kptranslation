@@ -312,6 +312,16 @@ s_baron3winlast4 equ "Praesent pretium semper purus,<line>ac hendrerit ex ultric
 s_baron3winlast5 equ "Duis placerat lacus eget orci<line>facilisis ornare."
 s_baron3winlast6 equ "Quisque suscipit imperdiet purus<line>vitae eleifend."
 
+s_intermission1 equ "Proin rutrum massa non sapien,<line>vel blandit neque fringilla."
+s_intermission2 equ "Donec lorem massa, eleifen<line>dolor ut, tincidunt porttitor mi"
+s_intermission3 equ "Suspendisse in eros id tortor<line>commodo ultrices a quis nunc."
+s_intermission4 equ "Ut quis justo erat.<line>Suspendisse non sem diam."
+s_intermission5 equ "Aliquam felis ex, mattis ornare<line>erat vel, ullamer gravida."
+s_intermission6 equ "Morbi eu purus et enim<line>scelerisque dapibus."
+s_intermission7 equ "Sed rutrum erat eget<line>porttitor auctor."
+s_intermission8 equ "Aenean turpis eros, auctor quis<line>sollic, pretium matis urna."
+s_intermission9 equ "Etiam in tortor vestibulum,<line>varius magna ac, mattis odio."
+
 s_ending1_1 equ "Oh, that's how you clear that!<line>As I'd expect from the leader's son." ;あ、あれをクリアしちゃうとは！<line>さすが団長のむすこ！<end>
 s_ending1_2 equ "...leader?" ;団長・・・？
 s_ending1_3 equ "Kururin, you've grown a lot." ;クルリン、大きくなったな

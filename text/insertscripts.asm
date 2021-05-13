@@ -65,6 +65,9 @@
 
 .org 0x0801A38C ;beat Baron Magic's 3rd minigame, and it's the last one 
 	.word @Baron3winlast
+
+.org 0x0801324C ;cutscene with Baron Magic before Neo Land
+	.word @Intermission
 	
 .org 0x08010DF0
 	.word script_loc1
@@ -117,6 +120,20 @@ sndOffset equ 0x78 ;originally 0x40, makes more space for characters
 
 .org 0x08095CE4
 .byte 0x50 ;originally 0x26, deletes all text chars
+
+;----------------- Neo Land Intermission dialogue modifications (can press A to display all text)
+
+.org 0x08095EFC
+.byte 0x30 ;max # of chars per line
+
+.org 0x08095E10
+.byte sndOffset + 1 ;sound effect storage hack
+
+.org 0x08095E70
+.byte 0x03 ;faster dialogue speed (0x06 originally)
+
+.org 0x08095ECE
+.byte 0x0F ;custom vwf code
 
 ;----------------- Special text box (green/pink) modifications
 .org 0x080AC574
@@ -270,6 +287,8 @@ _str " FIN"
 	.include "asm/scriptcode/baron/baron3win.asm"
 @Baron3winlast:
 	.include "asm/scriptcode/baron/baron3winlast.asm"
+@Intermission:
+	.include "asm/scriptcode/intermission.asm"
 @NewEndingScript:
 	.include "asm/scriptcode/ending.asm"
 MinigameUnlock:
