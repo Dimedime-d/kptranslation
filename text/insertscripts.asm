@@ -19,6 +19,12 @@
 	.word @Tenko2redo
 	.word @Tenko3start
 	.word @Tenko3redo
+	.word @Naporon1start
+	.word @Naporon1redo
+	.word @Naporon2start
+	.word @Naporon2redo
+	.word @Naporon3start
+	.word @Naporon3redo
 
 .org 0x0802EA9C
 	.word @Kappado1lose
@@ -33,6 +39,12 @@
 	.word @Tenko2win
 	.word @Tenko3lose
 	.word @Tenko3win
+	.word @Naporon1lose
+	.word @Naporon1win
+	.word @Naporon2lose
+	.word @Naporon2win
+	.word @Naporon3lose
+	.word @Naporon3win
 
 .org 0x08010DC4 ;starting intro cutscene from game boot
 	.word @NewIntroScript
@@ -193,6 +205,30 @@ _str " FIN"
 	.include "asm/scriptcode/tenko/tenko3redo.asm"
 @Tenko3win:
 	.include "asm/scriptcode/tenko/tenko3win.asm"
+@Naporon1start:
+	.include "asm/scriptcode/naporon/naporon1start.asm"
+@Naporon1lose:
+	.include "asm/scriptcode/naporon/naporon1lose.asm"
+@Naporon1redo:
+	.include "asm/scriptcode/naporon/naporon1redo.asm"
+@Naporon1win:
+	.include "asm/scriptcode/naporon/naporon1win.asm"
+@Naporon2start:
+	.include "asm/scriptcode/naporon/naporon2start.asm"
+@Naporon2lose:
+	.include "asm/scriptcode/naporon/naporon2lose.asm"
+@Naporon2redo:
+	.include "asm/scriptcode/naporon/naporon2redo.asm"
+@Naporon2win:
+	.include "asm/scriptcode/naporon/naporon2win.asm"
+@Naporon3start:
+	.include "asm/scriptcode/naporon/naporon3start.asm"
+@Naporon3lose:
+	.include "asm/scriptcode/naporon/naporon3lose.asm"
+@Naporon3redo:
+	.include "asm/scriptcode/naporon/naporon3redo.asm"
+@Naporon3win:
+	.include "asm/scriptcode/naporon/naporon3win.asm"
 @NewEndingScript:
 	.include "asm/scriptcode/ending.asm"
 MinigameUnlock:

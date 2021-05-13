@@ -169,7 +169,77 @@ s_tenko3win1 equ "Curabitur quis mi imperdiet, rhoncus<line>sit amet, imperdiet 
 s_tenko3win2 equ "Vivamus tempor libero libero,<line>quis dignissim augue ultrices at."
 s_tenko3win3 equ "Vestibulum ultrices scelerisque<line>turpis quis tincidunt."
 s_tenko3win4 equ "Morbi quis tempus enim,<line>et dapibus massa."
-s_tenko3win5 equ "Nunc in diam vitae urna<line>lacinia pulvinar ut a sapien. "
+s_tenko3win5 equ "Nunc in diam vitae urna<line>lacinia pulvinar ut a sapien."
+
+s_naporon1start1 equ "Donec tempor non ante ut<line>condimentum."
+s_naporon1start2 equ "Nulla orci arcu, sodales in<line>lacinia a, tempor at enim."
+s_naporon1start3 equ "Nullam vitae nibh pharetra, congue<line>mauris eget, accumsan dolor."
+s_naporon1start4 equ "Phasellus sem justo, hendrerit ac<line>rutrum vel, facilisis at nunc."
+s_naporon1start5 equ "Aenean vel dolor id neque venenatis<line>interdum vestibulum sed tellus."
+s_naporon1start6 equ "Curabitur et lectus sit amet massa<line>tempor porttitor."
+s_naporon1start7 equ "Morbi lobortis imperdiet molestie.<line>Sed sit amet nisi orci."
+s_naporon1start8 equ "Etiam lobortis arcu nisl dignissim,<line>sit amet pulvinar nisl finibus."
+
+s_naporon1lose1 equ "Sed mauris dui, imperdiet eu metus<line>eget, molestie gravida arcu."
+s_naporon1lose2 equ "Etiam ac auctor lectus,<line>sed convallis lacus."
+s_naporon1lose3 equ "Praesent tincidunt sapien<line>in ipsum elementum volutpat."
+
+s_naporon1redo1 equ "Nullam est mauris, rhoncus et<line>eget, facilisis mollis lectus."
+s_naporon1redo2 equ "Suspendisse potenti."
+
+s_naporon1win1 equ "Fusce id suscipit velit,<line>eget feugiat odio."
+s_naporon1win2 equ "Phasellus tempor convallis lobortis."
+s_naporon1win3 equ "Cras eget ex vitae leo vehicula<line>ultricies."
+s_naporon1win4 equ "Pellentesque finibus tincidunt mollis."
+s_naporon1win5 equ "Nunc nisi sem, vehicula in risus<line>auctor, euismod maximus velit."
+s_naporon1win6 equ "Aenean lobortis auctor semper."
+
+s_naporon2start1 equ "Aliquam non libero id<line>velit consequat viverra."
+s_naporon2start2 equ "Aenean eros augue, finibus et<line>odio non, dapibus ornare est."
+s_naporon2start3 equ "Quisque ac magna leo."
+s_naporon2start4 equ "Proin dictum velit faucibus efficitur,<line>quis condimentum ipsum dapibus."
+s_naporon2start5 equ "Nulla tincidunt lacinia leo non<line>fermentum. Nunc non arcu erat."
+s_naporon2start6 equ "Cras ultricies tempus nulla,<line>et sodales elit vulputate a."
+s_naporon2start7 equ "Sed justo dolor, semper quis<line>venenatis tempor, euismod lectus."
+s_naporon2start8 equ "Aenean vitae erat sit<line>amet enim facilisis porta."
+s_naporon2start9 equ "Sed mattis arcu id ullamcorper<line>tempus."
+
+s_naporon2lose1 equ "Mauris convallis eu mi sit amet<line>viverra."
+s_naporon2lose2 equ "Fusce in eros quis elit luctus<line>sollicitudin vitae eget dolor."
+s_naporon2lose3 equ "Lorem ipsum dolor sit amet,<line>consectetur adipiscing elit."
+
+s_naporon2redo1 equ "Ut eu justo vel est auctor varius."
+s_naporon2redo2 equ "Duis sed arcu efficitur, hendrerit<line>enim a, pharetra mauris."
+s_naporon2redo3 equ "Pellentesque augue eros, posuere<line>quis odio vel, hendrerit rutrum nisl."
+
+s_naporon2win1 equ "Praesent quis accumsan odio.<line>Pellentesque et augue urna."
+s_naporon2win2 equ "Sed lacinia tempus ante,<line>eget egestas nibh tempor quis."
+s_naporon2win3 equ "Curabitur in hendrerit elit.<line>Praesent vestibulum quis dapibus."
+
+s_naporon3start1 equ "Morbi et magna vel justo<line>pharetra mollis vel a tortor."
+s_naporon3start2 equ "Mauris ipsum magna, efficitur eu<line>quam ut, consectetur rutrum diam."
+s_naporon3start3 equ "Nulla in scelerisque mi,<line>ac vulputate eros."
+s_naporon3start4 equ "Donec ultrices vestibulum<line>nisi, rutrum facilisis eros."
+s_naporon3start5 equ "Curabitur lorem neque, ornare at<line>aliquet iaculis, auctor at ligula."
+s_naporon3start6 equ "Sed dignissim lobortis eleifend."
+s_naporon3start7 equ "Integer tempus porta dolor,<line>id fringilla augue pretium feugiat."
+s_naporon3start8 equ "Integer massa nibh, dignissim<line>non tempus in, imperdiet eu metus."
+
+s_naporon3lose1 equ "Quisque justo ante, malesuada nec<line>justo eget, tempus malesuada nibh."
+s_naporon3lose2 equ "Aenean vehicula enim a dictum<line>porta."
+s_naporon3lose3 equ "Suspendisse in nibh ut justo<line>volutpat auctor."
+s_naporon3lose4 equ "Sed scelerisque interdum tellus<line>quis dictum."
+s_naporon3lose5 equ "Donec viverra tellus id lorem<line>viverra, eu auctor dolor vehicula."
+
+s_naporon3redo1 equ "Nam lobortis nulla sem,<line>ut feugiat felis finibus in."
+s_naporon3redo2 equ "Vivamus felis lorem, malesuada<line>non posuere a, congue et quam."
+s_naporon3redo3 equ "Aliquam consectetur neque nisl,<line> non suscipit est egestas sed."
+
+s_naporon3win1 equ "Pellentesque aliquam est elit,<line>eget feugiat velit accumsan in."
+s_naporon3win2 equ "Fusce vel neque felis."
+s_naporon3win3 equ "Cras a nunc sit amet<line>massa hendrerit fringilla."
+s_naporon3win4 equ "Vivamus eget fringilla nulla."
+s_naporon3win5 equ "Phasellus rhoncus lectus a sem<line>ultrices, nec vestibulum sollicitudin. "
 
 s_ending1_1 equ "Oh, that's how you clear that!<line>As I'd expect from the leader's son." ;あ、あれをクリアしちゃうとは！<line>さすが団長のむすこ！<end>
 s_ending1_2 equ "...leader?" ;団長・・・？
