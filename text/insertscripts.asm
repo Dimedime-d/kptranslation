@@ -121,7 +121,8 @@ _str " FIN"
 
 .include "text/dialogue.asm"
 
-.org 0x08840000
+.autoregion
+.align 4
 @NewIntroScript:
 	.include "asm/scriptcode/intro_sc.asm"
 @Kappado1start:
@@ -138,3 +139,4 @@ MinigameUnlock:
 	.include "asm/scriptcode/minigameunlock.asm"
 MagicUnlock:
 	.include "asm/scriptcode/magicunlock.asm"
+.endautoregion
