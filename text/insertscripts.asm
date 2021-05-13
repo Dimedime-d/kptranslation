@@ -6,13 +6,33 @@
 .org 0x08006E9C
 	.word @NewEndingScript
 
-.org 0x0802E4B4
+.org 0x0802E4B4 ;repointing cutscene script locations
 	.word @Kappado1start
 	.word @Kappado1redo
+	.word @Kappado2start
+	.word @Kappado2redo
+	.word @Kappado3start
+	.word @Kappado3redo
+	.word @Tenko1start
+	.word @Tenko1redo
+	.word @Tenko2start
+	.word @Tenko2redo
+	.word @Tenko3start
+	.word @Tenko3redo
 
 .org 0x0802EA9C
 	.word @Kappado1lose
 	.word @Kappado1win
+	.word @Kappado2lose
+	.word @Kappado2win
+	.word @Kappado3lose
+	.word @Kappado3win
+	.word @Tenko1lose
+	.word @Tenko1win
+	.word @Tenko2lose
+	.word @Tenko2win
+	.word @Tenko3lose
+	.word @Tenko3win
 
 .org 0x08010DC4 ;starting intro cutscene from game boot
 	.word @NewIntroScript
@@ -133,6 +153,46 @@ _str " FIN"
 	.include "asm/scriptcode/kappado/kappado1redo.asm"
 @Kappado1win:
 	.include "asm/scriptcode/kappado/kappado1win.asm"
+@Kappado2start:
+	.include "asm/scriptcode/kappado/kappado2start.asm"
+@Kappado2lose:
+	.include "asm/scriptcode/kappado/kappado2lose.asm"
+@Kappado2redo:
+	.include "asm/scriptcode/kappado/kappado2redo.asm"
+@Kappado2win:
+	.include "asm/scriptcode/kappado/kappado2win.asm"
+@Kappado3start:
+	.include "asm/scriptcode/kappado/kappado3start.asm"
+@Kappado3lose:
+	.include "asm/scriptcode/kappado/kappado3lose.asm"
+@Kappado3redo:
+	.include "asm/scriptcode/kappado/kappado3redo.asm"
+@Kappado3win:
+	.include "asm/scriptcode/kappado/kappado3win.asm"
+@Tenko1start:
+	.include "asm/scriptcode/tenko/tenko1start.asm"
+@Tenko1lose:
+	.include "asm/scriptcode/tenko/tenko1lose.asm"
+@Tenko1redo:
+	.include "asm/scriptcode/tenko/tenko1redo.asm"
+@Tenko1win:
+	.include "asm/scriptcode/tenko/tenko1win.asm"
+@Tenko2start:
+	.include "asm/scriptcode/tenko/tenko2start.asm"
+@Tenko2lose:
+	.include "asm/scriptcode/tenko/tenko2lose.asm"
+@Tenko2redo:
+	.include "asm/scriptcode/tenko/tenko2redo.asm"
+@Tenko2win:
+	.include "asm/scriptcode/tenko/tenko2win.asm"
+@Tenko3start:
+	.include "asm/scriptcode/tenko/tenko3start.asm"
+@Tenko3lose:
+	.include "asm/scriptcode/tenko/tenko3lose.asm"
+@Tenko3redo:
+	.include "asm/scriptcode/tenko/tenko3redo.asm"
+@Tenko3win:
+	.include "asm/scriptcode/tenko/tenko3win.asm"
 @NewEndingScript:
 	.include "asm/scriptcode/ending.asm"
 MinigameUnlock:
