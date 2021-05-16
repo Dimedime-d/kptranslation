@@ -3,7 +3,7 @@
 
 .org 0x0802E708
     .word @starTiles
-    .word 0x25FF
+    .word 0x25C0
     .word @starMap
 
 .org 0x0802E718
@@ -13,7 +13,11 @@
 
 ; 0x0802E738 - Dot Filler
 ; 0x0802E748 - Grass Cutter
-; 0x0802E758 - Slip Drop
+
+.org 0x0802E758
+    .word @iceTiles
+    .word 0x2480
+    .word @iceMap
 
 .org 0x0802E768
 	.word @skyTiles
@@ -50,6 +54,14 @@
     .align
     @starMap:
     .incbin "bin/minigame/StarMap.bin"
+    .word 0x00
+    .align
+    @iceTiles:
+    .incbin "bin/minigame/IceTiles.bin"
+    .word 0x00
+    .align
+    @iceMap:
+    .incbin "bin/minigame/IceMap.bin"
     .word 0x00
     .align
 .endautoregion
