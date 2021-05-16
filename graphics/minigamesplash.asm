@@ -1,10 +1,15 @@
 ; 0x0802E6F8 - Crossfire
 ; 0x0802E708 - Starlight Romance
 
+.org 0x0802E708
+    .word @starTiles
+    .word 0x25FF
+    .word @starMap
+
 .org 0x0802E718
     .word @bounceTiles
-    .word 0x25DF
-    .word @
+    .word 0x25C0
+    .word @bounceMap
 
 ; 0x0802E738 - Dot Filler
 ; 0x0802E748 - Grass Cutter
@@ -12,7 +17,7 @@
 
 .org 0x0802E768
 	.word @skyTiles
-	.word 0x205F ;uncompressed size - 1
+	.word 0x205F
 	.word @skyMap
 
 ; 0x0802E798 - Falling Down
@@ -37,6 +42,14 @@
     .align
     @bounceMap:
     .incbin "bin/minigame/BounceMap.bin"
+    .word 0x00
+    .align
+    @starTiles:
+    .incbin "bin/minigame/StarTiles.bin"
+    .word 0x00
+    .align
+    @starMap:
+    .incbin "bin/minigame/StarMap.bin"
     .word 0x00
     .align
 .endautoregion
