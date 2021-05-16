@@ -7,12 +7,12 @@
 
 .org 0x0802E708
     .word @starTiles
-    .word 0x25C0
+    .word 0x14D1
     .word @starMap
 
 .org 0x0802E718
     .word @bounceTiles
-    .word 0x25C0
+    .word 0x11E4
     .word @bounceMap
 
 ; 0x0802E738 - Dot Filler
@@ -20,19 +20,19 @@
 
 .org 0x0802E758
     .word @iceTiles
-    .word 0x24A0
+    .word 0x12C3
     .word @iceMap
 
 .org 0x0802E768
 	.word @skyTiles
-	.word 0x205F
+	.word 0x106E ; compressed size
 	.word @skyMap
 
 ; 0x0802E798 - Falling Down
 
 .org 0x0802E7A8 
     .word @magnetTiles
-    .word 0x27E0
+    .word 0x147A
     .word @magnetMap
 
 ; 0x0802E7B8 - Pit-Pat Racer
