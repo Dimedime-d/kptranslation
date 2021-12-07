@@ -10,6 +10,6 @@
 .include "text/insertscripts.asm"
 .include "text/ascii.asm"
 .include "text/menu.asm"
-.include "graphics/minigamesplash.asm"
+.include "text/minigamesplash.asm"
 
 .close
