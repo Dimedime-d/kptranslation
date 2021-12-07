@@ -78,6 +78,7 @@
 .org 0x080290D0	::	.word @Chikurin
 
 ;---------------------------------------------
+
 ;Text that doesn't fit in original space
 .autoregion
 	@SeeCourse: 		.string "See Course"		::	.align
@@ -99,7 +100,7 @@
 	@GrassCutter:	.asciiz "Grass Cutter"	::	.align
 	@FallingDown:	.asciiz "Falling Down"	::	.align
 	@MagnetForce:	.asciiz "Magnet Force"	::	.align
-	@Continue:	.asciiz "Continue"	::	.align
+	@Continue:	.string "Continue"	::	.align
 	@Name0:		.asciiz "Kururin"	::	.align
 	@Name1:		.asciiz "Kurukuru"	::	.align
 	@Name2:		.asciiz "Nanashi"	::	.align
@@ -110,20 +111,8 @@
 	@Name7:		.asciiz "Paradise"	::	.align
 	@Learn:		.asciiz "   Learn" ::	.align
 	MiniParaTitles: .incbin "bin/minigameparadiselabels.bin"
-	@Adventure:		.incbin "bin/menus/adventure_EN.bin"
-	@Practice:		.incbin "bin/menus/practice_EN.bin"
-	@Challenge:		.incbin "bin/menus/challenge_EN.bin"
-	@Magic:			.incbin "bin/menus/magic_EN.bin"
-	@KuruKururin:	.incbin "bin/menus/kurukurukururin_EN.bin"
-	@MinigameParadise:	.incbin "bin/menus/minigameparadise_EN.bin"
-	@OneCartVersus:
-		.byte 	0x05,0xF0,0x48,0x08,0xB7,0xF8,0x24,0x08, \
-				0xD7,0xF8,0x24,0x08,0xF6,0xF8,0x24,0x08, \
-				0x15,0xF8,0x24,0x08,0x34,0xF8,0x24,0x08
-		.incbin "bin/menus/singlepakversus_EN_comp.bin"
-		.word 0x00000000
-	.align 4
 .endautoregion
+		
 ;---------------------------------------------
 .org 0x080172FE
 	bl MiniParaTitleHook
@@ -179,9 +168,9 @@
 .org 0x0802E6AC	::	.word @FallingDown
 	.word @MagnetForce
 
-;Password menu
+;Password menu + multiplayer mode
 .org 0x08025897	::	.asciiz "CHAR"
-.org 0x08025854	::	.asciiz "Stop"
+.org 0x08025854	::	.string "Stop"
 .org 0x0801DE80	::	.word @Continue
 
 ;Magic Menu
@@ -293,18 +282,3 @@ creditLine s_credits52
 	.word @Name6
 	.word @Name7
 	
-;----------------------
-;Single-Player Menus repointing GFX
-.org 0x0802DF50
-	.word @Adventure
-	.word @Practice
-	.word @Challenge
-	.word @Magic
-.org 0x0802DF68
-	.word @KuruKururin
-	.word @MinigameParadise
-	
-;----------------------
-;Multiplayer Menus repointing compressed GFX TODO: fix compression algorithim
-.org 0x08015CA8
-	.word @OneCartVersus

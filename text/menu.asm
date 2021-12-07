@@ -60,3 +60,100 @@ repointText 0x080228D4,"selected, turn off the power"
 repointtext 0x080228D8,"now. Remove the cartridge,"
 repointText 0x080228DC,"turn the power back on again"
 repointText 0x080228E0,"and the Magic will begin!"
+
+;-----------------------------
+.macro FourWideMenuObjData
+	.byte 0xB7,0xF8,0x24,0x08
+	.byte 0xD7,0xF8,0x24,0x08
+	.byte 0xF7,0xF8,0x24,0x08
+	.byte 0x17,0xF8,0x24,0x08
+	.byte 0x37,0xF8,0x24,0x08
+.endmacro
+
+.autoregion
+	@Adventure:		.incbin "bin/menus/adventure_EN.bin"
+	@Practice:		.incbin "bin/menus/practice_EN.bin"
+	@Challenge:		.incbin "bin/menus/challenge_EN.bin"
+	@Magic:			.incbin "bin/menus/magic_EN.bin"
+	@KuruKururin:	.incbin "bin/menus/kurukurukururin_EN.bin"
+	@MinigameParadise:	.incbin "bin/menus/minigameparadise_EN.bin"
+	@OneCartVersus:
+		.byte 0x05,0xF0,0x48,0x08
+		FourWideMenuObjData
+		.incbin "bin/menus/multiplayer/singlepakversus_EN_comp.bin"
+		.word 0x00000000
+		.align 4
+	@P2KuruKururin:
+		.byte 0x05,0x80,0x48,0x08
+		FourWideMenuObjData
+		.incbin "bin/menus/multiplayer/2PKuruKuruKururin_EN_comp.bin"
+		.word 0x00000000
+		.align 4
+	@P3KuruKururin:
+		.byte 0x05,0x80,0x48,0x08
+		FourWideMenuObjData
+		.incbin "bin/menus/multiplayer/3PKuruKuruKururin_EN_comp.bin"
+		.word 0x00000000
+		.align 4
+	@P4KuruKururin:
+		.byte 0x05,0x80,0x48,0x08
+		FourWideMenuObjData
+		.incbin "bin/menus/multiplayer/4PKuruKuruKururin_EN_comp.bin"
+		.word 0x00000000
+		.align 4
+	@P2MinigameParadise:
+		.byte 0x05,0x80,0x48,0x08
+		FourWideMenuObjData
+		.incbin "bin/menus/multiplayer/2PMinigameParadise_EN_comp.bin"
+		.word 0x00000000
+		.align 4
+	@P3MinigameParadise:
+		.byte 0x05,0x80,0x48,0x08
+		FourWideMenuObjData
+		.incbin "bin/menus/multiplayer/3PMinigameParadise_EN_comp.bin"
+		.word 0x00000000
+		.align 4
+	@P4MinigameParadise:
+		.byte 0x05,0x80,0x48,0x08
+		FourWideMenuObjData
+		.incbin "bin/menus/multiplayer/4PMinigameParadise_EN_comp.bin"
+		.word 0x00000000
+		.align 4
+.endautoregion
+
+;----------------------
+;Single-Player Menus repointing GFX
+.org 0x0802DF50
+	.word @Adventure
+	.word @Practice
+	.word @Challenge
+	.word @Magic
+.org 0x0802DF68
+	.word @KuruKururin
+	.word @MinigameParadise
+	
+;----------------------
+;Multiplayer Menus repointing compressed GFX
+;TODO - change menu buttons for non-parent GBA's
+.org 0x08015CA8
+	.word @OneCartVersus
+.org 0x0802E644
+	.word @KuruKururin
+	.word @KuruKururin
+	.word @P2KuruKururin
+	.word @P3KuruKururin
+	.word @P4KuruKururin
+	.word @MinigameParadise
+	.word @MinigameParadise
+	.word @P2MinigameParadise
+	.word @P3MinigameParadise
+	.word @P4MinigameParadise
+.org 0x0802ECC4
+	.word @P2KuruKururin
+	.word @P3KuruKururin
+	.word @P4KuruKururin
+	.word @P2MinigameParadise
+	.word @P3MinigameParadise
+	.word @P4MinigameParadise
+	
+;------------------------
