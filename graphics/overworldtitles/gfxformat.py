@@ -5,26 +5,11 @@ import os
 # 0x19C284 original ROM
 original_palette = [0, 112, 40, 152, 0, 64, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 152, 0, 64, 176, 56, 88, 200, 112, 120, 224, 168, 152, 248, 232, 184]
 
-# https://stackoverflow.com/questions/29433243/convert-image-to-specific-palette-using-pil-without-dithering#29438149
-def quantize_to_palette(silf, paletteData, dither=False):
-    """Convert an RGB or L mode image to use given palette data."""
-
-    palImage = Image.new("P", (16, 16))
-    palImage.putpalette(paletteData)
-
-    silf.load()
-    if silf.mode != "RGB" and silf.mode != "L":
-        raise ValueError(
-            "only RGB or L mode images can be quantized to a palette"
-            )
-    im = silf.im.convert("P", 1 if dither else 0, palImage.im)
-    # the 0 above means turn OFF dithering
-
-    # Later versions of Pillow (4.x) rename _makeself to _new
-    try:
-        return silf._new(im)
-    except AttributeError:
-        return silf._makeself(im)
+#https://stackoverflow.com/a/237193
+def quantize_to_palette(img, palette, dither=Image.NONE):
+    palImage = Image.new("P", (1, 1))
+    palImage.putpalette(palette + [0, 0, 0] * 240)
+    return img.convert("RGB").quantize(palette=palImage, dither=Image.NONE)
 
 def to_gba(arr):
     arr = arr.astype('<u1')
