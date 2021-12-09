@@ -10,7 +10,7 @@
 .include "text/insertscripts.asm"
 .include "text/ascii.asm"
 .include "text/menu.asm"
-.include "text/minigamesplash.asm"
+.include "graphics/minigamesplashes/minigamesplashes.asm"
 .include "text/overworldtitles.asm"
 
 .close

@@ -37,7 +37,7 @@ def image_to_dmp(file):
     
     #NEW: Fit image to original palette
     image = image.convert("RGB")
-    image = quantize_to_palette(image, original_palette, dither=False)
+    image = quantize_to_palette(image, original_palette)
     
     arr = numpy.array(image.getdata(), dtype='<u1').reshape(image.width, image.height)
     
