@@ -129,7 +129,7 @@
 		owleveltitleheader	0,0
 		inctitle	"village4a"
 	L0D:
-		owleveltitleheaderbig	0,-1
+		owleveltitleheader	0,-1
 		inctitle	"village4b"
 	L0E:
 		owleveltitleheader	0,-1
