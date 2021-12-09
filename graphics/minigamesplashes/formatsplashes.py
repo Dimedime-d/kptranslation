@@ -242,6 +242,9 @@ def merge_binaries(text_tiles, text_map, pic_tiles, pic_map, tiles_out=None, map
     return tile_bytes, map_bytes
 
 def main():
+    if not os.path.exists(TEMP_FOLDER):
+        os.makedirs(TEMP_FOLDER)
+
     repoint_strs = []
     incbin_strs  = []
     
