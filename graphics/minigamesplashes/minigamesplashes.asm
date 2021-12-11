@@ -16,123 +16,123 @@
 
 .org 0x0802E6F8
     .word @crossfireTiles
-    .word 0xEF8
+    .word @crossfireTilesEnd - @crossfireTiles
     .word @crossfireMap
 
 .org 0x0802E708
     .word @starTiles
-    .word 0x14D9
+    .word @starTilesEnd - @starTiles
     .word @starMap
 
 .org 0x0802E718
     .word @bounceTiles
-    .word 0x11E5
+    .word @bounceTilesEnd - @bounceTiles
     .word @bounceMap
 
 .org 0x0802E738
     .word @dotsTiles
-    .word 0x1435
+    .word @dotsTilesEnd - @dotsTiles
     .word @dotsMap
 
 .org 0x0802E748
     .word @grassTiles
-    .word 0x1484
+    .word @grassTilesEnd - @grassTiles
     .word @grassMap
 
 .org 0x0802E758
     .word @iceTiles
-    .word 0x12C4
+    .word @iceTilesEnd - @iceTiles
     .word @iceMap
 
 .org 0x0802E768
     .word @skyTiles
-    .word 0x106F
+    .word @skyTilesEnd - @skyTiles
     .word @skyMap
 
 .org 0x0802E798
     .word @fallTiles
-    .word 0x1AF2
+    .word @fallTilesEnd - @fallTiles
     .word @fallMap
 
 .org 0x0802E7A8
     .word @magnetTiles
-    .word 0x147D
+    .word @magnetTilesEnd - @magnetTiles
     .word @magnetMap
 
 .org 0x0802E7B8
     .word @raceTiles
-    .word 0x1255
+    .word @raceTilesEnd - @raceTiles
     .word @raceMap
 
 .org 0x0802E7C8
     .word @shootTiles
-    .word 0x14CE
+    .word @shootTilesEnd - @shootTiles
     .word @shootMap
 
 .org 0x0802E7D8
     .word @twinTiles
-    .word 0x1651
+    .word @twinTilesEnd - @twinTiles
     .word @twinMap
 
 .autoregion
     .align
     @crossfireTiles:
-    .incbin "graphics\minigamesplashes\dumps\crossfireTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\crossfireTiles.dmp" :: @crossfireTilesEnd: :: pad
     @crossfireMap:
     .incbin "graphics\minigamesplashes\dumps\crossfireMap.dmp" :: pad
 
     @starTiles:
-    .incbin "graphics\minigamesplashes\dumps\starTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\starTiles.dmp" :: @starTilesEnd: :: pad
     @starMap:
     .incbin "graphics\minigamesplashes\dumps\starMap.dmp" :: pad
 
     @bounceTiles:
-    .incbin "graphics\minigamesplashes\dumps\bounceTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\bounceTiles.dmp" :: @bounceTilesEnd: :: pad
     @bounceMap:
     .incbin "graphics\minigamesplashes\dumps\bounceMap.dmp" :: pad
 
     @dotsTiles:
-    .incbin "graphics\minigamesplashes\dumps\dotsTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\dotsTiles.dmp" :: @dotsTilesEnd: :: pad
     @dotsMap:
     .incbin "graphics\minigamesplashes\dumps\dotsMap.dmp" :: pad
 
     @grassTiles:
-    .incbin "graphics\minigamesplashes\dumps\grassTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\grassTiles.dmp" :: @grassTilesEnd: :: pad
     @grassMap:
     .incbin "graphics\minigamesplashes\dumps\grassMap.dmp" :: pad
 
     @iceTiles:
-    .incbin "graphics\minigamesplashes\dumps\iceTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\iceTiles.dmp" :: @iceTilesEnd: :: pad
     @iceMap:
     .incbin "graphics\minigamesplashes\dumps\iceMap.dmp" :: pad
 
     @skyTiles:
-    .incbin "graphics\minigamesplashes\dumps\skyTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\skyTiles.dmp" :: @skyTilesEnd: :: pad
     @skyMap:
     .incbin "graphics\minigamesplashes\dumps\skyMap.dmp" :: pad
 
     @fallTiles:
-    .incbin "graphics\minigamesplashes\dumps\fallTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\fallTiles.dmp" :: @fallTilesEnd: :: pad
     @fallMap:
     .incbin "graphics\minigamesplashes\dumps\fallMap.dmp" :: pad
 
     @magnetTiles:
-    .incbin "graphics\minigamesplashes\dumps\magnetTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\magnetTiles.dmp" :: @magnetTilesEnd: :: pad
     @magnetMap:
     .incbin "graphics\minigamesplashes\dumps\magnetMap.dmp" :: pad
 
     @raceTiles:
-    .incbin "graphics\minigamesplashes\dumps\raceTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\raceTiles.dmp" :: @raceTilesEnd: :: pad
     @raceMap:
     .incbin "graphics\minigamesplashes\dumps\raceMap.dmp" :: pad
 
     @shootTiles:
-    .incbin "graphics\minigamesplashes\dumps\shootTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\shootTiles.dmp" :: @shootTilesEnd: :: pad
     @shootMap:
     .incbin "graphics\minigamesplashes\dumps\shootMap.dmp" :: pad
 
     @twinTiles:
-    .incbin "graphics\minigamesplashes\dumps\twinTiles.dmp" :: pad
+    .incbin "graphics\minigamesplashes\dumps\twinTiles.dmp" :: @twinTilesEnd: :: pad
     @twinMap:
     .incbin "graphics\minigamesplashes\dumps\twinMap.dmp" :: pad
 .endautoregion

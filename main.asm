@@ -11,6 +11,7 @@
 .include "text/ascii.asm"
 .include "text/menu.asm"
 .include "graphics/minigamesplashes/minigamesplashes.asm"
+.include "graphics/minigamesplashes/overworldsplashes.asm"
 .include "text/overworldtitles.asm"
 
 .close

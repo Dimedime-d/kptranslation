@@ -60,11 +60,99 @@ palettes = {
         "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
         "pic": [248, 0, 248, 0, 64, 96, 0, 104, 144, 0, 152, 192, 96, 192, 8, 192, 136, 40, 144, 192, 0, 248, 176, 0, 248, 184, 56, 248, 192, 32, 160, 232, 72, 104, 248, 240, 248, 216, 136, 248, 248, 64, 208, 248, 248, 0, 0, 0]
     },
+    "entry_village": [0, 0, 0, 152, 0, 64, 32, 64, 168, 0, 104, 176, 0, 104, 184, 0, 104, 184, 16, 104, 168, 8, 112, 168, 48, 96, 152, 0, 136, 64, 8, 112, 184, 16, 112, 160, 88, 88, 136, 0, 144, 72, 16, 112, 176, 0, 144, 72, 16, 128, 120, 8, 144, 72, 0, 144, 88, 24, 120, 168, 168, 64, 88, 16, 120, 184, 0, 152, 104, 16, 144, 80, 32, 120, 152, 72, 120, 72, 0, 152, 128, 32, 144, 72, 136, 88, 88, 64, 120, 144, 232, 48, 56, 24, 152, 88, 40, 128, 184, 48, 144, 88, 24, 136, 200, 16, 160, 104, 104, 120, 80, 40, 152, 80, 0, 160, 152, 48, 136, 160, 24, 160, 96, 56, 136, 120, 0, 160, 168, 40, 136, 192, 168, 96, 64, 72, 144, 96, 128, 112, 80, 0, 160, 176, 40, 160, 80, 24, 160, 128, 64, 152, 72, 32, 144, 208, 48, 136, 192, 56, 160, 88, 16, 176, 112, 32, 168, 96, 56, 152, 112, 16, 160, 168, 88, 136, 112, 144, 128, 40, 176, 104, 80, 48, 168, 88, 80, 152, 72, 208, 96, 32, 32, 152, 200, 112, 136, 72, 16, 168, 168, 40, 152, 216, 72, 144, 160, 56, 152, 200, 8, 176, 192, 240, 96, 8, 96, 128, 192, 120, 136, 128, 24, 184, 128, 80, 144, 192, 56, 168, 104, 32, 176, 176, 64, 176, 96, 96, 160, 96, 216, 96, 88, 136, 136, 136, 48, 160, 216, 56, 176, 112, 48, 176, 152, 24, 184, 184, 24, 192, 144, 200, 104, 112, 104, 144, 160, 104, 144, 176, 136, 128, 176, 192, 88, 224, 120, 160, 72, 240, 96, 88, 88, 184, 48, 112, 152, 120, 80, 176, 88, 216, 120, 24, 104, 160, 136, 64, 184, 112, 88, 152, 200, 24, 200, 152, 64, 184, 136, 40, 184, 200, 72, 168, 200, 96, 184, 40, 72, 168, 168, 120, 160, 136, 168, 128, 144, 56, 168, 224, 112, 168, 104, 96, 184, 80, 136, 160, 128, 24, 200, 160, 88, 184, 112, 248, 120, 16, 56, 176, 216, 240, 104, 104, 40, 192, 208, 32, 208, 160, 128, 152, 176, 168, 144, 120, 104, 160, 200, 64, 184, 176, 160, 160, 64, 112, 192, 48, 128, 168, 104, 40, 200, 176, 96, 184, 152, 192, 128, 152, 104, 192, 88, 168, 136, 184, 136, 160, 176, 64, 184, 232, 80, 200, 128, 136, 160, 168, 72, 184, 240, 48, 192, 240, 192, 128, 208, 192, 152, 64, 72, 192, 208, 112, 192, 120, 88, 192, 168, 176, 168, 64, 40, 216, 168, 144, 176, 112, 184, 152, 136, 248, 128, 120, 120, 200, 80, 96, 200, 128, 120, 176, 208, 232, 128, 176, 48, 200, 240, 160, 176, 120, 64, 200, 240, 80, 200, 200, 128, 200, 64, 40, 224, 176, 248, 144, 56, 144, 176, 184, 88, 192, 232, 104, 184, 216, 200, 168, 72, 184, 184, 48, 48, 224, 176, 96, 208, 136, 128, 200, 96, 88, 208, 176, 120, 200, 136, 56, 216, 248, 120, 200, 168, 216, 168, 64, 168, 184, 112, 88, 208, 216, 136, 208, 80, 216, 160, 144, 176, 176, 176, 64, 232, 176, 144, 184, 208, 232, 136, 232, 248, 144, 144, 192, 192, 40, 64, 224, 248, 208, 152, 224, 144, 208, 96, 112, 216, 144, 104, 208, 232, 184, 192, 120, 144, 208, 144, 216, 192, 32, 128, 208, 184, 248, 176, 40, 72, 224, 248, 88, 232, 176, 152, 216, 96, 104, 216, 232, 160, 192, 208, 200, 192, 120, 120, 224, 152, 200, 176, 192, 248, 160, 160, 112, 224, 232, 184, 208, 112, 224, 200, 24, 88, 224, 248, 152, 208, 192, 240, 200, 8, 200, 216, 32, 104, 240, 176, 128, 216, 240, 168, 224, 104, 168, 216, 160, 208, 184, 200, 216, 200, 128, 136, 232, 160, 184, 200, 216, 144, 224, 216, 120, 240, 176, 112, 232, 248, 184, 216, 160, 216, 192, 208, 144, 240, 176, 192, 208, 216, 232, 200, 128, 192, 208, 216, 136, 248, 176, 232, 232, 8, 224, 208, 128, 184, 232, 136, 144, 240, 168, 168, 224, 208, 144, 232, 248, 144, 248, 176, 176, 224, 224, 248, 192, 216, 224, 224, 112, 192, 232, 160, 152, 248, 176, 240, 240, 0, 160, 248, 176, 208, 216, 224, 168, 232, 248, 160, 248, 176, 248, 224, 120, 208, 240, 168, 184, 232, 248, 248, 232, 120, 200, 232, 248, 216, 248, 176, 224, 224, 232, 248, 232, 184, 232, 240, 192, 208, 240, 248, 240, 240, 240, 248, 248, 200, 0, 80, 16],
+    "entry_flower": [0, 0, 0, 144, 0, 72, 0, 104, 184, 8, 112, 184, 48, 104, 160, 24, 112, 168, 24, 120, 192, 208, 64, 64, 40, 120, 184, 32, 128, 200, 56, 128, 184, 40, 136, 208, 72, 136, 192, 72, 136, 168, 48, 144, 216, 80, 152, 120, 80, 144, 200, 112, 168, 16, 96, 144, 200, 56, 160, 224, 200, 104, 120, 112, 168, 32, 104, 168, 48, 104, 160, 112, 120, 168, 24, 112, 168, 64, 128, 160, 72, 152, 152, 24, 248, 88, 96, 136, 160, 32, 176, 128, 96, 184, 144, 24, 208, 112, 120, 248, 112, 0, 88, 176, 80, 248, 96, 96, 200, 136, 24, 152, 144, 88, 248, 96, 104, 248, 88, 144, 128, 168, 40, 248, 88, 136, 168, 152, 48, 248, 96, 128, 248, 88, 152, 200, 120, 120, 120, 168, 72, 248, 104, 96, 248, 96, 152, 72, 192, 120, 64, 176, 232, 248, 120, 8, 248, 96, 152, 128, 152, 200, 248, 104, 144, 248, 104, 112, 248, 104, 128, 88, 168, 224, 232, 112, 144, 128, 184, 40, 248, 96, 152, 240, 104, 152, 248, 112, 88, 64, 192, 152, 160, 168, 56, 144, 176, 64, 184, 152, 56, 168, 160, 96, 248, 104, 160, 144, 168, 96, 112, 208, 0, 88, 192, 144, 176, 160, 72, 248, 120, 64, 56, 200, 168, 248, 136, 8, 128, 176, 128, 248, 112, 152, 240, 128, 88, 248, 112, 160, 232, 120, 144, 144, 184, 56, 248, 128, 48, 168, 168, 72, 248, 120, 136, 248, 112, 160, 248, 136, 32, 248, 136, 48, 144, 160, 208, 248, 120, 152, 216, 160, 48, 248, 144, 16, 224, 136, 144, 160, 176, 104, 240, 120, 184, 144, 192, 56, 232, 152, 64, 192, 168, 80, 248, 120, 168, 248, 152, 0, 144, 192, 96, 248, 120, 160, 248, 128, 128, 248, 152, 8, 248, 128, 136, 144, 200, 64, 144, 176, 160, 176, 176, 112, 248, 120, 176, 136, 208, 32, 192, 176, 80, 168, 176, 128, 248, 144, 112, 248, 128, 160, 200, 168, 96, 160, 200, 56, 208, 152, 136, 248, 136, 136, 232, 144, 160, 248, 128, 176, 216, 152, 152, 224, 144, 184, 168, 184, 112, 168, 168, 208, 152, 192, 104, 248, 136, 168, 248, 128, 208, 160, 200, 72, 144, 216, 48, 216, 160, 144, 248, 136, 184, 208, 176, 104, 176, 176, 160, 184, 184, 128, 200, 176, 136, 248, 144, 160, 160, 184, 200, 248, 136, 224, 192, 200, 40, 248, 144, 168, 248, 152, 144, 248, 144, 184, 200, 176, 144, 184, 176, 208, 248, 160, 112, 248, 144, 184, 216, 168, 160, 176, 208, 88, 192, 176, 192, 248, 160, 152, 192, 184, 144, 240, 168, 128, 208, 168, 208, 248, 152, 192, 248, 152, 176, 168, 208, 120, 248, 160, 160, 248, 160, 168, 248, 152, 176, 168, 184, 232, 192, 200, 136, 248, 160, 176, 176, 184, 232, 224, 168, 200, 176, 216, 96, 248, 160, 192, 200, 176, 232, 184, 208, 112, 168, 200, 168, 208, 184, 160, 184, 200, 136, 240, 176, 128, 216, 168, 232, 224, 168, 232, 248, 168, 176, 208, 208, 56, 176, 192, 232, 248, 160, 200, 248, 176, 104, 176, 216, 136, 184, 200, 176, 248, 168, 184, 248, 168, 184, 224, 176, 216, 184, 192, 232, 248, 168, 200, 224, 192, 176, 184, 208, 192, 224, 216, 16, 248, 176, 160, 248, 176, 176, 248, 176, 184, 200, 200, 176, 248, 176, 192, 192, 200, 192, 232, 176, 232, 248, 176, 200, 248, 176, 168, 184, 208, 208, 192, 224, 120, 248, 176, 184, 248, 184, 176, 192, 200, 232, 248, 176, 208, 240, 184, 208, 248, 192, 160, 184, 208, 232, 216, 192, 216, 248, 184, 184, 208, 208, 176, 200, 208, 216, 216, 200, 184, 240, 200, 144, 232, 184, 216, 248, 184, 168, 240, 184, 224, 232, 192, 200, 248, 200, 96, 248, 184, 208, 192, 208, 232, 152, 232, 248, 248, 184, 216, 248, 192, 200, 200, 208, 232, 224, 208, 176, 240, 192, 224, 248, 192, 176, 248, 184, 216, 248, 216, 88, 240, 208, 144, 248, 200, 160, 248, 192, 216, 160, 232, 248, 248, 192, 200, 248, 208, 176, 248, 192, 224, 248, 208, 176, 248, 200, 208, 192, 224, 240, 248, 208, 176, 240, 224, 136, 248, 216, 168, 184, 232, 248, 248, 208, 216, 248, 224, 168, 240, 240, 136, 248, 232, 184, 248, 216, 224, 248, 232, 168, 208, 240, 248, 240, 248, 136, 248, 224, 224, 248, 232, 168, 248, 232, 232, 248, 232, 232, 152, 0, 64],
+    "entry_clock": [0, 0, 0, 112, 32, 0, 168, 32, 0, 168, 32, 0, 168, 32, 0, 176, 40, 0, 176, 40, 0, 176, 48, 0, 160, 56, 0, 176, 48, 0, 176, 48, 0, 184, 48, 0, 168, 56, 0, 176, 56, 0, 184, 56, 0, 184, 48, 0, 192, 48, 0, 192, 48, 0, 184, 56, 0, 184, 56, 0, 184, 56, 0, 184, 56, 0, 184, 64, 0, 200, 56, 0, 184, 64, 0, 192, 64, 0, 184, 64, 0, 192, 64, 0, 216, 56, 0, 184, 72, 0, 192, 72, 0, 192, 72, 0, 200, 72, 0, 184, 80, 0, 200, 72, 0, 216, 64, 0, 232, 56, 0, 192, 80, 0, 184, 80, 16, 192, 88, 0, 208, 80, 0, 176, 88, 32, 192, 80, 0, 184, 88, 0, 176, 96, 8, 240, 64, 0, 216, 80, 0, 192, 88, 0, 200, 80, 0, 200, 88, 0, 192, 88, 24, 232, 64, 32, 240, 72, 0, 200, 88, 0, 200, 88, 0, 208, 88, 0, 248, 64, 0, 192, 96, 0, 176, 96, 24, 200, 96, 0, 208, 88, 0, 224, 80, 0, 176, 104, 24, 192, 104, 0, 216, 88, 0, 208, 96, 0, 208, 96, 0, 136, 120, 80, 240, 80, 0, 224, 88, 0, 200, 104, 0, 208, 104, 0, 192, 112, 0, 216, 96, 0, 208, 104, 0, 200, 112, 0, 128, 128, 88, 200, 104, 32, 200, 112, 0, 240, 88, 0, 192, 120, 0, 216, 104, 0, 208, 112, 0, 200, 112, 0, 192, 112, 16, 184, 120, 0, 208, 96, 64, 224, 104, 0, 120, 136, 104, 120, 136, 104, 192, 120, 24, 224, 104, 0, 184, 128, 0, 208, 112, 0, 200, 120, 0, 224, 112, 0, 208, 120, 0, 216, 112, 0, 224, 112, 0, 248, 104, 0, 192, 120, 32, 176, 128, 64, 224, 112, 0, 216, 120, 0, 248, 104, 0, 208, 120, 8, 216, 120, 0, 248, 104, 0, 232, 112, 0, 248, 104, 0, 248, 104, 0, 192, 128, 40, 200, 112, 120, 216, 120, 0, 200, 136, 0, 216, 120, 0, 248, 104, 0, 208, 128, 0, 168, 136, 80, 248, 104, 0, 208, 128, 8, 224, 120, 0, 144, 144, 96, 232, 120, 0, 208, 128, 16, 248, 112, 0, 192, 128, 40, 216, 128, 0, 208, 120, 48, 200, 136, 24, 232, 120, 0, 248, 112, 0, 120, 152, 120, 192, 136, 32, 208, 136, 16, 224, 128, 0, 248, 120, 0, 240, 128, 0, 192, 144, 40, 216, 136, 0, 208, 136, 16, 248, 120, 0, 136, 152, 112, 168, 144, 96, 240, 128, 0, 248, 120, 0, 224, 136, 0, 248, 128, 0, 248, 128, 0, 216, 144, 0, 232, 136, 0, 232, 136, 0, 224, 144, 0, 248, 128, 0, 216, 144, 24, 160, 152, 104, 248, 128, 0, 224, 144, 8, 208, 144, 64, 224, 144, 16, 248, 136, 0, 224, 152, 0, 248, 136, 0, 248, 136, 0, 152, 168, 112, 248, 136, 0, 240, 144, 0, 248, 136, 0, 224, 152, 24, 248, 144, 0, 240, 152, 0, 152, 168, 120, 248, 144, 0, 248, 144, 0, 152, 176, 128, 248, 144, 0, 248, 152, 0, 232, 160, 0, 248, 152, 0, 144, 184, 136, 216, 160, 80, 248, 160, 0, 160, 184, 128, 240, 168, 0, 248, 168, 0, 248, 168, 0, 248, 168, 0, 232, 168, 40, 248, 168, 0, 248, 176, 0, 248, 176, 0, 232, 176, 40, 248, 176, 8, 216, 176, 96, 248, 176, 0, 248, 184, 0, 248, 184, 0, 240, 184, 56, 224, 184, 96, 248, 184, 0, 248, 192, 0, 248, 192, 0, 240, 184, 40, 192, 200, 128, 248, 192, 0, 248, 192, 0, 248, 192, 0, 248, 200, 0, 248, 192, 24, 192, 200, 136, 224, 192, 112, 248, 192, 56, 248, 200, 0, 248, 208, 0, 248, 200, 40, 248, 208, 0, 248, 200, 72, 248, 216, 0, 248, 208, 48, 248, 208, 64, 208, 216, 136, 248, 216, 0, 224, 208, 120, 248, 208, 72, 248, 224, 0, 248, 216, 80, 216, 224, 136, 248, 216, 88, 248, 216, 80, 248, 240, 0, 248, 232, 32, 248, 216, 96, 248, 232, 48, 232, 232, 136, 248, 224, 112, 248, 224, 104, 248, 232, 72, 248, 224, 128, 232, 232, 144, 248, 232, 88, 248, 232, 144, 248, 232, 184, 248, 232, 152, 248, 240, 112, 248, 232, 168, 248, 240, 176, 248, 240, 184, 248, 240, 192, 248, 240, 192, 248, 240, 200, 248, 240, 208, 248, 240, 216, 248, 248, 224, 248, 248, 224, 248, 248, 232, 152, 0, 64],
+    "entry_magic": [0, 0, 0, 152, 0, 64, 0, 104, 184, 8, 112, 184, 16, 112, 176, 88, 88, 144, 16, 120, 184, 128, 80, 112, 160, 64, 96, 16, 128, 192, 32, 120, 176, 64, 104, 176, 96, 96, 168, 144, 72, 160, 40, 128, 168, 144, 72, 160, 144, 72, 160, 232, 56, 56, 48, 128, 160, 152, 80, 160, 24, 136, 200, 64, 136, 136, 152, 80, 168, 152, 88, 168, 56, 128, 192, 160, 80, 152, 32, 144, 208, 72, 128, 168, 152, 96, 168, 136, 96, 184, 168, 88, 168, 160, 96, 176, 168, 96, 152, 176, 88, 152, 80, 144, 128, 64, 144, 168, 40, 152, 208, 64, 144, 192, 168, 104, 176, 96, 128, 192, 192, 96, 152, 144, 112, 192, 136, 112, 208, 168, 104, 160, 88, 144, 176, 152, 112, 176, 144, 120, 168, 120, 136, 168, 176, 104, 176, 80, 160, 152, 128, 120, 216, 104, 144, 168, 184, 112, 128, 160, 112, 184, 80, 160, 152, 72, 160, 208, 112, 160, 104, 200, 104, 144, 56, 168, 216, 144, 128, 192, 168, 112, 192, 168, 120, 152, 184, 112, 184, 160, 128, 184, 192, 112, 184, 152, 120, 208, 88, 160, 192, 176, 120, 168, 216, 112, 136, 96, 168, 152, 184, 120, 184, 144, 136, 192, 120, 152, 176, 192, 112, 208, 176, 120, 200, 144, 136, 216, 184, 128, 160, 80, 168, 216, 128, 168, 112, 192, 128, 184, 192, 136, 136, 232, 120, 136, 144, 168, 88, 200, 120, 192, 104, 176, 168, 208, 120, 184, 104, 168, 200, 136, 152, 216, 144, 160, 176, 72, 184, 240, 240, 104, 184, 168, 144, 184, 168, 152, 160, 184, 136, 176, 184, 136, 208, 72, 184, 240, 200, 128, 192, 168, 152, 160, 72, 184, 240, 48, 200, 232, 96, 184, 176, 168, 160, 144, 240, 120, 128, 192, 136, 200, 80, 192, 240, 160, 160, 192, 192, 144, 160, 144, 160, 216, 176, 144, 224, 192, 152, 184, 224, 128, 192, 216, 128, 200, 144, 168, 184, 248, 128, 128, 120, 184, 168, 200, 144, 192, 168, 184, 64, 192, 144, 216, 200, 152, 168, 88, 192, 240, 248, 136, 128, 112, 184, 224, 224, 152, 128, 192, 160, 144, 168, 168, 168, 176, 160, 216, 216, 144, 200, 200, 160, 168, 104, 200, 200, 200, 152, 208, 232, 136, 200, 72, 208, 240, 112, 200, 200, 144, 184, 216, 216, 152, 200, 136, 192, 176, 200, 152, 224, 128, 192, 224, 208, 160, 176, 248, 144, 136, 104, 200, 240, 88, 208, 240, 200, 160, 184, 176, 176, 176, 208, 160, 200, 136, 200, 176, 224, 152, 208, 120, 200, 224, 192, 192, 72, 208, 176, 136, 232, 144, 208, 248, 160, 112, 200, 200, 40, 160, 184, 216, 240, 152, 184, 144, 200, 176, 208, 160, 232, 200, 200, 80, 240, 160, 168, 216, 176, 176, 224, 160, 216, 240, 152, 208, 248, 168, 96, 152, 208, 184, 208, 168, 232, 120, 208, 240, 112, 216, 216, 208, 176, 192, 128, 208, 240, 168, 192, 224, 248, 176, 88, 224, 168, 216, 208, 192, 128, 104, 224, 248, 208, 200, 96, 248, 168, 176, 152, 208, 192, 224, 176, 200, 240, 160, 208, 184, 192, 200, 248, 184, 104, 208, 192, 176, 232, 208, 16, 216, 176, 232, 224, 192, 152, 232, 176, 224, 248, 192, 96, 216, 192, 192, 168, 208, 232, 224, 200, 128, 240, 176, 192, 232, 176, 216, 168, 216, 192, 216, 184, 208, 152, 224, 208, 128, 232, 240, 248, 192, 112, 224, 184, 232, 240, 176, 216, 176, 208, 224, 208, 200, 176, 216, 216, 96, 152, 224, 248, 240, 216, 16, 248, 184, 184, 232, 184, 208, 224, 208, 120, 224, 200, 200, 224, 192, 208, 224, 192, 232, 248, 184, 224, 192, 208, 216, 224, 208, 136, 224, 208, 128, 224, 208, 168, 240, 224, 64, 192, 224, 200, 168, 224, 232, 208, 208, 232, 240, 208, 120, 248, 192, 216, 232, 216, 128, 224, 200, 232, 224, 208, 216, 160, 232, 248, 224, 208, 192, 248, 200, 192, 192, 224, 232, 232, 224, 144, 200, 224, 208, 248, 208, 208, 232, 208, 240, 232, 216, 200, 232, 216, 224, 176, 240, 248, 240, 232, 136, 248, 224, 128, 240, 224, 168, 248, 216, 216, 200, 232, 248, 240, 216, 240, 240, 224, 200, 248, 232, 184, 216, 232, 216, 240, 240, 144, 240, 224, 216, 240, 224, 240, 240, 232, 200, 216, 240, 248, 248, 240, 192, 240, 232, 248, 248, 232, 216, 224, 248, 248, 248, 248, 192, 248, 248, 224, 80, 0, 96],
+    "entry_neo": [0, 0, 0, 152, 0, 64, 48, 24, 192, 56, 16, 216, 48, 32, 208, 64, 24, 208, 64, 40, 168, 80, 24, 216, 72, 56, 88, 0, 80, 136, 56, 40, 216, 56, 48, 208, 96, 56, 64, 0, 88, 144, 96, 32, 224, 56, 56, 184, 40, 80, 120, 72, 56, 152, 80, 40, 208, 32, 64, 224, 96, 40, 224, 72, 48, 208, 112, 32, 224, 56, 56, 216, 80, 64, 160, 8, 96, 160, 96, 40, 224, 48, 72, 176, 48, 64, 208, 40, 80, 192, 136, 24, 216, 88, 56, 200, 96, 48, 216, 56, 80, 144, 88, 88, 64, 120, 64, 96, 48, 72, 216, 160, 56, 72, 88, 64, 216, 48, 80, 224, 104, 72, 128, 16, 104, 168, 48, 80, 216, 48, 88, 200, 104, 56, 200, 64, 96, 128, 104, 64, 168, 40, 96, 184, 40, 104, 144, 40, 96, 176, 136, 40, 224, 128, 64, 152, 128, 56, 184, 40, 104, 160, 80, 96, 104, 80, 72, 232, 96, 104, 56, 160, 40, 192, 104, 64, 224, 56, 88, 224, 136, 48, 216, 56, 96, 208, 72, 88, 192, 24, 120, 184, 184, 24, 232, 80, 80, 224, 160, 40, 224, 160, 40, 216, 216, 48, 56, 56, 112, 168, 168, 72, 72, 88, 88, 224, 152, 56, 224, 80, 96, 208, 112, 88, 176, 88, 120, 56, 56, 112, 192, 176, 48, 216, 88, 104, 184, 64, 120, 128, 200, 32, 232, 64, 104, 232, 160, 72, 144, 120, 80, 208, 184, 56, 184, 24, 128, 232, 48, 128, 176, 88, 128, 88, 136, 80, 224, 104, 96, 224, 160, 64, 224, 24, 136, 200, 128, 112, 88, 24, 144, 200, 200, 48, 224, 72, 120, 184, 104, 104, 184, 72, 136, 120, 72, 112, 240, 160, 72, 208, 64, 144, 128, 176, 80, 168, 48, 128, 232, 136, 104, 144, 120, 96, 224, 184, 64, 216, 120, 104, 216, 112, 104, 232, 184, 96, 64, 144, 88, 208, 32, 144, 208, 104, 128, 136, 64, 136, 208, 144, 104, 168, 120, 112, 200, 56, 168, 48, 64, 136, 232, 64, 144, 192, 176, 96, 152, 56, 152, 176, 80, 120, 240, 32, 152, 232, 144, 96, 232, 112, 120, 176, 160, 88, 224, 128, 128, 88, 152, 128, 64, 104, 152, 72, 200, 72, 224, 48, 152, 216, 96, 128, 224, 120, 120, 224, 80, 136, 248, 144, 112, 208, 80, 144, 232, 32, 168, 232, 192, 104, 112, 168, 112, 144, 96, 160, 112, 72, 160, 208, 192, 88, 224, 192, 104, 184, 80, 144, 248, 176, 104, 232, 144, 120, 232, 80, 152, 240, 64, 168, 192, 176, 136, 64, 128, 144, 128, 128, 144, 168, 80, 152, 232, 128, 136, 216, 120, 168, 64, 56, 168, 216, 96, 144, 248, 128, 128, 240, 168, 136, 120, 80, 160, 224, 208, 96, 224, 72, 168, 216, 64, 184, 176, 72, 168, 208, 32, 184, 240, 96, 168, 160, 64, 176, 224, 96, 192, 56, 72, 176, 200, 128, 144, 208, 112, 152, 248, 72, 184, 192, 208, 104, 208, 96, 176, 128, 176, 136, 152, 192, 112, 240, 64, 184, 184, 144, 144, 224, 152, 152, 136, 152, 136, 240, 88, 176, 208, 152, 176, 56, 64, 192, 176, 80, 208, 72, 72, 184, 232, 184, 120, 240, 24, 200, 248, 120, 168, 200, 112, 160, 232, 136, 152, 248, 136, 176, 120, 88, 192, 144, 32, 208, 240, 112, 176, 216, 200, 136, 176, 208, 120, 232, 184, 168, 72, 144, 152, 248, 144, 160, 240, 80, 192, 232, 48, 208, 240, 160, 168, 144, 104, 192, 200, 96, 224, 56, 136, 200, 56, 216, 168, 16, 136, 168, 232, 152, 184, 120, 112, 208, 136, 176, 152, 224, 96, 192, 232, 120, 184, 216, 136, 176, 224, 208, 152, 168, 176, 192, 72, 168, 184, 136, 128, 200, 176, 136, 184, 216, 104, 200, 232, 216, 144, 232, 136, 192, 208, 104, 216, 136, 128, 192, 200, 160, 176, 224, 208, 184, 64, 88, 216, 240, 128, 208, 168, 120, 200, 240, 240, 184, 0, 184, 168, 224, 176, 208, 56, 136, 224, 128, 216, 160, 232, 168, 208, 144, 160, 192, 240, 216, 208, 48, 128, 216, 248, 192, 184, 232, 128, 216, 248, 112, 224, 232, 216, 208, 56, 160, 224, 128, 168, 224, 136, 216, 184, 232, 216, 200, 160, 184, 200, 240, 152, 216, 240, 232, 224, 16, 208, 192, 232, 240, 240, 0, 240, 216, 120, 216, 208, 248, 192, 224, 240, 208, 224, 232, 240, 232, 184, 232, 232, 232, 240, 232, 232, 0, 64, 104],
+    "congrats": [0, 240, 0, 8, 0, 40, 8, 8, 0, 16, 0, 72, 8, 16, 32, 24, 0, 112, 40, 8, 80, 24, 0, 136, 16, 40, 0, 16, 24, 88, 72, 0, 104, 40, 8, 136, 40, 32, 32, 24, 48, 0, 72, 32, 0, 16, 64, 0, 80, 16, 80, 88, 8, 112, 64, 16, 128, 112, 0, 112, 32, 32, 136, 0, 64, 104, 40, 64, 8, 104, 16, 80, 88, 40, 8, 64, 32, 104, 32, 72, 16, 128, 0, 144, 120, 32, 0, 136, 8, 88, 96, 40, 48, 8, 72, 104, 32, 56, 112, 96, 32, 112, 96, 48, 0, 128, 16, 120, 128, 0, 184, 24, 72, 96, 0, 104, 24, 64, 72, 8, 128, 40, 0, 80, 32, 176, 80, 64, 40, 104, 56, 8, 128, 16, 160, 136, 24, 112, 152, 32, 0, 128, 40, 56, 40, 80, 88, 48, 88, 24, 64, 72, 72, 176, 16, 80, 8, 48, 232, 112, 48, 88, 96, 72, 0, 104, 40, 136, 88, 64, 104, 120, 64, 0, 16, 112, 24, 32, 64, 200, 32, 88, 112, 184, 40, 0, 160, 56, 0, 80, 96, 8, 200, 24, 40, 152, 32, 152, 144, 32, 184, 144, 48, 96, 144, 56, 32, 48, 80, 160, 56, 88, 104, 200, 40, 0, 168, 16, 184, 136, 72, 0, 112, 56, 120, 80, 56, 192, 160, 56, 40, 88, 88, 56, 112, 80, 16, 128, 72, 56, 224, 32, 0, 24, 80, 224, 72, 96, 88, 128, 56, 184, 64, 112, 40, 152, 48, 152, 88, 112, 0, 120, 96, 8, 104, 88, 96, 48, 128, 16, 152, 80, 24, 168, 64, 56, 144, 88, 0, 240, 40, 0, 56, 112, 120, 152, 64, 128, 56, 88, 192, 120, 80, 136, 24, 152, 32, 200, 64, 0, 88, 112, 72, 160, 56, 168, 200, 32, 176, 136, 104, 8, 168, 72, 96, 112, 112, 56, 168, 56, 200, 160, 96, 0, 184, 72, 48, 144, 96, 56, 88, 104, 152, 64, 128, 80, 80, 136, 24, 112, 120, 0, 240, 48, 56, 120, 80, 216, 56, 128, 160, 224, 40, 192, 152, 104, 32, 136, 104, 128, 184, 56, 232, 168, 88, 112, 240, 72, 0, 144, 120, 0, 168, 112, 0, 128, 96, 184, 112, 136, 8, 32, 128, 240, 184, 96, 40, 88, 128, 152, 104, 136, 72, 176, 72, 192, 200, 88, 88, 232, 72, 64, 144, 120, 80, 168, 104, 96, 216, 88, 40, 168, 120, 24, 64, 128, 232, 192, 120, 8, 176, 120, 64, 152, 112, 176, 120, 152, 64, 128, 104, 232, 96, 152, 104, 96, 168, 16, 168, 144, 0, 240, 96, 32, 40, 160, 240, 144, 128, 144, 56, 192, 40, 208, 104, 80, 192, 96, 208, 152, 144, 64, 208, 96, 176, 192, 112, 136, 208, 128, 24, 248, 104, 32, 136, 144, 120, 144, 160, 16, 136, 120, 240, 208, 136, 0, 80, 168, 176, 144, 112, 248, 72, 152, 248, 192, 136, 72, 216, 136, 0, 184, 160, 8, 224, 112, 112, 72, 216, 8, 200, 104, 232, 120, 176, 104, 208, 144, 48, 56, 184, 248, 160, 176, 8, 240, 104, 184, 168, 144, 152, 200, 128, 192, 224, 152, 0, 104, 184, 184, 208, 112, 248, 240, 128, 120, 160, 168, 104, 216, 112, 232, 72, 232, 16, 192, 176, 8, 112, 216, 16, 200, 160, 64, 208, 168, 8, 248, 112, 184, 208, 144, 136, 120, 192, 136, 248, 136, 120, 224, 128, 240, 248, 152, 48, 184, 192, 8, 112, 200, 192, 72, 224, 184, 80, 248, 32, 208, 168, 88, 216, 184, 8, 184, 192, 56, 144, 200, 136, 112, 240, 24, 224, 144, 216, 240, 168, 40, 136, 232, 0, 200, 160, 192, 216, 184, 32, 136, 208, 176, 208, 208, 0, 232, 192, 0, 248, 176, 32, 216, 184, 96, 240, 152, 224, 128, 216, 208, 184, 208, 104, 224, 200, 24, 136, 216, 184, 144, 248, 0, 72, 248, 192, 144, 224, 144, 240, 200, 0, 184, 232, 0, 224, 168, 232, 224, 216, 8, 248, 208, 0, 224, 200, 112, 144, 224, 192, 136, 224, 216, 152, 232, 144, 224, 192, 200, 232, 224, 0, 232, 176, 240, 152, 232, 192, 240, 232, 0, 144, 240, 224, 208, 208, 208, 232, 216, 112, 248, 216, 64, 240, 192, 240, 232, 240, 40, 240, 240, 0, 152, 240, 232, 248, 240, 0, 240, 224, 120, 248, 240, 0, 240, 200, 240, 240, 248, 32, 224, 224, 208, 240, 232, 128, 192, 248, 248, 240, 240, 224, 232, 248, 248, 0, 0, 0, 0, 0, 0]
 }
 DUMMY_COLOR = [248, 0, 248] # Pink color used in transparent tiles of picture image
 
-asm_outfile = "minigamesplash.asm"
-asm_header = """; This file was automatically generated by formatsplashes.py
+@dataclass(slots=True)
+class SplashScreen:
+    asm_outfile = "overworldsplashes.asm"
+    asm_header = """; This file was automatically generated by formatsplashes.py
+
+"""
+    img_file: str
+    palette: list
+    armips_id: str
+    tileset_label: str # unique armips_id in constructor generates two armips labels
+    tileset_end_label: str
+    tilemap_label: str
+    tileset_dmp_file: str # to contain paths to the files with the merged and compressed tileset and tilemap
+    tilemap_dmp_file: str
+    offset: str # really an int but just goes into the generated asm file
+    
+    def __init__(self, img_file, palette_key, armips_id, offset):
+        self.img_file = img_file
+        self.palette = palettes.get(palette_key, [])
+        self.armips_id = armips_id
+        self.tileset_label = f"{armips_id}Tiles"
+        self.tileset_end_label = f"{self.tileset_label}End"
+        self.tilemap_label = f"{armips_id}Map"
+        self.tileset_dmp_file = os.path.join(DUMP_FOLDER, f"{self.tileset_label}.dmp")
+        self.tilemap_dmp_file = os.path.join(DUMP_FOLDER, f"{self.tilemap_label}.dmp")
+        self.offset = offset
+
+    @staticmethod
+    def quantize_image_to_palette_and_save(img_file, palette):
+        """Quantizes given image to palette, saves and returns path to converted image file"""
+        img: Image.Image = Image.open(img_file)
+        assert img.width == 240 and img.height == 160,  f"{img_file} does not match dimensions of a GBA screen (240x160) - different size images are not supported"
+        
+        palImage = Image.new("P", (16, 16))
+        palImage.putpalette(palette)
+        converted_image = img.convert("RGB").quantize(palette=palImage, dither=Image.NONE)
+        converted_file = os.path.join(TEMP_FOLDER, f"{img_file[:-4]}-converted.png")
+        converted_image.save(converted_file)
+        return converted_file
+        
+    def format(self):
+        converted_file = self.quantize_image_to_palette_and_save(self.img_file, self.palette)
+        
+        # In order: No palette, 8bpp, tile format, flat map layout, reduce tiles+pal+flip, metatile reduction,
+        # .bin file, no header, output file (default 1x1 metatiles)
+        os.system(f"cmd /c grit {converted_file} -p! -gB8 -gt -mLf -mR8 -MRp -ftb -fh! -o {converted_file[:-4]}.bin")
+        tileset_file = f"{converted_file[:-4]}.img.bin"
+        tilemap_file = f"{converted_file[:-4]}.map.bin"
+        
+        tile_bytes, map_bytes = None, None
+        with open(tileset_file, "rb") as tile_file, open(tilemap_file, "rb") as map_file:
+            tile_bytes, map_bytes = tile_file.read(), map_file.read()
+            
+        comp_tiles = LZ.compress(tile_bytes)
+        
+        # Finally, output the compressed .dmp files, and assign tileset size variable
+        with open(self.tileset_dmp_file, "wb") as tileset_file, open(self.tilemap_dmp_file, "wb") as tilemap_file:
+            tileset_file.write(comp_tiles)
+            tilemap_file.write(map_bytes) # Map bytes are unchanged
+            print(f"wrote {tileset_file.name} and {tilemap_file.name}")
+        
+    def get_repoint_asm(self):
+        """Helper method to auto-generate part of the armips script that repoints to new splash screen data"""
+        return \
+f""".org {self.offset}
+    .word @{self.tileset_label} - 0x08138C54 
+    .word @{self.tileset_end_label} - @{self.tileset_label} :: .skip 0x08
+    .word @{self.tilemap_label} - 0x08138C54
+"""
+
+    def get_incbin_asm(self):
+        """Helper method to auto-generate part of the armips script that includes the compressed tileset and tilemap
+        (Note: these .incbins are expected to be inside an autoregion)"""
+        return \
+f'''    @{self.tileset_label}:
+    .incbin "{os.path.join(*PARENT_FOLDERS, self.tileset_dmp_file)}" :: @{self.tileset_end_label}: :: .align
+    @{self.tilemap_label}:
+    .incbin "{os.path.join(*PARENT_FOLDERS, self.tilemap_dmp_file)}" :: .align
+'''
+@dataclass(slots=True)
+class MinigameSplashScreen(SplashScreen):
+    # Contains special fields relating to the text and picture files, whose tilesets and tilemaps are merged
+    asm_outfile = "minigamesplashes.asm"
+    asm_header = """; This file was automatically generated by formatsplashes.py
 
 .macro pad
     .word 0x00 :: .align
@@ -81,180 +169,141 @@ asm_header = """; This file was automatically generated by formatsplashes.py
 ; 0x02E6F4 - crossfire palette would be here
 
 """
-
-@dataclass(slots=True)
-class SplashScreen:
     text_img_file: str
     pic_img_file: str
     text_pal: list
     pic_pal: list
-    armips_id: str
-    tileset_label: str # unique armips_id in constructor generates two armips labels
-    tileset_size: int # compressed tileset size
-    tilemap_label: str
-    tileset_dmp_file: str # to contain paths to the files with the merged and compressed tileset and tilemap
-    tilemap_dmp_file: str
-    offset: str # really an int but just goes into the generated asm file
-    
+
     def __init__(self, text_img, pic_img, palette_key, armips_id, offset):
+        SplashScreen.__init__(self, "NONE", palette_key, armips_id, offset)
         self.text_img_file = text_img
         self.pic_img_file = pic_img
         self.text_pal = palettes[palette_key]["text"]
         self.pic_pal  = palettes[palette_key]["pic"]
-        self.armips_id = armips_id
-        self.tileset_label = f"{armips_id}Tiles"
-        self.tilemap_label = f"{armips_id}Map"
-        self.offset = offset
-        self.tileset_size = -1 # to be modified
-        self.tileset_dmp_file = os.path.join(DUMP_FOLDER, f"{self.tileset_label}.dmp")
-        self.tilemap_dmp_file = os.path.join(DUMP_FOLDER, f"{self.tilemap_label}.dmp")
+        
+    def format(self):
+        """Goal is to put my English .png minigame splashes in this folder, and then spit out .dmp files ready to be inserted into the ROM (no GUI needed!)"""
+        
+        text_tiles, text_map, pic_tiles, pic_map = ["" for i in range(4)]
+        # First, generate uncompressed tilesets and tilemaps for the text and picture
+        pic_tilemap_offset = 0
+        for i, (file, pal) in enumerate(zip((self.text_img_file, self.pic_img_file), (self.text_pal, self.pic_pal))):
+            try:
+                palette = []
+                if i == 0:
+                    palette = pal + [0, 0, 0]*240
+                elif i == 1: # Picture uses background palette 1
+                    palette = DUMMY_COLOR*16 + pal + DUMMY_COLOR*224
 
-    def get_repoint_asm(self):
-        """Helper method to auto-generate part of the armips script that repoints to new splash screen data"""
-        return \
-f""".org {self.offset}
-    .word @{self.tileset_label}
-    .word 0x{self.tileset_size:X}
-    .word @{self.tilemap_label}
-"""
+                # Quantize image to palette and save it (save is necessary for grit to access it)
+                converted_file = self.quantize_image_to_palette_and_save(file, palette)
+                
+                # In order: No palette, 4bpp, tile format, reg flat map layout, reduce tiles+pal+flip, dynamic tilemap offset,
+                # metatile reduction, 1x1 metatiles, .bin file, no header, output file
+                os.system(f"cmd /c grit {converted_file} -p! -gB4 -gt -mLf -mRtpf -ma{pic_tilemap_offset} -MRp -Mh1 -Mw1 -ftb -fh! -o {converted_file[:-4]}.bin")
+                tileset_file = f"{converted_file[:-4]}.img.bin"
+                tilemap_file = f"{converted_file[:-4]}.map.bin"
+                if i == 0:
+                    # Important that the picture data uses this offset to reference its tiles correctly when the tileset and tilemap get merged
+                    pic_tilemap_offset = os.path.getsize(tileset_file) // 0x20 - 1
+                    text_tiles = tileset_file
+                    text_map = tilemap_file
+                elif i == 1:
+                    pic_tiles = tileset_file
+                    pic_map = tilemap_file
+            except FileNotFoundError:
+                print(f"{file} not found.")
+    
+        # Really not necessary, but it's good to check the merged and uncompressed tileset and tilemap...
+        merged_uncompressed_tileset_file = os.path.join(TEMP_FOLDER, f"{self.tileset_label}Uncomp.bin")
+        merged_uncompressed_tilemap_file = os.path.join(TEMP_FOLDER, f"{self.tilemap_label}Uncomp.bin")
+        
+        # Then, merge the uncompressed tilesets and tilemaps into one
+        uncomp_tiles, uncomp_map = self.merge_binaries(text_tiles, text_map, pic_tiles, pic_map, tiles_out=merged_uncompressed_tileset_file, map_out=merged_uncompressed_tilemap_file, sideways=self.armips_id == "fall")
+        
+        # Performance bottleneck is here, unsurprisingly. 
+        comp_tiles, comp_map = LZ.compress(uncomp_tiles), LZ.compress(uncomp_map)
+        
+        # Finally, output the compressed .dmp files, and assign tileset size variable
+        with open(self.tileset_dmp_file, "wb") as tileset_file, open(self.tilemap_dmp_file, "wb") as tilemap_file:
+            tileset_file.write(comp_tiles)
+            tilemap_file.write(comp_map)
+            print(f"wrote {tileset_file.name} and {tilemap_file.name}")
 
-    def get_incbin_asm(self):
-        """Helper method to auto-generate part of the armips script that includes the compressed tileset and tilemap
-        (Note: these .incbins are expected to be inside an autoregion)"""
-        return \
-f'''    @{self.tileset_label}:
-    .incbin "{os.path.join(*PARENT_FOLDERS, self.tileset_dmp_file)}" :: pad
-    @{self.tilemap_label}:
-    .incbin "{os.path.join(*PARENT_FOLDERS, self.tilemap_dmp_file)}" :: pad
-'''
+    def merge_binaries(self, text_tiles, text_map, pic_tiles, pic_map, tiles_out=None, map_out=None, sideways=False):
+        # Merge tilesets
+        tile_bytes = None
+        with open(text_tiles, "rb") as txt, open(pic_tiles, "rb") as pic:
+            tile_bytes = bytearray(txt.read())
+            pic_tile_bytes  = bytearray(pic.read())
+            tile_bytes += pic_tile_bytes[32:] # Skip 1st tile in picture tileset (the transparent tile)
+        
+        if tiles_out is not None:
+            with open(tiles_out, "wb") as file:
+                file.write(tile_bytes)
 
-splash_screens = [
-    SplashScreen("crossfire-text.png",  "crossfire-pic.png",    "crossfire",    "crossfire",    "0x0802E6F8"),
-    SplashScreen("star-text.png",       "star-pic.png",         "star",         "star",         "0x0802E708"),
-    SplashScreen("bounce-text.png",     "bounce-pic.png",       "bounce",       "bounce",       "0x0802E718"),
+        map_bytes = None
+        def bytecount(x, y):
+            return 60*x + 2*y
+
+        # Merge maps
+        with open(text_map, "rb") as txt, open(pic_map, "rb") as pic:
+            map_bytes = bytearray(txt.read())
+            pic_map_bytes = bytearray(pic.read())
+            ulx, uly = 2, 4
+            if sideways:
+                ulx, uly = 17, 2
+            for i in range(uly, uly+8, 1):
+                map_bytes[bytecount(i, ulx):bytecount(i, ulx+8)] = pic_map_bytes[bytecount(i, ulx):bytecount(i, ulx+8)]
+        
+        if map_out is not None:
+            with open(map_out, "wb") as file:
+                file.write(map_bytes)
+        
+        return tile_bytes, map_bytes
+
     
-    SplashScreen("dots-text.png",       "dots-pic.png",         "dots",         "dots",         "0x0802E738"),
-    SplashScreen("grass-text.png",      "grass-pic.png",        "grass",        "grass",        "0x0802E748"),
-    SplashScreen("ice-text.png",        "ice-pic.png",          "ice",          "ice",          "0x0802E758"),
-    SplashScreen("sky-text.png",        "sky-pic.png",          "sky",          "sky",          "0x0802E768"),
+minigame_splash_screens = [
+    MinigameSplashScreen("crossfire-text.png",  "crossfire-pic.png",    "crossfire",    "crossfire",    "0x0802E6F8"),
+    MinigameSplashScreen("star-text.png",       "star-pic.png",         "star",         "star",         "0x0802E708"),
+    MinigameSplashScreen("bounce-text.png",     "bounce-pic.png",       "bounce",       "bounce",       "0x0802E718"),
+    
+    MinigameSplashScreen("dots-text.png",       "dots-pic.png",         "dots",         "dots",         "0x0802E738"),
+    MinigameSplashScreen("grass-text.png",      "grass-pic.png",        "grass",        "grass",        "0x0802E748"),
+    MinigameSplashScreen("ice-text.png",        "ice-pic.png",          "ice",          "ice",          "0x0802E758"),
+    MinigameSplashScreen("sky-text.png",        "sky-pic.png",          "sky",          "sky",          "0x0802E768"),
     
     
-    SplashScreen("fall-text.png",       "fall-pic.png",         "fall",         "fall",         "0x0802E798"),
-    SplashScreen("magnet-text.png",     "magnet-pic.png",       "magnet",       "magnet",       "0x0802E7A8"),
-    SplashScreen("race-text.png",       "race-pic.png",         "race",         "race",         "0x0802E7B8"),
-    SplashScreen("shoot-text.png",      "shoot-pic.png",        "shoot",        "shoot",        "0x0802E7C8"),
-    SplashScreen("twin-text.png",       "twin-pic.png",         "twin",         "twin",         "0x0802E7D8"),
+    MinigameSplashScreen("fall-text.png",       "fall-pic.png",         "fall",         "fall",         "0x0802E798"),
+    MinigameSplashScreen("magnet-text.png",     "magnet-pic.png",       "magnet",       "magnet",       "0x0802E7A8"),
+    MinigameSplashScreen("race-text.png",       "race-pic.png",         "race",         "race",         "0x0802E7B8"),
+    MinigameSplashScreen("shoot-text.png",      "shoot-pic.png",        "shoot",        "shoot",        "0x0802E7C8"),
+    MinigameSplashScreen("twin-text.png",       "twin-pic.png",         "twin",         "twin",         "0x0802E7D8"),
 ]
 
-#https://stackoverflow.com/a/237193
-def quantize_to_palette(img, palette, dither=Image.NONE):
-    palImage = Image.new("P", (16, 16))
-    palImage.putpalette(palette)
-    return img.convert("RGB").quantize(palette=palImage, dither=Image.NONE)
+overworld_splash_screens = [
+    SplashScreen("villageentry.png", "entry_village", "entry_village", "0x080AD254"),
+    SplashScreen("flowerentry.png",  "entry_flower",  "entry_flower",  "0x080AD310"),
+    SplashScreen("clockentry.png",   "entry_clock",   "entry_clock",   "0x080AD3C8"),
+    SplashScreen("magicentry.png",   "entry_magic",   "entry_magic",   "0x080AD480"),
+    SplashScreen("neoentry.png",     "entry_neo",     "entry_neo",     "0x080AD538"),
+    # SplashScreen("congrats.png",   "congrats",      "congrats",      "0x080AD5F0"), Not yet implemented...
+]
 
-def format_images(splash: SplashScreen):
-    """Goal is to put my English .png minigame splashes in this folder, and then spit out .dmp files ready to be inserted into the ROM (no GUI needed!)"""
-    
-    text_tiles, text_map, pic_tiles, pic_map = ["" for i in range(4)]
-    # First, generate uncompressed tilesets and tilemaps for the text and picture
-    pic_tilemap_offset = 0
-    for i, (file, pal) in enumerate(zip((splash.text_img_file, splash.pic_img_file), (splash.text_pal, splash.pic_pal))):
-        try:
-            image: Image.Image = Image.open(file)
-            assert image.width == 240 and image.height == 160,  f"{file} does not match dimensions of a GBA screen (240x160) - different size images are not supported"
-            
-            palette = []
-            if i == 0:
-                palette = pal + [0, 0, 0]*240
-            elif i == 1: # Picture uses background palette 1
-                palette = DUMMY_COLOR*16 + pal + DUMMY_COLOR*224
 
-            # Quantize image to palette and save it (save is necessary for grit to access it)
-            image = quantize_to_palette(image, palette)
-            converted_file = os.path.join(TEMP_FOLDER, f"{file[:-4]}-converted.png")
-            image.save(converted_file)
-            
-            # In order: No palette, 4bpp, tile format, reg flat map layout, reduce tiles+pal+flip, dynamic tilemap offset,
-            # metatile reduction, 1x1 metatiles, .bin file, no header, output file
-            os.system(f"cmd /c grit {converted_file} -p! -gB4 -gt -mLf -mRtpf -ma{pic_tilemap_offset} -MRp -Mh1 -Mw1 -ftb -fh! -o {converted_file[:-4]}.bin")
-            tileset_file = f"{converted_file[:-4]}.img.bin"
-            tilemap_file = f"{converted_file[:-4]}.map.bin"
-            if i == 0:
-                # Important that the picture data uses this offset to reference its tiles correctly when the tileset and tilemap get merged
-                pic_tilemap_offset = os.path.getsize(tileset_file) // 0x20 - 1
-                text_tiles = tileset_file
-                text_map = tilemap_file
-            elif i == 1:
-                pic_tiles = tileset_file
-                pic_map = tilemap_file
-        except FileNotFoundError:
-            print(f"{file} not found.")
-    
-    # Really not necessary, but it's good to check the merged and uncompressed tileset and tilemap...
-    merged_uncompressed_tileset_file = os.path.join(TEMP_FOLDER, f"{splash.tileset_label}Uncomp.bin")
-    merged_uncompressed_tilemap_file = os.path.join(TEMP_FOLDER, f"{splash.tilemap_label}Uncomp.bin")
-    
-    # Then, merge the uncompressed tilesets and tilemaps into one
-    uncomp_tiles, uncomp_map = merge_binaries(text_tiles, text_map, pic_tiles, pic_map, tiles_out=merged_uncompressed_tileset_file, map_out=merged_uncompressed_tilemap_file, sideways=splash.armips_id == "fall")
-    
-    # Performance bottleneck is here, unsurprisingly. 
-    comp_tiles, comp_map = LZ.compress(uncomp_tiles), LZ.compress(uncomp_map)
-    
-    # Finally, output the compressed .dmp files, and assign tileset size variable
-    with open(splash.tileset_dmp_file, "wb") as tileset_file, open(splash.tilemap_dmp_file, "wb") as tilemap_file:
-        tileset_file.write(comp_tiles)
-        tilemap_file.write(comp_map)
-        print(f"wrote {tileset_file.name} and {tilemap_file.name}")
-        
-    splash.tileset_size = len(comp_tiles)
-    
-def merge_binaries(text_tiles, text_map, pic_tiles, pic_map, tiles_out=None, map_out=None, sideways=False):
 
-    # Merge tilesets
-    tile_bytes = None
-    with open(text_tiles, "rb") as txt, open(pic_tiles, "rb") as pic:
-        tile_bytes = bytearray(txt.read())
-        pic_tile_bytes  = bytearray(pic.read())
-        tile_bytes += pic_tile_bytes[32:] # Skip 1st tile in picture tileset (the transparent tile)
-    
-    if tiles_out is not None:
-        with open(tiles_out, "wb") as file:
-            file.write(tile_bytes)
-
-    map_bytes = None
-    def bytecount(x, y):
-        return 60*x + 2*y
-
-    # Merge maps
-    with open(text_map, "rb") as txt, open(pic_map, "rb") as pic:
-        map_bytes = bytearray(txt.read())
-        pic_map_bytes = bytearray(pic.read())
-        ulx, uly = 2, 4
-        if sideways:
-            ulx, uly = 17, 2
-        for i in range(uly, uly+8, 1):
-            map_bytes[bytecount(i, ulx):bytecount(i, ulx+8)] = pic_map_bytes[bytecount(i, ulx):bytecount(i, ulx+8)]
-    
-    if map_out is not None:
-        with open(map_out, "wb") as file:
-            file.write(map_bytes)
-    
-    return tile_bytes, map_bytes
-
-def main():
-    if not os.path.exists(TEMP_FOLDER):
-        os.makedirs(TEMP_FOLDER)
-
+def format_splash_inserter(splash_list, asm_outfile, asm_header):
+    # Makes .dmp's of all the minigame splash screens,
+    # then writes a .asm file that can be called with armips
     repoint_strs = []
     incbin_strs  = []
     
-    for splash in splash_screens:
-        format_images(splash)
+    for splash in splash_list:
+        splash.format()
         repoint_strs.append(splash.get_repoint_asm())
         incbin_strs.append(splash.get_incbin_asm())
     
     # Add comments if in between if need be
-    
     with open(asm_outfile, "w") as file:
         file.write(asm_header)
         file.write("\n".join(repoint_strs))
@@ -263,6 +312,13 @@ def main():
         file.write(".endautoregion")
     
     print(f"wrote {asm_outfile}")
+
+def main():
+    if not os.path.exists(TEMP_FOLDER):
+        os.makedirs(TEMP_FOLDER)
+
+    #format_splash_inserter(minigame_splash_screens, MinigameSplashScreen.asm_outfile, MinigameSplashScreen.minigame_asm_header)
+    format_splash_inserter(overworld_splash_screens, SplashScreen.asm_outfile, SplashScreen.asm_header) # Popups when you enter a new world for the first time
     
 if __name__ == "__main__":
     main()
