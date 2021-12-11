@@ -2,10 +2,10 @@ This is a translation of the game Kururin Paradise. I moved this repo from a pri
 
 ## Screenshots
 
-![Intro](https://user-images.githubusercontent.com/73413313/118182581-2e549d00-b407-11eb-9249-e57a80671997.png)![Dialogue placeholder](https://user-images.githubusercontent.com/73413313/118183199-d4a0a280-b407-11eb-9c8c-97c9763dbac6.png)
+![Intro](https://user-images.githubusercontent.com/73413313/118182581-2e549d00-b407-11eb-9249-e57a80671997.png)![Dialogue placeholder](https://user-images.githubusercontent.com/73413313/118183199-d4a0a280-b407-11eb-9c8c-97c9763dbac6.png)![Overworld Map](https://user-images.githubusercontent.com/73413313/145687335-07e6ee2a-6e1e-445d-ad79-ef9399249cbb.png)
 
 
-![Minigame menu](https://user-images.githubusercontent.com/73413313/118183148-c6528680-b407-11eb-8706-71e3966a8baa.png)![Menu](https://user-images.githubusercontent.com/73413313/118183115-bdfa4b80-b407-11eb-81f4-b48ba8d6f463.png)
+![Minigame menu](https://user-images.githubusercontent.com/73413313/118183148-c6528680-b407-11eb-8706-71e3966a8baa.png)![Menu](https://user-images.githubusercontent.com/73413313/118183115-bdfa4b80-b407-11eb-81f4-b48ba8d6f463.png)![Minigame Splash](https://user-images.githubusercontent.com/73413313/145687348-8cca6643-1bc8-4d63-8a88-7d76131696d0.png)
 
 
 ## How to use
@@ -29,7 +29,7 @@ SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
 * Put in translations for the rest of the dialogue (currently, much of it is lorem ipsum)
 * Fork over my title screen/overworld title hacks from a private repository
 * Hack in translated magic descriptions
-* Implement text welding (meshing different letter objects whose individual widths are small into the same object to save object slots) to show all the English text correctly in the magic descriptions
+* Refactor the way I generate my graphical binary data to make minor edits less tedious
 * Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
 
 ## Space Used
