@@ -266,7 +266,7 @@ class MinigameSplashScreen(SplashScreen):
         """Helper method to auto-generate part of the armips script that repoints to new splash screen data"""
         return \
 f""".org {self.offset}
-    .word @{self.tileset_label} 
+    .word @{self.tileset_label}
     .word @{self.tileset_end_label} - @{self.tileset_label}
     .word @{self.tilemap_label}
 """
@@ -335,8 +335,9 @@ def main():
     if not os.path.exists(TEMP_FOLDER):
         os.makedirs(TEMP_FOLDER)
 
-    format_splash_inserter(minigame_splash_screens, MinigameSplashScreen.asm_outfile, MinigameSplashScreen.asm_header)
-    #format_splash_inserter(overworld_splash_screens, SplashScreen.asm_outfile, SplashScreen.asm_header) # Popups when you enter a new world for the first time
+    format_splash_inserter(minigame_splash_screens, MinigameSplashScreen.asm_outfile, MinigameSplashScreen.asm_header) # Minigame instructions before you begin
+    format_splash_inserter(overworld_splash_screens, SplashScreen.asm_outfile, SplashScreen.asm_header) # Popups when you enter a new world for the first time
     
 if __name__ == "__main__":
     main()
+    

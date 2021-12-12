@@ -41,3 +41,20 @@ SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
 	-ASCII strings and cutscene scripts that don't fit in the original space
 
 I have an additional autoregion at the original intro cutscene location `0xA77C8`
+
+## License and contributions
+
+Armips was created by Kingcom.
+grit was created by cearn, Jasper Vijn
+`armips.exe` and `graphics/grit.exe` are licensed under the MIT license.
+
+
+All other files in this repository are licensed under the GNU General Public License v3 (GNU GPL-3)
+
+The LanaPixel font was used to generate some text in some images (minigame instructions). LanaPixel was created by eishiya and is licensed under Creative Commons 4.0 International.
+
+This software uses the FreeImage open source image library. See http://freeimage.sourceforge.net for details.
+
+FreeImage is used under GNU GPL, version 3. 
+
+See `LICENSE.MD` for license texts.

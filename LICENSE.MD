@@ -1,4 +1,6 @@
- `/armips.exe` and `/graphics/minigamesplashes/grit.exe` are licensed under the following:
+The LanaPixel font is licensed under Creative Commons - Attribution 4.0 International. [Link to license](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+ `armips.exe` and `/graphics/grit.exe` are licensed under the following:
 ## The MIT License (MIT)
 
 Copyright (c) 2009-2020 Kingcom
@@ -23,7 +25,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-The rest of the files in this repository are licensed under the following:
+The rest of the files in this repository, including `graphics/FreeImage.dll`,  are licensed under the following:
  
  ## GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
@@ -658,8 +660,8 @@ to attach them to the start of each source file to most effectively
 state the exclusion of warranty; and each file should have at least
 the "copyright" line and a pointer to where the full notice is found.
 
-    kptranslation - Partially translates the GBA game Kururin Pardise
-    Copyright (C) 2021 Dimedime-d
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -679,7 +681,7 @@ Also add information on how to contact you by electronic and paper mail.
   If the program does terminal interaction, make it output a short
 notice like this when it starts in an interactive mode:
 
-    kptranslation  Copyright (C) 2021  Dimedime-d
+    <program>  Copyright (C) <year>  <name of author>
     This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `show c' for details.
