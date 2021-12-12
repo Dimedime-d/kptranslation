@@ -1,3 +1,5 @@
+; this file is NOT automatically generated - you can nudge the x and y offsets so they look even...
+
 .macro worldtitleheader,xOffset,yOffset
 	.byte   0x03,0x70,0x20+xOffset,0x08+yOffset, \
             0xD1,0xF9,0x24,0x08, \
@@ -20,7 +22,7 @@
 .endmacro
 
 .macro inctitle,lvlName
-	.incbin "bin/overworldtitles/"+lvlName+".dmp"
+	.incbin "graphics/overworldtitles/dumps/"+lvlName+".dmp"
 .endmacro
 					
 .org 0x0802E3C4 ;repoint world title gfx

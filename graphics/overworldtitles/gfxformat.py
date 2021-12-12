@@ -29,7 +29,7 @@ def split32width(arr):
 
 # Adapted from https://github.com/MinN-11/PortraitFormatter/blob/main/portraits2dmp.py
 def image_to_dmp(file):
-    dump_file = f"../../bin/overworldtitles/{file[:-4]}.dmp"
+    dump_file = f"dumps/{file[:-4]}.dmp"
 
     image: Image.Image = Image.open(file)
     assert image.width % 32 == 0,  "image width should be a multiple of 32"
