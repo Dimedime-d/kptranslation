@@ -15,62 +15,62 @@
 ; 0x02E6F4 - crossfire palette would be here
 
 .org 0x0802E6F8
-    .word @crossfireTiles
+    .word @crossfireTiles 
     .word @crossfireTilesEnd - @crossfireTiles
     .word @crossfireMap
 
 .org 0x0802E708
-    .word @starTiles
+    .word @starTiles 
     .word @starTilesEnd - @starTiles
     .word @starMap
 
 .org 0x0802E718
-    .word @bounceTiles
+    .word @bounceTiles 
     .word @bounceTilesEnd - @bounceTiles
     .word @bounceMap
 
 .org 0x0802E738
-    .word @dotsTiles
+    .word @dotsTiles 
     .word @dotsTilesEnd - @dotsTiles
     .word @dotsMap
 
 .org 0x0802E748
-    .word @grassTiles
+    .word @grassTiles 
     .word @grassTilesEnd - @grassTiles
     .word @grassMap
 
 .org 0x0802E758
-    .word @iceTiles
+    .word @iceTiles 
     .word @iceTilesEnd - @iceTiles
     .word @iceMap
 
 .org 0x0802E768
-    .word @skyTiles
+    .word @skyTiles 
     .word @skyTilesEnd - @skyTiles
     .word @skyMap
 
 .org 0x0802E798
-    .word @fallTiles
+    .word @fallTiles 
     .word @fallTilesEnd - @fallTiles
     .word @fallMap
 
 .org 0x0802E7A8
-    .word @magnetTiles
+    .word @magnetTiles 
     .word @magnetTilesEnd - @magnetTiles
     .word @magnetMap
 
 .org 0x0802E7B8
-    .word @raceTiles
+    .word @raceTiles 
     .word @raceTilesEnd - @raceTiles
     .word @raceMap
 
 .org 0x0802E7C8
-    .word @shootTiles
+    .word @shootTiles 
     .word @shootTilesEnd - @shootTiles
     .word @shootMap
 
 .org 0x0802E7D8
-    .word @twinTiles
+    .word @twinTiles 
     .word @twinTilesEnd - @twinTiles
     .word @twinMap
 

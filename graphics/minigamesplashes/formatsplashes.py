@@ -114,7 +114,7 @@ class SplashScreen:
         
         # In order: No palette, 8bpp, tile format, flat map layout, reduce tiles+pal+flip, metatile reduction,
         # .bin file, no header, output file (default 1x1 metatiles)
-        os.system(f"cmd /c grit {converted_file} -p! -gB8 -gt -mLf -mR8 -MRp -ftb -fh! -o {converted_file[:-4]}.bin")
+        os.system(f"cmd /c ..\grit {converted_file} -p! -gB8 -gt -mLf -mR8 -MRp -ftb -fh! -o {converted_file[:-4]}.bin")
         tileset_file = f"{converted_file[:-4]}.img.bin"
         tilemap_file = f"{converted_file[:-4]}.map.bin"
         
@@ -200,7 +200,7 @@ class MinigameSplashScreen(SplashScreen):
                 
                 # In order: No palette, 4bpp, tile format, reg flat map layout, reduce tiles+pal+flip, dynamic tilemap offset,
                 # metatile reduction, 1x1 metatiles, .bin file, no header, output file
-                os.system(f"cmd /c grit {converted_file} -p! -gB4 -gt -mLf -mRtpf -ma{pic_tilemap_offset} -MRp -Mh1 -Mw1 -ftb -fh! -o {converted_file[:-4]}.bin")
+                os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -mLf -mRtpf -ma{pic_tilemap_offset} -MRp -Mh1 -Mw1 -ftb -fh! -o {converted_file[:-4]}.bin")
                 tileset_file = f"{converted_file[:-4]}.img.bin"
                 tilemap_file = f"{converted_file[:-4]}.map.bin"
                 if i == 0:
@@ -262,6 +262,24 @@ class MinigameSplashScreen(SplashScreen):
         
         return tile_bytes, map_bytes
 
+    def get_repoint_asm(self):
+        """Helper method to auto-generate part of the armips script that repoints to new splash screen data"""
+        return \
+f""".org {self.offset}
+    .word @{self.tileset_label} 
+    .word @{self.tileset_end_label} - @{self.tileset_label}
+    .word @{self.tilemap_label}
+"""
+
+    def get_incbin_asm(self):
+        """Helper method to auto-generate part of the armips script that includes the compressed tileset and tilemap
+        (Note: these .incbins are expected to be inside an autoregion)"""
+        return \
+f'''    @{self.tileset_label}:
+    .incbin "{os.path.join(*PARENT_FOLDERS, self.tileset_dmp_file)}" :: @{self.tileset_end_label}: :: pad
+    @{self.tilemap_label}:
+    .incbin "{os.path.join(*PARENT_FOLDERS, self.tilemap_dmp_file)}" :: pad
+'''
     
 minigame_splash_screens = [
     MinigameSplashScreen("crossfire-text.png",  "crossfire-pic.png",    "crossfire",    "crossfire",    "0x0802E6F8"),
@@ -317,8 +335,8 @@ def main():
     if not os.path.exists(TEMP_FOLDER):
         os.makedirs(TEMP_FOLDER)
 
-    #format_splash_inserter(minigame_splash_screens, MinigameSplashScreen.asm_outfile, MinigameSplashScreen.minigame_asm_header)
-    format_splash_inserter(overworld_splash_screens, SplashScreen.asm_outfile, SplashScreen.asm_header) # Popups when you enter a new world for the first time
+    format_splash_inserter(minigame_splash_screens, MinigameSplashScreen.asm_outfile, MinigameSplashScreen.asm_header)
+    #format_splash_inserter(overworld_splash_screens, SplashScreen.asm_outfile, SplashScreen.asm_header) # Popups when you enter a new world for the first time
     
 if __name__ == "__main__":
     main()
