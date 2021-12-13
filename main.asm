@@ -13,5 +13,6 @@
 .include "graphics/minigamesplashes/minigamesplashes.asm"
 .include "graphics/minigamesplashes/overworldsplashes.asm"
 .include "graphics/overworldtitles/overworldtitles.asm"
+.include "graphics/inlevel/inleveltext.asm"
 
 .close

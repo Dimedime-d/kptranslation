@@ -1,8 +1,8 @@
-This is a translation of the game Kururin Paradise. I moved this repo from a private one on Bitbucket. I'm cleaning up my code to make it more presentable for public users. I'm also working on a wiki, putting all my documentation there.
+This is my translation project of the game Kururin Paradise. Check out the wiki and assorted assembly files in this repository for some documentation on the ROM.
 
 ## Screenshots
 
-![Intro](https://user-images.githubusercontent.com/73413313/118182581-2e549d00-b407-11eb-9249-e57a80671997.png)![Dialogue placeholder](https://user-images.githubusercontent.com/73413313/118183199-d4a0a280-b407-11eb-9c8c-97c9763dbac6.png)![Overworld Map](https://user-images.githubusercontent.com/73413313/145687335-07e6ee2a-6e1e-445d-ad79-ef9399249cbb.png)
+![Intro](https://user-images.githubusercontent.com/73413313/118182581-2e549d00-b407-11eb-9249-e57a80671997.png)![Dialogue placeholder](https://user-images.githubusercontent.com/73413313/118183199-d4a0a280-b407-11eb-9c8c-97c9763dbac6.png)![Overworld Map](https://user-images.githubusercontent.com/73413313/145687335-07e6ee2a-6e1e-445d-ad79-ef9399249cbb.png)![InLevel](https://user-images.githubusercontent.com/73413313/145758653-84e19125-517c-466a-ac73-6962bdfc3aaa.png)
 
 
 ![Minigame menu](https://user-images.githubusercontent.com/73413313/118183148-c6528680-b407-11eb-8706-71e3966a8baa.png)![Menu](https://user-images.githubusercontent.com/73413313/118183115-bdfa4b80-b407-11eb-81f4-b48ba8d6f463.png)![Minigame Splash](https://user-images.githubusercontent.com/73413313/145687348-8cca6643-1bc8-4d63-8a88-7d76131696d0.png)
@@ -17,30 +17,30 @@ Method | Hash
 SHA256 | ED9BAC12FE065D11ADFFB08A27DE1A932E4E5A22CBF6B4B24FE28EF49F5385D2 
 SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
 
-* Rename rom to "kp.gba"
+* Rename rom to `kp.gba`
 * Put kp.gba in the root of the repository
-* Run "build.bat"
-* Output ROM is "kp_patched.gba"
+* Run `build.bat`
+* Output ROM is `kp_patched.gba`
 
 
 ## To-do List
 
 * Correct minigame names
 * Put in translations for the rest of the dialogue (currently, much of it is lorem ipsum)
-* Fork over my title screen/overworld title hacks from a private repository
-* Hack in translated magic descriptions
+* Hack in the rest of the minigame splash screens
+* Hack in translated magic descriptions + magic select screen graphics
 * Refactor the way I generate my graphical binary data to make minor edits less tedious
 * Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
 
 ## Space Used
 
-0x080B0000 (0x8000)
+`0xB0000` (size 0x8000)
 	-Hook to contain custom code, including VWF (variable-width font) and challenge/minigame menu code
 
-0x08800000 (0x800000) (Autoregion)
+`0x800000` (0x800000) (Autoregion)
 	-ASCII strings and cutscene scripts that don't fit in the original space
 
-I have an additional autoregion at the original intro cutscene location `0xA77C8`
+I have a autoregions at the original intro cutscene location `0xA77C8`, as well as the area containing the original in-level titles and text boxes (`0x2AAE34` - `0x2E4E24`)
 
 ## License and contributions
 

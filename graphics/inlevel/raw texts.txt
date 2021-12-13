@@ -1,0 +1,385 @@
+Transcribed directly from the game, followed by Chinese names/dialogue
+Placeholder English translations follow them...
+ 
+トレーニング
+	トレーニング１	Training 1
+		かべに　ぶつからないように
+		すすまなくっちゃね！
+        
+        前进的时候必须要小心别撞到
+        墙壁哦！
+        
+        Let's get to the goal without hitting the walls!
+ 
+	トレーニング２	Training 2...
+		ハートエリアは　チェックポイント
+		はいって　ライフをかいふくだぁ！
+        
+        心形区域是休息区,可以回复
+        生命！
+        
+        Fly through the heart areas to recover health!
+ 
+	トレーニング３
+		おてほんのうごきを　よくみれば
+		タイミングは　バッチいさ！
+        
+        好好观察示范操作,
+        就能很清晰地把握时机了!
+ 
+        Watch the demo ghost to get the timing down!
+ 
+	トレーニング４
+		せまいみちは　くぼみをつかって
+		ゆっくり　いかなきゃ
+        
+        在挟窄的地方要充分利用凹陷
+        处,仔细耐心地前进。
+        
+        Move carefully through the dents in the walls.
+ 
+	トレーニング５
+		バネに　ふれると　ヘリリンのかいとんを
+		かえられるんだよね
+        
+        碰触弹簧,能够改变飞行棒的
+        转向噢。
+        
+        Touch the spring to change the spin of the Helirin!
+ 
+くるりん村 (呼转转村)
+	クルリンハウス (呼转转家)	Kururin House
+		コースの　ひはってる　もようのうえは
+		あんぜんな　ばしょ　みたい
+        
+        道路中发光的地方好像是安全
+        的场所。
+        
+        The glowing areas on the course look like safe places to stop.
+ 
+	キッズルーム (孩子房间)		Kids Room
+		かべに　いちども　ぶつからずに
+		ゴールできると　いいな
+        
+        要是能不碰到墙壁到达終点,
+        那该多好啊！
+        
+        Better move carefully and try not to make a ruckus here...
+ 
+	キッチン (厨房)		Kitchen
+		スタートエリアで　ＳＥＬＥＣＴ　をおすと
+		ヘリリンを　みじかく　できるけど。。。
+        
+        在起点的区域按SELECT键
+        虽然能缩短飞行棒的长度．
+        
+        You can press SELECT at the start to shrink the Helirin...
+ 
+	くるりん村 (呼转转村)		Kururin Village
+		トビラを　あけるには
+		カギが　ひつようみたいだね
+        
+        要打开那些路中的门扉,好像
+        需要钥匙噢。
+        
+        There's a door up ahead! But where is the key?
+ 
+	中央公園	(中央公园)	Central Park
+		Ｌボタンで　ヘリリンのいろが　かわるよ
+		たまには　いいもんだね
+        
+        按L键就能改变飞行棒的颜色
+        噢,有时候也挺好用的呢。
+        
+        Press L to change the Helirin's color. It might come in handy.
+ 
+	ジグザグ酒場 (锯齿形酒吧)	Zigzag Tavern
+		こんなに　まがったコースだと
+		おサケがなくても　よっちゃうよ！
+        
+        这么曲折的道路就算不喝酒
+        也会头晕目眩呢！
+        
+        This winding road is sure making me dizzy...
+ 
+	夜のくるりん村 (夜晚的呼转转村)	Village at Night
+		こにゃは　おまつりだね！
+		おどっていると　たのしくなっちゃうよ！
+        
+        今天晩上有节日派对噢!尽櫅
+        跳舞欢畅吧!
+        
+        There seems to be a party tonight! Let's have some fun!
+ 
+	オンセン通り (温泉街)		Hot Spring Avenue
+		れんぞくしたバネは　タイミングがいのち！
+		。。。って　うさぎ先生が　いってたよ！
+        
+        兔子师师说过!使用连续的
+        弹簧,把握时机最关键!
+        
+        Teacher Hare told me to get a rhythm with these springs...
+ 
+はなの国 (花之国)
+	パンジタウン (紫罗兰镇)		Pansy Town **Pansy is a violet flower
+		カギをみつけて　トビラをあけて
+		いろんなところに　いかなくっちゃ
+        
+        找到钥匙、打开门扉,又要去
+        许多地方冒险了。
+        
+        Let's get the key up ahead to unlock a door somewhere!
+ 
+	オナモミチョウ (巷耳蝶)		Butterfly Lane
+		Ｒボタンをおすと　かいてんが
+		はやくなって　べんりだなぁ
+        
+        按住R键就能加快旋转的速度,
+        真方便。
+        
+        Hold the R button to spin faster. It's very convenient!
+ 
+	ローズ坂 (玫瑰斜坡)		Rose Slope
+		うわー　なんてたかいんだろう！
+		したを　みないように　しようっと
+        
+        哇--这里真高呢!小心别
+        往下看哦。
+        
+        We're flying pretty high up here. Don't look down...
+ 
+	空中森林	 (空中森林)	Aerial Forest
+		カギって　どこにあるのかな？
+		コースをくまなく　さがしてみようっと
+        
+        钥匙到底在哪呢?把道路
+        搜个遍,去找出来吧。
+        
+        Where is the key here? Better search the whole course!
+ 
+	虹の天川	 (彩虹天川)	Rainbow River
+		そういえば　Ａボタンか　Ｂボタンを
+		おしていると　はやく　すすめるんだっけ
+        
+        对了,按住A键或者B键,
+        能加速前进。
+        
+        By the way, hold the A or B buttons to move faster.
+ 
+	空の切り株 (空中树桩)		Hollow Stump
+		ぐるぐるきりかぶ　まわりみち
+		めが　まわらはいように　しなくっちゃ！
+        
+        迂回呼转的树桩,眼晴可不要
+        跟着一起转哦。
+        
+        Let's get around this stump, but try not to make a wrong turn.
+ 
+	地底トンネル (地底隧道)	Underground Tunnel
+		こんなところに　あなが　あったよ
+		だれか　すんでるのかなぁ
+        
+        这种地方居然还有洞穴
+        谁会住在这里呢？
+        
+        I wonder what creatures live in the caves down here...
+        
+	トゲトゲキャッスル (荆棘城堡)	Prickly Castle
+		うー　トゲトゲチクチク　やはかんじ！
+		せなかが　ムズムズしちゃうよぉ
+        
+        呀,好多荆棘和刺,真讨厌！
+        背上都感觉有点发痒了呢。
+        
+        Ah, so many thorns here! I'm getting an itch.
+ 
+とけいの国 (时钟之国)
+	歯車工場	 (齿轮工厂)	Gear Factory
+		レーダーに　うごくモノ　はっけん！
+		ぶつからないように　きを　つけはきゃ！
+        
+        雷达上发现了会动的粅体!
+        小心别撞上!
+        
+        I'm detecting moving objects on the radar. Avoid them!
+ 
+	鉄球ウェイ	 (铁球通道)	Iron Ball Way
+		ここも　キカイが　いっぱいみたい
+		スキをみて　すりぬけてやるぞ！
+        
+        这里好像也有很多机关,把握
+        间隙,一口气冲过去!
+        
+        More moving parts here. Let's slip by them.
+ 
+	クロス交差点 (交叉路口)	Crossroads
+		Ｒボタンで　くるくるまわせば
+		じょうずに　タイミングが　とれるぞ！
+        
+        熟练利用R键増加旋转速度,
+        抓住时机穿越。
+        
+        If you use the R button right, you can cross by safely.
+ 
+	時計塔～入口 (时钟塔入口)	Clock Tower Entrance
+		こんなに　おおきなトケイがあったら
+		ボクも　ねぼう　しないのにな
+        
+        要是有这么大一个闹钟,那我
+        也不会睡懒觉了。
+        
+        I sure won't oversleep with such a big clock ticking.
+ 
+	時計塔～文字盤 (时钟塔表盘)	Clock Tower Dial
+		あ！　Ａ＋Ｂボタンをン　おしていると
+		もっとはやく　すすめるんだっけ
+        
+        啊!同时按住A键和B键,
+        能更快地前进。
+        
+        Ah! Hold A and B together to move even faster!
+ 
+	時計塔～内部 (时钟塔内部)	Clock Tower Interior
+		このキカイたちが　あのおおきなトケイを
+		うごかしてるんだなぁ
+        
+        这些机关,都是在驱动那座
+        大钟吧。
+        
+        So all these gears are running the big clock tower...
+ 
+	すなどけい浜 (沙漏海滩)	Hourglass Beach
+		すなのうえにのると　ながされちゃう！
+		きそつけなくちゃ
+        
+        站在流沙上会被冲走噢!
+        要小心一点
+        
+        Staying on the quicksand will push the Helirin! Be careful.
+ 
+	すな浜の夕暮れ (落日海滩)	Beach at Sunset
+		うーん　ゆうやけがロマンチックだねぇ
+		でも　ちょって　さみしいかも
+        
+        哇--夕阳真浪漫呀!不过,
+        也有点寂寞呢。
+        
+        What a romantic sunset here! But it's also lonely...
+ 
+マジック王国 (魔术王国)
+	カーニバル	 (狂欢节)	Carnival
+		うわー　にぎやかな　まちだなぁ
+		なんだか　たのしくなっちゃうよ
+        
+        哇一一好热闹的地方啊,心情	
+        也畅快多了呢。
+        
+        What a lively town! I feel more relaxed here...
+ 
+	大砲パレード (大炮游行街)	Cannon Parade
+		たいほうが　ボクそねらってる！
+		がんばって　よけないて　たいへんだぁ
+        
+        大炮都对准了我！加油！
+        被击中就惨了。
+        
+        All these cannons are aimed at me! It'd be bad if I were hit...
+ 
+	スター広場 (星星广场)		Starry Plaza
+		はなびが　たくさん　あがっているよ
+		おまつりって　いいなぁ
+        
+        好多烟花在绽放呢！
+        像过节一样,真不错。
+        
+        What pretty fireworks! This festival sure is nice.
+ 
+	オバケ森 (幽灵森林)		Ghost Forest
+		なんだか　さみしいところに　きちゃった
+		オバケとか　でなきゃいいけど。。。
+        
+        好像来到了一个非常冷清的地
+        方,幽灵们别出来吓我．
+        
+        I'm getting chills from this place. Hope the ghosts leave me alone.
+ 
+	マジック城 (魔术城堡)		Magic Castle
+		くらくて　せまい　ヘヤだなぁ
+		きそつけて　すすんで　いこうっと
+        
+        这屋子又窄又阴森的,要小心	
+        点前进。
+        
+        The road up ahead sure looks narrow. Take care moving forward.
+ 
+	大広間 (大厅)		Large Castle Hall
+		きゅうに　さむくなってきたよ
+		エアコンの　かけすぎじゃないかな？
+        
+        突然觉悍好冷呀,难道是空调	
+        开的太低了？
+        
+        It's awfully cold and dark here. It feels like I'm in a freezer...
+ 
+	まいご墓場 (迷踪墓地)		Lost Cemetery	
+		オバケにつかもったら　おそくなっちゃう！
+		ガチャガチャして　にげだそう！
+        
+        要是被幽灵抑住速度就会下降！
+        突击一下,逃出去吧！
+        
+        The Helirin will slow down if a ghost grabs on! Let's rush out of here!
+ 
+	オバケの住処 (幽灵巢穴)	Ghost Dwelling
+		ホントに　まよっちゃったみたいだ
+		みんなは　どこにいるのかな？
+        
+        真的好困惑啊,大家到底在
+        哪里呢？
+        
+        This place has me lost. Where is everyone?
+ 
+	男爵の別荘 (男爵別墅)		Baron's Prison
+		ここも　まっくらだぁ
+		でんきが　こわれちゃったのかな？
+        
+        这里也是一片漆黑
+        电源坏掉了吗？
+        
+        It's also dark here. This castle has some power issues...
+ 
+ひみつの国 (神秘国)
+	たいせつなもの (最重要的东西)	Important Thing(s)
+		いったい　このさきに　なにがおるんだろら
+		もうちょっとだから　がんばるぞー！
+        
+        这前面到底会有什么东西呢？
+        马上就到了,加油！
+        
+        What could be up ahead? Let's get a move on!
+ 
+	フィナーレ	(终篇)	Finale
+		まだ　こんなコースが　あったなんて！
+		やりごたえあるなぁ
+        
+        又是这种道路！要有耐心啊。
+        
+        Another path appears! Be patient and conserve your hearts.
+ 
+	アンコール (加演)		Encore
+		さすがに　むずかしそうな　コースだなぁ
+		とっくんしないと　ムリかもね！
+        
+        果然是条非常困难的道路,
+        没经过持训恐怕不行呢!
+        
+        The path ahead looks difficult, but I can't back down now!
+ 
+	カーテンコール (谢幕)	Curtain Call	
+		これで　さいごだ！　ここそぬけたら
+		いちりゅうの　ヘリリンマスターだよ
+        
+        最后一关了！通过就能成为
+        一流的飞行棒驾驶员了。
+        
+        This is it! You'll be a Helirin Master if you can get through.
