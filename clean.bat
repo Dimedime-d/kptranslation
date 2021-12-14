@@ -1,1 +1,1 @@
-copy kp.gba kp_005.gba
+copy kp.gba kp_patched.gba
