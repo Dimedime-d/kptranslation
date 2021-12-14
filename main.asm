@@ -14,5 +14,7 @@
 .include "graphics/minigamesplashes/overworldsplashes.asm"
 .include "graphics/overworldtitles/overworldtitles.asm"
 .include "graphics/inlevel/inleveltext.asm"
+.include "graphics/menu/menumacros.asm"
+.include "graphics/menu/1Pmenus.asm"
 
 .close
