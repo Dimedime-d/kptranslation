@@ -57,6 +57,20 @@
 	.word @Baron2win
 	.word @Baron3lose
 	.word @Baron3win
+    
+.org 0x080292DC
+    .word @TeacherHareRankUpWorld1
+    .word @TeacherHareRankUpWorld2
+    .word @TeacherHareRankUpWorld3
+    .word @TeacherHareRankUpWorld4
+    .word @BaronMagicRankUpWorld1
+    .word @BaronMagicRankUpWorld2
+    .word @BaronMagicRankUpWorld3
+    .word @BaronMagicRankUpWorld4
+    .word @DadRankUp1
+    .word @DadRankUp2
+    .word @DadRankUp3
+    .word @DadRankUp4
 
 .org 0x08010DC4 ;starting intro cutscene from game boot
 	.word @NewIntroScript
@@ -291,6 +305,30 @@ _str " FIN"
 	.include "asm/scriptcode/intermission.asm"
 @NewEndingScript:
 	.include "asm/scriptcode/ending.asm"
+@TeacherHareRankUpWorld1:
+    .include "asm/scriptcode/rankup/rankup_hare1.asm"
+@TeacherHareRankUpWorld2:
+    .include "asm/scriptcode/rankup/rankup_hare2.asm"
+@TeacherHareRankUpWorld3:
+    .include "asm/scriptcode/rankup/rankup_hare3.asm"
+@TeacherHareRankUpWorld4:
+    .include "asm/scriptcode/rankup/rankup_hare4.asm"
+@BaronMagicRankUpWorld1:
+    .include "asm/scriptcode/rankup/rankup_baron1.asm"
+@BaronMagicRankUpWorld2:
+    .include "asm/scriptcode/rankup/rankup_baron2.asm"
+@BaronMagicRankUpWorld3:
+    .include "asm/scriptcode/rankup/rankup_baron3.asm"
+@BaronMagicRankUpWorld4:
+    .include "asm/scriptcode/rankup/rankup_baron4.asm"
+@DadRankUp1:
+    .include "asm/scriptcode/rankup/rankup_dad1.asm"
+@DadRankUp2:
+    .include "asm/scriptcode/rankup/rankup_dad2.asm"
+@DadRankUp3:
+    .include "asm/scriptcode/rankup/rankup_dad3.asm"
+@DadRankUp4:
+    .include "asm/scriptcode/rankup/rankup_dad4.asm"
 MinigameUnlock:
 	.include "asm/scriptcode/minigameunlock.asm"
 MagicUnlock:

@@ -348,3 +348,20 @@ s_ending2_7 equ "to surprise you!" ;びっくりさせようってワケだ！
 s_ending2_8 equ "Well, you had me scared at first." ;なんだー、おどろいちゃったよ！
 s_ending2_9 equ "Haha, sorry about that." ;あっはっはっはっは、ごめんごめん
 s_ending2_10 equ "Hahahahaha!" ;あっはっはっはっは！
+
+s_rankupteacherhare1 equ "Well played, Kururin!<line>You beat all my records." ;おめでとう、クルリン！<line>ボクのタイムをこえたようだね<end>
+s_rankupteacherhare2 equ "You're deserving of the<line>\"Teacher\" rank!" ;きみは「先生」とよばれるに<line>ふさわしい！<end>
+s_rankupteacherhare3 equ "Hooray! Thank you, Teacher Hare!" ;やったね！<line>うさぎ先生、ありがとう！<end>
+
+s_rankupbaronmagic1 equ "Hey, Mister Magic!<line>How do my records look?" ;わーい！<line>いまのタイムはどうだった？<end>
+s_rankupbaronmagic2 equ "Hmmmm, so you've really done it.<line>You've surpassed me!" ;むむむむむむむむむむむむむむ<line>まさか、ここまでやるとは・・・！<end>
+s_rankupbaronmagic3 equ "Allow me to offer my<line>congratulations!" ;コングラッチュレーションと<line>いわせていただくよ！<end>
+s_rankupbaronmagic4 equ "Truly wonderful! You've earned<line>the \"Baron\" title." ;まったく　すばらしい！<line>きょうから「男爵」をなのるがよい<end>
+s_rankupbaronmagic5 equ "Baron Kururin... not bad!" ;クルリン男爵か・・・<line>わるくないかもね！<end>
+
+s_rankupdad1 equ "Well done, Kururin. You've<line>surpassed your own father!" ;クルリン、よくやった<line>おまえは父をこえたな！<end>
+s_rankupdad2 equ "How about that, dad?<line>My times are amazing!" ;おとうさん！<line>どう？　ちょっとすごいでしょ！<end>
+s_rankupdad3 equ "It's a job well done, for sure." ;ほんとうに　よくやった！<end>
+s_rankupdad4 equ "There is nothing more that<line>I can teach you." ;これいじょう<line>おまえにおしえることはなにもない<end>
+s_rankupdad5 equ "But don't get careless now.<line>Keep honing your skills!" ;これからも　ゆだんしないで<line>うでをみがくんだぞ！<end>
+s_rankupdad6 equ "Thank you, dad!<line>I'll give it my all!" ;おとうさん、ありがとう！<line>ボクがんばるよ！<end>
