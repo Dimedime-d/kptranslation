@@ -5,6 +5,12 @@
 					
 ;include all assembly files in here
 ;file paths are relative to armips.exe
+.definelabel __DEBUG__, 1
+.ifdef __DEBUG__
+    .warning "Debug flag is ON"
+    .include "asm/debug.asm"
+.endif
+
 .include "asm/customcode.asm"
 .include "asm/vwfalpha.asm"
 .include "text/insertscripts.asm"

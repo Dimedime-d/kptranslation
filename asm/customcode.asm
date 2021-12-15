@@ -467,7 +467,28 @@ MenuAddVW:
 @NullPtr:	
 		bx r14
 		.pool
-		
-		
+		.align
+.ifdef __DEBUG__
+    ResetRankHook:
+    ldr r0, =0x030005E9
+    ldrb r0, [r0, 0x00]
+    mov r5, 0x02
+    and r0, r5
+    cmp r0, 0x00
+    bne @LButtonHeld
+    @ResetRankHookEnd:
+    ldr r0, =0x030005A0
+    add r0, 0x90
+    bx r14
+    .pool
+    @LButtonHeld:
+    ldr r0, =0x030005A0
+    add r0, 0x90
+    ldr r0, [r0, 0x00] ;get pointer to current SRAM file
+    mov r5, 0x00
+    strb r5, [r0, 0x09] ;overwrite rank
+    b @ResetRankHookEnd
+    .pool
+.endif
 	
 	
