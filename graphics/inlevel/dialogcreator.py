@@ -25,7 +25,7 @@ class OOP():
         self.create_char_map()
         
     def create_widgets(self):
-        text_frame = ttk.LabelFrame(self.win, text=" Type here: (Limit: 45 chars/line, 5 lines)")
+        text_frame = ttk.LabelFrame(self.win, text=" Type here")
         text_frame.grid(column=0, row=0, padx=8, pady=0)
         self.scr = scrolledtext.ScrolledText(text_frame, width=50, height=5) #, wrap=tk.WORD)
         self.scr.grid(column=0, row=0, columnspan=20, sticky="SW")
@@ -50,15 +50,23 @@ class OOP():
         y_field.bind("<KeyRelease>", self.update_image)
         self.y_coord.set(133)
         
+        spacing_label = ttk.Label(text_frame, text="Spacing")
+        spacing_label.grid(column=0, row=3)
+        self.spacing = tk.IntVar()
+        self.spacing_field = ttk.Entry(text_frame, width=4, textvariable=self.spacing, validate="key", validatecommand=vcmd)
+        self.spacing_field.grid(column=0, row=4)
+        self.spacing_field.bind("<KeyRelease>", self.update_image)
+        self.spacing.set(14)
+        
         self.centered = tk.IntVar()
         center_checkbox = ttk.Checkbutton(text_frame, text="Center X?", variable=self.centered, command=self.on_center_toggle)
         center_checkbox.grid(column=2, row=1, rowspan=2)
         
         center_label = ttk.Label(text_frame, text="Center X")
-        center_label.grid(column=3, row=1)
+        center_label.grid(column=2, row=3)
         self.center_x_coord = tk.IntVar()
         self.center_field = ttk.Entry(text_frame, width=4, textvariable=self.center_x_coord, validate="key", validatecommand=vcmd)
-        self.center_field.grid(column=3, row=2)
+        self.center_field.grid(column=2, row=4)
         self.center_field.bind("<KeyRelease>", self.update_image)
         self.center_x_coord.set(144)
         self.center_field["state"] = "disabled"
@@ -182,7 +190,8 @@ Also format it with grit to a .dmp file?")
         self.clear_image() # Wipe previous image
         if self.overlay.get():
             self.img.paste(self.overlay_img, (0, 0), self.overlay_img)
-        self.text = self.restrict_text(self.scr.get("1.0", "end-1c"), 45, 5)
+        # self.text = self.restrict_text(self.scr.get("1.0", "end-1c"), 45, 5)
+        self.text = self.scr.get("1.0", "end-1c")
         self.draw_chars_to_image(self.text)
         self.set_image()
         
@@ -206,7 +215,7 @@ Also format it with grit to a .dmp file?")
                     self.img.paste(char_img, (textX, textY+char_y_off), char_img)
                 # print(textX, textY)
                 textX += char_img.width + 1
-            textY += 0x0E
+            textY += self.spacing.get()
             textX = self.x_coord.get()
         
     def get_centered_x(self, line):

@@ -280,6 +280,7 @@ MiniParaTitleHook:
 		.pool
 
 ;custom hook to load minigame titles as 32x8 objs instead of 8x8
+;subroutine REPLACES one that parses ASCII (0x08094144)
 CreateMiniParaTitleObjs:
 	;r0 = x, r1 = y, r3 = pal, r4 = order from top of list
 	push r4-r7,r14
@@ -288,9 +289,9 @@ CreateMiniParaTitleObjs:
 	mov r5,r8
 	push r5-r7
 	add sp,-8h
-	mov r5,r0
+	mov r5,r0 ; now r5 contains x-coordinate
 	mov r0,0x00
-	mov r10,r0
+	mov r10,r0  ; zero out r10 for later (obj count check)
 	sub r0,0x08
 	cmp r1,r0
 	bgt @MinYPassed
@@ -303,10 +304,10 @@ CreateMiniParaTitleObjs:
 	mov r6,0xFF
 	mov r9,r6
 	mov r0,r9
-	and r0,r1 ;gets rid of additional bits greater than 0xFF
-	mov r9,r0
+	and r0,r1 
+	mov r9,r0 ; r9 contains (y-coordinate & 0xFF)
 	
-	lsl r1,r3,0x0C ;OAM bit handling palette
+	lsl r1,r3,0x0C ;OAM nibble handling palette (Attribute 2, bits 12-15)
 	
 	ldr r0,=0x030038C4
 	ldrb r0,[r0] ;obj bank
@@ -315,7 +316,7 @@ CreateMiniParaTitleObjs:
 	orr r1,r0 ;obj priority - makes text appear on top of BG1
 	lsl r1,r1,0x10
 	lsr r1,r1,0x10
-	mov r8,r1 ;save for later
+	mov r8,r1 ; r8 contains obj priority (OAM Attribute 2, bits 10-11) and palette
 	b CheckObjCount
 	.pool
 	ReadMinigameID:
@@ -323,18 +324,20 @@ CreateMiniParaTitleObjs:
 	mov r1,r4
 	lsl r0,r1,0x01
 	add r0,r0,r1
-	lsl r0,r0,0x02 ;times 12
+	lsl r0,r0,0x02 ;minigame index times 12
 	ldr r1,=0x147
 	add r0,r0,r1
-	mov r7,r0
+	mov r7,r0 ;
 	
 	mov r1,r10
 	sub r1,r1,0x01
 	lsl r0,r1,0x02
 	mov r1,r7
 	add r0,r0,r1
-	mov r7,r0 ;update tile #
-	;check if x-coord is in bounds
+	mov r7,r0 ; r7 contains tile number (OAM Attribute 2, bits 0-9)
+    ; taking into account minigame index and current iteration (r10)
+    
+	; check if x-coord is in bounds
 	mov r0,0x20
 	neg r0,r0
 	cmp r5,r0
@@ -344,38 +347,42 @@ CreateMiniParaTitleObjs:
 	ldr r0,=0x030038C4
 	ldrb r0,[r0]
 	str r3,[sp]
-	bl 0x080922D4
+	bl 0x080922D4 ; some function that updates an object slot
+    ; returns an address where I can store my OAM attributes into r0
 	mov r2,r0
 	ldr r3,[sp]
 	cmp r2,0x00
-	beq @EndSubroutine
+	beq @EndSubroutine ; check invalid object pointer
+    
 	;OAM Attribute 1 (2nd one, 1st one is Attr 0)
+    ;r0 is to contain OAM attributes 0 and 1
 	lsl r0,r5,0x10 ;x-coord
 	ldr r1,=0x1FF0000
-	and r0,r1 ;only bits 0-8 coorespond to x-coordinate (16-24 here)
+	and r0,r1 ; r0 contains: x-coordinate (OAM Attribute 1, bits 0-8, which are bits 16-24 here)
 	mov r1,0x01
 	lsl r1,r1,0x1E
-	orr r0,r1 ;sets size
+	orr r0,r1 ; fixed object size (OAM Attribute 1, bits 14-15 [bits 30-31]) Here, size = 1...
 	mov r1,0x01
 	lsl r1,r1,0x0E
-	orr r0,r1 ;sets shape to horizontal
+	orr r0,r1 ; 1 = horizontal shape (OAM Attribute 0, bits 14-15)
 	mov r1,r9 ;y-coord
-	orr r0,r1
-	str r0,[r2]
+	orr r0,r1 ; r0 also contains: y-coordinate (OAM Attribute 0, bits 0-8)
+	str r0,[r2] ; finally store the first 2 OAM attributes to that object slot
 	
 	;OAM Attr 2
 	mov r0,r8
-	orr r0,r7
-	strh r0,[r2,0x04]
+	orr r0,r7 
+	strh r0,[r2,0x04] ; store all of OAM attribute 2 into object slot
+    
 	IncrementX:
 	mov r0,0x20
 	add r5,r5,r0 ;change x coord
 	b CheckObjCount
 	.pool
 	CheckObjCount:
-	mov r0,r10 ;0x00 by default
+	mov r0,r10
 	add r0,r0,0x01
-	cmp r0,0x03
+	cmp r0,0x03 ;want to draw three objects per line (that's the graphics space I allocated to each minigame title)
 	bgt @EndSubroutine
 	mov r10,r0
 	b ReadMinigameID

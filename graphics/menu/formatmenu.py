@@ -16,7 +16,8 @@ palettes = { # Really just here to convert the .png's easier, in-game handles pa
     "highlighted blue": [232, 112, 208, 72, 88, 200, 136, 168, 192, 208, 248, 184, 176, 208, 192, 152, 176, 200, 120, 144, 208, 96, 112, 216, 0, 0, 0, 40, 80, 192, 136, 144, 80, 248, 248, 64, 112, 248, 240, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     "pink": [232, 112, 208, 224, 72, 144, 232, 136, 184, 248, 200, 224, 240, 168, 200, 232, 136, 184, 224, 104, 168, 216, 80, 152, 0, 0, 0, 0, 0, 0, 120, 120, 32, 248, 248, 64, 112, 248, 240, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     "orange": [232, 112, 208, 248, 120, 0, 248, 184, 72, 248, 248, 144, 248, 208, 120, 248, 176, 96, 248, 144, 72, 248, 112, 48, 0, 0, 0, 176, 64, 0, 168, 144, 32, 248, 248, 64, 112, 248, 240, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    "challenge highlighted": [0, 128, 152, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 56, 104, 80, 16, 168, 64, 152, 176, 96, 200, 208, 136, 248, 248] #0x1BBB60, decompressed, palette 10
+    "challenge highlighted": [0, 128, 152, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 56, 104, 80, 16, 168, 64, 152, 176, 96, 200, 208, 136, 248, 248], #0x1BBB60, decompressed, palette 10
+    "ascii": [32, 152, 160, 0, 0, 0, 32, 152, 160, 240, 152, 152, 0, 64, 144, 0, 96, 160, 0, 128, 184, 184, 72, 0, 200, 128, 16, 224, 184, 40, 248, 248, 64, 0, 0, 0, 56, 56, 56, 120, 120, 120, 184, 184, 184, 248, 248, 248], #in a bunch of places
 }
 
 def quantize_image_to_palette_and_save(img_file, palette):
@@ -117,14 +118,28 @@ def format_other_text():
         dmp.write(bin2.read())
     print(f"wrote {dmp_file}")
     
+def format_minigame_titles():
+    img_file = "minigametitles.png"
+    converted_file = quantize_image_to_palette_and_save(img_file, palettes["ascii"])
+    bin_file = os.path.join(DUMP_FOLDER, f"{img_file[:-4]}")
+    # In order: No palette, 4bpp, tile format, NO MAP,
+    # 4x1 metatiles, .bin file, no header, output file
+    os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh1 -ftb -fh! -o {bin_file}")
+    dmp_file = f"{bin_file}.dmp"
+    if os.path.exists(dmp_file):
+        os.remove(dmp_file)
+    os.rename(f"{bin_file}.img.bin", dmp_file)
+    print(f"wrote {dmp_file}")
+    
 def main():
     if not os.path.exists(TEMP_FOLDER):
         os.makedirs(TEMP_FOLDER)
     
     format_menu_buttons()
     format_other_text()
+    format_minigame_titles()
     
-    print("formatted all buttons. check the .asm files if you changed the picture names")
+    print("formatted all images in this folder. check the .asm files if you changed the picture names")
     
 if __name__ == "__main__":
     main()

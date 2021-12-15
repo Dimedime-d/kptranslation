@@ -110,7 +110,7 @@
 	@Name6:		.asciiz "KuruPara"	::	.align
 	@Name7:		.asciiz "Paradise"	::	.align
 	@Learn:		.asciiz "   Learn" ::	.align
-	MiniParaTitles: .incbin "bin/minigameparadiselabels.bin"
+	MiniParaTitles: .incbin "graphics/menu/dumps/minigametitles.dmp"
 .endautoregion
 		
 ;---------------------------------------------
