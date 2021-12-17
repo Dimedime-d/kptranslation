@@ -5,13 +5,14 @@
  
 .org 0x08021680	;repoint to other character bank!
 .area 0x080216AC - 0x08021680
-	ldr r0,=0x08039128
-	ldr r1,=0x08039B08 ; new! (altfont) old: 0x080392A8
-	ldr r2,=0x08039570
-	ldr r3,=0x080396CC
-	ldr r4,=0x0803979C
+	; table of relative offsets, 1st one's punctuation
+	ldr r0,=0x08039808 ; new! old: 0x08039128
+	ldr r1,=0x08039B08 ; new! (altfont) old: 0x080392A8 (tbl for hiragana/English)
+	ldr r2,=0x08039570 ; katakana
+	ldr r3,=0x080396CC ; kanji
+	ldr r4,=0x0803979C ; table of valid kanji id's
 	str r4,[sp]
-	bl 0x080230F8
+	bl 0x080230F8 ; function that sets fonts
 	
 	mov r0,r8
 	add r0,4h
@@ -47,17 +48,8 @@
 .org 0x082ed78c
 	.incbin "bin/2ed78c.bin" ;fixes x-pos of each character
 
-.org 0x082E5294
+.org 0x082e5294
 	.incbin "bin/minus.bin" ;fixes x-pos of minus sign
-
-.org 0x08039128
-	.incbin "bin/punct.bin" ;repoints punctuation
-
-.org 0x08039250
-	.incbin "bin/punct2.bin" ;repoints duplicate degree sign, apostrophe & quote marks
-
-.org 0x08039190
-	.incbin "bin/punct3.bin" ;repoints tilda
 
 
 	
