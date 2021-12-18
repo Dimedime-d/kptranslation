@@ -16,6 +16,7 @@
 .include "text/insertscripts.asm"
 .include "text/ascii.asm"
 .include "text/menu.asm"
+.include "graphics/glyphs/glyphbinaries.asm"
 .include "graphics/minigamesplashes/minigamesplashes.asm"
 .include "graphics/minigamesplashes/overworldsplashes.asm"
 .include "graphics/overworldtitles/overworldtitles.asm"

@@ -3,6 +3,9 @@
 .region 0x0800000,00
 .endregion
  
+.org 0x08023118
+    b 0x08023126 ; unconditional jump skips counting kanji
+ 
 .org 0x08021680	;repoint to other character bank!
 .area 0x080216AC - 0x08021680
 	; table of relative offsets, 1st one's punctuation
@@ -44,12 +47,6 @@
 
 .org 0x08021120 ;pointer to script parser
 	.word ScriptParse
-
-.org 0x082ed78c
-	.incbin "bin/2ed78c.bin" ;fixes x-pos of each character
-
-.org 0x082e5294
-	.incbin "bin/minus.bin" ;fixes x-pos of minus sign
 
 
 	

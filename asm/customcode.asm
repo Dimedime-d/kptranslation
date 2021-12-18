@@ -43,14 +43,9 @@
 		lsl r3,r3,1h
 		add r2,r2,r3
 		add r2,20h
-		ldrh r0,[r0,r2]		; Relative offset for current character (only halfword) (to 0x284F70)
+		ldr r0,[r0,r2]		; Relative offset for current character (relative to 0x284F70)
 
-		lsr r0,r0,5h	;some bit-shifting due to how I put in my width table
-		lsl r0,r0,1h
-		
-		mov r3,r0
-		ldr r0,=WidthTable
-		ldrb r0,[r0,r3]
+		bl RelOffsetToWidth
 		
 		add r0,r0,r7
 		str r0,[r1]
@@ -193,14 +188,9 @@
 		ldr r0, [r0] ;<---LOADING OF RELATIVE OFFSETS
 		str r0, [r2] ;<---STORAGE OF RELATIVE OFFSETS
 		
-		;new - add corresponding width from width table to r11
-		ldrh r0, [r2]
-		lsr r0, r0,5h	;some bit-shifting due to how I put in my width table
-		lsl r0, r0,1h
-		mov r1, r0
-		ldr r0, =WidthTable
-		ldrb r0, [r0,r1]
-		mov r1, r11
+		bl RelOffsetToWidth
+        
+		mov r1, r11 ; running tally of sum of x-coordinates, to auto-center text
 		add r0, r0, r1
 		mov r11, r0
 		b Branch2
@@ -226,7 +216,7 @@
 		str r0, [r1] ;store number of chars?
 		bl WriteNewX
 		mov r0, r9
-		add r0, 3h ;r0 = next scripcode to parse
+		add r0, 3h ;r0 = next scriptcode to parse
 		;restore r12
 		add sp,4h
 		pop r1
@@ -245,7 +235,7 @@
 		bx r1
 
 	WriteNewX:
-		;new - overwrite x-coordinate with new one calculated from r11
+		;new - overwrite x-coordinate with new AUTO-CENTERED one calculated from r11
 		mov r1, r11
 		ldr r0, =0xF0
 		sub r1, r0, r1
@@ -259,8 +249,7 @@
 		strb r1,[r0]
 		bx r14
 		.pool
-WidthTable:
-.incbin "bin/width.bin"
+        .align
 
 InstaText:	;pls work
 .include "asm/scriptcode/vwfInstaText.asm"
@@ -402,6 +391,7 @@ MenuAddVW:
 	;r4 contains text, r5 contains x-coord
 	cmp r4, 0h
 	beq @NullPtr
+    push r14
 	push r0
 	push r1
 	sub r4, r4, 2h
@@ -442,8 +432,11 @@ MenuAddVW:
 		.pool
 		
 	@MCheck3:
-		;ldr r0, =0x813F not really a check lol
-		ldr r0, =0x03005850
+		ldr r0, =0x813F
+		cmp r2, r0
+        bls @MFallthrough
+
+        ldr r0, =0x03005850
 		ldr r1, [r0]
 		lsl r0, r2, 2h
 		add r0, r0, r1
@@ -451,30 +444,47 @@ MenuAddVW:
 		b @MBranch1
 		.pool
 	
+    @MFallthrough:
+        mov r0, 0x00 ; other characters are zero width
+        b @MAddWidth
+        
 	@MBranch1:
 		add r0, r0, r1
-		ldr r2, [r0] ;<-- The relative offset I need!! (just chop off the 1st 16 bits)
-		
-		lsl r0, r2, 0x10
-		lsr r0, r0, 0x10
-		;new - add corresponding width from width table to r11
-		lsr r0, r0,5h	;some bit-shifting due to how I put in my width table
-		lsl r0, r0,1h
-		mov r1, r0
-		ldr r0, =WidthTable
-		ldrb r0, [r0,r1] ;r0 contains width!!!
-		
+		ldr r2, [r0] ;<-- The relative offset I need!! 
+		mov r0, r2
+		bl RelOffsetToWidth
+        
+	@MAddWidth:
 		add r5, r5, r0
 		add r4, 2h
 		
 		pop r1
 		pop r0
-@MRead:
+        
 		ldrh r2, [r4]
+        pop r14 ; effectively pop r15
 @NullPtr:	
 		bx r14
 		.pool
 		.align
+        
+RelOffsetToWidth:
+    ; enough bit-shifting nonsense,
+    ; just subtract 2E4EB4 - 284F70 from the whole offset,
+    ; then divide by 0x88, and there's your width...
+	push r1
+	ldr r1, =0x5FF44
+    sub r0, r0, r1
+    mov r1, 0x88
+    swi 06
+    mov r1, r0
+	ldr r0, =NewWidthTable
+	ldrb r0, [r0,r1]
+	pop r1
+	bx r14
+	.pool
+    .align
+        
 .ifdef __DEBUG__
     ResetRankHook:
     ldr r0, =0x030005E9

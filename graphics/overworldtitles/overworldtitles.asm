@@ -76,6 +76,7 @@
 	.word L2A
 
 .autoregion
+    .align
 	W01:
 		worldtitleheader    0,0
 		inctitle	"world_trainingroom"
