@@ -48,5 +48,8 @@
 .org 0x08021120 ;pointer to script parser
 	.word ScriptParse
 
-
+.org 0x08014706 ; practice mode, A button on a magic hat (normally does nothing)
+.area 4h
+    bl InitPracticeCutsceneMenu
+.endarea
 	

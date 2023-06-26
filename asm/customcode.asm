@@ -484,7 +484,45 @@ RelOffsetToWidth:
 	bx r14
 	.pool
     .align
-        
+    
+InitPracticeCutsceneMenu:
+    ; basically just copy 08014728 (open up in No$gba to avoid stack errors...)
+    ; TODO - not allow menu selection if magic hat isn't beaten yet
+    mov r0, 0x34
+    bl 0x0803cf44 ; sfx
+    
+    ldr r0, =RenderPracticeCutsceneMenu
+    str r0, [sp, 0x08]
+    mov r1, sp
+    mov r0, 0x04 ; know the max size of menu
+    strb r0, [r1]
+    mov r0, sp
+    strb r6, [r0, 0x01] ; r6 = 0x01 (default selection)
+    mov r5, sp
+    ; retrieve coords of level id
+    ldr r2, =0x0802E28C ; OW x coords
+    lsl r3, r7, 0x02 ; r7 contains level id
+    add r0, r3, r2
+    ldrb r1, [r0] ; raw x-coord
+    ldr r4, =0x030053A0
+    ldr r0, [r4, 0x10]
+    add r0, 0x10
+    sub r1, r1, r0
+    strb r1, [r5, 0x02] ; store x-coord
+    add r2, 0x02 ; y coords are offset
+    add r3, r3, r2
+    ldrb r1, [r3]
+    ldr r0, [r4, 0x14]
+    sub r0, 0x10
+    sub r1, r1, r0
+    strb r1, [r5, 0x03] ; store y-coord
+    mov r6, 0x03 ; !! custom state
+    bx r14
+    .pool
+    .align
+
+RenderPracticeCutsceneMenu:
+
 .ifdef __DEBUG__
     ResetRankHook:
     ldr r0, =0x030005E9
