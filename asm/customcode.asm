@@ -711,14 +711,26 @@ PracticeStateRepoint:
             add r1, 0xa0
             ldrb r0, [r1]
             cmp r0, 0x00
-            beq @@PlayLastBaron
+            beq @@LastBaron
             cmp r0, 0x01
             beq @@PlayLastBaronAllMagic
             b @@PlayNeoLand
             
-            @@PlayLastBaron:
+            @@LastBaron:
+            mov r2, r1
+            ldr r1, =0x030005A0
+            add r1, 0x90
+            ldr r0, [r1]
+            add r0, 0x0e
+            ldrh r0, [r0]
+            ldr r1, =0xFFF
+            and r0, r1
+            cmp r0, r1
+            bne @@PlayLastBaron
             mov r0, 0x01
-            strb r0, [r1]
+            mov r1, r2
+            strb r0, [r1]  ;the increment that lets you re-watch pre-neo land cutscenes
+            @@PlayLastBaron:
             mov r0, r4
             b @@ExecuteScript
             @@PlayLastBaronAllMagic:
