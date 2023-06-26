@@ -489,16 +489,18 @@ InitPracticeCutsceneMenu:
     ; basically just copy 08014728 (open up in No$gba to avoid stack errors...)
     ; TODO - not allow menu selection if magic hat isn't beaten yet
     push r14
+    sub sp, 0x04
+    
     mov r0, 0x34
     bl 0x0803CF44 ; sfx
     
-    ldr r0, =RenderPracticeCutsceneMenu
-    str r0, [sp, 0x08]
+    ldr r0, =RenderPracticeCutsceneMenu+1
+    str r0, [sp, 0x10]
     mov r1, sp
     mov r0, 0x04 ; know the max size of menu
-    strb r0, [r1]
+    strb r0, [r1, 0x08]
     mov r0, sp
-    strb r6, [r0, 0x01] ; r6 = 0x01 (default selection happens to be sub-state)
+    strb r6, [r0, 0x09] ; r6 = 0x01 (default selection happens to be sub-state)
     mov r5, sp
     ; retrieve coords of level id
     ldr r2, =0x0802E28C ; OW x coords
@@ -509,15 +511,17 @@ InitPracticeCutsceneMenu:
     ldr r0, [r4, 0x10]
     add r0, 0x10
     sub r1, r1, r0
-    strb r1, [r5, 0x02] ; store x-coord
+    strb r1, [r5, 0x0a] ; store x-coord
     add r2, 0x02 ; y coords are offset
     add r3, r3, r2
     ldrb r1, [r3]
     ldr r0, [r4, 0x14]
     sub r0, 0x10
     sub r1, r1, r0
-    strb r1, [r5, 0x03] ; store y-coord
+    strb r1, [r5, 0x0b] ; store y-coord
     mov r6, 0x03 ; !! custom state
+    
+    add sp, 0x04
     pop r0
     bx r0
     .pool
@@ -561,7 +565,7 @@ PracticeStateRepoint:
         add r0, r4, 0x00
         add r0, 0x4c
         ldrh r1, [r0, 0x00] ; key press mask
-        add r0, r0, 0x02
+        mov r0, 0x02
         and r0, r1
         cmp r0, 0x00
         beq @@NoBPress
@@ -581,7 +585,8 @@ PracticeStateRepoint:
         
         ldr r0, =0x08001C25
         mov r1, 0x08
-        bl 0x080944AC ; resume execution on "default branch"
+        bl 0x080944AC ; fadeout object
+        ; resume execution on "default branch"
         
     @@DefaultBranch:
     ldr r4, =0x030005A0
@@ -593,8 +598,7 @@ PracticeStateRepoint:
     and r0, r1
     cmp r0, r0
     beq @@DontExit
-    mov r6, 0x01
-    rsb r6, r6 ; this exits practice mode, I think
+    mov r6, -0x01; this exits practice mode, I think
     @@DontExit:
     add r0, r7, 0x00
     bl 0x08014020 ; draw OW Sidebar and Map
@@ -602,16 +606,22 @@ PracticeStateRepoint:
     add r0, 0x4c
     ldrh r1, [r0, 0x00]
     mov r0, sp
+    add r0, r0, 0x04
     mov r2, 0x33
     bl 0x080945BC ; menu scroll listen
     bl 0x08094530 ; update objects?
     bl 0x08092754 ; prep DMA of object tiles
-    bl 0x0809221c ; update OAM mirror?
+    bl 0x0809221C ; update OAM mirror?
     
     b @@Exit
     
 RenderPracticeCutsceneMenu:
     ;TODO - parse ASCII + textbox for cutscene menu
+    push r14
+    
+    mov r0, 0x00
+    pop r1
+    bx r1
     
 .ifdef __DEBUG__
     ResetRankHook:
