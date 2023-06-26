@@ -583,16 +583,37 @@ PracticeStateRepoint:
         beq @@DefaultBranch
         ; on A/start press, add implementation here!!
         
-        
-        
         ldr r0, =0x08001C25
         mov r1, 0x08
         bl 0x080944AC ; fadeout object
-        ; consult 0x08013290 for executing script (ex: kururin house), or 0x08013228 Neo Land Intermission
-        ; or maybe execute script after making fadeout object?
-        ; resume execution on "default branch"
         
     @@DefaultBranch:
+        ldr r2, =0x030005a0
+        mov r1, 0x84
+        lsl r1, r1, 0x01
+        add r0, r2, r1
+        ldr r1, [r0, 0x00]
+        mov r0, 0x04
+        and r1, r0
+        cmp r1, 0x00
+        bne @@TimeToLoadScript
+        b @@Continue
+        
+            @@TimeToLoadScript:
+            mov r0, 0x18
+            bl 0x0800A1B8 ; change music
+            ldr r0, =0x0801324C
+            ldr r0, [r0]
+            mov r1, 0x08
+            mov r2, 0x01
+            mov r3, 0x04
+            bl 0x08014324 ; execute script
+            
+            ; post-script cleanup - reset the practice world state
+            mov r0, 0x00
+            mov r6, r0
+    
+    @@Continue:
     ldr r4, =0x030005A0
     mov r1, 0x84
     lsl r1, r1, 0x01
