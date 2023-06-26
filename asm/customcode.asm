@@ -583,9 +583,13 @@ PracticeStateRepoint:
         beq @@DefaultBranch
         ; on A/start press, add implementation here!!
         
+        
+        
         ldr r0, =0x08001C25
         mov r1, 0x08
         bl 0x080944AC ; fadeout object
+        ; consult 0x08013290 for executing script (ex: kururin house), or 0x08013228 Neo Land Intermission
+        ; or maybe execute script after making fadeout object?
         ; resume execution on "default branch"
         
     @@DefaultBranch:
@@ -650,7 +654,7 @@ RenderPracticeCutsceneMenu:
     @@DrawBox:
         bl 0x080923DC ; something with free rotation param indices
         add r5, r0, 0x00
-        cmp r5, 0x00
+        cmp r5, 0x00 ; r5 contains a rotation param index
         bge @DrawBoxMain
         b @FixCoords
     @IsTextJump:
@@ -665,7 +669,8 @@ RenderPracticeCutsceneMenu:
         bl 0x080923FC ; idk, it's all boilerplate to me
         ; want the size 4 case for drawing the box - that's at 0x08014960
         mov r0, 0x02
-        bl 0x080922D4
+        bl 0x080922D4 ; this function returns an address to insert data that will be loaded into OAM
+            ; see http://problemkaputt.de/gbatek.htm#lcdobjoamattributes
         mov r3, r0
         cmp r3, 0x00
         beq @@NullObj1
@@ -675,17 +680,18 @@ RenderPracticeCutsceneMenu:
         sub r0, 0x04
         lsl r0, r0, 0x10
         ldr r1, =0x1FF0000
-        and r0, r1
-        ldr r1, =0x40004500
+        and r0, r1 ; gets x-coordinate (bits 16-24)
+        ldr r1, =0x40004500 ; 0x4500 - rot/scaling on (bit8), semi-transparent (bit10), horizontal (bit14)
+            ; bit31 - 32x8 if horizontal
         orr r0, r1
         orr r2, r0
-        str r2, [r3]
+        str r2, [r3] ;  attr 0 AND attr 1
         ldr r2, =0xF3FE
         mov r0, r2
-        strh r0, [r3, 0x04]
+        strh r0, [r3, 0x04] ; OAM attr 2 - pallete/priority/tile number
         ldrb r0, [r4, 0x06]
         add r0, 0x1c
-        strb r0, [r3]
+        strb r0, [r3] ; 1st byte of attr 0 - y-coord
         
         @@NullObj1:
         mov r0, 0x02
@@ -698,13 +704,13 @@ RenderPracticeCutsceneMenu:
         add r0, 0x1C
         lsl r0, r0, 0x10
         ldr r1, =0x1FF0000
-        and r0, r1
+        and r0, r1 ; x-coord
         mov r1, 0x80
-        lsl r1, r1, 0x03
+        lsl r1, r1, 0x03 ; r1 = 0x400 - just semi-transparent
         orr r0, r1
         str r0, [r2]
         mov r1, 0xF0
-        lsl r1, r1, 0x08
+        lsl r1, r1, 0x08 ; 0xF000 - obj palette 0xF
         mov r0, r1
         strh r0, [r2, 0x04]
         ldrb r0, [r4, 0x06]
@@ -732,7 +738,7 @@ RenderPracticeCutsceneMenu:
         mov r0, r2
         strh r0, [r3, 0x04]
         ldrb r0, [r4, 0x06]
-        add r0, 0x14 ; same as the part after beq @@NullObj1, except 0x1c replaced with 0x14
+        add r0, 0x14 ; same as the part after beq @@NullObj3, except 0x1c replaced with 0x14
         strb r0, [r3]
         
         @@NullObj3:
@@ -824,7 +830,7 @@ RenderPracticeCutsceneMenu:
         orr r0, r1
         orr r2, r0
         str r2, [r3]
-        ldr r2, =0xF3FE
+        ldr r2, =0xF3FA
         mov r0, r2
         strh r0, [r3, 0x04]
         ldrb r0, [r4, 0x06]
@@ -837,6 +843,7 @@ RenderPracticeCutsceneMenu:
         mov r2, r0
         cmp r2, 0x00
         beq @FixCoords
+        mov r3, r2
         lsl r2, r5, 0x19
         mov r1, 0x04
         ldrsh r0, [r4, r1] ; x-coord
