@@ -1,4 +1,8 @@
-This is my translation project of the game Kururin Paradise. Check out the wiki and assorted assembly files in this repository for some documentation on the ROM.
+This is my English translation project of the game Kururin Paradise. Check out the wiki and assorted assembly files in this repository for some documentation on the ROM.
+
+## Extra Features
+In addition to the translation aspect of this project, there is some additional functionality:
+* You can re-watch Adventure Mode cutscenes in Practice Mode.
 
 ## Screenshots
 

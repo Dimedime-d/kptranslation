@@ -19,8 +19,8 @@
 
 repointText 0x0802DF70,"Venture many lands and" ;Adventure
 repointText 0x0802DF74,"search for your family!"
-repointText 0x0802DF78,"Practice courses from the" ;Practice
-repointText 0x0802DF7C,"Adventure Mode!"
+repointText 0x0802DF78,"Practice courses and re－watch" ;Practice
+repointText 0x0802DF7C,"cutscenes from Adventure Mode!"
 repointText 0x0802DF80,"Test your skills on" ;Challenge
 repointText 0x0802DF84,"Courses and minigames!"
 repointText 0x0802DF88,"Perform magic using" ;Magic
