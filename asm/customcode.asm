@@ -575,13 +575,23 @@ PracticeStateRepoint:
         mov r6, 0x01
         b @@DefaultBranch
         .pool
+        .align
         
         @@NoBPress:
         mov r0, 0x09
         and r0, r1
         cmp r0, 0x00
         beq @@DefaultBranch
-        ; on A/start press, add implementation here!!
+        ; on A/start press, add implementation here!! (reality: check if ctrl flag 0x04 bit is set below, this delays the cutscene trigger until after the transition is finished)
+        
+        ; r7 contains level id
+        ldr r0, =0x030005a0
+        add r0, 0x90
+        ldr r2, [r0, 0x00]
+        ldr r0, =0x1F3
+        add r0, r2, r0
+        mov r1, r7
+        strb r1, [r0, 0x00] ; store current level id in SRAM
         
         ldr r0, =0x08001C25
         mov r1, 0x08
