@@ -58,6 +58,7 @@
 	.word @Baron2lose
 	.word @Baron2win
 	.word @Baron3lose
+    Baron3Win:
 	.word @Baron3win
     
 .org 0x080292DC
@@ -80,9 +81,11 @@
 	.word script_loc1
 
 .org 0x0801A38C ;beat Baron Magic's 3rd minigame, and it's the last one 
+    LastBaronWin:
 	.word @Baron3winlast
 
 .org 0x0801324C ;cutscene with Baron Magic before Neo Land
+    NeoLandCutscene:
 	.word @Intermission
 	
 .org 0x08010DF0

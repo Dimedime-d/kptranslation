@@ -510,6 +510,7 @@ InitPracticeCutsceneMenu:
     @@MinigameBeaten:
     mov r0, 0x34
     bl 0x0803CF44 ; sfx
+    
     ldr r0, =RenderPracticeCutsceneMenu+1
     str r0, [sp, 0x10]
     mov r1, sp
@@ -662,7 +663,7 @@ PracticeStateRepoint:
             add r0, r0, r3
             ldr r1, =StartRetryArray
             add r1, r1, r0
-            ldr r0, [r1, 0x00]
+            ldr r0, [r1, 0x00] ; get script
             b @@ExecuteScript
             @@LoseWin:
             lsr r0, r3, 0x02 ; 00 = lose, 04 = win
@@ -701,12 +702,49 @@ PracticeStateRepoint:
             strb r0, [r1, 0x01]
             
             mov r0, r4
+            ldr r1, =Baron3Win
+            ldr r1, [r1]
+            sub r0, r0, r1
+            cmp r0, 0x00
+            bne @@NotBaron3
+            ldr r1, =0x030005a0
+            add r1, 0xa0
+            ldrb r0, [r1]
+            cmp r0, 0x00
+            beq @@PlayLastBaron
+            cmp r0, 0x01
+            beq @@PlayLastBaronAllMagic
+            b @@PlayNeoLand
+            
+            @@PlayLastBaron:
+            mov r0, 0x01
+            strb r0, [r1]
+            mov r0, r4
+            b @@ExecuteScript
+            @@PlayLastBaronAllMagic:
+            mov r0, 0x02
+            strb r0, [r1]
+            ldr r0, =LastBaronWin
+            ldr r0, [r0]
+            b @@ExecuteScript
+            @@PlayNeoLand:
+            mov r0, 0x00
+            strb r0, [r1]
+            mov r0, 0x18
+            bl 0x0800A1B8
+            ldr r0, =NeoLandCutscene
+            ldr r0, [r0]
+            b @@ExecuteScript
+            
+            @@NotBaron3:
+            mov r0, r4
             @@ExecuteScript:
             mov r1, 0x08
             mov r2, 0x01
             mov r3, 0x04
             bl 0x08014324 ; execute script
             
+            @@Cleanup:
             ; post-script cleanup - reset the practice world state
             mov r0, 0x00
             ldr r1, =0x030005a0
