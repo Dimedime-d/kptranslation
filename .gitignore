@@ -4,3 +4,5 @@
 /graphics/inlevel/reserve/*
 /graphics/menu/reserve/*
 /graphics/menu/dumps/*.bin
+/graphics/__pycache__/*
+/graphics/minigamesplashes/__pycache__/*

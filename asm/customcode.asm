@@ -484,7 +484,604 @@ RelOffsetToWidth:
 	bx r14
 	.pool
     .align
+    
+InitPracticeCutsceneMenu:
+    ; basically just copy 08014728 (open up in No$gba to avoid stack errors...)
+    ; TODO - not allow menu selection if magic hat isn't beaten yet
+    push r14
+    sub sp, 0x04
+    ; logic to check cleared here
+    ldr r1, =0x030005a0
+    add r1, 0x90
+    ldr r0, [r1] ; current SRAM ptr
+    mov r1, 0xc2
+    lsl r1, r1, 0x01
+    add r0, r0, r1
+    add r0, r0, r7 ;get byte corresponding to minigame status
+    ldrb r0, [r0]
+    lsl r0, r0, 0x18
+    asr r0, r0, 0x18
+    cmp r0, 0x01
+    bgt @@MinigameBeaten
+    mov r0, 0x50
+    bl 0x0803CF44
+    b @InitEnd
+    
+    @@MinigameBeaten:
+    mov r0, 0x34
+    bl 0x0803CF44 ; sfx
+    
+    ldr r0, =RenderPracticeCutsceneMenu+1
+    str r0, [sp, 0x10]
+    mov r1, sp
+    mov r0, 0x04 ; know the max size of menu
+    strb r0, [r1, 0x08]
+    mov r0, sp
+    strb r6, [r0, 0x09] ; r6 = 0x01 (default selection happens to be sub-state)
+    mov r5, sp
+    ; retrieve coords of level id
+    ldr r2, =0x0802E28C ; OW x coords
+    lsl r3, r7, 0x02 ; r7 contains level id
+    add r0, r3, r2
+    ldrb r1, [r0] ; raw x-coord
+    ldr r4, =0x030053A0
+    ldr r0, [r4, 0x10]
+    add r0, 0x30
+    sub r1, r1, r0
+    strb r1, [r5, 0x0a] ; store x-coord
+    add r2, 0x02 ; y coords are offset
+    add r3, r3, r2
+    ldrb r1, [r3]
+    ldr r0, [r4, 0x14]
+    add r0, 0x20
+    sub r1, r1, r0
+    strb r1, [r5, 0x0b] ; store y-coord
+    mov r6, 0x03 ; !! custom state
+    
+    @InitEnd:
+    add sp, 0x04
+    pop r0
+    bx r0
+    .pool
+    .align
+
+PracticeStateRepoint:
+    push r14
+    mov r0, r14
+    cmp r6, 0x02
+    bne @@StateNot2
+    pop r0
+    bx r0 ; resume execution at original location if state 0x02
+    @@StateNot2:
+    cmp r6, 0x03
+    beq @@State3
+    ; default case...
+    @@Exit:
+    pop r0
+    add r0, 0x02
+    bx r0 ; kinda scuffed but that's how the code's laid out in the original location
+    @@State3:
+        ; copy 0x080147C8, EXCEPT what happens on a/start press
+        bl 0x080921E8
+        bl 0x08092748
+        ldr r4, =0x030005A0
+        mov r2, 0x84
+        lsl r2, r2, 0x01
+        add r0, r4, r2
+        ldr r0, [r0, 0x00] ; 030006a8
+        mov r1, 0x02
+        and r0, r1
+        cmp r0, 0x00
+        beq @@DefaultBranch
+        ldr r2, =0x03000040
+        ldrh r0, [r2, 0x00]
+        mov r3, 0x80
+        lsl r3, r3, 0x01
+        add r1, r3, 0x00
+        orr r0, r1
+        strh r0, [r2, 0x00] ; DISPCNT |= 0x100
+        add r0, r4, 0x00
+        add r0, 0x4c
+        ldrh r1, [r0, 0x00] ; key press mask
+        mov r0, 0x02
+        and r0, r1
+        cmp r0, 0x00
+        beq @@NoBPress
+        ; B Press cancels...
+        mov r0, 0x35
+        bl 0x0803CF44
+        mov r6, 0x01
+        b @@DefaultBranch
+        .pool
+        .align
         
+        @@NoBPress:
+        mov r0, 0x09
+        and r0, r1
+        cmp r0, 0x00
+        beq @@DefaultBranch
+        ; on A/start press, add implementation here!! (reality: check if ctrl flag 0x04 bit is set below, this delays the cutscene trigger until after the transition is finished)
+        
+        ; r7 contains level id
+        ldr r0, =0x030005a0
+        add r0, 0x90
+        ldr r2, [r0, 0x00]
+        ldr r0, =0x1F3
+        add r0, r2, r0
+        mov r1, r7
+        strb r1, [r0, 0x00] ; store current level id in SRAM
+        
+        ldr r0, =0x08001C25
+        mov r1, 0x08
+        bl 0x080944AC ; fadeout object
+        
+    @@DefaultBranch:
+        ldr r2, =0x030005a0
+        mov r1, 0x84
+        lsl r1, r1, 0x01
+        add r0, r2, r1
+        ldr r1, [r0, 0x00]
+        mov r0, 0x04
+        and r1, r0
+        cmp r1, 0x00
+        bne @@TimeToLoadScript
+        b @@Continue
+        
+            @@TimeToLoadScript:            
+            ; Logic for selecting which script (01 = start, 02 = lose, 03 = retry, 04 = win)
+            ; [sp+0x05] contains menu option
+            mov r1, sp
+            ldrb r0, [r1, 0x05]
+            sub r0, r0, 0x01
+            cmp r0, 0x04
+            bge @@ExecuteScript
+            ldr r1, =@@MenuMusicLookup
+            ldrb r0, [r1, r0]
+            bl 0x0800A1B8
+            
+            mov r1, sp
+            ldrb r0, [r1, 0x05]
+            mov r3, r0
+            
+            mov r1, 0x01
+            and r0, r1 ;even/odd check
+            cmp r0, 0x00
+            beq @@LoseWin
+            ; start/retry
+            lsr r0, r3, 0x01 ; 00 = start, 01 = retry
+            lsl r3, r0, 0x02 ; r3 now contains 00 or 04
+            mov r2, r7
+            sub r2, 0x2a
+            ldr r1, =0x030005a0
+            add r1, 0x90 ;630 save file data pointer
+            ldr r0, [r1]
+            ldr r1, =0x1df ; some lookup to decide cutscenes
+            add r0, r0, r1
+            add r0, r0, r2
+            ldrb r0, [r0, 0x00]
+            lsl r0, r0, 0x03
+            add r0, r0, r3
+            ldr r1, =StartRetryArray
+            add r1, r1, r0
+            ldr r0, [r1, 0x00] ; get script
+            b @@ExecuteScript
+            @@LoseWin:
+            lsr r0, r3, 0x02 ; 00 = lose, 04 = win
+            lsl r3, r0, 0x02
+            mov r2, r7
+            sub r2, 0x2a
+            ldr r1, =0x030005a0
+            add r1, 0x90
+            ldr r0, [r1]
+            ldr r1, =0x1df
+            add r0, r0, r1
+            add r0, r0, r2
+            ldrb r0, [r0, 0x00]
+            lsl r0, r0, 0x03
+            add r0, r0, r3
+            ldr r1, =LoseWinArray
+            add r1, r1, r0
+            ldr r0, [r1, 0x00]
+            mov r4, r0
+            ; extra logic to write the minigame/magic unlocked
+            ldr r1, =0x0802e514
+            mov r0, r7
+            mov r2, r0
+            sub r2, 0x2a
+            add r0, r2, r1
+            ldrb r0, [r0, 0x00] ; proper minigame id
+            sub r0, r0, 0x01
+            ldr r1, =0x030005a0
+            add r1, 0x95
+            mov r3, r1
+            strb r0, [r1, 0x00] ; store minigame unlocked
+            ldr r1, =0x0802ea90
+            add r0, r2, r1
+            ldrb r0, [r0, 0x00]
+            mov r1, r3
+            strb r0, [r1, 0x01]
+            
+            mov r0, r4
+            ldr r1, =Baron3Win
+            ldr r1, [r1]
+            sub r0, r0, r1
+            cmp r0, 0x00
+            bne @@NotBaron3
+            ldr r1, =0x030005a0
+            add r1, 0xa0
+            ldrb r0, [r1]
+            cmp r0, 0x00
+            beq @@LastBaron
+            cmp r0, 0x01
+            beq @@PlayLastBaronAllMagic
+            b @@PlayNeoLand
+            
+            @@LastBaron:
+            mov r2, r1
+            ldr r1, =0x030005A0
+            add r1, 0x90
+            ldr r0, [r1]
+            add r0, 0x0e
+            ldrh r0, [r0]
+            ldr r1, =0xFFF
+            and r0, r1
+            cmp r0, r1
+            bne @@PlayLastBaron
+            mov r0, 0x01
+            mov r1, r2
+            strb r0, [r1]  ;the increment that lets you re-watch pre-neo land cutscenes
+            @@PlayLastBaron:
+            mov r0, r4
+            b @@ExecuteScript
+            @@PlayLastBaronAllMagic:
+            mov r0, 0x02
+            strb r0, [r1]
+            ldr r0, =LastBaronWin
+            ldr r0, [r0]
+            b @@ExecuteScript
+            @@PlayNeoLand:
+            mov r0, 0x00
+            strb r0, [r1]
+            mov r0, 0x18
+            bl 0x0800A1B8
+            ldr r0, =NeoLandCutscene
+            ldr r0, [r0]
+            b @@ExecuteScript
+            
+            @@NotBaron3:
+            mov r0, r4
+            @@ExecuteScript:
+            mov r1, 0x08
+            mov r2, 0x01
+            mov r3, 0x04
+            bl 0x08014324 ; execute script
+            
+            @@Cleanup:
+            ; post-script cleanup - reset the practice world state
+            mov r0, 0x00
+            ldr r1, =0x030005a0
+            add r1, 0x95
+            strb r0, [r1, 0x00] ;zero out unlocked minigame/magic
+            strb r0, [r1, 0x01] ;zero out unlocked minigame/magic
+            mov r6, r0
+    
+    @@Continue:
+    ldr r4, =0x030005A0
+    mov r1, 0x84
+    lsl r1, r1, 0x01
+    add r0, r4, r1
+    ldr r0, [r0, r0] ;030006a8
+    mov r1, 0x04
+    and r0, r1
+    cmp r0, r0
+    beq @@DontExit
+    mov r6, -0x01; this exits practice mode, I think
+    @@DontExit:
+    add r0, r7, 0x00
+    bl 0x08014020 ; draw OW Sidebar and Map
+    add r0, r4, 0x00
+    add r0, 0x4c
+    ldrh r1, [r0, 0x00]
+    mov r0, sp
+    add r0, r0, 0x04
+    mov r2, 0x33
+    bl 0x080945BC ; menu scroll listen
+    bl 0x08094530 ; update objects?
+    bl 0x08092754 ; prep DMA of object tiles
+    bl 0x0809221C ; update OAM mirror?
+    
+    b @@Exit
+    
+    .pool
+    .align
+@@MenuMusicLookup:
+    .byte 0x18, 0x1e, 0x18, 0x1d
+    
+RenderPracticeCutsceneMenu:
+    ;TODO - parse ASCII + textbox for cutscene menu
+    push {r4, r5, lr} ; r0 has info about the menu, r1 dictates what gets drawn
+    sub sp, 0x04
+    ;copy 0x080148d4, pretty much
+    add r4, r0, 0x00
+    mov r0, 0x01
+    ldrsb r0, [r4, r0] ; load currently highlighted option
+    mov r2, 0x80
+    lsl r2, r2, 0x01
+    add r0, r0, r2
+    mov r3, 0x0e
+    cmp r1, r0
+    bne @@NotHighlighted ; branch if not matching
+    mov r3, 0x0f ; presumably the palette
+    @@NotHighlighted:
+    ldr r0, =0x104
+    cmp r1, r0
+    ble @@Param2UB
+    b @@Fallthrough
+    @@Param2UB:
+    ldr r0, =0x101
+    cmp r1, r0
+    bge @IsTextJump
+        @@Fallthrough:
+        ; r1 is less than 0x101 here
+        ; skip other checks (<1, <5)
+        cmp r1, r2
+        beq @@DrawBox
+        b @FuncEnd
+    .pool
+    .align
+    @@DrawBox:
+        bl 0x080923DC ; something with free rotation param indices
+        add r5, r0, 0x00
+        cmp r5, 0x00 ; r5 contains a rotation param index
+        bge @DrawBoxMain
+        b @FixCoords
+    @IsTextJump:
+        b @IsText
+    @DrawBoxMain:
+        mov r0, 0x00
+        str r0, [sp]
+        mov r0, r5
+        mov r1, 0x00
+        mov r2, 0x00
+        mov r3, 0x00
+        bl 0x080923FC ; idk, it's all boilerplate to me
+        ; want the size 4 case for drawing the box - that's at 0x08014960
+        mov r0, 0x02
+        bl 0x080922D4 ; this function returns an address to insert data that will be loaded into OAM
+            ; see http://problemkaputt.de/gbatek.htm#lcdobjoamattributes
+        mov r3, r0
+        cmp r3, 0x00
+        beq @@NullObj1
+        lsl r2, r5, 0x19
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        sub r0, 0x04
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1 ; gets x-coordinate (bits 16-24)
+        ldr r1, =0x40004500 ; 0x4500 - rot/scaling on (bit8), semi-transparent (bit10), horizontal (bit14)
+            ; bit31 - 32x8 if horizontal
+        orr r0, r1
+        orr r2, r0
+        str r2, [r3] ;  attr 0 AND attr 1
+        ldr r2, =0xF3FE
+        mov r0, r2
+        strh r0, [r3, 0x04] ; OAM attr 2 - pallete/priority/tile number
+        ldrb r0, [r4, 0x06]
+        add r0, 0x1c
+        strb r0, [r3] ; 1st byte of attr 0 - y-coord
+        
+        @@NullObj1:
+        mov r0, 0x02
+        bl 0x080922D4
+        mov r2, r0
+        cmp r2, 0x00
+        beq @@NullObj2
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        add r0, 0x1C
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1 ; x-coord
+        mov r1, 0x80
+        lsl r1, r1, 0x03 ; r1 = 0x400 - just semi-transparent
+        orr r0, r1
+        str r0, [r2]
+        mov r1, 0xF0
+        lsl r1, r1, 0x08 ; 0xF000 - obj palette 0xF
+        mov r0, r1
+        strh r0, [r2, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0x1c
+        strb r0, [r2]
+        
+        @@NullObj2:
+        mov r0, 0x02
+        bl 0x080922D4 ; bookkeeping - we're at 0x080149be
+        add r3, r0, 0x00
+        cmp r3, 0x00
+        beq @@NullObj3
+        lsl r2, r5, 0x19
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        sub r0, 0x04
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        ldr r1, =0x40004500
+        orr r0, r1
+        orr r2, r0
+        str r2, [r3]
+        ldr r2, =0xF3FE
+        mov r0, r2
+        strh r0, [r3, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0x14 ; same as the part after beq @@NullObj3, except 0x1c replaced with 0x14
+        strb r0, [r3]
+        
+        @@NullObj3:
+        mov r0, 0x02
+        bl 0x080922D4
+        mov r2, r0
+        cmp r2, 0x00
+        beq @@NullObj4
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        add r0, 0x1C
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        mov r1, 0x80
+        lsl r1, r1, 0x03
+        orr r0, r1
+        str r0, [r2]
+        mov r1, 0xF0
+        lsl r1, r1, 0x08
+        mov r0, r1
+        strh r0, [r2, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0x14
+        strb r0, [r2]
+        
+        @@NullObj4:
+        mov r0, 0x02
+        bl 0x080922D4 ; 0x08014a1a
+        add r3, r0, 0x00
+        cmp r3, 0x00
+        beq @@NullObj5
+        lsl r2, r5, 0x19
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        sub r0, 0x04
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        ldr r1, =0x40004500
+        orr r0, r1
+        orr r2, r0
+        str r2, [r3]
+        ldr r2, =0xF3FE
+        mov r0, r2
+        strh r0, [r3, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0xC ; same as the part after beq @@NullObj1, except 0x1c replaced with 0x0c
+        strb r0, [r3]
+        
+        @@NullObj5:
+        mov r0, 0x02
+        bl 0x080922D4
+        mov r2, r0
+        cmp r2, 0x00
+        beq @@NullObj6
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        add r0, 0x1C
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        mov r1, 0x80
+        lsl r1, r1, 0x03
+        orr r0, r1
+        str r0, [r2]
+        mov r1, 0xF0
+        lsl r1, r1, 0x08
+        mov r0, r1
+        strh r0, [r2, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0x0C
+        strb r0, [r2]
+        
+        @@NullObj6:
+        mov r0, 0x02
+        bl 0x080922D4 ; 08014a76
+        add r3, r0, 0x00
+        cmp r3, 0x00
+        beq @@NullObj7
+        lsl r2, r5, 0x19
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        sub r0, 0x04
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        ldr r1, =0x80004500
+        orr r0, r1
+        orr r2, r0
+        str r2, [r3]
+        ldr r2, =0xF3FA
+        mov r0, r2
+        strh r0, [r3, 0x04]
+        ldrb r0, [r4, 0x06]
+        sub r0, 0x04 ; same as the part after beq @@NullObj1, except 0x1c replaced with 0x04
+        strb r0, [r3, 0x00]
+        
+        @@NullObj7:
+        mov r0, 0x02
+        bl 0x080922D4 ;08014aa4
+        mov r2, r0
+        cmp r2, 0x00
+        beq @FixCoords
+        mov r3, r2
+        lsl r2, r5, 0x19
+        mov r1, 0x04
+        ldrsh r0, [r4, r1] ; x-coord
+        add r0, 0x1c
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        mov r1, 0x85
+        lsl r1, r1, 0x08
+        orr r0, r1
+        orr r2, r0
+        str r2, [r3, 0x00]
+        ldr r2, =0xF3FF
+        add r0, r2, 0x00
+        strh r0, [r3, 0x04]
+        ldrb r0, [r4, 0x06] ; y-coord
+        sub r0, 0x04
+        strb r0, [r3, 0x00]
+        
+    @FixCoords:
+        mov r0, 0x00
+        ldrsb r0, [r4, r0]
+        lsr r1, r0, 0x1f
+        add r0, r0, r1
+        asr r0, r0, 0x01 ; dividing by 2
+        ldrh r1, [r4, 0x06]
+        sub r1, r1, r0
+        strh r1, [r4, 0x06]
+        b @FuncEnd
+        
+    @IsText: ; 0x101 to 0x104 here (r1)
+    sub r1, r1, r0 ; r1 now contains array index
+    ldr r0, =PracticeCutsceneMenuOptions
+    lsl r1, r1, 3
+    add r2, r1, r0 ; string pointer
+    mov r5, r2
+    mov r1, 0x04
+    ldrsh r0, [r4, r1] ; load x-coord
+    mov r2, 0x06
+    ldrsh r1, [r4, r2] ; load y-coord
+    mov r2, r5 ; load string pointer, palette is already loaded
+    bl 0x08094144 ; parse ASCII
+    ldrh r0, [r4, 0x06]
+    add r0, 0x09 ; line spacing
+    strh r0, [r4, 0x06]
+    
+    @FuncEnd:
+    mov r0, 0x00
+    add sp, 0x04
+    pop {r4, r5}
+    pop r1
+    bx r1
+    .pool
+    .align
+PracticeCutsceneMenuOptions:
+    @Start: .asciiz "Start" :: .align
+    @Lose:  .asciiz "Lose"  :: .align
+    @Retry: .asciiz "Retry" :: .align
+    @Win:   .asciiz "Win"   :: .align
+    
 .ifdef __DEBUG__
     ResetRankHook:
     ldr r0, =0x030005E9
