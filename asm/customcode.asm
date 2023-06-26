@@ -488,8 +488,9 @@ RelOffsetToWidth:
 InitPracticeCutsceneMenu:
     ; basically just copy 08014728 (open up in No$gba to avoid stack errors...)
     ; TODO - not allow menu selection if magic hat isn't beaten yet
+    push r14
     mov r0, 0x34
-    bl 0x0803cf44 ; sfx
+    bl 0x0803CF44 ; sfx
     
     ldr r0, =RenderPracticeCutsceneMenu
     str r0, [sp, 0x08]
@@ -497,7 +498,7 @@ InitPracticeCutsceneMenu:
     mov r0, 0x04 ; know the max size of menu
     strb r0, [r1]
     mov r0, sp
-    strb r6, [r0, 0x01] ; r6 = 0x01 (default selection)
+    strb r6, [r0, 0x01] ; r6 = 0x01 (default selection happens to be sub-state)
     mov r5, sp
     ; retrieve coords of level id
     ldr r2, =0x0802E28C ; OW x coords
@@ -517,12 +518,101 @@ InitPracticeCutsceneMenu:
     sub r1, r1, r0
     strb r1, [r5, 0x03] ; store y-coord
     mov r6, 0x03 ; !! custom state
-    bx r14
+    pop r0
+    bx r0
     .pool
     .align
 
+PracticeStateRepoint:
+    push r14
+    mov r0, r14
+    cmp r6, 0x02
+    bne @@StateNot2
+    pop r0
+    bx r0 ; resume execution at original location if state 0x02
+    @@StateNot2:
+    cmp r6, 0x03
+    beq @@State3
+    ; default case...
+    @@Exit:
+    pop r0
+    add r0, 0x02
+    bx r0 ; kinda scuffed but that's how the code's laid out in the original location
+    @@State3:
+        ; copy 0x080147C8, EXCEPT what happens on a/start press
+        bl 0x080921E8
+        bl 0x08092748
+        ldr r4, =0x030005A0
+        mov r2, 0x84
+        lsl r2, r2, 0x01
+        add r0, r4, r2
+        ldr r0, [r0, 0x00] ; 030006a8
+        mov r1, 0x02
+        and r0, r1
+        cmp r0, 0x00
+        beq @@DefaultBranch
+        ldr r2, =0x03000040
+        ldrh r0, [r2, 0x00]
+        mov r3, 0x80
+        lsl r3, r3, 0x01
+        add r1, r3, 0x00
+        orr r0, r1
+        strh r0, [r2, 0x00] ; DISPCNT |= 0x100
+        add r0, r4, 0x00
+        add r0, 0x4c
+        ldrh r1, [r0, 0x00] ; key press mask
+        add r0, r0, 0x02
+        and r0, r1
+        cmp r0, 0x00
+        beq @@NoBPress
+        ; B Press cancels...
+        mov r0, 0x35
+        bl 0x0803CF44
+        mov r6, 0x01
+        b @@DefaultBranch
+        .pool
+        
+        @@NoBPress:
+        mov r0, 0x09
+        and r0, r1
+        cmp r0, 0x00
+        beq @@DefaultBranch
+        ; on A/start press, add implementation here!!
+        
+        ldr r0, =0x08001C25
+        mov r1, 0x08
+        bl 0x080944AC ; resume execution on "default branch"
+        
+    @@DefaultBranch:
+    ldr r4, =0x030005A0
+    mov r1, 0x84
+    lsl r1, r1, 0x01
+    add r0, r4, r1
+    ldr r0, [r0, r0] ;030006a8
+    mov r1, 0x04
+    and r0, r1
+    cmp r0, r0
+    beq @@DontExit
+    mov r6, 0x01
+    rsb r6, r6 ; this exits practice mode, I think
+    @@DontExit:
+    add r0, r7, 0x00
+    bl 0x08014020 ; draw OW Sidebar and Map
+    add r0, r4, 0x00
+    add r0, 0x4c
+    ldrh r1, [r0, 0x00]
+    mov r0, sp
+    mov r2, 0x33
+    bl 0x080945BC ; menu scroll listen
+    bl 0x08094530 ; update objects?
+    bl 0x08092754 ; prep DMA of object tiles
+    bl 0x0809221c ; update OAM mirror?
+    
+    b @@Exit
+    
 RenderPracticeCutsceneMenu:
-
+    ;TODO - parse ASCII + textbox for cutscene menu
+    
 .ifdef __DEBUG__
     ResetRankHook:
     ldr r0, =0x030005E9

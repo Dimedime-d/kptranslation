@@ -53,3 +53,7 @@
     bl InitPracticeCutsceneMenu
 .endarea
 	
+.org 0x080145da ; practice mode state check
+.area 4h
+    bl PracticeStateRepoint
+.endarea
