@@ -490,10 +490,26 @@ InitPracticeCutsceneMenu:
     ; TODO - not allow menu selection if magic hat isn't beaten yet
     push r14
     sub sp, 0x04
+    ; logic to check cleared here
+    ldr r1, =0x030005a0
+    add r1, 0x90
+    ldr r0, [r1] ; current SRAM ptr
+    mov r1, 0xc2
+    lsl r1, r1, 0x01
+    add r0, r0, r1
+    add r0, r0, r7 ;get byte corresponding to minigame status
+    ldrb r0, [r0]
+    lsl r0, r0, 0x18
+    asr r0, r0, 0x18
+    cmp r0, 0x01
+    bgt @@MinigameBeaten
+    mov r0, 0x50
+    bl 0x0803CF44
+    b @InitEnd
     
+    @@MinigameBeaten:
     mov r0, 0x34
     bl 0x0803CF44 ; sfx
-    
     ldr r0, =RenderPracticeCutsceneMenu+1
     str r0, [sp, 0x10]
     mov r1, sp
@@ -521,6 +537,7 @@ InitPracticeCutsceneMenu:
     strb r1, [r5, 0x0b] ; store y-coord
     mov r6, 0x03 ; !! custom state
     
+    @InitEnd:
     add sp, 0x04
     pop r0
     bx r0
@@ -692,6 +709,10 @@ PracticeStateRepoint:
             
             ; post-script cleanup - reset the practice world state
             mov r0, 0x00
+            ldr r1, =0x030005a0
+            add r1, 0x95
+            strb r0, [r1, 0x00] ;zero out unlocked minigame/magic
+            strb r0, [r1, 0x01] ;zero out unlocked minigame/magic
             mov r6, r0
     
     @@Continue:
