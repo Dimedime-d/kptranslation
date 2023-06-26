@@ -609,11 +609,60 @@ PracticeStateRepoint:
         bne @@TimeToLoadScript
         b @@Continue
         
-            @@TimeToLoadScript:
-            mov r0, 0x18
-            bl 0x0800A1B8 ; change music
-            ldr r0, =0x0801324C
-            ldr r0, [r0]
+            @@TimeToLoadScript:            
+            ; Logic for selecting which script (01 = start, 02 = lose, 03 = retry, 04 = win)
+            ; [sp+0x05] contains menu option
+            mov r1, sp
+            ldrb r0, [r1, 0x05]
+            sub r0, r0, 0x01
+            cmp r0, 0x04
+            bge @@ExecuteScript
+            ldr r1, =@@MenuMusicLookup
+            ldrb r0, [r1, r0]
+            bl 0x0800A1B8
+            
+            mov r1, sp
+            ldrb r0, [r1, 0x05]
+            mov r3, r0
+            
+            mov r1, 0x01
+            and r0, r1 ;even/odd check
+            cmp r0, 0x00
+            beq @@LoseWin
+            ; start/retry
+            lsr r0, r3, 0x01 ; 00 = start, 01 = retry
+            lsl r3, r0, 0x02 ; r3 now contains 00 or 04
+            mov r2, r7
+            sub r2, 0x2a
+            ldr r1, =0x03000630
+            ldr r0, [r1]
+            ldr r1, =0x1df
+            add r0, r0, r1
+            add r0, r0, r2
+            ldrb r0, [r0, 0x00]
+            lsl r0, r0, 0x03
+            add r0, r0, r3
+            ldr r1, =StartRetryArray
+            add r1, r1, r0
+            ldr r0, [r1, 0x00]
+            b @@ExecuteScript
+            @@LoseWin:
+            lsr r0, r3, 0x02 ; 00 = lose, 04 = win
+            lsl r3, r0, 0x02
+            mov r2, r7
+            sub r2, 0x2a
+            ldr r1, =0x03000630
+            ldr r0, [r1]
+            ldr r1, =0x1df
+            add r0, r0, r1
+            add r0, r0, r2
+            ldrb r0, [r0, 0x00]
+            lsl r0, r0, 0x03
+            add r0, r0, r3
+            ldr r1, =LoseWinArray
+            add r1, r1, r0
+            ldr r0, [r1, 0x00]
+            @@ExecuteScript:
             mov r1, 0x08
             mov r2, 0x01
             mov r3, 0x04
@@ -649,6 +698,11 @@ PracticeStateRepoint:
     bl 0x0809221C ; update OAM mirror?
     
     b @@Exit
+    
+    .pool
+    .align
+@@MenuMusicLookup:
+    .byte 0x18, 0x1e, 0x18, 0x1d
     
 RenderPracticeCutsceneMenu:
     ;TODO - parse ASCII + textbox for cutscene menu

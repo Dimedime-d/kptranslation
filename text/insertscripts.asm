@@ -7,6 +7,7 @@
 	.word @NewEndingScript
 
 .org 0x0802E4B4 ;repointing cutscene script locations
+    StartRetryArray:
 	.word @Kappado1start
 	.word @Kappado1redo
 	.word @Kappado2start
@@ -33,6 +34,7 @@
 	.word @Baron3redo
 
 .org 0x0802EA9C
+    LoseWinArray:
 	.word @Kappado1lose
 	.word @Kappado1win
 	.word @Kappado2lose
