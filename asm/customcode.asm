@@ -634,9 +634,10 @@ PracticeStateRepoint:
             lsl r3, r0, 0x02 ; r3 now contains 00 or 04
             mov r2, r7
             sub r2, 0x2a
-            ldr r1, =0x03000630
+            ldr r1, =0x030005a0
+            add r1, 0x90 ;630 save file data pointer
             ldr r0, [r1]
-            ldr r1, =0x1df
+            ldr r1, =0x1df ; some lookup to decide cutscenes
             add r0, r0, r1
             add r0, r0, r2
             ldrb r0, [r0, 0x00]
@@ -651,7 +652,8 @@ PracticeStateRepoint:
             lsl r3, r0, 0x02
             mov r2, r7
             sub r2, 0x2a
-            ldr r1, =0x03000630
+            ldr r1, =0x030005a0
+            add r1, 0x90
             ldr r0, [r1]
             ldr r1, =0x1df
             add r0, r0, r1
@@ -662,6 +664,26 @@ PracticeStateRepoint:
             ldr r1, =LoseWinArray
             add r1, r1, r0
             ldr r0, [r1, 0x00]
+            mov r4, r0
+            ; extra logic to write the minigame/magic unlocked
+            ldr r1, =0x0802e514
+            mov r0, r7
+            mov r2, r0
+            sub r2, 0x2a
+            add r0, r2, r1
+            ldrb r0, [r0, 0x00] ; proper minigame id
+            sub r0, r0, 0x01
+            ldr r1, =0x030005a0
+            add r1, 0x95
+            mov r3, r1
+            strb r0, [r1, 0x00] ; store minigame unlocked
+            ldr r1, =0x0802ea90
+            add r0, r2, r1
+            ldrb r0, [r0, 0x00]
+            mov r1, r3
+            strb r0, [r1, 0x01]
+            
+            mov r0, r4
             @@ExecuteScript:
             mov r1, 0x08
             mov r2, 0x01
