@@ -509,14 +509,14 @@ InitPracticeCutsceneMenu:
     ldrb r1, [r0] ; raw x-coord
     ldr r4, =0x030053A0
     ldr r0, [r4, 0x10]
-    add r0, 0x10
+    add r0, 0x30
     sub r1, r1, r0
     strb r1, [r5, 0x0a] ; store x-coord
     add r2, 0x02 ; y coords are offset
     add r3, r3, r2
     ldrb r1, [r3]
     ldr r0, [r4, 0x14]
-    sub r0, 0x10
+    add r0, 0x20
     sub r1, r1, r0
     strb r1, [r5, 0x0b] ; store y-coord
     mov r6, 0x03 ; !! custom state
@@ -617,11 +617,65 @@ PracticeStateRepoint:
     
 RenderPracticeCutsceneMenu:
     ;TODO - parse ASCII + textbox for cutscene menu
-    push r14
+    push {r4, r5, lr} ; r0 has info about the menu, r1 dictates what gets drawn
+    sub sp, 0x04
+    ;copy 0x080148d4, pretty much
+    add r4, r0, 0x00
+    mov r0, 0x01
+    ldrsb r0, [r4, r0] ; load currently highlighted option
+    mov r2, 0x80
+    lsl r2, r2, 0x01
+    add r0, r0, r2
+    mov r3, 0x0e
+    cmp r1, r0
+    bne @@NotHighlighted ; branch if not matching
+    mov r3, 0x0f ; presumably the palette
+    @@NotHighlighted:
+    ldr r0, =0x104
+    cmp r1, r0
+    ble @@Param2UB
+    b @@Fallthrough
+    @@Param2UB:
+    ldr r0, =0x101
+    cmp r1, r0
+    bge @@IsText
+        @@Fallthrough:
+        ; r1 is less than 0x101 here
+        ; skip other checks (<1, <5)
+        cmp r1, r2
+        beq @@FuncEnd ; not implemented yet
+        b @@FuncEnd
+    .pool
+    .align
+    @@IsText: ; 0x101 to 0x104 here (r1)
+    sub r1, r1, r0 ; r1 now contains array index
+    ldr r0, =PracticeCutsceneMenuOptions
+    lsl r1, r1, 3
+    add r2, r1, r0 ; string pointer
+    mov r5, r2
+    mov r1, 0x04
+    ldrsh r0, [r4, r1] ; load x-coord
+    mov r2, 0x06
+    ldrsh r1, [r4, r2] ; load y-coord
+    mov r2, r5 ; load string pointer, palette is already loaded
+    bl 0x08094144 ; parse ASCII
+    ldrh r0, [r4, 0x06]
+    add r0, 0x09 ; line spacing
+    strh r0, [r4, 0x06]
     
+    @@FuncEnd:
     mov r0, 0x00
+    add sp, 0x04
+    pop {r4, r5}
     pop r1
     bx r1
+    .pool
+    .align
+PracticeCutsceneMenuOptions:
+    @Start: .asciiz "Start" :: .align
+    @Lose:  .asciiz "Lose"  :: .align
+    @Retry: .asciiz "Retry" :: .align
+    @Win:   .asciiz "Win"   :: .align
     
 .ifdef __DEBUG__
     ResetRankHook:
