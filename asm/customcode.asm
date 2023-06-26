@@ -638,16 +638,236 @@ RenderPracticeCutsceneMenu:
     @@Param2UB:
     ldr r0, =0x101
     cmp r1, r0
-    bge @@IsText
+    bge @IsTextJump
         @@Fallthrough:
         ; r1 is less than 0x101 here
         ; skip other checks (<1, <5)
         cmp r1, r2
-        beq @@FuncEnd ; not implemented yet
-        b @@FuncEnd
+        beq @@DrawBox
+        b @FuncEnd
     .pool
     .align
-    @@IsText: ; 0x101 to 0x104 here (r1)
+    @@DrawBox:
+        bl 0x080923DC ; something with free rotation param indices
+        add r5, r0, 0x00
+        cmp r5, 0x00
+        bge @DrawBoxMain
+        b @FixCoords
+    @IsTextJump:
+        b @IsText
+    @DrawBoxMain:
+        mov r0, 0x00
+        str r0, [sp]
+        mov r0, r5
+        mov r1, 0x00
+        mov r2, 0x00
+        mov r3, 0x00
+        bl 0x080923FC ; idk, it's all boilerplate to me
+        ; want the size 4 case for drawing the box - that's at 0x08014960
+        mov r0, 0x02
+        bl 0x080922D4
+        mov r3, r0
+        cmp r3, 0x00
+        beq @@NullObj1
+        lsl r2, r5, 0x19
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        sub r0, 0x04
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        ldr r1, =0x40004500
+        orr r0, r1
+        orr r2, r0
+        str r2, [r3]
+        ldr r2, =0xF3FE
+        mov r0, r2
+        strh r0, [r3, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0x1c
+        strb r0, [r3]
+        
+        @@NullObj1:
+        mov r0, 0x02
+        bl 0x080922D4
+        mov r2, r0
+        cmp r2, 0x00
+        beq @@NullObj2
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        add r0, 0x1C
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        mov r1, 0x80
+        lsl r1, r1, 0x03
+        orr r0, r1
+        str r0, [r2]
+        mov r1, 0xF0
+        lsl r1, r1, 0x08
+        mov r0, r1
+        strh r0, [r2, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0x1c
+        strb r0, [r2]
+        
+        @@NullObj2:
+        mov r0, 0x02
+        bl 0x080922D4 ; bookkeeping - we're at 0x080149be
+        add r3, r0, 0x00
+        cmp r3, 0x00
+        beq @@NullObj3
+        lsl r2, r5, 0x19
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        sub r0, 0x04
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        ldr r1, =0x40004500
+        orr r0, r1
+        orr r2, r0
+        str r2, [r3]
+        ldr r2, =0xF3FE
+        mov r0, r2
+        strh r0, [r3, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0x14 ; same as the part after beq @@NullObj1, except 0x1c replaced with 0x14
+        strb r0, [r3]
+        
+        @@NullObj3:
+        mov r0, 0x02
+        bl 0x080922D4
+        mov r2, r0
+        cmp r2, 0x00
+        beq @@NullObj4
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        add r0, 0x1C
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        mov r1, 0x80
+        lsl r1, r1, 0x03
+        orr r0, r1
+        str r0, [r2]
+        mov r1, 0xF0
+        lsl r1, r1, 0x08
+        mov r0, r1
+        strh r0, [r2, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0x14
+        strb r0, [r2]
+        
+        @@NullObj4:
+        mov r0, 0x02
+        bl 0x080922D4 ; 0x08014a1a
+        add r3, r0, 0x00
+        cmp r3, 0x00
+        beq @@NullObj5
+        lsl r2, r5, 0x19
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        sub r0, 0x04
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        ldr r1, =0x40004500
+        orr r0, r1
+        orr r2, r0
+        str r2, [r3]
+        ldr r2, =0xF3FE
+        mov r0, r2
+        strh r0, [r3, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0xC ; same as the part after beq @@NullObj1, except 0x1c replaced with 0x0c
+        strb r0, [r3]
+        
+        @@NullObj5:
+        mov r0, 0x02
+        bl 0x080922D4
+        mov r2, r0
+        cmp r2, 0x00
+        beq @@NullObj6
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        add r0, 0x1C
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        mov r1, 0x80
+        lsl r1, r1, 0x03
+        orr r0, r1
+        str r0, [r2]
+        mov r1, 0xF0
+        lsl r1, r1, 0x08
+        mov r0, r1
+        strh r0, [r2, 0x04]
+        ldrb r0, [r4, 0x06]
+        add r0, 0x0C
+        strb r0, [r2]
+        
+        @@NullObj6:
+        mov r0, 0x02
+        bl 0x080922D4 ; 08014a76
+        add r3, r0, 0x00
+        cmp r3, 0x00
+        beq @@NullObj7
+        lsl r2, r5, 0x19
+        mov r1, 0x04
+        ldsh r0, [r4, r1]
+        sub r0, 0x04
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        ldr r1, =0x80004500
+        orr r0, r1
+        orr r2, r0
+        str r2, [r3]
+        ldr r2, =0xF3FE
+        mov r0, r2
+        strh r0, [r3, 0x04]
+        ldrb r0, [r4, 0x06]
+        sub r0, 0x04 ; same as the part after beq @@NullObj1, except 0x1c replaced with 0x04
+        strb r0, [r3, 0x00]
+        
+        @@NullObj7:
+        mov r0, 0x02
+        bl 0x080922D4 ;08014aa4
+        mov r2, r0
+        cmp r2, 0x00
+        beq @FixCoords
+        lsl r2, r5, 0x19
+        mov r1, 0x04
+        ldrsh r0, [r4, r1] ; x-coord
+        add r0, 0x1c
+        lsl r0, r0, 0x10
+        ldr r1, =0x1FF0000
+        and r0, r1
+        mov r1, 0x85
+        lsl r1, r1, 0x08
+        orr r0, r1
+        orr r2, r0
+        str r2, [r3, 0x00]
+        ldr r2, =0xF3FF
+        add r0, r2, 0x00
+        strh r0, [r3, 0x04]
+        ldrb r0, [r4, 0x06] ; y-coord
+        sub r0, 0x04
+        strb r0, [r3, 0x00]
+        
+    @FixCoords:
+        mov r0, 0x00
+        ldrsb r0, [r4, r0]
+        lsr r1, r0, 0x1f
+        add r0, r0, r1
+        asr r0, r0, 0x01 ; dividing by 2
+        ldrh r1, [r4, 0x06]
+        sub r1, r1, r0
+        strh r1, [r4, 0x06]
+        b @FuncEnd
+        
+    @IsText: ; 0x101 to 0x104 here (r1)
     sub r1, r1, r0 ; r1 now contains array index
     ldr r0, =PracticeCutsceneMenuOptions
     lsl r1, r1, 3
@@ -663,7 +883,7 @@ RenderPracticeCutsceneMenu:
     add r0, 0x09 ; line spacing
     strh r0, [r4, 0x06]
     
-    @@FuncEnd:
+    @FuncEnd:
     mov r0, 0x00
     add sp, 0x04
     pop {r4, r5}
