@@ -19,6 +19,7 @@
 .include "graphics/glyphs/glyphbinaries.asm"
 .include "graphics/minigamesplashes/minigamesplashes.asm"
 .include "graphics/minigamesplashes/overworldsplashes.asm"
+.include "graphics/minigamesplashes/titlescreen.asm"
 .include "graphics/overworldtitles/overworldtitles.asm"
 .include "graphics/inlevel/inleveltext.asm"
 .include "graphics/menu/menumacros.asm"
