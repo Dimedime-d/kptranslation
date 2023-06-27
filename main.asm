@@ -24,5 +24,6 @@
 .include "graphics/inlevel/inleveltext.asm"
 .include "graphics/menu/menumacros.asm"
 .include "graphics/menu/1Pmenus.asm"
+.include "graphics/fixed/fixedgraphics.asm"
 
 .close

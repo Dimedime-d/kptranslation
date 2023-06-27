@@ -3,6 +3,7 @@
 /graphics/minigamesplashes/reserve/*
 /graphics/inlevel/reserve/*
 /graphics/menu/reserve/*
+/graphics/fixed/reserve/*
 /graphics/menu/dumps/*.bin
 /graphics/__pycache__/*
 /graphics/minigamesplashes/__pycache__/*
