@@ -6,6 +6,7 @@ from PIL import Image
 palettes = {
     "level labels": [32, 152, 160, 0, 0, 0, 32, 152, 160, 240, 152, 152, 0, 64, 144, 0, 96, 160, 0, 128, 184, 184, 72, 0, 200, 128, 16, 224, 184, 40, 248, 248, 64, 0, 0, 0, 56, 56, 56, 120, 120, 120, 184, 184, 184, 248, 248, 248],
     "no record": [0, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 112, 216, 248, 0, 72, 128, 56, 112, 152, 120, 152, 168, 184, 200, 208, 248, 248, 248],
+    "key get": [248, 248, 248, 0, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 184, 208, 184, 96, 128, 128, 16, 56, 152, 64, 88, 184, 120, 120, 216, 168, 152, 248, 224, 184],
 }
 
 TEMP_FOLDER = "reserve"
@@ -17,6 +18,7 @@ fixed_graphics = {
     "demo":     {"pal": "level labels"},
     "replay":   {"pal": "level labels"},
     "no_record": {"pal": "no record"},
+    "key_get":  {"pal": "key get"}
 }
 
 def make_fixed_dmps():
@@ -58,6 +60,19 @@ def make_fixed_dmps():
         
             print(f"wrote {dmp_file}")
             fixed_graphics[key]["dmp"] = os.path.join("graphics", "fixed", dmp_file)
+            # Manually move palette file to dumps folder...
+        if (key == "key_get"):
+            files = [f"{os.path.join(TEMP_FOLDER, f'{os.path.basename(base_img_file[:-4])},{i}')}" for i in range(2)]
+            os.system(f"cmd /c ..\grit {base_img_file} -p -gB4 -gt -m! -Mh4 -Mw4 -al0 -aw96 -at0 -ah32 -ftb -fh! -o {files[0]}")
+            os.system(f"cmd /c ..\grit {base_img_file} -p! -gB4 -gt -m! -Mh1 -Mw4 -al0 -aw96 -at32 -ah8 -ftb -fh! -o {files[1]}")
+            # Merge binaries
+            dmp_file = os.path.join(DUMP_FOLDER, f"{os.path.basename(base_img_file[:-4])}.dmp")
+            with open(dmp_file, "wb") as file:
+                for f in files:
+                    with open(f"{f}.img.bin", "rb") as file2:
+                        file.write(file2.read())
+            print(f"wrote {dmp_file}")
+            fixed_graphics[key]["dmp"] = os.path.join("graphics", "fixed", dmp_file)
             
 def make_asm_file():
     with open("fixedgraphics.asm", "w") as file:
@@ -78,25 +93,25 @@ def make_asm_file():
 .macro keygetheader ; source: 0x0829CEAC
     .byte   0x06,0x70,0x28,0x30, {bs}
             0xD8,0xD0,0x44,0x10, {bs}
-            0xF7,0xD0,0x44,0x10, {bs}
-            0x16,0xD0,0x44,0x10, {bs}
-            0xDA,0xEF,0x14,0x04, {bs}
-            0xF7,0xEF,0x24,0x08, {bs}
-            0x16,0xEF,0x12,0x02
+            0xF8,0xD0,0x44,0x10, {bs}
+            0x18,0xD0,0x44,0x10, {bs}
+            0xD8,0xEF,0x14,0x04, {bs}
+            0xF8,0xEF,0x14,0x04, {bs}
+            0x18,0xEF,0x14,0x04
 .endmacro
 
 .macro norecordheader ; source: 0x0829BBC0
     .byte   0x0A,0x00,0x78,0x50, {bs}
             0x89,0xB1,0x44,0x10, {bs}
-            0xA8,0xB1,0x44,0x10, {bs}
-            0xC7,0xB1,0x44,0x10, {bs}
-            0xE6,0xB1,0x44,0x10, {bs}
-            0x05,0xB1,0x41,0x04, {bs}
+            0xA9,0xB1,0x44,0x10, {bs}
+            0xC9,0xB1,0x44,0x10, {bs}
+            0xE9,0xB1,0x44,0x10, {bs}
+            0x09,0xB1,0x41,0x04, {bs}
             0x89,0xD0,0x14,0x04, {bs}
-            0xA8,0xD0,0x14,0x04, {bs}
-            0xC7,0xD0,0x14,0x04, {bs}
-            0xE6,0xD0,0x14,0x04, {bs}
-            0x05,0xD0,0x11,0x01
+            0xA9,0xD0,0x14,0x04, {bs}
+            0xC9,0xD0,0x14,0x04, {bs}
+            0xE9,0xD0,0x14,0x04, {bs}
+            0x09,0xD0,0x11,0x01
 .endmacro
 
 .org 0x08287244
@@ -117,10 +132,21 @@ def make_asm_file():
     .incbin "{fixed_graphics["no_record"]["dmp"]}"
 .endarea
 
+.org 0x0829CEAC
+.area 0x0829D688 - org()
+    keygetheader
+    .incbin "{fixed_graphics["key_get"]["dmp"]}"
+.endarea
+
 ; just write a new palette for no record because grit fucked up
 .org 0x081C3BD0
 .area 0x20
     .incbin "{os.path.join("graphics", "fixed", "dumps", "no_record,0.pal.bin")}"
+.endarea
+
+.org 0x0819C2A4
+.area 0x20
+    .incbin "{os.path.join("graphics", "fixed", "dumps", "key_get,0.pal.bin")}"
 .endarea
 """
 )
