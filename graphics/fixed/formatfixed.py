@@ -1,9 +1,11 @@
 # This is for graphics that don't need to be repointed
 import os
+import struct
 from PIL import Image
 
 palettes = {
     "level labels": [32, 152, 160, 0, 0, 0, 32, 152, 160, 240, 152, 152, 0, 64, 144, 0, 96, 160, 0, 128, 184, 184, 72, 0, 200, 128, 16, 224, 184, 40, 248, 248, 64, 0, 0, 0, 56, 56, 56, 120, 120, 120, 184, 184, 184, 248, 248, 248],
+    "no record": [0, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 112, 216, 248, 0, 72, 128, 56, 112, 152, 120, 152, 168, 184, 200, 208, 248, 248, 248],
 }
 
 TEMP_FOLDER = "reserve"
@@ -14,6 +16,7 @@ bs = '\\'
 fixed_graphics = {
     "demo":     {"pal": "level labels"},
     "replay":   {"pal": "level labels"},
+    "no_record": {"pal": "no record"},
 }
 
 def make_fixed_dmps():
@@ -22,7 +25,6 @@ def make_fixed_dmps():
         palette = palettes[dat["pal"]]
         converted_img_file, width = quantize_image_to_palette_and_save(base_img_file, palette)
         bin_file = os.path.join(DUMP_FOLDER, f"{key}")
-        
         # case-by-case grit operations, unfortunately
         if (key in ["demo", "replay"]):
             # In order: No palette, 4bpp, tile format, NO MAP,
@@ -32,6 +34,28 @@ def make_fixed_dmps():
             if os.path.exists(dmp_file):
                 os.remove(dmp_file)
             os.rename(f"{bin_file}.img.bin", dmp_file)
+            print(f"wrote {dmp_file}")
+            fixed_graphics[key]["dmp"] = os.path.join("graphics", "fixed", dmp_file)
+        if (key == "no_record"):
+            # A slew of grit operations to make sure graphics fit in the same location
+            files = [f"{os.path.join(TEMP_FOLDER, f'{os.path.basename(base_img_file[:-4])},{i}')}" for i in range(4)]
+            # Different bounding boxes for each grit, specified by al, aw, at, ah
+            # Otherwise, in order: (no) palette, 4bpp, no tilemap, 4x4 metatiles, bounding box, export binary without header, output file path
+            os.system(f"cmd /c ..\grit {base_img_file} -p -gB4 -gt -m! -Mh4 -Mw4 -al0 -aw128 -at0 -ah32 -ftb -fh! -o {files[0]}")
+            # The 8x32 metatile at the end
+            os.system(f"cmd /c ..\grit {base_img_file} -p! -gB4 -gt -m! -Mh4 -Mw1 -al128 -aw8 -at0 -ah32 -ftb -fh! -o {files[1]}")
+            # 32x8 metatiles along the bottom
+            os.system(f"cmd /c ..\grit {base_img_file} -p! -gB4 -gt -m! -Mh1 -Mw4 -al0 -aw128 -at32 -ah8 -ftb -fh! -o {files[2]}")
+            # Last 8x8 metatile at the bottom corner
+            os.system(f"cmd /c ..\grit {base_img_file} -p! -gB4 -gt -m! -Mh1 -Mw1 -al128 -aw8 -at32 -ah8 -ftb -fh! -o {files[3]}")
+            
+            # Merge binaries
+            dmp_file = os.path.join(DUMP_FOLDER, f"{os.path.basename(base_img_file[:-4])}.dmp")
+            with open(dmp_file, "wb") as file:
+                for f in files:
+                    with open(f"{f}.img.bin", "rb") as file2:
+                        file.write(file2.read())
+        
             print(f"wrote {dmp_file}")
             fixed_graphics[key]["dmp"] = os.path.join("graphics", "fixed", dmp_file)
             
@@ -72,20 +96,34 @@ def make_asm_file():
             0xA8,0xD0,0x14,0x04, {bs}
             0xC7,0xD0,0x14,0x04, {bs}
             0xE6,0xD0,0x14,0x04, {bs}
-            0x05,0xD0,0x11,0x01, {bs}
+            0x05,0xD0,0x11,0x01
 .endmacro
 
 .org 0x08287244
-.region 0x08287450 - org()
+.area 0x08287450 - org()
     demoheader
     .incbin "{fixed_graphics["demo"]["dmp"]}"
-.endregion
+.endarea
 
 .org 0x08287450
-.region 0x0828765C - org()
+.area 0x0828765C - org()
     replayheader
     .incbin "{fixed_graphics["replay"]["dmp"]}"
-.endregion""")
+.endarea
+
+.org 0x0829BBC0
+.area 0x0829C68C - org()
+    norecordheader
+    .incbin "{fixed_graphics["no_record"]["dmp"]}"
+.endarea
+
+; just write a new palette for no record because grit fucked up
+.org 0x081C3BD0
+.area 0x20
+    .incbin "{os.path.join("graphics", "fixed", "dumps", "no_record,0.pal.bin")}"
+.endarea
+"""
+)
     
         
 def quantize_image_to_palette_and_save(img_file, palette):
@@ -95,7 +133,7 @@ def quantize_image_to_palette_and_save(img_file, palette):
     palImage = Image.new("P", (16, 16))
     palImage.putpalette(palette + [0, 0, 0] * 240)
     converted_image = img.convert("RGB").quantize(palette=palImage, dither=Image.NONE)
-    converted_file = os.path.join(TEMP_FOLDER, f"{img_file[:-4]}-converted.png")
+    converted_file = os.path.join(TEMP_FOLDER, f"{img_file[:-4]}-converted.bmp")
     converted_image.save(converted_file)
     return converted_file, converted_image.width
 

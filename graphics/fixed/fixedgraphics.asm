@@ -33,17 +33,29 @@
             0xA8,0xD0,0x14,0x04, \
             0xC7,0xD0,0x14,0x04, \
             0xE6,0xD0,0x14,0x04, \
-            0x05,0xD0,0x11,0x01, \
+            0x05,0xD0,0x11,0x01
 .endmacro
 
 .org 0x08287244
-.region 0x08287450 - org()
+.area 0x08287450 - org()
     demoheader
     .incbin "graphics\fixed\dumps\demo.dmp"
-.endregion
+.endarea
 
 .org 0x08287450
-.region 0x0828765C - org()
+.area 0x0828765C - org()
     replayheader
     .incbin "graphics\fixed\dumps\replay.dmp"
-.endregion
+.endarea
+
+.org 0x0829BBC0
+.area 0x0829C68C - org()
+    norecordheader
+    .incbin "graphics\fixed\dumps\no_record.dmp"
+.endarea
+
+; just write a new palette for no record because grit fucked up
+.org 0x081C3BD0
+.area 0x20
+    .incbin "graphics\fixed\dumps\no_record,0.pal.bin"
+.endarea
