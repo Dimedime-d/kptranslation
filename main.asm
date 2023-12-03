@@ -11,6 +11,8 @@
     .include "asm/debug.asm"
 .endif
 
+.include "multi/insertmulti.asm" ; should require no free space, so okay to put this anywhere?
+
 .include "asm/customcode.asm"
 .include "asm/vwfalpha.asm"
 .include "text/insertscripts.asm"
