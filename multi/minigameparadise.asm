@@ -86,9 +86,39 @@
     .word ROMToWRAM(@PitPuttRacer)
     .word ROMToWRAM(@SpinShot)  
     .word ROMToWRAM(@TwinHopper)
+    
+; information when starting up
+.org WRAMToROM(0202DA68h)
+    .word ROMToWRAM(@YouAreP1)
+    .word ROMToWRAM(@YouAreP2)
+    .word ROMToWRAM(@YouAreP3)
+    .word ROMToWRAM(@YouAreP4)
+    .word ROMToWRAM(@MP1P)
+    .word ROMToWRAM(@MP1P)
+    .word ROMToWRAM(@MP2P)
+    .word ROMToWRAM(@MP3P)
+    .word ROMToWRAM(@MP4P)
+    .word ROMToWRAM(@Info1)
+    .word ROMToWRAM(@Info2)
+
+.org WRAMToROM(0202B380h)   ; Wobbly text is unfortunately broken, the English ASCII characters aren't in the right spots...
+    .word ROMToWRAM(@MPInfo)    
+.org WRAMToROM(0202B60Ch)
+    .word ROMToWRAM(@MPInfo)
+
+.org WRAMToROM(0202C146h)
+    mov r0, 0x60 ; center "Continue"
+
+.org WRAMToROM(0202C14Ch)
+    .word ROMToWRAM(@Continue)
+    
+.org WRAMToROM(0202C16Ch)
+    .word ROMToWRAM(@Stop)
+
+; New strings should be in free space...
 
 ; ~256 bytes of free space at the end of the payload
-; The lowercase ASCII letters aren't set to the child GBAs -_-
+; The lowercase ASCII letters aren't set to the child GBAs... so force them to be sent and do some OAM magic
 .org 0x086CC280
     .area 0x100
     @Random:            .asciiz "Random"            ::  .align
@@ -108,4 +138,27 @@
     @SlipDrop:          .asciiz "Slip Drop"         ::  .align
     @MagnetForce:       .asciiz "Magnet Force"      ::  .align
     @Crossfire:         .asciiz "Crossfire"         ::  .align
+.endarea
+
+; original space taken by the Japanese minigame titles
+.org WRAMToROM(0202D720h)
+    .area 0xD0
+    @MP1P:              .asciiz "Minigame Paradise" ::  .align
+    @MP2P:              .asciiz "2P Minigame Paradise" ::   .align
+    @MP3P:              .asciiz "3P Minigame Paradise" ::   .align
+    @MP4P:              .asciiz "4P Minigame Paradise" ::   .align
+    @MPInfo:            .asciiz "waiting for host"     ::   .align
+    @YouAreP1:          .asciiz "You are Player 1"  ::      .align
+    @YouAreP2:          .asciiz "You are Player 2"  ::      .align
+    @YouAreP3:          .asciiz "You are Player 3"  ::      .align
+    @YouAreP4:          .asciiz "You are Player 4"  ::      .align
+.endarea
+
+; space taken up by Japanese text on black screen
+.org WRAMToROM(0202D838h)
+    .area 0xD0
+    @Info1:             .asciiz "To play 'Kurukuru Kururin'"   ::  .align
+    @Info2:             .asciiz "Reset and reconnect your systems"  ::  .align
+    @Continue:          .asciiz "Continue"  ::  .align
+    @Stop:              .asciiz "Stop"      ::  .align
 .endarea
