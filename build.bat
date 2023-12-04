@@ -8,10 +8,15 @@ copy kp.gba kp_patched.gba
 :: Need separate armips operations
 echo "[INFO] Extracting Multiplayer payloads..."
 mkdir build
-fsutil file createnew build/multipayload1.bin 0
-armips.exe multi/extractmulti.asm
+
+set PayloadFile1=build/multipayload1.bin
+if not exist "%PayloadFile1%" (
+	fsutil file createnew build/multipayload1.bin 0
+)
+
+armips.exe multi/payload/extractmulti.asm
 lzss -d build/multipayload1.bin
-armips.exe multi/modifymulti.asm
+armips.exe multi/payload/modifymulti.asm
 lzss -ewo build/multipayload1.bin
 
 echo "[INFO] Patching game, please wait..."

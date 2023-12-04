@@ -87,6 +87,14 @@
 .org 0x080290A8 ::  .word @Chikurin ::  .word @Hyokorin
 .org 0x080290D0 ::  .word @Chikurin
 
+.org 0x0802E67C
+    .word @Random   :: .word @ChuChuPanic   :: .word @Crossfire
+    .word @StarlightRomance :: .word @SuperJumper   :: .word @SmashForce
+    .word @DotFiller    :: .word @GrassCutter   :: .word @SlipDrop
+    .word @InTheSky     :: .word @QuickFlip     :: .word @LoveAttack
+    .word @FallingDown  :: .word @MagnetForce   :: .word @PitPuttRacer
+    .word @SpinShot     :: .word @TwinHopper
+
 ;---------------------------------------------
 
 ;Text that doesn't fit in original space
@@ -115,7 +123,25 @@
     @Name6:     .asciiz "KuruPara"  ::  .align
     @Name7:     .asciiz "Paradise"  ::  .align
     @Learn:     .asciiz "   Learn"  ::  .align
-    MiniParaTitles: .incbin "graphics/menu/dumps/minigametitles.dmp"
+    MiniParaTitles: .incbin "graphics/menu/dumps/minigametitles.dmp" ; ONLY for the single-player version of minigames
+    ; These minigame titles are rendered in the Single Pak Versus version of Minigame Paradise
+    @Random:            .asciiz "Random"            ::  .align
+    @ChuChuPanic:       .asciiz "Chu-Chu Panic"     ::  .align
+    @SmashForce:        .asciiz "Smash Force"       ::  .align
+    @QuickFlip:         .asciiz "Quick Flip"        ::  .align
+    @LoveAttack:        .asciiz "Love Attack"       ::  .align
+    @InTheSky:          .asciiz "In the Sky"        ::  .align
+    @SpinShot:          .asciiz "Spin Shot"         ::  .align
+    @TwinHopper:        .asciiz "Twin Hopper"       ::  .align
+    @SuperJumper:       .asciiz "Super Jumper"      ::  .align
+    @FallingDown:       .asciiz "Falling Down"      ::  .align
+    @GrassCutter:       .asciiz "Grass Cutter"      ::  .align
+    @StarlightRomance:  .asciiz "Starlight Romance" ::  .align
+    @PitPuttRacer:      .asciiz "Pit-Putt Racer"    ::  .align
+    @DotFiller:         .asciiz "Dot Filler"        ::  .align
+    @SlipDrop:          .asciiz "Slip Drop"         ::  .align
+    @MagnetForce:       .asciiz "Magnet Force"      ::  .align
+    @Crossfire:         .asciiz "Crossfire"         ::  .align
 .endautoregion
         
 ;---------------------------------------------

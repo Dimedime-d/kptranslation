@@ -1,4 +1,3 @@
-
 .org 0x081BC4FC ; replace graphical data in place, without any repointing (takes same space)
     .incbin "graphics/menu/dumps/random.dmp"
     
