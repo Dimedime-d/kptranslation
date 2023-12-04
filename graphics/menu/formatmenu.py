@@ -49,7 +49,7 @@ class MenuButton:
         bin_file = os.path.join(DUMP_FOLDER, f"{self.img_file[:-4]}")
         # In order: No palette, 4bpp, tile format, NO MAP,
         # 4x2 metatiles, .bin file, no header, output file
-        os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh2 -ftb -fh! -o {bin_file}")
+        os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh2 -ftb -fh! -o {bin_file}")
         self.dmp_file = f"{bin_file}.dmp"
         if not self.compressed:
             if os.path.exists(self.dmp_file):
@@ -96,7 +96,7 @@ def format_other_text():
     bin_file = os.path.join(DUMP_FOLDER, f"{img_file[:-4]}")
     # In order: No palette, 4bpp, tile format, NO MAP,
     # 2x2 metatiles, .bin file, no header, output file
-    os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw2 -Mh2 -ftb -fh! -o {bin_file}")
+    os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw2 -Mh2 -ftb -fh! -o {bin_file}")
     dmp_file = f"{bin_file}.dmp"
     comp_data = None
     with open(f"{bin_file}.img.bin", "rb") as file:
@@ -110,8 +110,8 @@ def format_other_text():
     img_file = "random.png"
     converted_file = quantize_image_to_palette_and_save(img_file, palettes["challenge highlighted"])
     bin_file = os.path.join(TEMP_FOLDER, f"{img_file[:-4]}")
-    os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh2 -aw32 -ftb -fh! -o {bin_file}1")
-    os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw2 -Mh2 -al32 -ftb -fh! -o {bin_file}2")
+    os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh2 -aw32 -ftb -fh! -o {bin_file}1")
+    os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw2 -Mh2 -al32 -ftb -fh! -o {bin_file}2")
     dmp_file = os.path.join(DUMP_FOLDER, f"{img_file[:-4]}.dmp")
     with open(f"{bin_file}1.img.bin", "rb") as bin1, open(f"{bin_file}2.img.bin", "rb") as bin2, open(dmp_file, "wb") as dmp:
         dmp.write(bin1.read())
@@ -124,7 +124,7 @@ def format_minigame_titles():
     bin_file = os.path.join(DUMP_FOLDER, f"{img_file[:-4]}")
     # In order: No palette, 4bpp, tile format, NO MAP,
     # 4x1 metatiles, .bin file, no header, output file
-    os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh1 -ftb -fh! -o {bin_file}")
+    os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh1 -ftb -fh! -o {bin_file}")
     dmp_file = f"{bin_file}.dmp"
     if os.path.exists(dmp_file):
         os.remove(dmp_file)

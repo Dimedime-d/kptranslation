@@ -60,7 +60,7 @@
     .incbin "bin/asciiwidthtable.bin"
     
 .org WRAMToROM(02031952h)
-    nop ; just a hack to make lowercase ASCII refer to different object tiles
+    nop ; just a hack to make lowercase ASCII refer to different object tiles, originally: subs r4, 020h
 
 ; Minigame Titles
 .org 0x086B9DA0
