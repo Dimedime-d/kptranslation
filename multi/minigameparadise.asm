@@ -57,10 +57,15 @@
 
 ; same ascii width table as in single player
 .org 0x086C9054
-    .incbin "bin/asciiwidthtable.bin"
+    .incbin "bin/asciiwidthtable2.bin"
     
 .org WRAMToROM(02031952h)
     nop ; just a hack to make lowercase ASCII refer to different object tiles, originally: subs r4, 020h
+
+.org WRAMToROM(0203DA84h)
+    .area WRAMToROM(0203E030h)-., 0x00
+    .incbin "bin/mpObjTilesComp.bin"
+.endarea
 
 ; Minigame Titles
 .org 0x086B9DA0

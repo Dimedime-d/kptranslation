@@ -1,5 +1,5 @@
-# auto-generates a .asm file to import the menu buttons
-# TODO: Also hack in the multiplayer menu buttons that are sent to other GBA's
+# auto-generates a binaries of various menu buttons
+# (some of these .dmp files are re-used in payloads for Single Pak Multiplayer)
 import sys
 import os
 from PIL import Image
@@ -103,7 +103,7 @@ def format_other_text():
         comp_data = LZ.compress(file.read())
     with open(dmp_file, "wb") as file:
         file.write(comp_data)
-    os.remove(f"{bin_file}.img.bin")
+    #os.remove(f"{bin_file}.img.bin")
     print(f"wrote {dmp_file}")
     
     #Random Text
