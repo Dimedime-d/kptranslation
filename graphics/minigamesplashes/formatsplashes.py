@@ -11,7 +11,12 @@ DUMP_FOLDER = "dumps" # contains binaries ready to be inserted
 PARENT_FOLDERS = ["graphics", "minigamesplashes"]
 
 # dumped directly from the ROM (from palette pointers in the minigame splash struct)
+# these are ordered by their minigame ID, as shown in the ordering of the minigames at 0x2E67C
 palettes = {
+    "chuchu": {
+        "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],  
+        "pic": [248, 0, 248, 80, 0, 0, 88, 16, 48, 128, 24, 80, 184, 40, 88, 120, 120, 32, 240, 128, 160, 184, 184, 104, 192, 200, 112, 248, 176, 120, 208, 216, 128, 112, 248, 240, 224, 232, 136, 248, 216, 216, 248, 240, 200, 0, 0, 0]
+    },
     "crossfire": {
         "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
         "pic": [248, 0, 248, 64, 0, 24, 96, 16, 0, 64, 64, 96, 88, 104, 128, 72, 120, 168, 248, 72, 32, 128, 120, 152, 96, 136, 184, 0, 208, 248, 168, 184, 224, 112, 248, 240, 208, 208, 216, 248, 248, 64, 248, 248, 248, 8, 0, 0]
@@ -23,6 +28,10 @@ palettes = {
     "bounce": {
         "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
         "pic": [248, 0, 248, 72, 40, 0, 152, 96, 24, 56, 128, 104, 16, 160, 248, 24, 168, 248, 64, 184, 240, 248, 160, 0, 88, 192, 248, 136, 192, 144, 104, 208, 248, 136, 232, 248, 184, 232, 176, 248, 232, 24, 192, 248, 248, 0, 0, 0]
+    },
+    "hockey": {
+        "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
+        "palette": [248, 0, 248, 0, 104, 0, 48, 48, 208, 168, 88, 0, 240, 40, 72, 32, 176, 32, 136, 144, 248, 104, 192, 112, 248, 112, 160, 248, 160, 104, 248, 152, 200, 248, 152, 208, 184, 184, 248, 160, 224, 176, 248, 208, 136, 0, 0, 0]
     },
     "dots": {
         "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
@@ -39,6 +48,14 @@ palettes = {
     "sky": {
         "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
         "pic": [248, 0, 248, 0, 32, 56, 0, 80, 136, 128, 112, 0, 40, 152, 184, 0, 160, 232, 0, 176, 232, 0, 192, 240, 184, 184, 0, 240, 160, 8, 64, 208, 248, 112, 208, 248, 152, 224, 248, 248, 232, 88, 248, 240, 248, 0, 0, 0]
+    },
+    "flip": {
+        "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
+        "pic": [248, 0, 248, 48, 64, 56, 0, 80, 128, 0, 136, 144, 248, 88, 88, 104, 152, 176, 240, 144, 0, 200, 128, 240, 56, 224, 104, 248, 184, 0, 248, 168, 184, 152, 216, 216, 112, 248, 240, 248, 240, 48, 248, 248, 248, 0, 0, 0]
+    },
+    "love": {
+        "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
+        "pic": [248, 0, 248, 32, 112, 128, 224, 72, 88, 104, 168, 184, 248, 136, 168, 136, 216, 176, 120, 224, 184, 144, 216, 248, 160, 224, 192, 144, 224, 240, 208, 232, 200, 248, 224, 88, 200, 240, 224, 224, 240, 224, 248, 248, 248, 0, 0, 0]
     },
     "fall": {
         "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
@@ -115,7 +132,7 @@ class SplashScreen:
         
         # In order: No palette, 8bpp, tile format, flat map layout, reduce tiles+pal+flip, metatile reduction,
         # .bin file, no header, output file (default 1x1 metatiles)
-        os.system(f"cmd /c ..\grit {converted_file} -p! -gB8 -gt -mLf -mR8 -MRp -ftb -fh! -o {converted_file[:-4]}.bin")
+        os.system(f"cmd /c ..\\grit {converted_file} -p! -gB8 -gt -mLf -mR8 -MRp -ftb -fh! -o {converted_file[:-4]}.bin")
         tileset_file = f"{converted_file[:-4]}.img.bin"
         tilemap_file = f"{converted_file[:-4]}.map.bin"
         
@@ -168,7 +185,7 @@ class TitleScreen(SplashScreen):
         
         # In order: No palette, 8bpp, tile format, flat map layout, reduce tiles+pal+flip, metatile reduction,
         # .bin file, no header, output file (default 1x1 metatiles)
-        os.system(f"cmd /c ..\grit {converted_file} -p! -gB8 -gt -mLf -mR8 -MRp -ftb -fh! -o {converted_file[:-4]}.bin")
+        os.system(f"cmd /c ..\\grit {converted_file} -p! -gB8 -gt -mLf -mR8 -MRp -ftb -fh! -o {converted_file[:-4]}.bin")
         tileset_file = f"{converted_file[:-4]}.img.bin"
         tilemap_file = f"{converted_file[:-4]}.map.bin"
         
@@ -235,7 +252,7 @@ class MinigameSplashScreen(SplashScreen):
                 
                 # In order: No palette, 4bpp, tile format, reg flat map layout, reduce tiles+pal+flip, dynamic tilemap offset,
                 # metatile reduction, 1x1 metatiles, .bin file, no header, output file
-                os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -mLf -mRtpf -ma{pic_tilemap_offset} -MRp -Mh1 -Mw1 -ftb -fh! -o {converted_file[:-4]}.bin")
+                os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -mLf -mRtpf -ma{pic_tilemap_offset} -MRp -Mh1 -Mw1 -ftb -fh! -o {converted_file[:-4]}.bin")
                 tileset_file = f"{converted_file[:-4]}.img.bin"
                 tilemap_file = f"{converted_file[:-4]}.map.bin"
                 if i == 0:
@@ -254,7 +271,7 @@ class MinigameSplashScreen(SplashScreen):
         merged_uncompressed_tilemap_file = os.path.join(TEMP_FOLDER, f"{self.tilemap_label}Uncomp.bin")
         
         # Then, merge the uncompressed tilesets and tilemaps into one
-        uncomp_tiles, uncomp_map = self.merge_binaries(text_tiles, text_map, pic_tiles, pic_map, tiles_out=merged_uncompressed_tileset_file, map_out=merged_uncompressed_tilemap_file, sideways=self.armips_id == "fall")
+        uncomp_tiles, uncomp_map = self.merge_binaries(text_tiles, text_map, pic_tiles, pic_map, tiles_out=merged_uncompressed_tileset_file, map_out=merged_uncompressed_tilemap_file, sideways=self.armips_id.startswith("fall"))
         
         # Performance bottleneck is here, unsurprisingly. 
         comp_tiles, comp_map = LZ.compress(uncomp_tiles), LZ.compress(uncomp_map)
@@ -317,21 +334,44 @@ f'''    @{self.tileset_label}:
 '''
     
 minigame_splash_screens = [
+    # no chuchu minigame for adventure mode
     MinigameSplashScreen("crossfire-text.png",  "crossfire-pic.png",    "crossfire",    "crossfire",    "0x0802E6F8"),
     MinigameSplashScreen("star-text.png",       "star-pic.png",         "star",         "star",         "0x0802E708"),
     MinigameSplashScreen("bounce-text.png",     "bounce-pic.png",       "bounce",       "bounce",       "0x0802E718"),
-    
+    # or hockey
     MinigameSplashScreen("dots-text.png",       "dots-pic.png",         "dots",         "dots",         "0x0802E738"),
     MinigameSplashScreen("grass-text.png",      "grass-pic.png",        "grass",        "grass",        "0x0802E748"),
     MinigameSplashScreen("ice-text.png",        "ice-pic.png",          "ice",          "ice",          "0x0802E758"),
     MinigameSplashScreen("sky-text.png",        "sky-pic.png",          "sky",          "sky",          "0x0802E768"),
-    
-    
+    # or flip
+    # or love
     MinigameSplashScreen("fall-text.png",       "fall-pic.png",         "fall",         "fall",         "0x0802E798"),
     MinigameSplashScreen("magnet-text.png",     "magnet-pic.png",       "magnet",       "magnet",       "0x0802E7A8"),
     MinigameSplashScreen("race-text.png",       "race-pic.png",         "race",         "race",         "0x0802E7B8"),
     MinigameSplashScreen("shoot-text.png",      "shoot-pic.png",        "shoot",        "shoot",        "0x0802E7C8"),
     MinigameSplashScreen("twin-text.png",       "twin-pic.png",         "twin",         "twin",         "0x0802E7D8"),
+    # there is a "dead" entry in the table between modes
+    #chuchu challenge
+    #crossfire challenge
+    # etc...
+    MinigameSplashScreen("bounce-challenge-text.png", "bounce-pic.png", "bounce", "bounce_challenge",   "0x0802E828"),
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    MinigameSplashScreen("bounce-multi-text.png", "bounce-pic.png", "bounce", "bounce_multi",   "0x0802E938"),
 ]
 
 overworld_splash_screens = [
@@ -372,8 +412,8 @@ def main():
         os.makedirs(TEMP_FOLDER)
 
     format_splash_inserter(minigame_splash_screens, MinigameSplashScreen.asm_outfile, MinigameSplashScreen.asm_header) # Minigame instructions before you begin
-    format_splash_inserter(overworld_splash_screens, SplashScreen.asm_outfile, SplashScreen.asm_header) # Popups when you enter a new world for the first time
-    format_splash_inserter([title_screen], "titlescreen.asm", SplashScreen.asm_header, write_asm=False) # title screen is generated using similar scripts facilitating DMA transfers
+    #format_splash_inserter(overworld_splash_screens, SplashScreen.asm_outfile, SplashScreen.asm_header) # Popups when you enter a new world for the first time (+ the congratulations screen)
+    #format_splash_inserter([title_screen], "titlescreen.asm", SplashScreen.asm_header, write_asm=False) # title screen is generated using similar scripts facilitating DMA transfers
     
 if __name__ == "__main__":
     main()
