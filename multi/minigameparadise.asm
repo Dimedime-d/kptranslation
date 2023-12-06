@@ -64,8 +64,11 @@
 
 .org WRAMToROM(0203DA84h)
     .area WRAMToROM(0203E030h)-., 0x00
-    .incbin "bin/mpObjTilesComp.bin"
-.endarea
+        .incbin "bin/mpObjTilesComp.bin"
+    .endarea
+    .area WRAMToROM(0203E3F2h)-.,0x00
+        .incbin "graphics/menu/dumps/bubblenums.dmp" ; actually change "rounds" and "minutes" display
+    .endarea
 
 ; Minigame Titles
 .org 0x086B9DA0
