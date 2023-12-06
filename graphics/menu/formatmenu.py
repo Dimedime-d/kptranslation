@@ -119,24 +119,6 @@ def format_other_text():
         dmp.write(bin2.read())
     print(f"wrote {dmp_file}")
     
-    # Multiplayer results on podiums (1st, 2nd, 3rd, 4th)
-    for place in ["1st", "2nd", "3rd", "4th"]:
-        img_file = f"multi_{place}.png"
-        converted_file = quantize_image_to_palette_and_save(img_file, palettes["multiplayer results"])
-        bin_file = os.path.join(DUMP_FOLDER, f"{img_file[:-4]}")
-        # In order: No palette, 4bpp, tile format, NO MAP,
-        # 1x1 metatiles, .bin file, no header, output file
-        os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw1 -Mh1 -ftb -fh! -o {bin_file}")
-        dmp_file = f"{bin_file}.dmp"
-        comp_data = None
-        with open(f"{bin_file}.img.bin", "rb") as file:
-            comp_data = ByBlock.compress(file.read())
-        with open(dmp_file, "wb") as file:
-            file.write(comp_data)
-        os.remove(f"{bin_file}.img.bin")
-        print(f"wrote {dmp_file}")
-    
-    
 def format_minigame_titles():
     img_file = "minigametitles.png"
     converted_file = quantize_image_to_palette_and_save(img_file, palettes["ascii"])

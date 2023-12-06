@@ -162,3 +162,13 @@
     @Continue:          .asciiz "Continue"  ::  .align
     @Stop:              .asciiz "Stop"      ::  .align
 .endarea
+
+; results podium
+.org 0x08792840+4
+    .byte 0xFD,0xEE,0x11,0x04 ; shift right by 7 px (originally F6), object size down to 8x8 from 32x8
+.org 0x0879287A+4
+    .byte 0xFC,0x0E,0x11,0x04 ; shift right by 7 px (originally F6), object size down to 8x8 from 32x8
+.org 0x087928C4+4
+    .byte 0xFC,0x1E,0x11,0x04 ; shift right by 7 px (originally F6), object size down to 8x8 from 32x8
+.org 0x08792911+4
+    .byte 0xFC,0x2E,0x11,0x04 ; shift right by 7 px (originally F6), object size down to 8x8 from 32x8
