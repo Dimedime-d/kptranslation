@@ -53,7 +53,7 @@
 ;repointing text
 ; 0x29330 - Adventure mode pause menu - Resume, Retry, See Course, Quit Level
 .org 0x08029338     ::  .word @SeeCourse    ::  .word @QuitLevel
-; 0x29340 - Unknown pause menu - same as adventure, but "See Course" is replaced with "Give Up"
+; 0x29340 - Multiplay kurukuru kururin pause menu - same as adventure, but "See Course" is replaced with "Give Up"
 .org 0x0802934C     ::  .word @QuitLevel
 ; 0x29350 - Adventure mode death menu - Retry, See Course, Quit Level
 .org 0x08029354     ::  .word @SeeCourse    :: .word @QuitLevel
