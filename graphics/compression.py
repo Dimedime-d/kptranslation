@@ -83,7 +83,7 @@ class ByBlock(CompressBase): # idk what to call this, just that it takes chunks 
         return (second | (first << 4))
 
     def compress(dat):
-        assert len(dat) % 0x100 == 0, "only multiples of 128 bytes are supported atm"
+        #assert len(dat) % 0x100 == 0, "only multiples of 256 bytes are supported atm"
         bloks = [Block(dat[i:i + 0x20]) for i in range(0, len(dat), 0x20)]
     
         data = bytearray()
@@ -99,49 +99,53 @@ class ByBlock(CompressBase): # idk what to call this, just that it takes chunks 
             #iterate each group of 8x8 blocks
             for j in range(8):
                 #get current block
-                block = bloks[i + j]
-                if block.isAllZeroes():
-                    #filter out tile in tile mask
-                    tileMask ^= (1 << j)
-                    
-                    #Need to look ahead to the next non-zero block, and take the next nibble
-                    blockInd = i + j
-                    while (blockInd < len(bloks) and bloks[blockInd].isAllZeroes()):
-                        blockInd += 1
-                    
-                    if blockInd < len(bloks) and leftoverNibble:
-                        nibblesToAdd.append(bloks[blockInd].rows[0] & 0xF)
+                blockInd = i + j
+                if (blockInd >= len(bloks)):
+                    tileMask ^= (1 << j) 
                 else:
-                    #get into the weeds in here...
-                    #Iterate each column of each row
-                    for k in range(8): #column
-                        for l, row in enumerate(block.rows): #row
-                            nibble = (row & (0xF << (k*4))) >> (k*4)
-                            if nibble == lastNibble:
-                                #nibbles match - do nothing
-                                pass
-                            else:
-                                tileSwitchMask |= (1 << l)
-                                nibblesToAdd.append(nibble)
-                                lastNibble = nibble #only changed when nibble is different
-                                #Add leftovernibble ahead of next tileswitchmask
-                                if leftoverNibble:
-                                    leftoverNibble = False
-                                    byte = ByBlock.nibblesToByte(nibblesToAdd[0],nibblesToAdd[1])
-                                    dataToAppend.append(byte)
-                                    nibblesToAdd = nibblesToAdd[2:]
-                        dataToAppend.append(tileSwitchMask)
-                        #print(hex(tileSwitchMask))
-                        tileSwitchMask = 0
-                        for m, n in zip(nibblesToAdd[0::2], nibblesToAdd[1::2]):
-                        #Iterate every group of 2 nibbles (leaving 1 leftover nibble if applicable
-                            byte = ByBlock.nibblesToByte(m, n)
-                            dataToAppend.append(byte)
-                        #Remove every nibble that was added
-                        nibblesToAdd = nibblesToAdd[2*(len(nibblesToAdd)//2):]
-                        #Case with leftover nibble
-                        if nibblesToAdd: #If list is still populated
-                            leftoverNibble = True
+                    block = bloks[blockInd]
+                    if block.isAllZeroes():
+                        #filter out tile in tile mask
+                        tileMask ^= (1 << j)
+                        
+                        #Need to look ahead to the next non-zero block, and take the next nibble
+                        while (blockInd < len(bloks) and bloks[blockInd].isAllZeroes()):
+                            blockInd += 1
+                        
+                        if blockInd < len(bloks) and leftoverNibble:
+                            nibblesToAdd.append(bloks[blockInd].rows[0] & 0xF)
+                    else:
+                        #get into the weeds in here...
+                        #Iterate each column of each row
+                        for k in range(8): #column
+                            for l, row in enumerate(block.rows): #row
+                                nibble = (row & (0xF << (k*4))) >> (k*4)
+                                if nibble == lastNibble:
+                                    #nibbles match - do nothing
+                                    pass
+                                else:
+                                    tileSwitchMask |= (1 << l)
+                                    nibblesToAdd.append(nibble)
+                                    lastNibble = nibble #only changed when nibble is different
+                                    #Add leftovernibble ahead of next tileswitchmask
+                                    if leftoverNibble:
+                                        leftoverNibble = False
+                                        byte = ByBlock.nibblesToByte(nibblesToAdd[0],nibblesToAdd[1])
+                                        dataToAppend.append(byte)
+                                        nibblesToAdd = nibblesToAdd[2:]
+                            dataToAppend.append(tileSwitchMask)
+                            #print(hex(tileSwitchMask))
+                            tileSwitchMask = 0
+                            for m, n in zip(nibblesToAdd[0::2], nibblesToAdd[1::2]):
+                            #Iterate every group of 2 nibbles (leaving 1 leftover nibble if applicable
+                                byte = ByBlock.nibblesToByte(m, n)
+                                dataToAppend.append(byte)
+                            #Remove every nibble that was added
+                            nibblesToAdd = nibblesToAdd[2*(len(nibblesToAdd)//2):]
+                            #Case with leftover nibble
+                            if nibblesToAdd: #If list is still populated
+                                leftoverNibble = True
+            # outer loop
             if leftoverNibbleFromLastBlock:
                 dataToAppend.insert(1, tileMask)
                 leftoverNibbleFromLastBlock = False

@@ -1,3 +1,25 @@
+.macro multiresultsobjheader,xOff,yOff
+    .byte 0x01,0x08,0x10,0x50
+    .byte xOff,yOff,0x11,0x04 ; tile size down to 8x8 from 32x8
+.endmacro
+
+.org 0x08136710
+    multiresultsobjheader   0xDF,0xEE ; move right by 7 px (originally F6)
+    .incbin "graphics/menu/dumps/multi_1st.dmp"
+.area 0x0813674A-., 0x00
+.endarea
+    multiresultsobjheader   0xDE,0xEE ; move right by 7 px (originally F5)
+    .incbin "graphics/menu/dumps/multi_2nd.dmp"
+.area 0x08136794-., 0x00
+.endarea
+    multiresultsobjheader   0xDE,0xEE
+    .incbin "graphics/menu/dumps/multi_3rd.dmp"
+.area 0x081367E1-., 0x00
+.endarea
+    multiresultsobjheader   0xDE,0xEE
+    .incbin "graphics/menu/dumps/multi_4th.dmp"
+    
+
 .org 0x081BC4FC ; replace graphical data in place, without any repointing (takes same space)
     .incbin "graphics/menu/dumps/random.dmp"
     
