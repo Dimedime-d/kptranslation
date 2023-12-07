@@ -55,6 +55,8 @@ grit was created by cearn, Jasper Vijn
 
 The text box "You got the Key for this place!" was taken from a much buggier translation patch of this game, with some slight modifications.
 
+Special thanks to **E-Sh4rk** for documenting one of the compression/decompression routines the game uses.
+
 All other files in this repository are licensed under the GNU General Public License v3 (GNU GPL-3)
 
 The LanaPixel font was used to generate some text in some images (minigame instructions). LanaPixel was created by eishiya and is licensed under Creative Commons 4.0 International.

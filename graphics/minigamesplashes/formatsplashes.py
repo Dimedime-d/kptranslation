@@ -31,7 +31,7 @@ palettes = {
     },
     "hockey": {
         "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
-        "palette": [248, 0, 248, 0, 104, 0, 48, 48, 208, 168, 88, 0, 240, 40, 72, 32, 176, 32, 136, 144, 248, 104, 192, 112, 248, 112, 160, 248, 160, 104, 248, 152, 200, 248, 152, 208, 184, 184, 248, 160, 224, 176, 248, 208, 136, 0, 0, 0]
+        "pic": [248, 0, 248, 0, 104, 0, 48, 48, 208, 168, 88, 0, 240, 40, 72, 32, 176, 32, 136, 144, 248, 104, 192, 112, 248, 112, 160, 248, 160, 104, 248, 152, 200, 248, 152, 208, 184, 184, 248, 160, 224, 176, 248, 208, 136, 0, 0, 0]
     },
     "dots": {
         "text": [0, 0, 0, 72, 152, 184, 136, 200, 240, 0, 152, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 248, 168, 168, 0, 248, 248, 0, 56, 64, 248, 200, 0, 248, 248, 248],
@@ -351,27 +351,39 @@ minigame_splash_screens = [
     MinigameSplashScreen("shoot-text.png",      "shoot-pic.png",        "shoot",        "shoot",        "0x0802E7C8"),
     MinigameSplashScreen("twin-text.png",       "twin-pic.png",         "twin",         "twin",         "0x0802E7D8"),
     # there is a "dead" entry in the table between modes
-    #chuchu challenge
-    #crossfire challenge
-    # etc...
-    MinigameSplashScreen("bounce-challenge-text.png", "bounce-pic.png", "bounce", "bounce_challenge",   "0x0802E828"),
+    MinigameSplashScreen("chuchu-challenge-text.png",       "chuchu-pic.png",   "chuchu",   "chuchu_challenge",         "0x0802E7F8"),
+    MinigameSplashScreen("crossfire-challenge-text.png",    "crossfire-pic.png", "crossfire", "crossfire_challenge",    "0x0802E808"),
+    MinigameSplashScreen("star-challenge-text.png",         "star-pic.png",     "star",     "star_challenge",           "0x0802E818"),
+    MinigameSplashScreen("bounce-challenge-text.png",       "bounce-pic.png", "bounce", "bounce_challenge",             "0x0802E828"),
+    MinigameSplashScreen("hockey-challenge-text.png",       "hockey-pic.png",   "hockey",   "hockey_challenge",         "0x0802E838"),
+    MinigameSplashScreen("dots-challenge-text.png",         "dots-pic.png",     "dots",     "dots_challenge",           "0x0802E848"),
+    MinigameSplashScreen("grass-challenge-text.png",        "grass-pic.png",    "grass",    "grass_challenge",          "0x0802E858"),
+    MinigameSplashScreen("ice-challenge-text.png",          "ice-pic.png",      "ice",      "ice_challenge",            "0x0802E868"),
+    MinigameSplashScreen("sky-challenge-text.png",          "sky-pic.png",      "sky",      "sky_challenge",            "0x0802E878"),
+    MinigameSplashScreen("flip-challenge-text.png",         "flip-pic.png",     "flip",     "flip_challenge",           "0x0802E888"),
+    MinigameSplashScreen("love-challenge-text.png",         "love-pic.png",     "love",     "love_challenge",           "0x0802E898"),
+    MinigameSplashScreen("fall-challenge-text.png",         "fall-pic.png",     "fall",     "fall_challenge",           "0x0802E8A8"),
+    MinigameSplashScreen("magnet-challenge-text.png",       "magnet-pic.png",   "magnet",   "magnet_challenge",         "0x0802E8B8"),
+    MinigameSplashScreen("race-challenge-text.png",         "race-pic.png",     "race",     "race_challenge",           "0x0802E8C8"),
+    MinigameSplashScreen("shoot-challenge-text.png",        "shoot-pic.png",    "shoot",    "shoot_challenge",          "0x0802E8D8"),
+    MinigameSplashScreen("twin-challenge-text.png",         "twin-pic.png",     "twin",     "twin_challenge",           "0x0802E8E8"),
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    MinigameSplashScreen("bounce-multi-text.png", "bounce-pic.png", "bounce", "bounce_multi",   "0x0802E938"),
+    MinigameSplashScreen("chuchu-multi-text.png",       "chuchu-pic.png",   "chuchu",   "chuchu_multi",         "0x0802E908"),
+    MinigameSplashScreen("crossfire-multi-text.png",    "crossfire-pic.png", "crossfire", "crossfire_multi",    "0x0802E918"),
+    MinigameSplashScreen("star-multi-text.png",         "star-pic.png",     "star",     "star_multi",           "0x0802E928"),
+    MinigameSplashScreen("bounce-multi-text.png",       "bounce-pic.png", "bounce", "bounce_multi",             "0x0802E938"),
+    MinigameSplashScreen("hockey-multi-text.png",       "hockey-pic.png",   "hockey",   "hockey_multi",         "0x0802E948"),
+    MinigameSplashScreen("dots-multi-text.png",         "dots-pic.png",     "dots",     "dots_multi",           "0x0802E958"),
+    MinigameSplashScreen("grass-multi-text.png",        "grass-pic.png",    "grass",    "grass_multi",          "0x0802E968"),
+    MinigameSplashScreen("ice-multi-text.png",          "ice-pic.png",      "ice",      "ice_multi",            "0x0802E978"),
+    MinigameSplashScreen("sky-multi-text.png",          "sky-pic.png",      "sky",      "sky_multi",            "0x0802E988"),
+    MinigameSplashScreen("flip-multi-text.png",         "flip-pic.png",     "flip",     "flip_multi",           "0x0802E998"),
+    MinigameSplashScreen("love-multi-text.png",         "love-pic.png",     "love",     "love_multi",           "0x0802E9A8"),
+    MinigameSplashScreen("fall-multi-text.png",         "fall-pic.png",     "fall",     "fall_multi",           "0x0802E9B8"),
+    MinigameSplashScreen("magnet-multi-text.png",       "magnet-pic.png",   "magnet",   "magnet_multi",         "0x0802E9C8"),
+    MinigameSplashScreen("race-multi-text.png",         "race-pic.png",     "race",     "race_multi",           "0x0802E9D8"),
+    MinigameSplashScreen("shoot-multi-text.png",        "shoot-pic.png",    "shoot",    "shoot_multi",          "0x0802E9E8"),
+    MinigameSplashScreen("twin-multi-text.png",         "twin-pic.png",     "twin",     "twin_multi",           "0x0802E9F8"),
 ]
 
 overworld_splash_screens = [
@@ -412,8 +424,8 @@ def main():
         os.makedirs(TEMP_FOLDER)
 
     format_splash_inserter(minigame_splash_screens, MinigameSplashScreen.asm_outfile, MinigameSplashScreen.asm_header) # Minigame instructions before you begin
-    #format_splash_inserter(overworld_splash_screens, SplashScreen.asm_outfile, SplashScreen.asm_header) # Popups when you enter a new world for the first time (+ the congratulations screen)
-    #format_splash_inserter([title_screen], "titlescreen.asm", SplashScreen.asm_header, write_asm=False) # title screen is generated using similar scripts facilitating DMA transfers
+    format_splash_inserter(overworld_splash_screens, SplashScreen.asm_outfile, SplashScreen.asm_header) # Popups when you enter a new world for the first time (+ the congratulations screen)
+    format_splash_inserter([title_screen], "titlescreen.asm", SplashScreen.asm_header, write_asm=False) # title screen is generated using similar scripts facilitating DMA transfers
     
 if __name__ == "__main__":
     main()
