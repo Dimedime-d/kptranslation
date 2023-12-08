@@ -11,6 +11,10 @@
     .include "asm/debug.asm"
 .endif
 
+.include "graphics/menu/menumacros.asm" ; avoid repeated defines
+
+.include "multi/insertmulti.asm" ; should require no free space, so okay to put this anywhere?
+
 .include "asm/customcode.asm"
 .include "asm/vwfalpha.asm"
 .include "text/insertscripts.asm"
@@ -22,7 +26,6 @@
 .include "graphics/minigamesplashes/titlescreen.asm"
 .include "graphics/overworldtitles/overworldtitles.asm"
 .include "graphics/inlevel/inleveltext.asm"
-.include "graphics/menu/menumacros.asm"
 .include "graphics/menu/1Pmenus.asm"
 .include "graphics/fixed/fixedgraphics.asm"
 

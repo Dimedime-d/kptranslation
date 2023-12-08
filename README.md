@@ -39,17 +39,22 @@ SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
 ## To-do List
 
 * Put in translations for the rest of the dialogue (currently, much of it is lorem ipsum)
-* Hack in the rest of the minigame splash screens
 * Hack in translated magic descriptions + magic select screen graphics
 * Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
 
 ## License and contributions
 
 Armips was created by Kingcom.
+
 grit was created by cearn, Jasper Vijn
+
 `armips.exe` and `graphics/grit.exe` are licensed under the MIT license.
+
+`lzss.exe` is by CUE and licensed under GNU GPL, version 3.
+
 The text box "You got the Key for this place!" was taken from a much buggier translation patch of this game, with some slight modifications.
 
+Special thanks to **E-Sh4rk** for documenting one of the compression/decompression routines the game uses.
 
 All other files in this repository are licensed under the GNU General Public License v3 (GNU GPL-3)
 

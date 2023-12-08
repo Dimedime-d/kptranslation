@@ -1,3 +1,14 @@
+; hack multiplayer results on parent GBA
+; don't need to change graphics data at all. just truncate the object size to remove the JP glyph
+.org 0x08136710+4
+    .byte 0xFD,0xEE,0x11,0x04 ; shift right by 7 px (originally F6), object size down to 8x8 from 32x8
+.org 0x0813674A+4
+    .byte 0xFC,0x0E,0x11,0x04 ; shift right by 7 px (originally F6), object size down to 8x8 from 32x8
+.org 0x08136794+4
+    .byte 0xFC,0x1E,0x11,0x04 ; shift right by 7 px (originally F6), object size down to 8x8 from 32x8
+.org 0x081367E1+4
+    .byte 0xFC,0x2E,0x11,0x04 ; shift right by 7 px (originally F6), object size down to 8x8 from 32x8
+    
 
 .org 0x081BC4FC ; replace graphical data in place, without any repointing (takes same space)
     .incbin "graphics/menu/dumps/random.dmp"

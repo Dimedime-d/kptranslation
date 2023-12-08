@@ -775,7 +775,7 @@ PracticeStateRepoint:
     and r0, r1
     cmp r0, r0
     beq @@DontExit
-    mov r6, -0x01; this exits practice mode, I think
+    ldr r6, =0xFFFFFFFF; this exits practice mode, I think
     @@DontExit:
     add r0, r7, 0x00
     bl 0x08014020 ; draw OW Sidebar and Map

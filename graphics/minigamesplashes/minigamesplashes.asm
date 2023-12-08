@@ -15,64 +15,224 @@
 ; 0x02E6F4 - crossfire palette would be here
 
 .org 0x0802E6F8
-    .word @crossfireTiles 
+    .word @crossfireTiles
     .word @crossfireTilesEnd - @crossfireTiles
     .word @crossfireMap
 
 .org 0x0802E708
-    .word @starTiles 
+    .word @starTiles
     .word @starTilesEnd - @starTiles
     .word @starMap
 
 .org 0x0802E718
-    .word @bounceTiles 
+    .word @bounceTiles
     .word @bounceTilesEnd - @bounceTiles
     .word @bounceMap
 
 .org 0x0802E738
-    .word @dotsTiles 
+    .word @dotsTiles
     .word @dotsTilesEnd - @dotsTiles
     .word @dotsMap
 
 .org 0x0802E748
-    .word @grassTiles 
+    .word @grassTiles
     .word @grassTilesEnd - @grassTiles
     .word @grassMap
 
 .org 0x0802E758
-    .word @iceTiles 
+    .word @iceTiles
     .word @iceTilesEnd - @iceTiles
     .word @iceMap
 
 .org 0x0802E768
-    .word @skyTiles 
+    .word @skyTiles
     .word @skyTilesEnd - @skyTiles
     .word @skyMap
 
 .org 0x0802E798
-    .word @fallTiles 
+    .word @fallTiles
     .word @fallTilesEnd - @fallTiles
     .word @fallMap
 
 .org 0x0802E7A8
-    .word @magnetTiles 
+    .word @magnetTiles
     .word @magnetTilesEnd - @magnetTiles
     .word @magnetMap
 
 .org 0x0802E7B8
-    .word @raceTiles 
+    .word @raceTiles
     .word @raceTilesEnd - @raceTiles
     .word @raceMap
 
 .org 0x0802E7C8
-    .word @shootTiles 
+    .word @shootTiles
     .word @shootTilesEnd - @shootTiles
     .word @shootMap
 
 .org 0x0802E7D8
-    .word @twinTiles 
+    .word @twinTiles
     .word @twinTilesEnd - @twinTiles
     .word @twinMap
+
+.org 0x0802E7F8
+    .word @chuchu_challengeTiles
+    .word @chuchu_challengeTilesEnd - @chuchu_challengeTiles
+    .word @chuchu_challengeMap
+
+.org 0x0802E808
+    .word @crossfire_challengeTiles
+    .word @crossfire_challengeTilesEnd - @crossfire_challengeTiles
+    .word @crossfire_challengeMap
+
+.org 0x0802E818
+    .word @star_challengeTiles
+    .word @star_challengeTilesEnd - @star_challengeTiles
+    .word @star_challengeMap
+
+.org 0x0802E828
+    .word @bounce_challengeTiles
+    .word @bounce_challengeTilesEnd - @bounce_challengeTiles
+    .word @bounce_challengeMap
+
+.org 0x0802E838
+    .word @hockey_challengeTiles
+    .word @hockey_challengeTilesEnd - @hockey_challengeTiles
+    .word @hockey_challengeMap
+
+.org 0x0802E848
+    .word @dots_challengeTiles
+    .word @dots_challengeTilesEnd - @dots_challengeTiles
+    .word @dots_challengeMap
+
+.org 0x0802E858
+    .word @grass_challengeTiles
+    .word @grass_challengeTilesEnd - @grass_challengeTiles
+    .word @grass_challengeMap
+
+.org 0x0802E868
+    .word @ice_challengeTiles
+    .word @ice_challengeTilesEnd - @ice_challengeTiles
+    .word @ice_challengeMap
+
+.org 0x0802E878
+    .word @sky_challengeTiles
+    .word @sky_challengeTilesEnd - @sky_challengeTiles
+    .word @sky_challengeMap
+
+.org 0x0802E888
+    .word @flip_challengeTiles
+    .word @flip_challengeTilesEnd - @flip_challengeTiles
+    .word @flip_challengeMap
+
+.org 0x0802E898
+    .word @love_challengeTiles
+    .word @love_challengeTilesEnd - @love_challengeTiles
+    .word @love_challengeMap
+
+.org 0x0802E8A8
+    .word @fall_challengeTiles
+    .word @fall_challengeTilesEnd - @fall_challengeTiles
+    .word @fall_challengeMap
+
+.org 0x0802E8B8
+    .word @magnet_challengeTiles
+    .word @magnet_challengeTilesEnd - @magnet_challengeTiles
+    .word @magnet_challengeMap
+
+.org 0x0802E8C8
+    .word @race_challengeTiles
+    .word @race_challengeTilesEnd - @race_challengeTiles
+    .word @race_challengeMap
+
+.org 0x0802E8D8
+    .word @shoot_challengeTiles
+    .word @shoot_challengeTilesEnd - @shoot_challengeTiles
+    .word @shoot_challengeMap
+
+.org 0x0802E8E8
+    .word @twin_challengeTiles
+    .word @twin_challengeTilesEnd - @twin_challengeTiles
+    .word @twin_challengeMap
+
+.org 0x0802E908
+    .word @chuchu_multiTiles
+    .word @chuchu_multiTilesEnd - @chuchu_multiTiles
+    .word @chuchu_multiMap
+
+.org 0x0802E918
+    .word @crossfire_multiTiles
+    .word @crossfire_multiTilesEnd - @crossfire_multiTiles
+    .word @crossfire_multiMap
+
+.org 0x0802E928
+    .word @star_multiTiles
+    .word @star_multiTilesEnd - @star_multiTiles
+    .word @star_multiMap
+
+.org 0x0802E938
+    .word @bounce_multiTiles
+    .word @bounce_multiTilesEnd - @bounce_multiTiles
+    .word @bounce_multiMap
+
+.org 0x0802E948
+    .word @hockey_multiTiles
+    .word @hockey_multiTilesEnd - @hockey_multiTiles
+    .word @hockey_multiMap
+
+.org 0x0802E958
+    .word @dots_multiTiles
+    .word @dots_multiTilesEnd - @dots_multiTiles
+    .word @dots_multiMap
+
+.org 0x0802E968
+    .word @grass_multiTiles
+    .word @grass_multiTilesEnd - @grass_multiTiles
+    .word @grass_multiMap
+
+.org 0x0802E978
+    .word @ice_multiTiles
+    .word @ice_multiTilesEnd - @ice_multiTiles
+    .word @ice_multiMap
+
+.org 0x0802E988
+    .word @sky_multiTiles
+    .word @sky_multiTilesEnd - @sky_multiTiles
+    .word @sky_multiMap
+
+.org 0x0802E998
+    .word @flip_multiTiles
+    .word @flip_multiTilesEnd - @flip_multiTiles
+    .word @flip_multiMap
+
+.org 0x0802E9A8
+    .word @love_multiTiles
+    .word @love_multiTilesEnd - @love_multiTiles
+    .word @love_multiMap
+
+.org 0x0802E9B8
+    .word @fall_multiTiles
+    .word @fall_multiTilesEnd - @fall_multiTiles
+    .word @fall_multiMap
+
+.org 0x0802E9C8
+    .word @magnet_multiTiles
+    .word @magnet_multiTilesEnd - @magnet_multiTiles
+    .word @magnet_multiMap
+
+.org 0x0802E9D8
+    .word @race_multiTiles
+    .word @race_multiTilesEnd - @race_multiTiles
+    .word @race_multiMap
+
+.org 0x0802E9E8
+    .word @shoot_multiTiles
+    .word @shoot_multiTilesEnd - @shoot_multiTiles
+    .word @shoot_multiMap
+
+.org 0x0802E9F8
+    .word @twin_multiTiles
+    .word @twin_multiTilesEnd - @twin_multiTiles
+    .word @twin_multiMap
 
 .autoregion
     .align
@@ -135,4 +295,164 @@
     .incbin "graphics\minigamesplashes\dumps\twinTiles.dmp" :: @twinTilesEnd: :: pad
     @twinMap:
     .incbin "graphics\minigamesplashes\dumps\twinMap.dmp" :: pad
+
+    @chuchu_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\chuchu_challengeTiles.dmp" :: @chuchu_challengeTilesEnd: :: pad
+    @chuchu_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\chuchu_challengeMap.dmp" :: pad
+
+    @crossfire_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\crossfire_challengeTiles.dmp" :: @crossfire_challengeTilesEnd: :: pad
+    @crossfire_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\crossfire_challengeMap.dmp" :: pad
+
+    @star_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\star_challengeTiles.dmp" :: @star_challengeTilesEnd: :: pad
+    @star_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\star_challengeMap.dmp" :: pad
+
+    @bounce_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\bounce_challengeTiles.dmp" :: @bounce_challengeTilesEnd: :: pad
+    @bounce_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\bounce_challengeMap.dmp" :: pad
+
+    @hockey_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\hockey_challengeTiles.dmp" :: @hockey_challengeTilesEnd: :: pad
+    @hockey_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\hockey_challengeMap.dmp" :: pad
+
+    @dots_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\dots_challengeTiles.dmp" :: @dots_challengeTilesEnd: :: pad
+    @dots_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\dots_challengeMap.dmp" :: pad
+
+    @grass_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\grass_challengeTiles.dmp" :: @grass_challengeTilesEnd: :: pad
+    @grass_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\grass_challengeMap.dmp" :: pad
+
+    @ice_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\ice_challengeTiles.dmp" :: @ice_challengeTilesEnd: :: pad
+    @ice_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\ice_challengeMap.dmp" :: pad
+
+    @sky_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\sky_challengeTiles.dmp" :: @sky_challengeTilesEnd: :: pad
+    @sky_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\sky_challengeMap.dmp" :: pad
+
+    @flip_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\flip_challengeTiles.dmp" :: @flip_challengeTilesEnd: :: pad
+    @flip_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\flip_challengeMap.dmp" :: pad
+
+    @love_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\love_challengeTiles.dmp" :: @love_challengeTilesEnd: :: pad
+    @love_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\love_challengeMap.dmp" :: pad
+
+    @fall_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\fall_challengeTiles.dmp" :: @fall_challengeTilesEnd: :: pad
+    @fall_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\fall_challengeMap.dmp" :: pad
+
+    @magnet_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\magnet_challengeTiles.dmp" :: @magnet_challengeTilesEnd: :: pad
+    @magnet_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\magnet_challengeMap.dmp" :: pad
+
+    @race_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\race_challengeTiles.dmp" :: @race_challengeTilesEnd: :: pad
+    @race_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\race_challengeMap.dmp" :: pad
+
+    @shoot_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\shoot_challengeTiles.dmp" :: @shoot_challengeTilesEnd: :: pad
+    @shoot_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\shoot_challengeMap.dmp" :: pad
+
+    @twin_challengeTiles:
+    .incbin "graphics\minigamesplashes\dumps\twin_challengeTiles.dmp" :: @twin_challengeTilesEnd: :: pad
+    @twin_challengeMap:
+    .incbin "graphics\minigamesplashes\dumps\twin_challengeMap.dmp" :: pad
+
+    @chuchu_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\chuchu_multiTiles.dmp" :: @chuchu_multiTilesEnd: :: pad
+    @chuchu_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\chuchu_multiMap.dmp" :: pad
+
+    @crossfire_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\crossfire_multiTiles.dmp" :: @crossfire_multiTilesEnd: :: pad
+    @crossfire_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\crossfire_multiMap.dmp" :: pad
+
+    @star_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\star_multiTiles.dmp" :: @star_multiTilesEnd: :: pad
+    @star_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\star_multiMap.dmp" :: pad
+
+    @bounce_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\bounce_multiTiles.dmp" :: @bounce_multiTilesEnd: :: pad
+    @bounce_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\bounce_multiMap.dmp" :: pad
+
+    @hockey_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\hockey_multiTiles.dmp" :: @hockey_multiTilesEnd: :: pad
+    @hockey_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\hockey_multiMap.dmp" :: pad
+
+    @dots_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\dots_multiTiles.dmp" :: @dots_multiTilesEnd: :: pad
+    @dots_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\dots_multiMap.dmp" :: pad
+
+    @grass_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\grass_multiTiles.dmp" :: @grass_multiTilesEnd: :: pad
+    @grass_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\grass_multiMap.dmp" :: pad
+
+    @ice_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\ice_multiTiles.dmp" :: @ice_multiTilesEnd: :: pad
+    @ice_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\ice_multiMap.dmp" :: pad
+
+    @sky_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\sky_multiTiles.dmp" :: @sky_multiTilesEnd: :: pad
+    @sky_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\sky_multiMap.dmp" :: pad
+
+    @flip_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\flip_multiTiles.dmp" :: @flip_multiTilesEnd: :: pad
+    @flip_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\flip_multiMap.dmp" :: pad
+
+    @love_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\love_multiTiles.dmp" :: @love_multiTilesEnd: :: pad
+    @love_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\love_multiMap.dmp" :: pad
+
+    @fall_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\fall_multiTiles.dmp" :: @fall_multiTilesEnd: :: pad
+    @fall_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\fall_multiMap.dmp" :: pad
+
+    @magnet_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\magnet_multiTiles.dmp" :: @magnet_multiTilesEnd: :: pad
+    @magnet_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\magnet_multiMap.dmp" :: pad
+
+    @race_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\race_multiTiles.dmp" :: @race_multiTilesEnd: :: pad
+    @race_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\race_multiMap.dmp" :: pad
+
+    @shoot_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\shoot_multiTiles.dmp" :: @shoot_multiTilesEnd: :: pad
+    @shoot_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\shoot_multiMap.dmp" :: pad
+
+    @twin_multiTiles:
+    .incbin "graphics\minigamesplashes\dumps\twin_multiTiles.dmp" :: @twin_multiTilesEnd: :: pad
+    @twin_multiMap:
+    .incbin "graphics\minigamesplashes\dumps\twin_multiMap.dmp" :: pad
 .endautoregion

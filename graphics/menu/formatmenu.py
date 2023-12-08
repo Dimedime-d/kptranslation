@@ -1,5 +1,5 @@
-# auto-generates a .asm file to import the menu buttons
-# TODO: Also hack in the multiplayer menu buttons that are sent to other GBA's
+# auto-generates a binaries of various menu buttons
+# (some of these .dmp files are re-used in payloads for Single Pak Multiplayer)
 import sys
 import os
 from PIL import Image
@@ -18,6 +18,7 @@ palettes = { # Really just here to convert the .png's easier, in-game handles pa
     "orange": [232, 112, 208, 248, 120, 0, 248, 184, 72, 248, 248, 144, 248, 208, 120, 248, 176, 96, 248, 144, 72, 248, 112, 48, 0, 0, 0, 176, 64, 0, 168, 144, 32, 248, 248, 64, 112, 248, 240, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     "challenge highlighted": [0, 128, 152, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 56, 104, 80, 16, 168, 64, 152, 176, 96, 200, 208, 136, 248, 248], #0x1BBB60, decompressed, palette 10
     "ascii": [32, 152, 160, 0, 0, 0, 32, 152, 160, 240, 152, 152, 0, 64, 144, 0, 96, 160, 0, 128, 184, 184, 72, 0, 200, 128, 16, 224, 184, 40, 248, 248, 64, 0, 0, 0, 56, 56, 56, 120, 120, 120, 184, 184, 184, 248, 248, 248], #in a bunch of places
+    "multiplayer results": [16, 136, 0, 136, 0, 0, 248, 0, 0, 248, 56, 0, 248, 120, 152, 176, 176, 184, 88, 40, 0, 208, 192, 184, 0, 0, 0, 0, 0, 0, 232, 224, 208, 192, 176, 176, 208, 192, 192, 232, 216, 208, 232, 224, 224, 248, 248, 248], #0x1355D4+5*0x20
 }
 
 def quantize_image_to_palette_and_save(img_file, palette):
@@ -49,7 +50,7 @@ class MenuButton:
         bin_file = os.path.join(DUMP_FOLDER, f"{self.img_file[:-4]}")
         # In order: No palette, 4bpp, tile format, NO MAP,
         # 4x2 metatiles, .bin file, no header, output file
-        os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh2 -ftb -fh! -o {bin_file}")
+        os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh2 -ftb -fh! -o {bin_file}")
         self.dmp_file = f"{bin_file}.dmp"
         if not self.compressed:
             if os.path.exists(self.dmp_file):
@@ -96,22 +97,22 @@ def format_other_text():
     bin_file = os.path.join(DUMP_FOLDER, f"{img_file[:-4]}")
     # In order: No palette, 4bpp, tile format, NO MAP,
     # 2x2 metatiles, .bin file, no header, output file
-    os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw2 -Mh2 -ftb -fh! -o {bin_file}")
+    os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw2 -Mh2 -ftb -fh! -o {bin_file}")
     dmp_file = f"{bin_file}.dmp"
     comp_data = None
     with open(f"{bin_file}.img.bin", "rb") as file:
         comp_data = LZ.compress(file.read())
     with open(dmp_file, "wb") as file:
         file.write(comp_data)
-    os.remove(f"{bin_file}.img.bin")
+    #os.remove(f"{bin_file}.img.bin")
     print(f"wrote {dmp_file}")
     
-    #Random Text
+    # Random Text in challenge menu
     img_file = "random.png"
     converted_file = quantize_image_to_palette_and_save(img_file, palettes["challenge highlighted"])
     bin_file = os.path.join(TEMP_FOLDER, f"{img_file[:-4]}")
-    os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh2 -aw32 -ftb -fh! -o {bin_file}1")
-    os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw2 -Mh2 -al32 -ftb -fh! -o {bin_file}2")
+    os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh2 -aw32 -ftb -fh! -o {bin_file}1")
+    os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw2 -Mh2 -al32 -ftb -fh! -o {bin_file}2")
     dmp_file = os.path.join(DUMP_FOLDER, f"{img_file[:-4]}.dmp")
     with open(f"{bin_file}1.img.bin", "rb") as bin1, open(f"{bin_file}2.img.bin", "rb") as bin2, open(dmp_file, "wb") as dmp:
         dmp.write(bin1.read())
@@ -124,7 +125,7 @@ def format_minigame_titles():
     bin_file = os.path.join(DUMP_FOLDER, f"{img_file[:-4]}")
     # In order: No palette, 4bpp, tile format, NO MAP,
     # 4x1 metatiles, .bin file, no header, output file
-    os.system(f"cmd /c ..\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh1 -ftb -fh! -o {bin_file}")
+    os.system(f"cmd /c ..\\grit {converted_file} -p! -gB4 -gt -m! -Mw4 -Mh1 -ftb -fh! -o {bin_file}")
     dmp_file = f"{bin_file}.dmp"
     if os.path.exists(dmp_file):
         os.remove(dmp_file)
