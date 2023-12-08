@@ -8,3 +8,5 @@
 /graphics/menu/dumps/*.bin
 /graphics/__pycache__/*
 /graphics/minigamesplashes/__pycache__/*
+/graphics/learnmagic/__pycache__/*
+/graphics/learnmagic/reserve/*
