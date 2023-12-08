@@ -39,7 +39,6 @@ SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
 ## To-do List
 
 * Put in translations for the rest of the dialogue (currently, much of it is lorem ipsum)
-* Hack in the rest of the minigame splash screens
 * Hack in translated magic descriptions + magic select screen graphics
 * Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
 

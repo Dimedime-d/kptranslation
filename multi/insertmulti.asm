@@ -11,5 +11,10 @@
     .incbin "build/multipayload2.bin"
 .endarea
 
+.org 0x086B18A4
+.area 0x086B5774-.
+    .incbin "build/multipayload3.bin"
+.endarea
+
 ; the main minigame paradise payload is uncompressed
 .include "multi/minigameparadise.asm"

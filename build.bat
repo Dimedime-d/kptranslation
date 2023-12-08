@@ -17,14 +17,20 @@ set PayloadFile2=build/multipayload2.bin
 if not exist "%PayloadFile2%" (
 	fsutil file createnew "%PayloadFile2%" 0
 )
+set PayloadFile3=build/multipayload3.bin
+if not exist "%PayloadFile3%" (
+	fsutil file createnew "%PayloadFile3%" 0
+)
 
 armips.exe multi/payload/extractmulti.asm
 lzss -d "%PayloadFile1%"
 lzss -d "%PayloadFile2%"
+lzss -d "%PayloadFile3%"
 echo "[INFO] Patching Multiplayer payloads..."
 armips.exe multi/payload/modifymulti.asm
 lzss -ewo "%PayloadFile1%"
 lzss -ewo "%PayloadFile2%"
+lzss -ewo "%PayloadFile3%"
 
 echo "[INFO] Patching game, please wait..."
 

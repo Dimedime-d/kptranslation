@@ -4,6 +4,8 @@ Raw binary files representing graphical text used by the game. Mostly contains G
 
 Thanks to a bunch of refactoring, I was able to eliminate most of the hard-coded ```.bin``` files and instead auto-generate them. This mainly saves time with making minor edits to graphical data (ex: minigame splash screens, overworld level titles, in-level text boxes).
 
+Some of the binaries contain pre-compressed data.
+
 * asciiwidthtable.bin
   * Custom widths for English ASCII characters. Even offsets are left-side position shifts, odd offsets are right-side ones.
 * asciiwidthtable2.bin
@@ -20,3 +22,5 @@ Thanks to a bunch of refactoring, I was able to eliminate most of the hard-coded
   * Tile data for pause menu during a minigame. For some reason, instead of using ASCII like all other menus, minigames load a special object.
 * mpObjTilesComp.bin
   * LZ Compressed VRAM data sent to child GBAs during multiplayer Minigame Paradise. This hacks in lowercase English ASCII characters.
+* mpObjTilesComp2.bin
+  * Similar to above, except this hacks in the pause menu.
