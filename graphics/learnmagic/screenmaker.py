@@ -109,7 +109,7 @@ class OOP:
         self.saving = True
         self.update_image()
         files = [("Portable Network Graphics (*.png)", "*.png")]
-        filename = asksaveasfilename(filetypes=tiles, defaultextension=files)
+        filename = asksaveasfilename(filetypes=files, defaultextension=files)
         self.requantized_image = self.quantize_to_palette(self.img, self.text_palette)
         self.saving = False
         self.update_image()
@@ -122,10 +122,10 @@ class OOP:
             print("Couldn't save!")
             
     @staticmethod
-    def quantize_to_palette(img, palette, dither=Image.NONE):
+    def quantize_to_palette(img, palette):
         palImage = Image.new("P", (1,1))
         palImage.putpalette(palette + [0, 0, 0] * 240)
-        return img.convert("RGB").quantize(palette, dither)
+        return img.convert("RGB").quantize(palette=palImage, dither=Image.NONE)
         
     @staticmethod
     def image_to_dmp(img_file):
