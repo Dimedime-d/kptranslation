@@ -24,3 +24,5 @@ Some of the binaries contain pre-compressed data.
   * LZ Compressed VRAM data sent to child GBAs during multiplayer Minigame Paradise. This hacks in lowercase English ASCII characters.
 * mpObjTilesComp2.bin
   * Similar to above, except this hacks in the pause menu.
+* obj_LArrow.bin and obj_RArrow.bin
+  * Copied tile data for the pink L and R arrows that appear in the overworld, re-used in the magic instructions. Have to include an additional copy of this data to alter the "header" data to position it properly.

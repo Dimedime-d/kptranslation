@@ -385,7 +385,6 @@ CreateMiniParaTitleObjs:
 	pop r4-r7
 	pop r0
 	bx r0
-.endarea
 
 MenuAddVW:
 	;r4 contains text, r5 contains x-coord
@@ -1081,6 +1080,377 @@ PracticeCutsceneMenuOptions:
     @Lose:  .asciiz "Lose"  :: .align
     @Retry: .asciiz "Retry" :: .align
     @Win:   .asciiz "Win"   :: .align
+
+
+
+MagicLearnBG1PrepHook: ; BG1 is normally disabled in the Magic Learn screen. Let's enable it.
+    push r14
+    sub sp, 0x08
+    
+    mov r4, 0x02
+    str r4, [sp, 0x00] ; tiles (06008000)
+    mov r0, 0x01 ; layer
+    mov r1, 0x10 ; number of colors?
+    mov r2, 0x00 ; screen size
+    str r2, [sp, 0x04] ; priority
+    mov r3, 0x1d ; map offset
+    bl 0x08000614 ; subroutine related to prepping a BG layer for use
+    
+    ldr r0, =0x081D6570
+    ldr r1, =0x05000060
+    mov r2, 0x20
+    bl 0x08092030 ; DMA palette for the text
+    
+    ldr r0, =0x0819C204
+    ldr r1, =0x05000360
+    mov r2, 0x20
+    bl 0x08092030 ; DMA the peltte for L/R arrows
+    
+    mov r4, 0x00
+    add sp, 0x08
+    pop r14
+    bx r14
+    
+    .pool
+    .align
+    
+MagicLearnInitHook:
+    push r14
+    
+    ; r9 = sp+0x34 (080229C0)
+    ; line pointers typically stored starting at sp+0x44 (int array)
+    ; illustrations are stored at sp+0x144, in two-byte structs (00 - illustration number, 01 - line number)
+    ; number of illustrations is stored at sp+0x18C
+    ; max number of lines is stored at sp+0x188, as an int
+    ; current magic is stored at sp+0x158, as a short
+    ; line position is stored at sp+0x15A, as a short
+    ; [sp+0x184] has y-position more precisely, allowing for the scroll effect
+    
+    ; mind the offset+0x04 due to pushing r14
+    
+    ; PLAN: Put compressed tilesets/maps in free space, to be accessed using array lookups
+    ; Store buffer pointers to uncompressed data at sp+0x48 (uncompress and DMA tile tilesets/maps sequentially)
+    
+    ; (this can be done separately) hard-code where illustrations should be, and use the same stack locations to store illustration + line numbers (only this time, page numbers)
+    
+    ldr r1, =TableMagicInstructions
+    add r6, sp, 0x15C ; magic option
+    ldrh r0, [r6, 0x00]
+    lsl r0, r0, 0x02
+    add r0, r1
+    ldr r0, [r0, 0x00] ; magic option-specific instruction set
+    mov r1, 0x00
+    mov r8, r1 ; Loop variable
+    
+    @@Loop:
+    mov r4, r0
+    mov r9, r0
+    ldr r0, [r4, 0x00] ; tileset pointer for one step, tilemap pointer would be at r4+0x04
+    cmp r0, 0x00
+    beq @@LoopEnd
+    ; 3 things to accomplish - make the buffer, store the buffer on the stack, decompress the tileset and store at the buffer
+    mov r5, r0
+    ldmia r5!, {r1} ; tileset length is stored at the tileset pointer, also increment r5!
+    mov r6, r1
+    ldr r0, =0x030005D0
+    bl 0x08091DAC ; magic subroutine that spits out a pointer in WRAM (a buffer), note the r1 argument being length
+    add r7, r0, 0x00 ; buffer pointer
+    add r0, r5, 0x00 ; tileset pointer (now points to the compressed tileset data)
+    add r1, r7, 0x00 ; buffer pointer (to store data to)
+    add r2, r6, 0x00 ; uncompressed length
+    bl 0x08092134 ; decompress subroutine
+    mov r1, r8
+    lsl r1, r1, 0x02
+    add r2, sp, 0x48
+    add r1, r2
+    mov r0, r7
+    str r0, [r1, 0x00] ; store buffer pointer on stack
+    
+    ; Must also store uncompressed tileset length on stack!
+    ; Let's do it at [sp+0x108], this cuts down useable buffers for tilesets/maps from 64 to 48
+    add r0, r6, 0x00
+    mov r1, r8 ; loop variable is incremented twice per loop, so this properly stores shorts
+    add r2, sp, 0x108
+    add r1, r2
+    strh r0, [r1, 0x00]
+    
+    mov r1, r8
+    add r1, r1, 0x01
+    mov r8, r1 ; increment loop variable
+    
+    ; same process for the tile map
+    mov r0, r9
+    ldr r0, [r0, 0x04] ; tilemap pointer
+    mov r5, r0
+    ldmia r5!, {r1} ; tilemap length to r1, increment r5
+    mov r6, r1
+    ldr r0, =0x030005D0
+    bl 0x08091DAC ; make buffer
+    add r7, r0, 0x00
+    add r0, r5, 0x00
+    add r1, r7, 0x00
+    add r2, r6, 0x00
+    bl 0x08092134
+    mov r1, r8
+    lsl r1, r1, 0x02
+    add r2, sp, 0x48
+    add r1, r2
+    mov r0, r7
+    str r0, [r1, 0x00] ; store buffer pointer on stack. note the incremented loop variable
+    
+    mov r1, r8
+    add r1, r1, 0x01
+    mov r8, r1
+    
+    mov r0, 0x08
+    add r0, r9 ; next screen!
+    b @@Loop
+    
+    @@LoopEnd:
+    mov r0, r8
+    asr r0, r0, 0x01
+    sub r0, 0x01
+    add r1, sp, 0x18C
+    str r0, [r1, 0x00] ; store number of pages
+    
+    mov r0, 0x01
+    add r1, sp, 0x15C
+    add r1, r1, 0x02
+    strb r0, [r1, 0x00] ; old line position
+    mov r0, 0x00
+    strb r0, [r1, 0x01] ; new position
+    
+    ; Processing illustrations...
+    ldr r1, =TableMagicImages
+    add r6, sp, 0x15C ; magic option
+    ldrh r0, [r6, 0x00]
+    lsl r0, r0, 0x02
+    add r0, r1
+    ldr r0, [r0, 0x00] ; magic option-specific image set
+    mov r1, 0x00
+    mov r8, r1 ; loop var
+    
+    @@Loop2:
+    mov r4, r0
+    ldrh r0, [r4, 0x00] ; page number + ID of illustration, if it exists
+    ldr r1, =0xFFFF ; terminate
+    cmp r0, r1
+    beq @@Loop2End
+    
+    add r1, sp, 0x148
+    mov r2, r8
+    lsl r2, r2, 0x01
+    add r1, r2
+    strh r0, [r1, 0x00] ; store page + ID together
+    
+    mov r1, r8
+    add r1, r1, 0x01
+    mov r8, r1 ; increment loop var
+    
+    add r0, r4, 0x02
+    mov r4, r0
+    b @@Loop2
+    
+    @@Loop2End:
+    ; store number of illustrations
+    add r1, sp, 0x190
+    mov r0, r8
+    str r0, [r1, 0x00]
+    
+    pop r14
+    bx r14
+    
+.pool
+.align
+
+MagicLearnCursorHook:
+    ; r0 = address to modify (pointer on stack) ** read a byte, not a short
+    ; r1 = maximum value
+    ; r2 = key inputs (L = 0x200, R = 0x100)
+    ; r3 = sound effect
+    ; basically copy 08094884
+    
+    push {r4, r5, lr}
+    add r5, r0, 0x00
+    ldrb r4, [r5, 0x00] ; r4 contains current position
+    mov r0, 0x01
+    lsl r0, r0, 0x09
+    and r0, r2
+    cmp r0, 0x00
+    beq @@LNotPressed
+    cmp r4, 0x00
+    ble @@DoNothing ; L pressed at edge
+    sub r0, r4, 0x01
+    b @@StoreNewPosition
+    @@LNotPressed: ; now check for R
+    mov r0, 0x01
+    lsl r0, r0, 0x08
+    and r0, r2
+    cmp r0, 0x00
+    beq @@DoNothing
+    ; R Pressed
+    cmp r4, r1
+    bge @@DoNothing ; R pressed at edge
+    add r0, r4, 0x01
+    @@StoreNewPosition:
+    strb r0, [r5, 0x01] ; new position is at [current position + 1]
+    @@DoNothing:
+    ldrb r0, [r5, 0x01]
+    cmp r4, r0 ; old versus new position
+    beq @@NoSound
+    add r0, r3, 0x00
+    bl 0x0803CF44 ; sound effect
+    @@NoSound:
+    
+    ; don't need a return value, just exit subroutine here
+    pop {r4, r5}
+    pop {r1}
+    bx r1
+    
+    
+MagicLearnDisplayHook:
+    push r14
+    ; uhhh, use similar logic to drawing overworld to efficiently DMA the tileset/maps in the right place
+    ; have a listener for L/R buttons, playing the appropriate sound effects
+    
+    ; (display L/R button controls as appropriate)
+    
+    ; see function that draws the overworld - ONLY writes to VRAM if the current step is not equal to the displayed one
+    
+    ; idea - put current position at sp+0x15E and th enew position at sp+0x15F, if not equal redraw background 0
+    ; also use built-in function to DMA the tilemap (08093B5C)
+    
+    add r6, sp, 0x15C
+    ldrb r0, [r6, 0x02]
+    ldrb r1, [r6, 0x03]
+    cmp r0, r1
+    beq @@SkipNewRender
+    
+    ; put DMA-ing code in here
+    strb r1, [r6, 0x02] ; overwrite current position
+    
+    lsl r0, r1, 0x03 ; tileset pointer every 8 bytes
+    add r5, sp, 0x48
+    add r0, r5
+    mov r7, r0
+    ldr r0, [r0]
+    lsl r1, r1, 0x01 ; 
+    mov r2, r5
+    add r2, 0xC0 ; C0 + 48 = 108
+    add r1, r2
+    ldrh r2, [r1, 0x00] ; tileset length, as inserted from earlier (during init)
+    ldr r1, =0x03003874 ; BG1 tileset pointer in VRAM, just hard-code it since we're not making a new subroutine
+    ldr r1, [r1, 0x00]
+    bl 0x08092030 ; prep the DMA
+    
+    sub sp, 0x04 ; be careful lol
+    mov r2, 0x14
+    str r2, [sp] ; # of vertical tiles
+    mov r0, r7
+    ldr r2, [r0, 0x04] ; tilemap pointer on stack
+    ldr r0, =0x03003814 ; want 3800 + layer*0x14
+    ldr r1, =0x0300386C ; 3850 + layer*0x1c
+    mov r3, 0x1e ; # of horizontal tiles
+    bl 0x08093B5C ; special DMA for tilemaps that account for the bounding box
+    add sp, 0x04 ; all is good
+    
+    @@SkipNewRender:
+    
+    ; image rendering
+    add r1, sp, 0x190
+    ldr r0, [r1, 0x00] ; number of illustrations
+    mov r8, r0 ; max number of loops
+    mov r0, 0x00
+    @@ImageLoop:
+    mov r9, r0 ; number of loops
+    cmp r0, r8
+    bge @@FuncEnd
+    
+    add r1, sp, 0x148
+    lsl r0, r0, 0x01
+    add r3, r0, r1
+    ldrb r0, [r3, 0x00] ; page number of illustration
+    add r2, sp, 0x15c
+    ldrb r2, [r2, 0x02] ; current page number
+    cmp r0, r2
+    bne @@IncrementLoop
+    ; matching page numbers - draw illustration
+    
+    sub sp, 0x08 ; again, we're not BLing anywhere...
+    ldr r2, =0x0803C1FC ; table of magic images (surprisingly, not compressed, meaning we can replace the data in-place)
+    ldrb r0, [r3, 0x01] ; illustration number
+    lsl r0, r0, 0x02
+    add r0, r2
+    ldr r0, [r0, 0x00] ; param: ROM pointer of object graphical data
+    ldr r1, =0x030038C4
+    ldrb r1, [r1, 0x00] ; param
+    lsr r3, r1, 0x02
+    lsl r3, r3, 0x0a ; param
+    mov r2, 0x89
+    str r2, [sp, 0x00] ; param - x-position
+    mov r2, 0x3b
+    str r2, [sp, 0x04] ; param - y-position
+    mov r2, 0x00
+    bl 0x08092C1C ; magic subroutine that writes an object to OAM consisting of multiple smaller objects
+    add sp, 0x08
+    
+    @@IncrementLoop:
+    mov r0, r9
+    add r0, 0x01
+    b @@ImageLoop
+    
+    .pool
+    
+    @@FuncEnd: ; done the previous loop
+    
+    ; now - draw L arrow if not at start, R arrow if not at end
+    add r6, sp, 0x15C
+    ldrb r0, [r6, 0x02]
+    mov r9, r0
+    cmp r0, 0x00
+    beq @@NoLArrow ; at first page? Don't draw L arrow
+    
+    ; rendering code in here
+    sub sp, 0x08
+    ldr r0, =ObjLArrow ; param - pointer to object data for L arrow graphic
+    mov r1, 0x00
+    lsr r3, r1, 0x02
+    lsl r3, r3, 0x0a ; param - 
+    mov r2, 0x10
+    str r2, [sp, 0x00] ; param - x-position
+    mov r2, 0x04
+    str r2, [sp, 0x04] ; param - y-position
+    mov r2, 0x00
+    bl 0x08092C1C ; draw the object
+    add sp, 0x08
+    
+    @@NoLArrow:
+    mov r0, r9
+    add r6, sp, 0x18C
+    ldrb r1, [r6, 0x00]
+    cmp r0, r1
+    bge @@NoRArrow ; at last page? Don't draw R arrow
+    
+    sub sp, 0x08
+    ldr r0, =objRArrow
+    mov r1, 0x00
+    lsl r3, r1, 0x02
+    lsl r3, r3, 0x0a
+    mov r2, 0xC0
+    str r2, [sp, 0x00]
+    mov r2, 0x04
+    str r2, [sp, 0x04]
+    mov r2, 0x00
+    bl 0x08092C1C
+    add sp, 0x08
+    
+    @@NoRArrow:
+    
+    pop {r1}
+    bx r1
+    
+.pool
+.align
     
 .ifdef __DEBUG__
     ResetRankHook:
@@ -1104,5 +1474,5 @@ PracticeCutsceneMenuOptions:
     b @ResetRankHookEnd
     .pool
 .endif
-	
-	
+
+.endarea
