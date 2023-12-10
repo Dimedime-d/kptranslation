@@ -70,7 +70,7 @@
     TableMagicImages:
         .word @KururinShockImages
         
-@Terminator equ 0xFF, 0xFF
+    @Terminator equ 0xFF, 0xFF
 
     ; bytes are page number (0-indexed) and image ID
     @KururinShockImages:
@@ -92,11 +92,22 @@
         
     .align
     
+    @Preview0Tiles:
+        .incbin @MagicLearn + "preview0tiles.dmp" ::    .align
+    @Preview0Map:
+        .incbin @MagicLearn + "preview0map.dmp"   ::    .align
+    
 .endautoregion
 
 ; repointing picture data
 .org 0x0803C1FC
     .word @Picture0 ; Kururin Shock - GBA with ticker
+    
+; repointing preview data
+.org 0x0803C0BC
+    .word @Preview0Tiles
+    .word @Preview0Map
+    .skip 4 ; palette unchanged
     
     
     
