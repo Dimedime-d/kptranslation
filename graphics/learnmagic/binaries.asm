@@ -2,20 +2,6 @@
 
 @MagicLearn equ "graphics\learnmagic\dumps\\"
 
-.macro MagicTileset,filename,uncompressedLen
-    .align
-    .word uncompressedLen
-    .incbin @MagicLearn+filename
-    .align
-.endmacro
-
-.macro MagicMap,filename
-    .align
-    .word 0x4B0 ; all tile maps are this big
-    .incbin @MagicLearn+filename
-    .align
-.endmacro
-
 .macro ImageObjHeader,palette
     .byte   0x09,palette,0x2C,0x2C, \
             0xD4,0xD4,0x44,0x10, \
@@ -52,20 +38,20 @@
         .word @KururinShockStep7Map
         .word 0x00
         
-    @KururinShockStep1Set:  ::  MagicTileset    "1,1.set.dmp", 0x9C0
-    @KururinShockStep1Map:  ::  MagicMap        "1,1.map.dmp" 
-    @KururinShockStep2Set:  ::  MagicTileset    "1,2.set.dmp", 0x1BE0
-    @KururinShockStep2Map:  ::  MagicMap        "1,2.map.dmp" 
-    @KururinShockStep3Set:  ::  MagicTileset    "1,3.set.dmp", 0x11A0
-    @KururinShockStep3Map:  ::  MagicMap        "1,3.map.dmp" 
-    @KururinShockStep4Set:  ::  MagicTileset    "1,4.set.dmp", 0x1120
-    @KururinShockStep4Map:  ::  MagicMap        "1,4.map.dmp" 
-    @KururinShockStep5Set:  ::  MagicTileset    "1,5.set.dmp", 0x12A0
-    @KururinShockStep5Map:  ::  MagicMap        "1,5.map.dmp" 
-    @KururinShockStep6Set:  ::  MagicTileset    "1,6.set.dmp", 0xEC0
-    @KururinShockStep6Map:  ::  MagicMap        "1,6.map.dmp" 
-    @KururinShockStep7Set:  ::  MagicTileset    "1,7.set.dmp", 0x10A0
-    @KururinShockStep7Map:  ::  MagicMap        "1,7.map.dmp"
+    @KururinShockStep1Set:  ::  .incbin @MagicLearn + "1,1.set.dmp" ::  .align
+    @KururinShockStep1Map:  ::  .incbin @MagicLearn + "1,1.map.dmp" ::  .align
+    @KururinShockStep2Set:  ::  .incbin @MagicLearn + "1,2.set.dmp" ::  .align
+    @KururinShockStep2Map:  ::  .incbin @MagicLearn + "1,2.map.dmp" ::  .align
+    @KururinShockStep3Set:  ::  .incbin @MagicLearn + "1,3.set.dmp" ::  .align
+    @KururinShockStep3Map:  ::  .incbin @MagicLearn + "1,3.map.dmp" ::  .align
+    @KururinShockStep4Set:  ::  .incbin @MagicLearn + "1,4.set.dmp" ::  .align
+    @KururinShockStep4Map:  ::  .incbin @MagicLearn + "1,4.map.dmp" ::  .align
+    @KururinShockStep5Set:  ::  .incbin @MagicLearn + "1,5.set.dmp" ::  .align
+    @KururinShockStep5Map:  ::  .incbin @MagicLearn + "1,5.map.dmp" ::  .align
+    @KururinShockStep6Set:  ::  .incbin @MagicLearn + "1,6.set.dmp" ::  .align
+    @KururinShockStep6Map:  ::  .incbin @MagicLearn + "1,6.map.dmp" ::  .align
+    @KururinShockStep7Set:  ::  .incbin @MagicLearn + "1,7.set.dmp" ::  .align
+    @KururinShockStep7Map:  ::  .incbin @MagicLearn + "1,7.map.dmp" ::  .align
 
     TableMagicImages:
         .word @KururinShockImages

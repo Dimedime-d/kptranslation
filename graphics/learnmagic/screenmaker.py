@@ -6,6 +6,7 @@ from tkinter import scrolledtext
 from tkinter.filedialog import asksaveasfilename
 from PIL import Image, ImageTk, ImageGrab
 import os
+import struct
 import glyphs
 
 import sys
@@ -146,7 +147,9 @@ class OOP:
         # Manipulate data here, if needed
         
         with open(set_dmp_file, "wb") as set_dmp, open(map_dmp_file, "wb") as map_dmp:
+            set_dmp.write(struct.pack("<I", os.path.getsize(out_tileset_file)))
             set_dmp.write(set_bytes)
+            map_dmp.write(struct.pack("<I", os.path.getsize(out_tilemap_file))) # should always be 4B0
             map_dmp.write(map_bytes)
             print(f"wrote {set_dmp.name} and {map_dmp.name}")
             
