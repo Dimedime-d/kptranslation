@@ -82,6 +82,107 @@
         .incbin @MagicLearn + "preview0tiles.dmp" ::    .align
     @Preview0Map:
         .incbin @MagicLearn + "preview0map.dmp"   ::    .align
+        
+    @Header0Tiles:
+        .incbin @MagicLearn + "header0tiles.dmp"    ::  .align
+    @Header0Map:
+        .incbin @MagicLearn + "header0map.dmp"      ::  .align        
+    @Header1Tiles:
+        .incbin @MagicLearn + "header1tiles.dmp"    ::  .align
+    @Header1Map:
+        .incbin @MagicLearn + "header1map.dmp"      ::  .align        
+    @Header2Tiles:
+        .incbin @MagicLearn + "header2tiles.dmp"    ::  .align
+    @Header2Map:
+        .incbin @MagicLearn + "header2map.dmp"      ::  .align        
+    @Header3Tiles:
+        .incbin @MagicLearn + "header3tiles.dmp"    ::  .align
+    @Header3Map:
+        .incbin @MagicLearn + "header3map.dmp"      ::  .align        
+    @Header4Tiles:
+        .incbin @MagicLearn + "header4tiles.dmp"    ::  .align
+    @Header4Map:
+        .incbin @MagicLearn + "header4map.dmp"      ::  .align        
+    @Header5Tiles:
+        .incbin @MagicLearn + "header5tiles.dmp"    ::  .align
+    @Header5Map:
+        .incbin @MagicLearn + "header5map.dmp"      ::  .align        
+    @Header6Tiles:
+        .incbin @MagicLearn + "header6tiles.dmp"    ::  .align
+    @Header6Map:
+        .incbin @MagicLearn + "header6map.dmp"      ::  .align        
+    @Header7Tiles:
+        .incbin @MagicLearn + "header7tiles.dmp"    ::  .align
+    @Header7Map:
+        .incbin @MagicLearn + "header7map.dmp"      ::  .align        
+    @Header8Tiles:
+        .incbin @MagicLearn + "header8tiles.dmp"    ::  .align
+    @Header8Map:
+        .incbin @MagicLearn + "header8map.dmp"      ::  .align        
+    @Header9Tiles:
+        .incbin @MagicLearn + "header9tiles.dmp"    ::  .align
+    @Header9Map:
+        .incbin @MagicLearn + "header9map.dmp"      ::  .align        
+    @Header10Tiles:
+        .incbin @MagicLearn + "header10tiles.dmp"    ::  .align
+    @Header10Map:
+        .incbin @MagicLearn + "header10map.dmp"      ::  .align        
+    @Header11Tiles:
+        .incbin @MagicLearn + "header11tiles.dmp"    ::  .align
+    @Header11Map:
+        .incbin @MagicLearn + "header11map.dmp"      ::  .align        
+    @Header12Tiles:
+        .incbin @MagicLearn + "header12tiles.dmp"    ::  .align
+    @Header12Map:
+        .incbin @MagicLearn + "header12map.dmp"      ::  .align        
+    @Header13Tiles:
+        .incbin @MagicLearn + "header13tiles.dmp"    ::  .align
+    @Header13Map:
+        .incbin @MagicLearn + "header13map.dmp"      ::  .align        
+    @Header14Tiles:
+        .incbin @MagicLearn + "header14tiles.dmp"    ::  .align
+    @Header14Map:
+        .incbin @MagicLearn + "header14map.dmp"      ::  .align        
+    @Header15Tiles:
+        .incbin @MagicLearn + "header15tiles.dmp"    ::  .align
+    @Header15Map:
+        .incbin @MagicLearn + "header15map.dmp"      ::  .align
+        
+    ; this table is NOT in the original ROM (the headers used to be all 1 tileset), so it must be in the autoregion as a global variable
+    
+    MagicHeaderTable:
+        .word @Header0Tiles
+        .word @Header0Map
+        .word @Header1Tiles
+        .word @Header1Map
+        .word @Header2Tiles
+        .word @Header2Map
+        .word @Header3Tiles
+        .word @Header3Map
+        .word @Header4Tiles
+        .word @Header4Map
+        .word @Header5Tiles
+        .word @Header5Map
+        .word @Header6Tiles
+        .word @Header6Map
+        .word @Header7Tiles
+        .word @Header7Map
+        .word @Header8Tiles
+        .word @Header8Map
+        .word @Header9Tiles
+        .word @Header9Map
+        .word @Header10Tiles
+        .word @Header10Map
+        .word @Header11Tiles
+        .word @Header11Map
+        .word @Header12Tiles
+        .word @Header12Map
+        .word @Header13Tiles
+        .word @Header13Map
+        .word @Header14Tiles
+        .word @Header14Map
+        .word @Header15Tiles
+        .word @Header15Map
     
 .endautoregion
 
@@ -94,6 +195,8 @@
     .word @Preview0Tiles
     .word @Preview0Map
     .skip 4 ; palette unchanged
+    
+; repointing header data
     
     
     

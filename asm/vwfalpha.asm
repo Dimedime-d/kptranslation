@@ -61,9 +61,24 @@
     b 0x08022b88
 .endarea
 
+.org 0x08022932 ; in-line assembly replacements for BG0 init in magic learn
+    mov r4, 0x01
+    str r4, [sp] ; tiles (06004000)
+    mov r0, 0x00
+    str r0, [sp, 0x04] ; priority
+
 .org 0x08022950 ; ; re-wire BG1 preparation + DMA the palettes
 .area 4h
     bl MagicLearnBG1PrepHook
+.endarea
+
+.org 0x080229E2
+    mov r0, 0x02 ; this tells the game to decomp and DMA the tileset to wherever the BG2 tileset starts, changed from BG0
+
+.org 0x080229E8 ; Magic Learn - transfer an additional tileset for BG0
+.area 6h
+    bl MagicLearnBG0Hook
+    b 0x080229FA
 .endarea
 
 .org 0x08022B90

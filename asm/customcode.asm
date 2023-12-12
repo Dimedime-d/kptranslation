@@ -1081,8 +1081,6 @@ PracticeCutsceneMenuOptions:
     @Retry: .asciiz "Retry" :: .align
     @Win:   .asciiz "Win"   :: .align
 
-
-
 MagicLearnBG1PrepHook: ; BG1 is normally disabled in the Magic Learn screen. Let's enable it.
     push r14
     sub sp, 0x08
@@ -1113,6 +1111,33 @@ MagicLearnBG1PrepHook: ; BG1 is normally disabled in the Magic Learn screen. Let
     
     .pool
     .align
+    
+MagicLearnBG0Hook: 
+    push {r4, r5, r6, r14} ; need to preserve r4 for future tile map DMAs
+    ; also just pushing r5 and r6 to be safe
+    ; the magic information is now offset by 0x10 in the stack
+    
+    ; goal - DMA the new BG0 tileset and tilemap showing the magic trick name in bold yellow text
+    ldr r0, =MagicHeaderTable
+    add r6, sp, 0x168
+    ldrh r1, [r6, 0x00] ; magic option
+    lsl r1, r1, 0x03 ; each table entry, 2 dwords (8 bytes)
+    add r1, r0
+    mov r5, r1
+    ldmia r5!, {r1} ; load tileset, increment r5 to get to tile map
+    mov r0, 0x00
+    bl 0x080008c8 ; special subroutine to decompress tileset and automatically DMA it to the right layer
+    
+    ldr r1, [r5]
+    mov r0, 0x00
+    bl 0x08000918 ; same ordeal, but for tilemap
+    
+    pop {r4, r5, r6}
+    pop r14
+    bx r14
+    
+.pool
+.align
     
 MagicLearnInitHook:
     push r14
@@ -1306,7 +1331,8 @@ MagicLearnCursorHook:
     pop {r4, r5}
     pop {r1}
     bx r1
-    
+
+.align
     
 MagicLearnDisplayHook:
     push r14
@@ -1351,7 +1377,7 @@ MagicLearnDisplayHook:
     ldr r0, =0x03003814 ; want 3800 + layer*0x14
     ldr r1, =0x0300386C ; 3850 + layer*0x1c
     mov r3, 0x1e ; # of horizontal tiles
-    bl 0x08093B5C ; special DMA for tilemaps that account for the bounding box
+    bl 0x08093B5C ; special DMA for tilemaps that account for the bounding box, ONLY if it is already uncompressed
     add sp, 0x04 ; all is good
     
     @@SkipNewRender:

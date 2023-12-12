@@ -29,7 +29,8 @@ pic_palettes = [[248, 0, 248, 248, 0, 0, 0, 0, 0, 176, 176, 176, 168, 96, 0, 144
 [0, 224, 0, 168, 96, 0, 176, 176, 176, 248, 184, 0, 144, 248, 248, 248, 248, 248, 0, 0, 0, 40, 160, 248, 184, 192, 192, 104, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 224, 112, 0, 0, 64, 104, 224, 96, 0, 24, 40, 128, 8, 64, 16, 232, 152, 0, 56, 128, 0, 120, 224, 152, 88, 104, 0, 56, 64, 0, 32, 168, 104, 16, 224, 8, 16, 64, 96, 48, 80, 16, 248, 32, 128]]
 
-header_palette = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 208, 168, 168, 248, 248, 168] # last 2 colors are all I need...
+_header_palette = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 208, 168, 168, 248, 248, 168] # last 2 colors are all I need...
+header_palette = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 72, 152, 184, 136, 200, 240] # got too lazy and just copied the big letters over from minigame splash screens, just put the blue colors in the right spots...
 # header_palette = [0, 0, 0, 152, 56, 168, 160, 64, 168, 160, 80, 176, 168, 88, 176, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 160, 80, 176, 208, 168, 168, 248, 248, 168]
 
 preview_text_palette = [0, 0, 0, 224, 80, 80, 168, 0, 32, 208, 88, 104, 248, 184, 184, 192, 56, 56, 216, 136, 72, 248, 224, 96, 152, 0, 0, 248, 144, 144, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 0, 0, 248, 248, 248, 248]
@@ -125,7 +126,7 @@ def make_preview_dmps():
             print(f"wrote {final_tiles_dmp} and {final_map_dmp}")
         
         except FileNotFoundError:
-            print(f"File {i} not found")
+            print(f"Preview file {i} not found")
             
 def merge_binaries(text_tiles, text_map, pic_tiles, pic_map):
     tile_bytes = None
@@ -149,6 +150,41 @@ def merge_binaries(text_tiles, text_map, pic_tiles, pic_map):
             map_bytes[byteindex(i, ulx):byteindex(i, ulx+8)] = pic_map_bytes[byteindex(i, ulx):byteindex(i, ulx+8)]
     
     return tile_bytes, map_bytes
+
+HEADER_FOLDER = "header"
+def make_header_dmps():
+    for i in range(16):
+        header_png = os.path.join(HEADER_FOLDER, f"header{i}.png")
+        header_pal = DUMMY_COLOR*32 + header_palette + DUMMY_COLOR*208
+        
+        try:
+            converted_header_png = quantize_image_to_palette_and_save(header_png, header_pal, f"{os.path.basename(header_png)[:-4]}-converted.png")
+            # Grit
+            # In order: No palette, 4bpp, tile format, force palette bank 2, reg flat map layout, reduce tiles+pal+flip,
+            # metatile reduction, 1x1 metatiles, .bin file, no header, output file
+            os.system(f"cmd /c ..\\grit {converted_header_png} -p! -gB4 -gt -mp2 -mLf -mRtpf -MRp -Mh1 -Mw1 -ftb -fh! -o {converted_header_png[:-4]}.bin")
+            header_tileset_bin = f"{converted_header_png[:-4]}.img.bin"
+            header_tilemap_bin = f"{converted_header_png[:-4]}.map.bin"
+            
+            tileset_bytes, tilemap_bytes = None, None
+            with open(header_tileset_bin, "rb") as tileset, open(header_tilemap_bin, "rb") as tilemap:
+                tileset_bytes = tileset.read()
+                tilemap_bytes = tilemap.read()
+                
+            comp_tiles, comp_map = LZ.compress(tileset_bytes), LZ.compress(tilemap_bytes)
+            
+            final_tiles_dmp, final_map_dmp = os.path.join(DUMP_FOLDER, f"header{i}tiles.dmp"), os.path.join(DUMP_FOLDER, f"header{i}map.dmp")
+            
+            with open(final_tiles_dmp, "wb") as tiles, open(final_map_dmp, "wb") as map:
+                tiles.write(struct.pack("<I", len(tileset_bytes))) # the decompression method for these tilesets/maps reads the first dword as uncompressed length
+                tiles.write(comp_tiles)
+                map.write(struct.pack("<I", len(tilemap_bytes))) # should be 4B0, always
+                map.write(comp_map)
+                
+            print(f"wrote {final_tiles_dmp} and {final_map_dmp}")
+            
+        except FileNotFoundError:
+            print(f"Header file {i} not found")
             
 def quantize_image_to_palette_and_save(img_file, palette, filename):
     """Quantizes given image to palette, saves and returns path to converted image file"""
@@ -164,8 +200,9 @@ def quantize_image_to_palette_and_save(img_file, palette, filename):
 def main():
     if not os.path.exists(TEMP_FOLDER):
         os.makedirs(TEMP_FOLDER)
-    #make_pic_dmps() # 88x88 pictures that appear in instructions
+    make_pic_dmps() # 88x88 pictures that appear in instructions
     make_preview_dmps()
+    make_header_dmps()
     
 if __name__ == "__main__":
     main()
