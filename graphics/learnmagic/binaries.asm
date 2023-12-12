@@ -184,6 +184,11 @@
         .word @Header15Tiles
         .word @Header15Map
     
+    .align
+    
+    @TrickTenHundredObj: ; juuust too big to fit in original space (7AB35C -> 7AC390), unfortunately
+        .incbin "bin/tenhundredobjnew.bin"
+    
 .endautoregion
 
 ; repointing picture data
@@ -196,7 +201,10 @@
     .word @Preview0Map
     .skip 4 ; palette unchanged
     
-; repointing header data
+;===========Misc. Magic tricks==============
+
+.org 0x0879EE58
+    .word @TrickTenHundredObj
     
     
     

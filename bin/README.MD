@@ -26,3 +26,5 @@ Some of the binaries contain pre-compressed data.
   * Similar to above, except this hacks in the pause menu.
 * obj_LArrow.bin and obj_RArrow.bin
   * Copied tile data for the pink L and R arrows that appear in the overworld, re-used in the magic instructions. Have to include an additional copy of this data to alter the "header" data to position it properly.
+* tenhundredobjnew.bin
+  * Pre-compressed binary of new object tiles used in "Ten and Hundred" magic trick. Includes the coins and dynamic "10/100" "heads/tails" text
