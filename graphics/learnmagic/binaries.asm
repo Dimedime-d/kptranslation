@@ -206,12 +206,50 @@
 .org 0x0879EE58
     .word @TrickTenHundredObj
     
+.org 0x087AAEB4
+.area 0x087AB35C-.
+    .incbin @MagicLearn + "tenhundredtiles.dmp"
+.endarea
     
+.org 0x087AC4F8
+.area 0x087AC654-.
+    .incbin @MagicLearn + "tenhundredintromap.dmp"
+.endarea
     
+.org 0x087AC390
+.area 0x087AC4F8-.
+    .incbin @MagicLearn + "tenhundredcoinmap.dmp"
+.endarea
+
+; repositioning sprite text in ten and hundred
+.org 0x0879F30A
+    mov r2, 0x50 ; "10"/"100" text
+    mov r3, 0x6A
     
+.org 0x0879F364
+    mov r2, 0x50
+    mov r3, 0x6A
     
+.org 0x0879F320
+    mov r2, 0x68
+    mov r3, 0x7A
+
+.org 0x0879F348
+    mov r2, 0x68
+    mov r3, 0x7A
     
+.org 0x0879F3A8
+    mov r2, 0x68
+    mov r3, 0x7A
     
+.org 0x0879F37A
+    mov r2, 0x68
+    mov r3, 0x7A
+    
+.org 0x087AC718 ::  .byte 0x58
+.org 0x087AC728 ::  .byte 0x5C ; I switched heads and tails lol
+    
+
     
     
     
