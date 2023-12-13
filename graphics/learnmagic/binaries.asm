@@ -19,7 +19,8 @@
     .align
     TableMagicInstructions:
         .word @KururinShockInstructions
-        
+        .word @TenAndHundredInstructions
+        .word @BookTestInstructions
     
     @KururinShockInstructions:
         .word @KururinShockStep1Set
@@ -37,6 +38,52 @@
         .word @KururinShockStep7Set
         .word @KururinShockStep7Map
         .word 0x00
+    @TenAndHundredInstructions:
+        .word @TenAndHundredStep1Set
+        .word @TenAndHundredStep1Map
+        .word @TenAndHundredStep2Set
+        .word @TenAndHundredStep2Map
+        .word @TenAndHundredStep3Set
+        .word @TenAndHundredStep3Map
+        .word @TenAndHundredStep4Set
+        .word @TenAndHundredStep4Map
+        .word @TenAndHundredStep5Set
+        .word @TenAndHundredStep5Map
+        .word @TenAndHundredStep6Set
+        .word @TenAndHundredStep6Map
+        .word @TenAndHundredStep7Set
+        .word @TenAndHundredStep7Map
+        .word @TenAndHundredStep8Set
+        .word @TenAndHundredStep8Map
+        .word @TenAndHundredStep9Set
+        .word @TenAndHundredStep9Map
+        .word 0x00
+    @BookTestInstructions:
+        .word @BookTestStep1Set
+        .word @BookTestStep1Map
+        .word @BookTestStep2Set
+        .word @BookTestStep2Map
+        .word @BookTestStep3Set
+        .word @BookTestStep3Map
+        .word @BookTestStep4Set
+        .word @BookTestStep4Map
+        .word @BookTestStep5Set
+        .word @BookTestStep5Map
+        .word @BookTestStep6Set
+        .word @BookTestStep6Map
+        .word @BookTestStep7Set
+        .word @BookTestStep7Map
+        .word @BookTestStep8Set
+        .word @BookTestStep8Map
+        .word @BookTestStep9Set
+        .word @BookTestStep9Map
+        .word @BookTestStep10Set
+        .word @BookTestStep10Map
+        .word @BookTestStep11Set
+        .word @BookTestStep11Map
+        .word @BookTestStep12Set
+        .word @BookTestStep12Map
+        .word 0x00
         
     @KururinShockStep1Set:  ::  .incbin @MagicLearn + "1,1.set.dmp" ::  .align
     @KururinShockStep1Map:  ::  .incbin @MagicLearn + "1,1.map.dmp" ::  .align
@@ -52,21 +99,80 @@
     @KururinShockStep6Map:  ::  .incbin @MagicLearn + "1,6.map.dmp" ::  .align
     @KururinShockStep7Set:  ::  .incbin @MagicLearn + "1,7.set.dmp" ::  .align
     @KururinShockStep7Map:  ::  .incbin @MagicLearn + "1,7.map.dmp" ::  .align
+         
+    @TenAndHundredStep1Set:  ::  .incbin @MagicLearn + "2,1.set.dmp" ::  .align
+    @TenAndHundredStep1Map:  ::  .incbin @MagicLearn + "2,1.map.dmp" ::  .align
+    @TenAndHundredStep2Set:  ::  .incbin @MagicLearn + "2,2.set.dmp" ::  .align
+    @TenAndHundredStep2Map:  ::  .incbin @MagicLearn + "2,2.map.dmp" ::  .align
+    @TenAndHundredStep3Set:  ::  .incbin @MagicLearn + "2,3.set.dmp" ::  .align
+    @TenAndHundredStep3Map:  ::  .incbin @MagicLearn + "2,3.map.dmp" ::  .align
+    @TenAndHundredStep4Set:  ::  .incbin @MagicLearn + "2,4.set.dmp" ::  .align
+    @TenAndHundredStep4Map:  ::  .incbin @MagicLearn + "2,4.map.dmp" ::  .align
+    @TenAndHundredStep5Set:  ::  .incbin @MagicLearn + "2,5.set.dmp" ::  .align
+    @TenAndHundredStep5Map:  ::  .incbin @MagicLearn + "2,5.map.dmp" ::  .align
+    @TenAndHundredStep6Set:  ::  .incbin @MagicLearn + "2,6.set.dmp" ::  .align
+    @TenAndHundredStep6Map:  ::  .incbin @MagicLearn + "2,6.map.dmp" ::  .align
+    @TenAndHundredStep7Set:  ::  .incbin @MagicLearn + "2,7.set.dmp" ::  .align
+    @TenAndHundredStep7Map:  ::  .incbin @MagicLearn + "2,7.map.dmp" ::  .align
+    @TenAndHundredStep8Set:  ::  .incbin @MagicLearn + "2,8.set.dmp" ::  .align
+    @TenAndHundredStep8Map:  ::  .incbin @MagicLearn + "2,8.map.dmp" ::  .align
+    @TenAndHundredStep9Set:  ::  .incbin @MagicLearn + "2,9.set.dmp" ::  .align
+    @TenAndHundredStep9Map:  ::  .incbin @MagicLearn + "2,9.map.dmp" ::  .align
+    
+    @BookTestStep1Set:      ::  .incbin @MagicLearn + "3,1.set.dmp" ::  .align
+    @BookTestStep1Map:      ::  .incbin @MagicLearn + "3,1.map.dmp" ::  .align
+    @BookTestStep2Set:      ::  .incbin @MagicLearn + "3,2.set.dmp" ::  .align
+    @BookTestStep2Map:      ::  .incbin @MagicLearn + "3,2.map.dmp" ::  .align
+    @BookTestStep3Set:      ::  .incbin @MagicLearn + "3,3.set.dmp" ::  .align
+    @BookTestStep3Map:      ::  .incbin @MagicLearn + "3,3.map.dmp" ::  .align
+    @BookTestStep4Set:      ::  .incbin @MagicLearn + "3,4.set.dmp" ::  .align
+    @BookTestStep4Map:      ::  .incbin @MagicLearn + "3,4.map.dmp" ::  .align
+    @BookTestStep5Set:      ::  .incbin @MagicLearn + "3,5.set.dmp" ::  .align
+    @BookTestStep5Map:      ::  .incbin @MagicLearn + "3,5.map.dmp" ::  .align
+    @BookTestStep6Set:      ::  .incbin @MagicLearn + "3,6.set.dmp" ::  .align
+    @BookTestStep6Map:      ::  .incbin @MagicLearn + "3,6.map.dmp" ::  .align
+    @BookTestStep7Set:      ::  .incbin @MagicLearn + "3,7.set.dmp" ::  .align
+    @BookTestStep7Map:      ::  .incbin @MagicLearn + "3,7.map.dmp" ::  .align
+    @BookTestStep8Set:      ::  .incbin @MagicLearn + "3,8.set.dmp" ::  .align
+    @BookTestStep8Map:      ::  .incbin @MagicLearn + "3,8.map.dmp" ::  .align
+    @BookTestStep9Set:      ::  .incbin @MagicLearn + "3,9.set.dmp" ::  .align
+    @BookTestStep9Map:      ::  .incbin @MagicLearn + "3,9.map.dmp" ::  .align
+    @BookTestStep10Set:      ::  .incbin @MagicLearn + "3,10.set.dmp" ::  .align
+    @BookTestStep10Map:      ::  .incbin @MagicLearn + "3,10.map.dmp" ::  .align
+    @BookTestStep11Set:      ::  .incbin @MagicLearn + "3,11.set.dmp" ::  .align
+    @BookTestStep11Map:      ::  .incbin @MagicLearn + "3,11.map.dmp" ::  .align
+    @BookTestStep12Set:      ::  .incbin @MagicLearn + "3,12.set.dmp" ::  .align
+    @BookTestStep12Map:      ::  .incbin @MagicLearn + "3,12.map.dmp" ::  .align
 
     TableMagicImages:
         .word @KururinShockImages
+        .word @TenAndHundredImages
+        .word @BookTestImages
         
     @Terminator equ 0xFF, 0xFF
 
     ; bytes are page number (0-indexed) and image ID
     @KururinShockImages:
         .byte 0x02, 0x00, @Terminator
+    @TenAndHundredImages:
+        .byte 0x05, 0x01, @Terminator
+    @BookTestImages:
+        .byte 0x06, 0x02, @Terminator
         
     .align
     @Picture0:
         ImageObjHeader 0x01
         .incbin @MagicLearn + "pic0.dmp"
-        
+    .align
+    @Picture1:
+        ImageObjHeader 0x02
+        .incbin @MagicLearn + "pic1.dmp"
+    .align
+    @Picture2:
+        ImageObjHeader 0x03
+        .incbin @MagicLearn + "pic2.dmp"
+    .align
+    
     ObjLArrow:
         .byte   0x01,0x0B,0x10,0x08, \
                 0xF3,0xF8,0x24,0x08
@@ -199,6 +305,8 @@
 ; repointing picture data
 .org 0x0803C1FC
     .word @Picture0 ; Kururin Shock - GBA with ticker
+    .word @Picture1 ; ten and hundred GBA press
+    .word @Picture2 ; book test slots
     
 ; repointing preview data
 .org 0x0803C0BC
