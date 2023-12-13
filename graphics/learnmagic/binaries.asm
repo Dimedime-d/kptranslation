@@ -249,8 +249,26 @@
 .org 0x087AC718 ::  .byte 0x58
 .org 0x087AC728 ::  .byte 0x5C ; I switched heads and tails lol
     
+; book test
+.org 0x087AC7F4
+.area 0x087ACE8C-.
+    .incbin "bin/booktestnewtiles.bin"
+.endarea
 
-    
+.org 0x087AD96C
+.area 0x087ADAD4-.
+    .incbin @MagicLearn + "booktestmap1.dmp"
+.endarea
+
+.org 0x087ADAD4
+.area 0x087ADC24-.
+    .incbin @MagicLearn + "booktestmap2.dmp"
+.endarea
+
+.org 0x087ADC24
+.area 0x087ADD64-.
+    .incbin @MagicLearn + "booktestmap3.dmp"
+.endarea
     
     
     

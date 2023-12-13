@@ -11,8 +11,10 @@ TEMP_FOLDER = "reserve"
 DUMP_FOLDER = "dumps"
 TRICK_FOLDER = "tricks"
 
+red_white_black_palette = [248, 0, 0, 248, 248, 248, 0, 0, 0] + [160, 160, 160]*253
+
 def format_ten_and_hundred():
-    pal = [248, 0, 0, 248, 248, 248, 0, 0, 0] + [160, 160, 160]*253 # dummy colors
+    pal = red_white_black_palette # dummy colors
     converted_intro_png = quantize_image_to_palette_and_save(os.path.join(TRICK_FOLDER, "tenhundredintro.png"), pal, "tenhundredintro-converted.png")
     converted_coin_png = quantize_image_to_palette_and_save(os.path.join(TRICK_FOLDER, "tenhundredcoin.png"), pal, "tenhundredcoin-converted.png")
     
@@ -44,12 +46,33 @@ def format_ten_and_hundred():
     
     print(f"wrote {tiles_dmp}, {intro_map_dmp}, {coin_map_dmp}")
     
+def format_book_test():
+    pal = red_white_black_palette
+    img_png_names = [quantize_image_to_palette_and_save(os.path.join(TRICK_FOLDER, f"booktest{i}.png"), pal, f"booktest{i}-converted.png") for i in range(1, 4)]
+    
+    # Grit flags in order:
+    # SHARED tileset, no palette, 4bpp, tile format, force palette bank 2, reg flat map layout, reduce tiles + palette + flip, tile offset 192
+    # metatile reduction, 1x1 metatiles, .bin file, no header, map data is BIOS compressed
+    shared_tiles = grit_images(img_png_names, f"-gS -p! -gB4 -gt -mp2 -mLf -mRtpf -ma192 -MRp -Mh1 -Mw1 -ftb -fh! -mzl", os.path.join(DUMP_FOLDER, "booktest_"))
+    
+    # just discovered shared tileset data in grit, don't need to merge tileset data at all :D
+    # unfortunately, this results in the .map.bin files being dumped in the directory this script was run in, so need to manually rename files
+    for i, name in enumerate(img_png_names):
+        src = f"{os.path.basename(name)[:-4]}.map.bin"
+        dest = f"{os.path.join(DUMP_FOLDER, f'booktestmap{i+1}.dmp')}"
+        os.rename(src, dest)
+        print(f"wrote {dest}")
+    
 def cue_compress_vram(file): # 16-bit
     os.system(f"cmd /c ..\\..\\lzss -evo {file}") # overwrites old file with new
     
 def cue_compress_wram(file): # 8-bit
     os.system(f"cmd /c ..\\..\\lzss -ewo {file}") # overwrites old file with new
-    
+
+def grit_images(img_names, flags, shared_output):
+    os.system(f"cmd /c ..\\grit {" ".join(img_names)} {flags} -O {shared_output}.bin")
+    return f"{shared_output}.img.bin"
+
 def grit_image(img_name, flags):
     os.system(f"cmd /c ..\\grit {img_name} {flags} -o {img_name[:-4]}.bin")
     return f"{img_name[:-4]}.img.bin", f"{img_name[:-4]}.map.bin"
@@ -66,7 +89,8 @@ def quantize_image_to_palette_and_save(img_file, palette, filename):
     return converted_file
 
 def main():
-    format_ten_and_hundred()
+    #format_ten_and_hundred()
+    format_book_test()
 
 if __name__ == "__main__":
     main()
