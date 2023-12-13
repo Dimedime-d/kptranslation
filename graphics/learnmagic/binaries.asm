@@ -188,6 +188,11 @@
     
     @TrickTenHundredObj: ; juuust too big to fit in original space (7AB35C -> 7AC390), unfortunately
         .incbin "bin/tenhundredobjnew.bin"
+        
+    .align
+    
+    @TrickTimeTiles: ; also just too big (7AE184 -> 7AE84C)
+        .incbin "bin/timenewtiles.bin"
     
 .endautoregion
 
@@ -269,6 +274,12 @@
 .area 0x087ADD64-.
     .incbin @MagicLearn + "booktestmap3.dmp"
 .endarea
+
+.org 0x0879FF60
+    .word @TrickTimeTiles
+    
+.org 0x087AF140
+    .incbin @MagicLearn + "timemap.dmp"
     
     
     

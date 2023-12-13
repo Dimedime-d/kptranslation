@@ -60,8 +60,31 @@ def format_book_test():
     for i, name in enumerate(img_png_names):
         src = f"{os.path.basename(name)[:-4]}.map.bin"
         dest = f"{os.path.join(DUMP_FOLDER, f'booktestmap{i+1}.dmp')}"
+        if os.path.exists(dest):
+            os.remove(dest)
         os.rename(src, dest)
         print(f"wrote {dest}")
+        
+def format_time_paradox():
+    pal = red_white_black_palette
+    converted_png = quantize_image_to_palette_and_save(os.path.join(TRICK_FOLDER, "time.png"), pal, "time-converted.png")
+   
+    # Grit 'em
+    # In order: No palette, 4bpp, tile format, force palette bank 2, tile offset 160, reg flat map layout, reduce tiles+pal+flip,
+    # metatile reduction, 1x1 metatiles, .bin file, no header
+    tiles_bin, map_bin = grit_image(converted_png, "-p! -gB4 -gt -mp2 -ma320 -mLf -mRtpf -MRp -Mh1 -Mw1 -ftb -fh! -mzl")
+    
+    final_tiles = os.path.join(DUMP_FOLDER, "timetiles.bin")
+    if os.path.exists(final_tiles):
+        os.remove(final_tiles)
+    os.rename(tiles_bin, final_tiles)
+    final_map = os.path.join(DUMP_FOLDER, "timemap.dmp")
+    if os.path.exists(final_map):
+        os.remove(final_map)
+    os.rename(map_bin, final_map)
+    
+    print(f"wrote {final_tiles} and {final_map}")
+    
     
 def cue_compress_vram(file): # 16-bit
     os.system(f"cmd /c ..\\..\\lzss -evo {file}") # overwrites old file with new
@@ -90,7 +113,8 @@ def quantize_image_to_palette_and_save(img_file, palette, filename):
 
 def main():
     #format_ten_and_hundred()
-    format_book_test()
+    #format_book_test()
+    format_time_paradox()
 
 if __name__ == "__main__":
     main()
