@@ -410,6 +410,11 @@
 .org 0x087AF140
     .incbin @MagicLearn + "timemap.dmp"
     
+.org 0x087AF68C
+.area 0x087B61C8-.
+    .incbin "bin/soundcatchnewobj.bin"
+.endarea    
+
 ; don't touch
 .org 0x087C1658
 .area 0x087C3910-.

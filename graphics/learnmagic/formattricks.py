@@ -106,6 +106,21 @@ def format_dont_touch():
     
     print(f"wrote {final_tiles} and {final_map}")
     
+def format_sound_catch():
+    pal = [248, 248, 248, 0, 0, 0, 104, 96, 8, 184, 168, 16, 72, 64, 8, 144, 136, 8, 248, 240, 24, 32, 32, 0, 168, 152, 16, 120, 112, 8, 240, 224, 24, 240, 208, 16, 208, 192, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0] # 7AF60C
+    converted_png = quantize_image_to_palette_and_save(os.path.join(TRICK_FOLDER, "soundcatch.png"), pal, "soundcatch-converted.png")
+    
+    # Grit again...
+    # In order: No palette, 4bpp, tile format, NO MAP! (these are object tiles), .bin file, no header
+    tiles_bin, map_bin = grit_image(converted_png, "-p! -gB4 -gt -m! -ftb -fh!")
+    
+    final_tiles = os.path.join(DUMP_FOLDER, "soundcatchobj.bin")
+    if os.path.exists(final_tiles):
+        os.remove(final_tiles)
+    os.rename(tiles_bin, final_tiles)
+    
+    print(f"wrote {final_tiles}")
+    
 def cue_compress_vram(file): # 16-bit
     os.system(f"cmd /c ..\\..\\lzss -evo {file}") # overwrites old file with new
     
@@ -132,9 +147,11 @@ def quantize_image_to_palette_and_save(img_file, palette, filename):
     return converted_file
 
 def main():
+    # Kururin shock has no JP graphics
     format_ten_and_hundred()
     format_book_test()
     format_time_paradox()
+    format_sound_catch()
 
     format_dont_touch()
 
