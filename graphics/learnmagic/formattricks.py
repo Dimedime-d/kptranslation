@@ -121,6 +121,41 @@ def format_sound_catch():
     
     print(f"wrote {final_tiles}")
     
+def format_center_point():
+    pal = red_white_black_palette
+    converted_png = quantize_image_to_palette_and_save(os.path.join(TRICK_FOLDER, "centerpoint.png"), pal, "centerpoint-converted.png")
+   
+    # Grit 'em
+    # In order: No palette, 4bpp, tile format, force palette bank 2, tile offset 320, reg flat map layout, reduce tiles+pal+flip,
+    # metatile reduction, 1x1 metatiles, .bin file, no header
+    tiles_bin, map_bin = grit_image(converted_png, "-p! -gB4 -gt -mp2 -ma160 -mLf -mRtpf -MRp -Mh1 -Mw1 -ftb -fh! -mzl")
+    
+    final_tiles = os.path.join(DUMP_FOLDER, "centerpointtiles.bin")
+    if os.path.exists(final_tiles):
+        os.remove(final_tiles)
+    os.rename(tiles_bin, final_tiles)
+    final_map = os.path.join(DUMP_FOLDER, "centerpointmap.dmp")
+    if os.path.exists(final_map):
+        os.remove(final_map)
+    os.rename(map_bin, final_map)
+    
+    print(f"wrote {final_tiles} and {final_map}")
+    
+def format_imagine():
+    pal = [0, 0, 0, 32, 0, 16, 40, 8, 40, 8, 8, 72, 16, 16, 112, 24, 24, 144, 48, 48, 176, 64, 64, 144, 80, 96, 160, 96, 128, 160, 136, 136, 136, 112, 144, 160, 120, 152, 152, 152, 144, 136, 144, 160, 152, 0, 0, 0] # 7B5BE0
+    converted_png = quantize_image_to_palette_and_save(os.path.join(TRICK_FOLDER, "imagine.png"), pal, "imagine-converted.png")
+    
+    # Grit
+    # In order: No palette, 8bpp (!), bitmapped graphics, lzss compressed, no tile map
+    tiles_bin, map_bin = grit_image(converted_png, "-p! -gB8 -gb -gzl -m!")
+    
+    final_bitmap = os.path.join(DUMP_FOLDER, "imaginebitmap.dmp")
+    if os.path.exists(final_bitmap):
+        os.remove(final_bitmap)
+    os.rename(tiles_bin, final_bitmap)
+    
+    print(f"wrote {final_bitmap}")
+    
 def cue_compress_vram(file): # 16-bit
     os.system(f"cmd /c ..\\..\\lzss -evo {file}") # overwrites old file with new
     
@@ -152,7 +187,10 @@ def main():
     format_book_test()
     format_time_paradox()
     format_sound_catch()
-
+    format_center_point()
+    #Game boy panic, impression, twist have nothing
+    format_imagine()
+    
     format_dont_touch()
 
 if __name__ == "__main__":

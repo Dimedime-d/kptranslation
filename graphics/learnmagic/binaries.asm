@@ -415,6 +415,21 @@
     .incbin "bin/soundcatchnewobj.bin"
 .endarea    
 
+.org 0x087B16B4
+.area 0x087B1C64-.
+    .incbin "bin/centerpointnewtiles.bin"
+.endarea
+
+.org 0x087B2170
+.area 0x087B22C0-.
+    .incbin @MagicLearn + "centerpointmap.dmp"
+.endarea
+
+.org 0x087B5DE0
+.area 0x1C3C
+    .incbin @MagicLearn + "imaginebitmap.dmp"
+.endarea
+
 ; don't touch
 .org 0x087C1658
 .area 0x087C3910-.
