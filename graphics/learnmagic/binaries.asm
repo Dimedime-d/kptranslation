@@ -410,8 +410,14 @@
 .org 0x087AF140
     .incbin @MagicLearn + "timemap.dmp"
     
-    
-    
+; don't touch
+.org 0x087C1658
+.area 0x087C3910-.
+    .incbin "bin/donttouchnewtiles.bin"
+.endarea
+
+.org 0x087C22F0
+    .incbin @MagicLearn + "donttouchmap.dmp"
     
     
     

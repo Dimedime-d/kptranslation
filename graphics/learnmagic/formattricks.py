@@ -70,7 +70,7 @@ def format_time_paradox():
     converted_png = quantize_image_to_palette_and_save(os.path.join(TRICK_FOLDER, "time.png"), pal, "time-converted.png")
    
     # Grit 'em
-    # In order: No palette, 4bpp, tile format, force palette bank 2, tile offset 160, reg flat map layout, reduce tiles+pal+flip,
+    # In order: No palette, 4bpp, tile format, force palette bank 2, tile offset 320, reg flat map layout, reduce tiles+pal+flip,
     # metatile reduction, 1x1 metatiles, .bin file, no header
     tiles_bin, map_bin = grit_image(converted_png, "-p! -gB4 -gt -mp2 -ma320 -mLf -mRtpf -MRp -Mh1 -Mw1 -ftb -fh! -mzl")
     
@@ -84,7 +84,27 @@ def format_time_paradox():
     os.rename(map_bin, final_map)
     
     print(f"wrote {final_tiles} and {final_map}")
+
+def format_dont_touch():
+    pal = [248, 248, 248, 184, 176, 168, 0, 0, 0, 8, 8, 0, 56, 24, 0, 112, 40, 0, 88, 56, 0, 168, 112, 24, 144, 88, 8, 240, 184, 32, 232, 200, 32, 232, 144, 24, 232, 152, 24, 248, 216, 40, 136, 72, 16, 192, 120, 24] # 7C1638
+    converted_png = quantize_image_to_palette_and_save(os.path.join(TRICK_FOLDER, "donttouch.png"), pal, "donttouch-converted.png")
     
+    # Grit 'em
+    # In order: No palette, 4bpp, tile format, force palette bank 1, tile offset 96, reg flat map layout, reduce tiles+pal+flip,
+    # metatile reduction, 1x1 metatiles, .bin file, no header, only tile map is compressed
+    tiles_bin, map_bin = grit_image(converted_png, "-p! -gB4 -gt -mp1 -ma96 -mLf -mRtpf -MRp -Mh1 -Mw1 -ftb -fh! -mzl")
+    
+    final_tiles = os.path.join(DUMP_FOLDER, "donttouchtiles.bin")
+    if os.path.exists(final_tiles):
+        os.remove(final_tiles)
+    os.rename(tiles_bin, final_tiles)
+    
+    final_map = os.path.join(DUMP_FOLDER, "donttouchmap.dmp")
+    if os.path.exists(final_map):
+        os.remove(final_map)
+    os.rename(map_bin, final_map)
+    
+    print(f"wrote {final_tiles} and {final_map}")
     
 def cue_compress_vram(file): # 16-bit
     os.system(f"cmd /c ..\\..\\lzss -evo {file}") # overwrites old file with new
@@ -112,9 +132,11 @@ def quantize_image_to_palette_and_save(img_file, palette, filename):
     return converted_file
 
 def main():
-    #format_ten_and_hundred()
-    #format_book_test()
+    format_ten_and_hundred()
+    format_book_test()
     format_time_paradox()
+
+    format_dont_touch()
 
 if __name__ == "__main__":
     main()
