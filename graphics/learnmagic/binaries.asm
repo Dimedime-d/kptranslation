@@ -188,6 +188,18 @@
         .incbin @MagicLearn + "preview0tiles.dmp" ::    .align
     @Preview0Map:
         .incbin @MagicLearn + "preview0map.dmp"   ::    .align
+    @Preview1Tiles:
+        .incbin @MagicLearn + "preview1tiles.dmp" ::    .align
+    @Preview1Map:
+        .incbin @MagicLearn + "preview1map.dmp"   ::    .align
+    @Preview2Tiles:
+        .incbin @MagicLearn + "preview2tiles.dmp" ::    .align
+    @Preview2Map:
+        .incbin @MagicLearn + "preview2map.dmp"   ::    .align
+    @Preview3Tiles:
+        .incbin @MagicLearn + "preview3tiles.dmp" ::    .align
+    @Preview3Map:
+        .incbin @MagicLearn + "preview3map.dmp"   ::    .align
         
     @Header0Tiles:
         .incbin @MagicLearn + "header0tiles.dmp"    ::  .align
@@ -313,6 +325,15 @@
     .word @Preview0Tiles
     .word @Preview0Map
     .skip 4 ; palette unchanged
+    .word @Preview1Tiles
+    .word @Preview1Map
+    .skip 4
+    .word @Preview2Tiles
+    .word @Preview2Map
+    .skip 4
+    .word @Preview3Tiles
+    .word @Preview3Map
+    .skip 4
     
 ;===========Misc. Magic tricks==============
 
