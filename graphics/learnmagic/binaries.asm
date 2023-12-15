@@ -25,6 +25,11 @@
         .word @SoundCatchInstructions
         .word @CenterPointInstructions
         .word @GameBoyPanicInstructions
+        .word @ImpressionInstructions
+        .word @TwistInstructions
+        .word @ImagineInstructions
+        .word @LoveTesterInstructions
+        .word @CaliforniaFlipInstructions
     
     @KururinShockInstructions:
         .word @KururinShockStep1Set
@@ -144,6 +149,68 @@
         .word @GameBoyPanicStep7Set
         .word @GameBoyPanicStep7Map
         .word 0x00
+    @ImpressionInstructions:
+        .word @ImpressionStep1Set
+        .word @ImpressionStep1Map
+        .word @ImpressionStep2Set
+        .word @ImpressionStep2Map
+        .word @ImpressionStep3Set
+        .word @ImpressionStep3Map
+        .word @ImpressionStep4Set
+        .word @ImpressionStep4Map
+        .word @ImpressionStep5Set
+        .word @ImpressionStep5Map
+        .word @ImpressionStep6Set
+        .word @ImpressionStep6Map
+        .word 0x00
+    @TwistInstructions:
+        .word @TwistStep1Set
+        .word @TwistStep1Map
+        .word @TwistStep2Set
+        .word @TwistStep2Map
+        .word @TwistStep3Set
+        .word @TwistStep3Map
+        .word @TwistStep4Set
+        .word @TwistStep4Map
+        .word @TwistStep5Set
+        .word @TwistStep5Map
+        .word 0x00
+    @ImagineInstructions:
+        .word @ImagineStep1Set
+        .word @ImagineStep1Map
+        .word @ImagineStep2Set
+        .word @ImagineStep2Map
+        .word @ImagineStep3Set
+        .word @ImagineStep3Map
+        .word @ImagineStep4Set
+        .word @ImagineStep4Map
+        .word @ImagineStep5Set
+        .word @ImagineStep5Map
+        .word @ImagineStep6Set
+        .word @ImagineStep6Map
+        .word 0x00
+    @LoveTesterInstructions:
+        .word @LoveTesterStep1Set
+        .word @LoveTesterStep1Map
+        .word @LoveTesterStep2Set
+        .word @LoveTesterStep2Map
+        .word @LoveTesterStep3Set
+        .word @LoveTesterStep3Map
+        .word @LoveTesterStep4Set
+        .word @LoveTesterStep4Map
+        .word 0x00
+    @CaliforniaFlipInstructions:
+        .word @CaliforniaFlipStep1Set
+        .word @CaliforniaFlipStep1Map
+        .word @CaliforniaFlipStep2Set
+        .word @CaliforniaFlipStep2Map
+        .word @CaliforniaFlipStep3Set
+        .word @CaliforniaFlipStep3Map
+        .word @CaliforniaFlipStep4Set
+        .word @CaliforniaFlipStep4Map
+        .word @CaliforniaFlipStep5Set
+        .word @CaliforniaFlipStep5Map
+        .word 0x00
         
     @KururinShockStep1Set:  ::  .incbin @MagicLearn + "1,1.set.dmp" ::  .align
     @KururinShockStep1Map:  ::  .incbin @MagicLearn + "1,1.map.dmp" ::  .align
@@ -255,6 +322,63 @@
     @GameBoyPanicStep6Map:      ::  .incbin @MagicLearn + "7,6.map.dmp" ::  .align
     @GameBoyPanicStep7Set:      ::  .incbin @MagicLearn + "7,7.set.dmp" ::  .align
     @GameBoyPanicStep7Map:      ::  .incbin @MagicLearn + "7,7.map.dmp" ::  .align
+    
+    @ImpressionStep1Set:      ::  .incbin @MagicLearn + "8,1.set.dmp" ::  .align
+    @ImpressionStep1Map:      ::  .incbin @MagicLearn + "8,1.map.dmp" ::  .align
+    @ImpressionStep2Set:      ::  .incbin @MagicLearn + "8,2.set.dmp" ::  .align
+    @ImpressionStep2Map:      ::  .incbin @MagicLearn + "8,2.map.dmp" ::  .align
+    @ImpressionStep3Set:      ::  .incbin @MagicLearn + "8,3.set.dmp" ::  .align
+    @ImpressionStep3Map:      ::  .incbin @MagicLearn + "8,3.map.dmp" ::  .align
+    @ImpressionStep4Set:      ::  .incbin @MagicLearn + "8,4.set.dmp" ::  .align
+    @ImpressionStep4Map:      ::  .incbin @MagicLearn + "8,4.map.dmp" ::  .align
+    @ImpressionStep5Set:      ::  .incbin @MagicLearn + "8,5.set.dmp" ::  .align
+    @ImpressionStep5Map:      ::  .incbin @MagicLearn + "8,5.map.dmp" ::  .align
+    @ImpressionStep6Set:      ::  .incbin @MagicLearn + "8,6.set.dmp" ::  .align
+    @ImpressionStep6Map:      ::  .incbin @MagicLearn + "8,6.map.dmp" ::  .align
+    
+    @TwistStep1Set:      ::  .incbin @MagicLearn + "9,1.set.dmp" ::  .align
+    @TwistStep1Map:      ::  .incbin @MagicLearn + "9,1.map.dmp" ::  .align
+    @TwistStep2Set:      ::  .incbin @MagicLearn + "9,2.set.dmp" ::  .align
+    @TwistStep2Map:      ::  .incbin @MagicLearn + "9,2.map.dmp" ::  .align
+    @TwistStep3Set:      ::  .incbin @MagicLearn + "9,3.set.dmp" ::  .align
+    @TwistStep3Map:      ::  .incbin @MagicLearn + "9,3.map.dmp" ::  .align
+    @TwistStep4Set:      ::  .incbin @MagicLearn + "9,4.set.dmp" ::  .align
+    @TwistStep4Map:      ::  .incbin @MagicLearn + "9,4.map.dmp" ::  .align
+    @TwistStep5Set:      ::  .incbin @MagicLearn + "9,5.set.dmp" ::  .align
+    @TwistStep5Map:      ::  .incbin @MagicLearn + "9,5.map.dmp" ::  .align
+    
+    @ImagineStep1Set:      ::  .incbin @MagicLearn + "10,1.set.dmp" ::  .align
+    @ImagineStep1Map:      ::  .incbin @MagicLearn + "10,1.map.dmp" ::  .align
+    @ImagineStep2Set:      ::  .incbin @MagicLearn + "10,2.set.dmp" ::  .align
+    @ImagineStep2Map:      ::  .incbin @MagicLearn + "10,2.map.dmp" ::  .align
+    @ImagineStep3Set:      ::  .incbin @MagicLearn + "10,3.set.dmp" ::  .align
+    @ImagineStep3Map:      ::  .incbin @MagicLearn + "10,3.map.dmp" ::  .align
+    @ImagineStep4Set:      ::  .incbin @MagicLearn + "10,4.set.dmp" ::  .align
+    @ImagineStep4Map:      ::  .incbin @MagicLearn + "10,4.map.dmp" ::  .align
+    @ImagineStep5Set:      ::  .incbin @MagicLearn + "10,5.set.dmp" ::  .align
+    @ImagineStep5Map:      ::  .incbin @MagicLearn + "10,5.map.dmp" ::  .align
+    @ImagineStep6Set:      ::  .incbin @MagicLearn + "10,6.set.dmp" ::  .align
+    @ImagineStep6Map:      ::  .incbin @MagicLearn + "10,6.map.dmp" ::  .align
+    
+    @LoveTesterStep1Set:      ::  .incbin @MagicLearn + "11,1.set.dmp" ::  .align
+    @LoveTesterStep1Map:      ::  .incbin @MagicLearn + "11,1.map.dmp" ::  .align
+    @LoveTesterStep2Set:      ::  .incbin @MagicLearn + "11,2.set.dmp" ::  .align
+    @LoveTesterStep2Map:      ::  .incbin @MagicLearn + "11,2.map.dmp" ::  .align
+    @LoveTesterStep3Set:      ::  .incbin @MagicLearn + "11,3.set.dmp" ::  .align
+    @LoveTesterStep3Map:      ::  .incbin @MagicLearn + "11,3.map.dmp" ::  .align
+    @LoveTesterStep4Set:      ::  .incbin @MagicLearn + "11,4.set.dmp" ::  .align
+    @LoveTesterStep4Map:      ::  .incbin @MagicLearn + "11,4.map.dmp" ::  .align
+    
+    @CaliforniaFlipStep1Set:      ::  .incbin @MagicLearn + "12,1.set.dmp" ::  .align
+    @CaliforniaFlipStep1Map:      ::  .incbin @MagicLearn + "12,1.map.dmp" ::  .align
+    @CaliforniaFlipStep2Set:      ::  .incbin @MagicLearn + "12,2.set.dmp" ::  .align
+    @CaliforniaFlipStep2Map:      ::  .incbin @MagicLearn + "12,2.map.dmp" ::  .align
+    @CaliforniaFlipStep3Set:      ::  .incbin @MagicLearn + "12,3.set.dmp" ::  .align
+    @CaliforniaFlipStep3Map:      ::  .incbin @MagicLearn + "12,3.map.dmp" ::  .align
+    @CaliforniaFlipStep4Set:      ::  .incbin @MagicLearn + "12,4.set.dmp" ::  .align
+    @CaliforniaFlipStep4Map:      ::  .incbin @MagicLearn + "12,4.map.dmp" ::  .align
+    @CaliforniaFlipStep5Set:      ::  .incbin @MagicLearn + "12,5.set.dmp" ::  .align
+    @CaliforniaFlipStep5Map:      ::  .incbin @MagicLearn + "12,5.map.dmp" ::  .align
 
     TableMagicImages:
         .word @KururinShockImages
@@ -264,6 +388,11 @@
         .word @SoundCatchImages
         .word @CenterPointImages
         .word @GameBoyPanicImages
+        .word @ImpressionImages
+        .word @TwistImages
+        .word @ImagineImages
+        .word @LoveTesterImages
+        .word @CaliforniaFlipImages
         
     @Terminator equ 0xFF, 0xFF
 
@@ -277,9 +406,17 @@
     @TimeParadoxImages:
     @SoundCatchImages:
     @CenterPointImages:
+    @ImpressionImages:
+    @CaliforniaFlipImages:
         .byte @Terminator
     @GameBoyPanicImages:
         .byte 0x04, 0x03, @Terminator
+    @TwistImages:
+        .byte 0x01, 0x04, @Terminator
+    @ImagineImages:
+        .byte 0x01, 0x05, @Terminator
+    @LoveTesterImages:
+        .byte 0x01, 0x06, @Terminator
         
     .align
     @Picture0:
