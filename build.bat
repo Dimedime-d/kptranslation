@@ -1,5 +1,8 @@
 @echo off
 
+set InFile=kp.gba
+set OutFile=kp_patched.gba
+
 copy kp.gba kp_patched.gba
 
 :: Need to extract multiplayer payload AND decompress it
@@ -36,6 +39,11 @@ echo "[INFO] Patching game, please wait..."
 
 armips.exe main.asm
 
+if %errorlevel% NEQ 0 (
+	echo "ERROR: Armips could not build the ROM."
+	del %OutFile%
+) else (
 echo "[INFO] Patching is done"
+)
 
 pause

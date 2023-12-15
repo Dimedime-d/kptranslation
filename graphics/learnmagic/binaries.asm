@@ -21,6 +21,10 @@
         .word @KururinShockInstructions
         .word @TenAndHundredInstructions
         .word @BookTestInstructions
+        .word @TimeParadoxInstructions
+        .word @SoundCatchInstructions
+        .word @CenterPointInstructions
+        .word @GameBoyPanicInstructions
     
     @KururinShockInstructions:
         .word @KururinShockStep1Set
@@ -84,6 +88,62 @@
         .word @BookTestStep12Set
         .word @BookTestStep12Map
         .word 0x00
+    @TimeParadoxInstructions:
+        .word @TimeParadoxStep1Set
+        .word @TimeParadoxStep1Map
+        .word @TimeParadoxStep2Set
+        .word @TimeParadoxStep2Map
+        .word @TimeParadoxStep3Set
+        .word @TimeParadoxStep3Map
+        .word @TimeParadoxStep4Set
+        .word @TimeParadoxStep4Map
+        .word @TimeParadoxStep5Set
+        .word @TimeParadoxStep5Map
+        .word @TimeParadoxStep6Set
+        .word @TimeParadoxStep6Map
+        .word @TimeParadoxStep7Set
+        .word @TimeParadoxStep7Map
+        .word 0x00
+    @SoundCatchInstructions:
+        .word @SoundCatchStep1Set
+        .word @SoundCatchStep1Map
+        .word @SoundCatchStep2Set
+        .word @SoundCatchStep2Map
+        .word @SoundCatchStep3Set
+        .word @SoundCatchStep3Map
+        .word @SoundCatchStep4Set
+        .word @SoundCatchStep4Map
+        .word @SoundCatchStep5Set
+        .word @SoundCatchStep5Map
+        .word 0x00
+    @CenterPointInstructions:
+        .word @CenterPointStep1Set
+        .word @CenterPointStep1Map
+        .word @CenterPointStep2Set
+        .word @CenterPointStep2Map
+        .word @CenterPointStep3Set
+        .word @CenterPointStep3Map
+        .word @CenterPointStep4Set
+        .word @CenterPointStep4Map
+        .word @CenterPointStep5Set
+        .word @CenterPointStep5Map
+        .word 0x00
+    @GameBoyPanicInstructions:
+        .word @GameBoyPanicStep1Set
+        .word @GameBoyPanicStep1Map
+        .word @GameBoyPanicStep2Set
+        .word @GameBoyPanicStep2Map
+        .word @GameBoyPanicStep3Set
+        .word @GameBoyPanicStep3Map
+        .word @GameBoyPanicStep4Set
+        .word @GameBoyPanicStep4Map
+        .word @GameBoyPanicStep5Set
+        .word @GameBoyPanicStep5Map
+        .word @GameBoyPanicStep6Set
+        .word @GameBoyPanicStep6Map
+        .word @GameBoyPanicStep7Set
+        .word @GameBoyPanicStep7Map
+        .word 0x00
         
     @KururinShockStep1Set:  ::  .incbin @MagicLearn + "1,1.set.dmp" ::  .align
     @KururinShockStep1Map:  ::  .incbin @MagicLearn + "1,1.map.dmp" ::  .align
@@ -143,11 +203,67 @@
     @BookTestStep11Map:      ::  .incbin @MagicLearn + "3,11.map.dmp" ::  .align
     @BookTestStep12Set:      ::  .incbin @MagicLearn + "3,12.set.dmp" ::  .align
     @BookTestStep12Map:      ::  .incbin @MagicLearn + "3,12.map.dmp" ::  .align
+    
+    @TimeParadoxStep1Set:      ::  .incbin @MagicLearn + "4,1.set.dmp" ::  .align
+    @TimeParadoxStep1Map:      ::  .incbin @MagicLearn + "4,1.map.dmp" ::  .align
+    @TimeParadoxStep2Set:      ::  .incbin @MagicLearn + "4,2.set.dmp" ::  .align
+    @TimeParadoxStep2Map:      ::  .incbin @MagicLearn + "4,2.map.dmp" ::  .align
+    @TimeParadoxStep3Set:      ::  .incbin @MagicLearn + "4,3.set.dmp" ::  .align
+    @TimeParadoxStep3Map:      ::  .incbin @MagicLearn + "4,3.map.dmp" ::  .align
+    @TimeParadoxStep4Set:      ::  .incbin @MagicLearn + "4,4.set.dmp" ::  .align
+    @TimeParadoxStep4Map:      ::  .incbin @MagicLearn + "4,4.map.dmp" ::  .align
+    @TimeParadoxStep5Set:      ::  .incbin @MagicLearn + "4,5.set.dmp" ::  .align
+    @TimeParadoxStep5Map:      ::  .incbin @MagicLearn + "4,5.map.dmp" ::  .align
+    @TimeParadoxStep6Set:      ::  .incbin @MagicLearn + "4,6.set.dmp" ::  .align
+    @TimeParadoxStep6Map:      ::  .incbin @MagicLearn + "4,6.map.dmp" ::  .align
+    @TimeParadoxStep7Set:      ::  .incbin @MagicLearn + "4,7.set.dmp" ::  .align
+    @TimeParadoxStep7Map:      ::  .incbin @MagicLearn + "4,7.map.dmp" ::  .align
+    
+    @SoundCatchStep1Set:      ::  .incbin @MagicLearn + "5,1.set.dmp" ::  .align
+    @SoundCatchStep1Map:      ::  .incbin @MagicLearn + "5,1.map.dmp" ::  .align
+    @SoundCatchStep2Set:      ::  .incbin @MagicLearn + "5,2.set.dmp" ::  .align
+    @SoundCatchStep2Map:      ::  .incbin @MagicLearn + "5,2.map.dmp" ::  .align
+    @SoundCatchStep3Set:      ::  .incbin @MagicLearn + "5,3.set.dmp" ::  .align
+    @SoundCatchStep3Map:      ::  .incbin @MagicLearn + "5,3.map.dmp" ::  .align
+    @SoundCatchStep4Set:      ::  .incbin @MagicLearn + "5,4.set.dmp" ::  .align
+    @SoundCatchStep4Map:      ::  .incbin @MagicLearn + "5,4.map.dmp" ::  .align
+    @SoundCatchStep5Set:      ::  .incbin @MagicLearn + "5,5.set.dmp" ::  .align
+    @SoundCatchStep5Map:      ::  .incbin @MagicLearn + "5,5.map.dmp" ::  .align
+    
+    @CenterPointStep1Set:      ::  .incbin @MagicLearn + "6,1.set.dmp" ::  .align
+    @CenterPointStep1Map:      ::  .incbin @MagicLearn + "6,1.map.dmp" ::  .align
+    @CenterPointStep2Set:      ::  .incbin @MagicLearn + "6,2.set.dmp" ::  .align
+    @CenterPointStep2Map:      ::  .incbin @MagicLearn + "6,2.map.dmp" ::  .align
+    @CenterPointStep3Set:      ::  .incbin @MagicLearn + "6,3.set.dmp" ::  .align
+    @CenterPointStep3Map:      ::  .incbin @MagicLearn + "6,3.map.dmp" ::  .align
+    @CenterPointStep4Set:      ::  .incbin @MagicLearn + "6,4.set.dmp" ::  .align
+    @CenterPointStep4Map:      ::  .incbin @MagicLearn + "6,4.map.dmp" ::  .align
+    @CenterPointStep5Set:      ::  .incbin @MagicLearn + "6,5.set.dmp" ::  .align
+    @CenterPointStep5Map:      ::  .incbin @MagicLearn + "6,5.map.dmp" ::  .align
+    
+    @GameBoyPanicStep1Set:      ::  .incbin @MagicLearn + "7,1.set.dmp" ::  .align
+    @GameBoyPanicStep1Map:      ::  .incbin @MagicLearn + "7,1.map.dmp" ::  .align
+    @GameBoyPanicStep2Set:      ::  .incbin @MagicLearn + "7,2.set.dmp" ::  .align
+    @GameBoyPanicStep2Map:      ::  .incbin @MagicLearn + "7,2.map.dmp" ::  .align
+    @GameBoyPanicStep3Set:      ::  .incbin @MagicLearn + "7,3.set.dmp" ::  .align
+    @GameBoyPanicStep3Map:      ::  .incbin @MagicLearn + "7,3.map.dmp" ::  .align
+    @GameBoyPanicStep4Set:      ::  .incbin @MagicLearn + "7,4.set.dmp" ::  .align
+    @GameBoyPanicStep4Map:      ::  .incbin @MagicLearn + "7,4.map.dmp" ::  .align
+    @GameBoyPanicStep5Set:      ::  .incbin @MagicLearn + "7,5.set.dmp" ::  .align
+    @GameBoyPanicStep5Map:      ::  .incbin @MagicLearn + "7,5.map.dmp" ::  .align
+    @GameBoyPanicStep6Set:      ::  .incbin @MagicLearn + "7,6.set.dmp" ::  .align
+    @GameBoyPanicStep6Map:      ::  .incbin @MagicLearn + "7,6.map.dmp" ::  .align
+    @GameBoyPanicStep7Set:      ::  .incbin @MagicLearn + "7,7.set.dmp" ::  .align
+    @GameBoyPanicStep7Map:      ::  .incbin @MagicLearn + "7,7.map.dmp" ::  .align
 
     TableMagicImages:
         .word @KururinShockImages
         .word @TenAndHundredImages
         .word @BookTestImages
+        .word @TimeParadoxImages
+        .word @SoundCatchImages
+        .word @CenterPointImages
+        .word @GameBoyPanicImages
         
     @Terminator equ 0xFF, 0xFF
 
@@ -158,6 +274,12 @@
         .byte 0x05, 0x01, @Terminator
     @BookTestImages:
         .byte 0x06, 0x02, @Terminator
+    @TimeParadoxImages:
+    @SoundCatchImages:
+    @CenterPointImages:
+        .byte @Terminator
+    @GameBoyPanicImages:
+        .byte 0x04, 0x03, @Terminator
         
     .align
     @Picture0:
@@ -171,6 +293,34 @@
     @Picture2:
         ImageObjHeader 0x03
         .incbin @MagicLearn + "pic2.dmp"
+    .align
+    @Picture3:
+        ImageObjHeader 0x04
+        .incbin @MagicLearn + "pic3.dmp"
+    .align
+    @Picture4:
+        ImageObjHeader 0x05
+        .incbin @MagicLearn + "pic4.dmp"
+    .align
+    @Picture5:
+        ImageObjHeader 0x06
+        .incbin @MagicLearn + "pic5.dmp"
+    .align
+    @Picture6:
+        ImageObjHeader 0x07
+        .incbin @MagicLearn + "pic6.dmp"
+    .align
+    @Picture7:
+        ImageObjHeader 0x08
+        .incbin @MagicLearn + "pic7.dmp"
+    .align
+    @Picture8:
+        ImageObjHeader 0x09
+        .incbin @MagicLearn + "pic8.dmp"
+    .align
+    @Picture9:
+        ImageObjHeader 0x0A
+        .incbin @MagicLearn + "pic9.dmp"
     .align
     
     ObjLArrow:
@@ -319,6 +469,13 @@
     .word @Picture0 ; Kururin Shock - GBA with ticker
     .word @Picture1 ; ten and hundred GBA press
     .word @Picture2 ; book test slots
+    .word @Picture3 ; gameboy panic hold
+    .word @Picture4 ; twist parallel lines
+    .word @Picture5 ; imagine speak while pushing
+    .word @Picture6 ; love tester
+    .word @Picture7 ; matchstick 1
+    .word @Picture8 ; matchstick 2
+    .word @Picture9 ; up down facing each other
     
 ; repointing preview data
 .org 0x0803C0BC
