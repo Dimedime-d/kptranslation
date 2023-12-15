@@ -24,3 +24,9 @@ Some of the binaries contain pre-compressed data.
   * LZ Compressed VRAM data sent to child GBAs during multiplayer Minigame Paradise. This hacks in lowercase English ASCII characters.
 * mpObjTilesComp2.bin
   * Similar to above, except this hacks in the pause menu.
+* obj_LArrow.bin and obj_RArrow.bin
+  * Copied tile data for the pink L and R arrows that appear in the overworld, re-used in the magic instructions. Have to include an additional copy of this data to alter the "header" data to position it properly.
+* tenhundredobjnew.bin
+  * Pre-compressed binary of new object tiles used in "Ten and Hundred" magic trick. Includes the coins and dynamic "10/100" "heads/tails" text. Normally, I'd extract, replace, and re-compress these graphics similar to the multiplayer data, but the data to replace is less complicated, so I can just .incbin them.
+* booktestnewtiles.bin
+  * Pre-compressed binary of new background tiles used in "Book Test" magic trick.

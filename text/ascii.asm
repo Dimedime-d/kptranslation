@@ -142,6 +142,23 @@
     @SlipDrop:          .asciiz "Slip Drop"         ::  .align
     @MagnetForce:       .asciiz "Magnet Force"      ::  .align
     @Crossfire:         .asciiz "Crossfire"         ::  .align
+    ; Magic Tricks
+    @KururinShock:      .asciiz "Kururin Shock"     ::  .align
+    @TenAndHundred:     .asciiz "Ten and Hundred"   ::  .align
+    @BookTest:          .asciiz "Book Test"         ::  .align
+    @TimeParadox:       .asciiz "Time Paradox"      ::  .align
+    @SoundCatch:        .asciiz "Sound Catch"       ::  .align
+    @CenterPoint:       .asciiz "Center Point"      ::  .align
+    @GameBoyPanic:      .asciiz "Game Boy Panic"    ::  .align
+    @Impression:        .asciiz "Impression"        ::  .align
+    @Twist:             .asciiz "Twist"             ::  .align
+    @Imagine:           .asciiz "Imagine"           ::  .align
+    @LoveTester:        .asciiz "Love Tester"       ::  .align
+    @CaliforniaFlip:    .asciiz "California Flip"   ::  .align
+    @DoctorKururin:     .asciiz "Doctor Kururin"    ::  .align
+    @Microwave:         .asciiz "Microwave"         ::  .align
+    @UpDown:            .asciiz "Up Down"           ::  .align
+    @DontTouch:          .asciiz "Don't Touch"       ::  .align
 .endautoregion
         
 ;---------------------------------------------
@@ -292,3 +309,22 @@ creditLine s_credits52
     .word @Name6
     .word @Name7
     
+;----------------------------
+; repointing magic trick names
+.org 0x0803C07C
+    .word @KururinShock
+    .word @TenAndHundred
+    .word @BookTest
+    .word @TimeParadox
+    .word @SoundCatch
+    .word @CenterPoint
+    .word @GameBoyPanic
+    .word @Impression
+    .word @Twist
+    .word @Imagine
+    .word @LoveTester
+    .word @CaliforniaFlip
+    .word @DoctorKururin
+    .word @Microwave
+    .word @UpDown
+    .word @DontTouch
