@@ -350,6 +350,56 @@
         .incbin @MagicLearn + "preview3tiles.dmp" ::    .align
     @Preview3Map:
         .incbin @MagicLearn + "preview3map.dmp"   ::    .align
+    @Preview4Tiles:
+        .incbin @MagicLearn + "preview4tiles.dmp" ::    .align
+    @Preview4Map:
+        .incbin @MagicLearn + "preview4map.dmp"   ::    .align
+    @Preview5Tiles:
+        .incbin @MagicLearn + "preview5tiles.dmp" ::    .align
+    @Preview5Map:
+        .incbin @MagicLearn + "preview5map.dmp"   ::    .align
+    @Preview6Tiles:
+        .incbin @MagicLearn + "preview6tiles.dmp" ::    .align
+    @Preview6Map:
+        .incbin @MagicLearn + "preview6map.dmp"   ::    .align
+    @Preview7Tiles:
+        .incbin @MagicLearn + "preview7tiles.dmp" ::    .align
+    @Preview7Map:
+        .incbin @MagicLearn + "preview7map.dmp"   ::    .align
+    @Preview8Tiles:
+        .incbin @MagicLearn + "preview8tiles.dmp" ::    .align
+    @Preview8Map:
+        .incbin @MagicLearn + "preview8map.dmp"   ::    .align
+    @Preview9Tiles:
+        .incbin @MagicLearn + "preview9tiles.dmp" ::    .align
+    @Preview9Map:
+        .incbin @MagicLearn + "preview9map.dmp"   ::    .align
+    @Preview10Tiles:
+        .incbin @MagicLearn + "preview10tiles.dmp" ::    .align
+    @Preview10Map:
+        .incbin @MagicLearn + "preview10map.dmp"   ::    .align
+    @Preview11Tiles:
+        .incbin @MagicLearn + "preview11tiles.dmp" ::    .align
+    @Preview11Map:
+        .incbin @MagicLearn + "preview11map.dmp"   ::    .align
+    @Preview12Tiles:
+        .incbin @MagicLearn + "preview12tiles.dmp" ::    .align
+    @Preview12Map:
+        .incbin @MagicLearn + "preview12map.dmp"   ::    .align
+    @Preview13Tiles:
+        .incbin @MagicLearn + "preview13tiles.dmp" ::    .align
+    @Preview13Map:
+        .incbin @MagicLearn + "preview13map.dmp"   ::    .align
+    @Preview14Tiles:
+        .incbin @MagicLearn + "preview14tiles.dmp" ::    .align
+    @Preview14Map:
+        .incbin @MagicLearn + "preview14map.dmp"   ::    .align
+    @Preview15Tiles:
+        .incbin @MagicLearn + "preview15tiles.dmp" ::    .align
+    @Preview15Map:
+        .incbin @MagicLearn + "preview15map.dmp"   ::    .align
+        
+        
         
     @Header0Tiles:
         .incbin @MagicLearn + "header0tiles.dmp"    ::  .align
@@ -490,6 +540,42 @@
     .skip 4
     .word @Preview3Tiles
     .word @Preview3Map
+    .skip 4
+    .word @Preview4Tiles
+    .word @Preview4Map
+    .skip 4
+    .word @Preview5Tiles
+    .word @Preview5Map
+    .skip 4
+    .word @Preview6Tiles
+    .word @Preview6Map
+    .skip 4
+    .word @Preview7Tiles
+    .word @Preview7Map
+    .skip 4
+    .word @Preview8Tiles
+    .word @Preview8Map
+    .skip 4
+    .word @Preview9Tiles
+    .word @Preview9Map
+    .skip 4
+    .word @Preview10Tiles
+    .word @Preview10Map
+    .skip 4
+    .word @Preview11Tiles
+    .word @Preview11Map
+    .skip 4
+    .word @Preview12Tiles
+    .word @Preview12Map
+    .skip 4
+    .word @Preview13Tiles
+    .word @Preview13Map
+    .skip 4
+    .word @Preview14Tiles
+    .word @Preview14Map
+    .skip 4
+    .word @Preview15Tiles
+    .word @Preview15Map
     .skip 4
     
 ;===========Misc. Magic tricks==============
