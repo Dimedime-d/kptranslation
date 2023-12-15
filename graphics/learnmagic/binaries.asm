@@ -30,6 +30,10 @@
         .word @ImagineInstructions
         .word @LoveTesterInstructions
         .word @CaliforniaFlipInstructions
+        .word @DoctorKururinInstructions
+        .word @MicrowaveInstructions
+        .word @UpDownInstructions
+        .word @DontTouchInstructions
     
     @KururinShockInstructions:
         .word @KururinShockStep1Set
@@ -211,6 +215,58 @@
         .word @CaliforniaFlipStep5Set
         .word @CaliforniaFlipStep5Map
         .word 0x00
+    @DoctorKururinInstructions:
+        .word @DoctorKururinStep1Set
+        .word @DoctorKururinStep1Map
+        .word @DoctorKururinStep2Set
+        .word @DoctorKururinStep2Map
+        .word @DoctorKururinStep3Set
+        .word @DoctorKururinStep3Map
+        .word @DoctorKururinStep4Set
+        .word @DoctorKururinStep4Map
+        .word @DoctorKururinStep5Set
+        .word @DoctorKururinStep5Map
+        .word 0x00
+    @MicrowaveInstructions:
+        .word @MicrowaveStep1Set
+        .word @MicrowaveStep1Map
+        .word @MicrowaveStep2Set
+        .word @MicrowaveStep2Map
+        .word @MicrowaveStep3Set
+        .word @MicrowaveStep3Map
+        .word @MicrowaveStep4Set
+        .word @MicrowaveStep4Map
+        .word @MicrowaveStep5Set
+        .word @MicrowaveStep5Map
+        .word 0x00
+    @UpDownInstructions:
+        .word @UpDownStep1Set
+        .word @UpDownStep1Map
+        .word @UpDownStep2Set
+        .word @UpDownStep2Map
+        .word @UpDownStep3Set
+        .word @UpDownStep3Map
+        .word @UpDownStep4Set
+        .word @UpDownStep4Map
+        .word @UpDownStep5Set
+        .word @UpDownStep5Map
+        .word @UpDownStep6Set
+        .word @UpDownStep6Map
+        .word 0x00
+    @DontTouchInstructions:
+        .word @DontTouchStep1Set
+        .word @DontTouchStep1Map
+        .word @DontTouchStep2Set
+        .word @DontTouchStep2Map
+        .word @DontTouchStep3Set
+        .word @DontTouchStep3Map
+        .word @DontTouchStep4Set
+        .word @DontTouchStep4Map
+        .word @DontTouchStep5Set
+        .word @DontTouchStep5Map
+        .word @DontTouchStep6Set
+        .word @DontTouchStep6Map
+        .word 0x00
         
     @KururinShockStep1Set:  ::  .incbin @MagicLearn + "1,1.set.dmp" ::  .align
     @KururinShockStep1Map:  ::  .incbin @MagicLearn + "1,1.map.dmp" ::  .align
@@ -379,6 +435,54 @@
     @CaliforniaFlipStep4Map:      ::  .incbin @MagicLearn + "12,4.map.dmp" ::  .align
     @CaliforniaFlipStep5Set:      ::  .incbin @MagicLearn + "12,5.set.dmp" ::  .align
     @CaliforniaFlipStep5Map:      ::  .incbin @MagicLearn + "12,5.map.dmp" ::  .align
+    
+    @DoctorKururinStep1Set:      ::  .incbin @MagicLearn + "13,1.set.dmp" ::  .align
+    @DoctorKururinStep1Map:      ::  .incbin @MagicLearn + "13,1.map.dmp" ::  .align
+    @DoctorKururinStep2Set:      ::  .incbin @MagicLearn + "13,2.set.dmp" ::  .align
+    @DoctorKururinStep2Map:      ::  .incbin @MagicLearn + "13,2.map.dmp" ::  .align
+    @DoctorKururinStep3Set:      ::  .incbin @MagicLearn + "13,3.set.dmp" ::  .align
+    @DoctorKururinStep3Map:      ::  .incbin @MagicLearn + "13,3.map.dmp" ::  .align
+    @DoctorKururinStep4Set:      ::  .incbin @MagicLearn + "13,4.set.dmp" ::  .align
+    @DoctorKururinStep4Map:      ::  .incbin @MagicLearn + "13,4.map.dmp" ::  .align
+    @DoctorKururinStep5Set:      ::  .incbin @MagicLearn + "13,5.set.dmp" ::  .align
+    @DoctorKururinStep5Map:      ::  .incbin @MagicLearn + "13,5.map.dmp" ::  .align
+    
+    @MicrowaveStep1Set:      ::  .incbin @MagicLearn + "14,1.set.dmp" ::  .align
+    @MicrowaveStep1Map:      ::  .incbin @MagicLearn + "14,1.map.dmp" ::  .align
+    @MicrowaveStep2Set:      ::  .incbin @MagicLearn + "14,2.set.dmp" ::  .align
+    @MicrowaveStep2Map:      ::  .incbin @MagicLearn + "14,2.map.dmp" ::  .align
+    @MicrowaveStep3Set:      ::  .incbin @MagicLearn + "14,3.set.dmp" ::  .align
+    @MicrowaveStep3Map:      ::  .incbin @MagicLearn + "14,3.map.dmp" ::  .align
+    @MicrowaveStep4Set:      ::  .incbin @MagicLearn + "14,4.set.dmp" ::  .align
+    @MicrowaveStep4Map:      ::  .incbin @MagicLearn + "14,4.map.dmp" ::  .align
+    @MicrowaveStep5Set:      ::  .incbin @MagicLearn + "14,5.set.dmp" ::  .align
+    @MicrowaveStep5Map:      ::  .incbin @MagicLearn + "14,5.map.dmp" ::  .align
+    
+    @UpDownStep1Set:      ::  .incbin @MagicLearn + "15,1.set.dmp" ::  .align
+    @UpDownStep1Map:      ::  .incbin @MagicLearn + "15,1.map.dmp" ::  .align
+    @UpDownStep2Set:      ::  .incbin @MagicLearn + "15,2.set.dmp" ::  .align
+    @UpDownStep2Map:      ::  .incbin @MagicLearn + "15,2.map.dmp" ::  .align
+    @UpDownStep3Set:      ::  .incbin @MagicLearn + "15,3.set.dmp" ::  .align
+    @UpDownStep3Map:      ::  .incbin @MagicLearn + "15,3.map.dmp" ::  .align
+    @UpDownStep4Set:      ::  .incbin @MagicLearn + "15,4.set.dmp" ::  .align
+    @UpDownStep4Map:      ::  .incbin @MagicLearn + "15,4.map.dmp" ::  .align
+    @UpDownStep5Set:      ::  .incbin @MagicLearn + "15,5.set.dmp" ::  .align
+    @UpDownStep5Map:      ::  .incbin @MagicLearn + "15,5.map.dmp" ::  .align
+    @UpDownStep6Set:      ::  .incbin @MagicLearn + "15,6.set.dmp" ::  .align
+    @UpDownStep6Map:      ::  .incbin @MagicLearn + "15,6.map.dmp" ::  .align
+    
+    @DontTouchStep1Set:      ::  .incbin @MagicLearn + "16,1.set.dmp" ::  .align
+    @DontTouchStep1Map:      ::  .incbin @MagicLearn + "16,1.map.dmp" ::  .align
+    @DontTouchStep2Set:      ::  .incbin @MagicLearn + "16,2.set.dmp" ::  .align
+    @DontTouchStep2Map:      ::  .incbin @MagicLearn + "16,2.map.dmp" ::  .align
+    @DontTouchStep3Set:      ::  .incbin @MagicLearn + "16,3.set.dmp" ::  .align
+    @DontTouchStep3Map:      ::  .incbin @MagicLearn + "16,3.map.dmp" ::  .align
+    @DontTouchStep4Set:      ::  .incbin @MagicLearn + "16,4.set.dmp" ::  .align
+    @DontTouchStep4Map:      ::  .incbin @MagicLearn + "16,4.map.dmp" ::  .align
+    @DontTouchStep5Set:      ::  .incbin @MagicLearn + "16,5.set.dmp" ::  .align
+    @DontTouchStep5Map:      ::  .incbin @MagicLearn + "16,5.map.dmp" ::  .align
+    @DontTouchStep6Set:      ::  .incbin @MagicLearn + "16,6.set.dmp" ::  .align
+    @DontTouchStep6Map:      ::  .incbin @MagicLearn + "16,6.map.dmp" ::  .align
 
     TableMagicImages:
         .word @KururinShockImages
@@ -393,6 +497,10 @@
         .word @ImagineImages
         .word @LoveTesterImages
         .word @CaliforniaFlipImages
+        .word @DoctorKururinImages
+        .word @MicrowaveImages
+        .word @UpDownImages
+        .word @DontTouchImages
         
     @Terminator equ 0xFF, 0xFF
 
@@ -408,6 +516,8 @@
     @CenterPointImages:
     @ImpressionImages:
     @CaliforniaFlipImages:
+    @DoctorKururinImages:
+    @DontTouchImages:
         .byte @Terminator
     @GameBoyPanicImages:
         .byte 0x04, 0x03, @Terminator
@@ -417,6 +527,10 @@
         .byte 0x01, 0x05, @Terminator
     @LoveTesterImages:
         .byte 0x01, 0x06, @Terminator
+    @MicrowaveImages:
+        .byte 0x02, 0x07, 0x03, 0x08, @Terminator
+    @UpDownImages:
+        .byte 0x00, 0x09, @Terminator
         
     .align
     @Picture0:
