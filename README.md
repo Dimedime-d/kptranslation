@@ -1,8 +1,33 @@
 This is my English translation project of the game Kururin Paradise. Check out the wiki and assorted assembly files in this repository for some documentation on the ROM.
 
+Much of the existing translations are just placeholders, and demonstrate that I can inject arbitrary English text/graphics.
+
 ## Extra Features
 In addition to the translation aspect of this project, there is some additional functionality:
 * You can re-watch Adventure Mode cutscenes in Practice Mode.
+
+## Manual Patching (Windows only)
+
+* Clone this repository
+* Get a ROM of Kururin Paradise. Should match these hashes:
+
+Method | Hash
+------- | ------------------------------------------------------------
+SHA256 | ED9BAC12FE065D11ADFFB08A27DE1A932E4E5A22CBF6B4B24FE28EF49F5385D2 
+SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
+
+* Rename rom to `kp.gba`
+* Put kp.gba in the root of the repository
+* Run `build.bat`
+* Output ROM is `kp_patched.gba`
+
+## Patching Notes
+
+My "patching" program of choice is `armips`, which lets me write assembly hacks, include binaries, dynamically address labels, etc. Some chunks of the ROM are compressed via the GBA's BIOS method, so the batch script also runs `lzss` by CUE to decompress those binaries (mainly multiplayer). `armips` hacks those binaries, and `lzss` re-compresses them to be inserted into the ROM by invoking `armips` again. The whole patching process is self-contained, aside from the ROM.
+
+The "encoded" text in the ROM is automatically patched using the above batch script i.e. you can change the contents of the text in the `text/` folder, and they will appear in the ROM when you manually patch.
+
+All "graphical" text in the ROM is _not_ automatically formatted and inserted. Should you change the images, there are a smattering of Python scripts in the `graphics/` folders to format the images to `.dmp` files, which has already been done. Python is my fast and dirty way of compressing data using the game's custom functions as well as operating `grit.exe`. You do not need Python to patch the ROM, only to format new images if you choose to do so.
 
 ## Screenshots
 
@@ -19,23 +44,9 @@ In addition to the translation aspect of this project, there is some additional 
 ![magiceng](https://github.com/Dimedime-d/kptranslation/assets/73413313/33085c03-aedf-45f0-b1cc-d96b272f0bd1)
 ![magiceng2](https://github.com/Dimedime-d/kptranslation/assets/73413313/792843a8-1fea-40dd-829c-baa4bfd1c238)
 
-## Manual Patching (Windows only)
-
-* Get a ROM of Kururin Paradise. Should match these hashes:
-
-Method | Hash
-------- | ------------------------------------------------------------
-SHA256 | ED9BAC12FE065D11ADFFB08A27DE1A932E4E5A22CBF6B4B24FE28EF49F5385D2 
-SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
-
-* Rename rom to `kp.gba`
-* Put kp.gba in the root of the repository
-* Run `build.bat`
-* Output ROM is `kp_patched.gba`
-
 ## Known Bugs
 
-* The butterfly in the intro doesn't animate correctly (See ![#3](https://github.com/Dimedime-d/kptranslation/issues/3))
+* Some character animations play faster than usual, due to my timing of the "rolling" text characters being faster.
 
 ## To-do List
 
