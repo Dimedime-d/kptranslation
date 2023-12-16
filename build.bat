@@ -37,7 +37,7 @@ lzss -ewo "%PayloadFile3%"
 
 echo "[INFO] Patching game, please wait..."
 
-armips.exe main.asm
+armips.exe main.asm -sym "kp_patched.sym"
 
 if %errorlevel% NEQ 0 (
 	echo "ERROR: Armips could not build the ROM."
