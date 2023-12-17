@@ -5,6 +5,7 @@ Much of the existing translations are just placeholders, and demonstrate that I 
 ## Extra Features
 In addition to the translation aspect of this project, there is some additional functionality:
 * You can re-watch Adventure Mode cutscenes in Practice Mode.
+* The functionality for deleting all save data / reinitializing corrupted save data has been restored. In the original ROM, if you held A, B, L, R, Start, and Select before the Nintendo logo appears, the game would crash. Same thing happens when the SRAM checksum fails. This is due to the game trying to create a buffer in a space that hasn't been initialized yet. This may matter for flashcart testing...
 
 ## Manual Patching (Windows only)
 

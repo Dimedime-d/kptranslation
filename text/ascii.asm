@@ -159,6 +159,14 @@
     @Microwave:         .asciiz "Microwave"         ::  .align
     @UpDown:            .asciiz "Up Down"           ::  .align
     @DontTouch:          .asciiz "Don't Touch"       ::  .align
+    ; Misc. Save Data
+    @DeleteData1:       .asciiz "Delete ALL"        ::  .align
+    @DeleteData2:       .asciiz "save data?"        ::  .align
+    @DeleteDataYes:     .asciiz "Yes"               ::  .align
+    @DeleteDataNo:      .asciiz "No!"               ::  .align
+    @CorruptedData1:    .asciiz "The save data"     ::  .align
+    @CorruptedData2:    .asciiz "is corrupted."     ::  .align
+    @CorruptedData3:    .asciiz "Reinitializing data..."    ::  .align
 .endautoregion
         
 ;---------------------------------------------
@@ -206,6 +214,33 @@
 ;HACK
 .org 0x08022EAA
     add r0, 0Ah ;instead of 10h
+    
+;------------Deleet
+.org 0x080015AC
+    .word @DeleteData1
+    .word @DeleteData2
+    .word @DeleteDataYes
+    .word @DeleteDataNo
+
+.org 0x080015CC
+    .word @CorruptedData1
+    .word @CorruptedData2
+    .word @CorruptedData3
+    
+.org 0x0800134E ; this subroutine call messes up the "delete all save data" prompt
+    nop ::  nop
+    
+.org 0x080014DA ; this subroutine call messes up the "save data corrupted" text
+    nop ::  nop
+    
+;re-position some strings
+.org 0x0800138C ::  mov r0, 0x5C
+.org 0x0800139A ::  mov r0, 0x5C
+.org 0x080013DC ::  mov r0, 0x70
+
+.org 0x08001518 ::  mov r0, 0x54
+.org 0x08001524 ::  mov r0, 0x56
+.org 0x08001530 ::  mov r0, 0x44
 
 ;------------------------
 ;fix name select keyboard to get rid of Japanese characters!
