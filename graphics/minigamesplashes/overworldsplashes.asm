@@ -25,6 +25,11 @@
     .word @entry_neoTilesEnd - @entry_neoTiles :: .skip 0x08
     .word @entry_neoMap - 0x08138C54
 
+.org 0x080AD5F0
+    .word @congratsTiles - 0x08138C54 
+    .word @congratsTilesEnd - @congratsTiles :: .skip 0x08
+    .word @congratsMap - 0x08138C54
+
 .autoregion
     .align
     @entry_villageTiles:
@@ -51,4 +56,9 @@
     .incbin "graphics\minigamesplashes\dumps\entry_neoTiles.dmp" :: @entry_neoTilesEnd: :: .align
     @entry_neoMap:
     .incbin "graphics\minigamesplashes\dumps\entry_neoMap.dmp" :: .align
+
+    @congratsTiles:
+    .incbin "graphics\minigamesplashes\dumps\congratsTiles.dmp" :: @congratsTilesEnd: :: .align
+    @congratsMap:
+    .incbin "graphics\minigamesplashes\dumps\congratsMap.dmp" :: .align
 .endautoregion

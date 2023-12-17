@@ -392,7 +392,7 @@ overworld_splash_screens = [
     SplashScreen("clockentry.png",   "entry_clock",   "entry_clock",   "0x080AD3C8"),
     SplashScreen("magicentry.png",   "entry_magic",   "entry_magic",   "0x080AD480"),
     SplashScreen("neoentry.png",     "entry_neo",     "entry_neo",     "0x080AD538"),
-    # SplashScreen("congrats.png",   "congrats",      "congrats",      "0x080AD5F0"), Not yet implemented...
+    SplashScreen("congrats.png",     "congrats",      "congrats",        "0x080AD5F0"), 
 ]
 
 title_screen = TitleScreen("titlescreen.png", "title", "title", "0x080AD6A8")
