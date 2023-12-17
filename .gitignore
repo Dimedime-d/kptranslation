@@ -7,7 +7,5 @@
 /graphics/menu/reserve/*
 /graphics/fixed/reserve/*
 /graphics/menu/dumps/*.bin
-/graphics/__pycache__/*
-/graphics/minigamesplashes/__pycache__/*
-/graphics/learnmagic/__pycache__/*
+**/__pycache__/
 /graphics/learnmagic/reserve/*

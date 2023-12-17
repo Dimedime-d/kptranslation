@@ -1,0 +1,18 @@
+Level titles are organized in 32x16 blocks
+To make new labels:
+	-Comic Sans Font 12 plain, no antialiasing on  a CLEAR layer
+	-Object -> Outline Object with 1 width, 127 softness RGB 152/0/64, no angle
+	-Adjust spacing as necessary
+	-For level titles: Align to BOTTOM and RIGHT (raise by 2 pixels)
+		- Except not really? Leave 2wx3h buffer...
+	-GBA screen is 240x160 (E0 by A0 pixels)
+	
+Importing:
+	-GBAGE, open a kp rom and goto free space (usually 0xB0000)
+	-Set palette 0x19C284
+	-Import the graphic.png, uncheck import palette
+	-Dump the binary
+
+Dialog box in-level: 1C6410
+	
+

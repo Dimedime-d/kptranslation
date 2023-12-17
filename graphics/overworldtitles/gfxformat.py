@@ -16,6 +16,7 @@ def to_gba(arr):
     
     buffer = split32width(arr).flatten()
     
+    # 4bpp (4 bits per palette) - interweave each digit
     buffer = (buffer[1::2] << 4) + buffer[::2]
     return buffer
 
@@ -24,6 +25,8 @@ def split32width(arr):
     w, h = arr.shape
 
     # It just works...
+    # Ex: with a 96x16 image... reshape to 16x3x32, then 3x16x32, then 3x2x8x4x8, then 3x2x4x8x8
+    # 1st dimension is how many blocks, last 2 dimensions contain 8x8 pixel data, organized into 32x16 or 32x32 "metatiles"
     buffer = arr.reshape(h, w // 32, 32).swapaxes(0, 1).reshape(h // 16 * w // 32, 2, 8, 4, 8).swapaxes(2, 3)
     return buffer
 
@@ -32,13 +35,14 @@ def image_to_dmp(file):
     dump_file = f"dumps/{file[:-4]}.dmp"
 
     image: Image.Image = Image.open(file)
-    assert image.width % 32 == 0,  "image width should be a multiple of 32"
-    assert image.height % 16 == 0, "image height should be a multiple of 16"
+    assert image.width % 32 == 0,  f"{file}: image width should be a multiple of 32"
+    assert image.height % 16 == 0, f"{file}: image height should be a multiple of 16"
     
     #NEW: Fit image to original palette
     image = image.convert("RGB")
     image = quantize_to_palette(image, original_palette)
     
+    # Little-endian unsigned 8-bit int array, with dimensions of the original image
     arr = numpy.array(image.getdata(), dtype='<u1').reshape(image.width, image.height)
     
     imgBytes = to_gba(arr).tobytes()
