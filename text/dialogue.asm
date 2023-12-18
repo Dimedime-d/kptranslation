@@ -43,133 +43,133 @@ s_magicD equ "Microwave" ;マイクロ・ウェーブ
 s_magicE equ "Up Down" ;アップ・ダウン
 s_magicF equ "Don't Touch" ;ドン・タッチ
 
-s_kappado1start1 equ "Welcome to our currently<line>unnamed magic group!" ;マジック大魔術団、<line>りゃくしてマダ魔団へようこそ！
-s_kappado1start2 equ "Brought to you by yours truly,<line>Kappado!" ;ボクのなまえは、カッパード！
-s_kappado1start3 equ "All your family are with us." ;おまえの家族は、<line>われわれがあーずかったー
-s_kappado1start4 equ "Have you seen my family around?" ;ぼくの兄弟、みなかった？
-s_kappado1start5 equ "I just said they're with our<line>magic group." ;・・・マダ魔団が<line>あずかったってばー
-s_kappado1start6 equ "Why'd you take my family?" ;なんでそんなことするの？
-s_kappado1start7 equ "'Cause they wanted to learn<line>some of our great magic tricks." ;マジックのタネをのぞくからさー
-s_kappado1start8 equ "Want your family back?<line>Then let's play my minigame!" ;かえしてほしければ・・・<line>このゲームで勝負だよー
+s_kappado1start1 equ "Welcome to the<line>Magic Magicians show!" ;マジック大魔術団、<line>りゃくしてマダ魔団へようこそ！
+s_kappado1start2 equ "Hosted by yours truly,<line>the one and only Kappado!" ;ボクのなまえは、カッパード！
+s_kappado1start3 equ "All your family's doing<line>magic business with us." ;おまえの家族は、<line>われわれがあーずかったー
+s_kappado1start4 equ "Have you seen my brothers<line>and sisters?" ;ぼくの兄弟、みなかった？
+s_kappado1start5 equ "I just said they're with us." ;・・・マダ魔団が<line>あずかったってばー
+s_kappado1start6 equ "For what?! Hand them back!" ;なんでそんなことするの？
+s_kappado1start7 equ "It's 'cause they wanted to learn<line>all of our great magic tricks." ;マジックのタネをのぞくからさー
+s_kappado1start8 equ "Want your family back?<line>Then win my minigame!" ;かえしてほしければ・・・<line>このゲームで勝負だよー
 
-s_kappado1lose1 equ "Oh no, I lost!" ;あらら、しっぱいしちゃった
+s_kappado1lose1 equ "Oh no, I failed..." ;あらら、しっぱいしちゃった
 s_kappado1lose2 equ "What a shame!" ;ざーんねーん！
 s_kappado1lose3 equ "You can go on ahead,<line>but your brother's staying with me." ;先に行ってもいいけど<line>兄弟はかえせないなー
-s_kappado1lose4 equ "I'll be waiting for you to<line>try again!" ;またちょうせんしてねー
+s_kappado1lose4 equ "Come try again some other time!" ;またちょうせんしてねー
 
-s_kappado1redo1 equ "Welcome back. Think you<line>can clear my minigame this time?" ;いらっしゃーい<line>こんどはクリアできるかなー？
+s_kappado1redo1 equ "Welcome back. Think you<line>can win this time?" ;いらっしゃーい<line>こんどはクリアできるかなー？
 s_kappado1redo2 equ "You bet!" ;もちろんさー
-s_kappado1redo3 equ "Okay, now stop imitating me." ;・・・マネしないでよねー
+s_kappado1redo3 equ "Okay, now stop copying me." ;・・・マネしないでよねー
 
-s_kappado1win1 equ "Wow! You actually beat me!" ;ぎゃふん！　やられたよー
-s_kappado1win2 equ "There you are, Chikurin!<line>Are you alright?" ;チクリン、だいじょうぶ？
+s_kappado1win1 equ "Ah! You bested me!" ;ぎゃふん！　やられたよー
+s_kappado1win2 equ "Chikurin! Are you okay?" ;チクリン、だいじょうぶ？
 s_kappado1win3 equ "Yeah, big brother! I even<line>learned a magic trick." ;やぁ、お兄ちゃん！<line>ボクマジックをおぼえたんだ！
 s_kappado1win4 equ "I can teach you!" ;お兄ちゃんにも教えてあげる！
 
-s_kappado2start1 equ "Nunc non porta metus.<line>Vestibulum ante ipsum." ; Lorem ipsum here on out; see my pastebin for the rest of the scripts https://pastebin.com/Tti7R01L
-s_kappado2start2 equ "In semper ultricies.<line>Suspendisse a tincidunt."
-s_kappado2start3 equ "Suspendisse sit amet arcu<line>id nulla eget ut massa."
-s_kappado2start4 equ "Duis fermentum et nulla<line>vitae fringilla."
-s_kappado2start5 equ "Suspendisse at risus eget<line>ipsum tempor facilisis."
+s_kappado2start1 equ "Ta-da! A stunning entrance<line>from the great Kappado!" ; see my pastebin for the rest of the scripts https://pastebin.com/Tti7R01L
+s_kappado2start2 equ "Huh? I've already seen you<line>before..."
+s_kappado2start3 equ "I've set up 3 challenges<line>in this land."
+s_kappado2start4 equ "You gotta win 3 times to<line>save all your family."
+s_kappado2start5 equ "Alright. Let me at it!"
 
-s_kappado2lose1 equ "Donec maximus elit eget<line>justo gravida fermentum."
-s_kappado2lose2 equ "Cras et ipsum neque.<line>Praesent in egestas risus."
+s_kappado2lose1 equ "I've lost to Cappy..."
+s_kappado2lose2 equ "No no no, that's not my name!<line>I'm Kappado!"
 
-s_kappado2redo1 equ "Nulla facilisis rhoncus lectus,<line>vel pharetra dui tincidunt et."
-s_kappado2redo2 equ "In vitae mi molestie,<line>pretium nisl sit amet."
+s_kappado2redo1 equ "I'm back!."
+s_kappado2redo2 equ "I like your energy.<line>Come on now!"
 
-s_kappado2win1 equ "Sed non ullamcorper magna."
-s_kappado2win2 equ "Etiam at metus ac justo<line>tempus sit amet vel lorem."
-s_kappado2win3 equ "Aenean eleifend quam nec<line>dolor sollicitudin sodales."
-s_kappado2win4 equ "Curabitur nisi ex,<line>suscipit vel ullamcorper qui."
-s_kappado2win5 equ "Pellentesque vel risus congue,<line>vel imperdiet nisi maximus."
+s_kappado2win1 equ "Oh no, Baron Magic<line>won't be happy!"
+s_kappado2win2 equ "Hoyorin! I've come to save you."
+s_kappado2win3 equ "Magic makes quite the show,<line>Hoy."
+s_kappado2win4 equ "Looks like you got caught up<line>in all the trickery."
+s_kappado2win5 equ "Hoyo! Sorry for leaving you,<line>big brother."
 
-s_kappado3start1 equ "Mauris finibus purus metus,<line>in imperdiet nisl ultrices quis."
-s_kappado3start2 equ "Donec nunc justo,<line>dictum a fringilla nec."
-s_kappado3start3 equ "Quisque faucibus gravida<line>nisi quis mattis."
-s_kappado3start4 equ "Quisque pretium metus nulla,<line>id sodales neque aliquet nec."
+s_kappado3start1 equ "I wanna be a great magician<line>just like Dad..."
+s_kappado3start2 equ "Your dad is Baron Magic?"
+s_kappado3start3 equ "No no no, the Baron is my mentor."
+s_kappado3start4 equ "Anyways, think you can beat<line>this challenge?"
 
-s_kappado3lose1 equ "Proin sagittis metus lectus,<line>eget vehicula mollis porta."
-s_kappado3lose2 equ "Suspendisse ultricies lorem,<line>ac molestie ligula sodales ut."
+s_kappado3lose1 equ "Ugh. Lost again."
+s_kappado3lose2 equ "Boo hoo, too hard for you?<line>Better luck next time!"
 
-s_kappado3redo1 equ "Praesent lacinia vehicula posuere."
-s_kappado3redo2 equ "Nunc a dolor et sapien sodales."
+s_kappado3redo1 equ "I'll give it my all this time!"
+s_kappado3redo2 equ "Me too!"
 
-s_kappado3win1 equ "Sed turpis nisl,<line>accumsan at congue vitae."
-s_kappado3win2 equ "Cras euismod lacus eget ultricies."
-s_kappado3win3 equ "Nam congue porttitor fringilla.<line>Ut laoreet vitae pellentesque."
-s_kappado3win4 equ "Vestibulum non porta justo,<line>et venenatis risus."
+s_kappado3win1 equ "Can the little one pull off my<line>magic tricks?"
+s_kappado3win2 equ "Great to see Hyokorin's<line>safe and sound."
+s_kappado3win3 equ "My magic secrets!<line>I'm telling the Baron."
+s_kappado3win4 equ "Have I done something wrong?"
 
-s_tenko1start1 equ "Phasellus mattis mollis vehicula."
-s_tenko1start2 equ "Aliquam ut molestie quam,<line>eu condimentum tortor."
-s_tenko1start3 equ "Integer feugiat ullamcorper tristique."
-s_tenko1start4 equ "Donec euismod,<line>arcu eget tristique iaculis."
-s_tenko1start5 equ "Quisque porttitor nulla magna,<line>nec porta augue viverra ut."
-s_tenko1start6 equ "Aliquam at tempor enim.<line>Quisque sapien nisl."
-s_tenko1start7 equ "Dictum non varius ac,<line>interdum sed tortor."
-s_tenko1start8 equ "Nullam magna sem,<line>laoreet id ultricies eget."
-s_tenko1start9 equ "Etiam a nibh quis risus<line>molestie tristique in ac velit."
+s_tenko1start1 equ "Hee hee hee..."
+s_tenko1start2 equ "Welcome, my bluebird of<line>happiness."
+s_tenko1start3 equ "And you are?"
+s_tenko1start4 equ "Tee hee, your listening<line>is much appreciated!"
+s_tenko1start5 equ "I'm from the magic world, the<line>last angel to have descended here."
+s_tenko1start6 equ "I go by none other than<line>Angel Tenko!"
+s_tenko1start7 equ "What a long name to remember."
+s_tenko1start8 equ "It's just a title, a title!<line>That's all."
+s_tenko1start9 equ "Enough! Let's see if you're up for<line>my challenge."
 
-s_tenko1lose1 equ "Aenean eget tellus porttitor,<line>dapibus metus et, efficitur augue."
-s_tenko1lose2 equ "Maecenas mattis auctor<line>metus sed rhoncus."
-s_tenko1lose3 equ "Praesent eget lectus eget dolor<line>lobortis faucibus non eget libero."
-s_tenko1lose4 equ "Integer bibendum nunc<line>quis laoreet egestas."
+s_tenko1lose1 equ "Seems like it was too difficult<line>for a little one like you."
+s_tenko1lose2 equ "I feel like you're the little one..."
+s_tenko1lose3 equ "That's just the curly part of<line>you head!"
+s_tenko1lose4 equ "Of course you'd seem taller!"
 
-s_tenko1redo1 equ "Pellentesque nisi mi,<line>fringilla a enim facilisis."
-s_tenko1redo2 equ "Curabitur et nibh ligula.<line>Fusce commodo nunc at bibendum."
-s_tenko1redo3 equ "Etiam eget nibh a mauris<line>scelerisque feugiat nec placerat urna."
+s_tenko1redo1 equ "Oh, why have you returned?"
+s_tenko1redo2 equ "I have no time for child's play."
+s_tenko1redo3 equ "I'll surely win this time!"
 
-s_tenko1win1 equ "Nulla blandit ante vel<line>scelerisque fermentum."
-s_tenko1win2 equ "Quisque eget magna sodales,<line>efficitur tortor nec, blandit purus."
-s_tenko1win3 equ "Vesbulum gravida sagitis interdum."
-s_tenko1win4 equ "Morbi magna felis, mollis a<line>volutpat in, auctor ultricies diam."
+s_tenko1win1 equ "This can't be!"
+s_tenko1win2 equ "Hey, Fuwarin!<line>Are you okay?"
+s_tenko1win3 equ "I've got a magic trick up my<line>sleeve."
+s_tenko1win4 equ "It's like witchcraft,<line>I'm telling you!"
 
-s_tenko2start1 equ "Lorem ipsum dolor sit amet,<line>consectetur adipiscing elit."
-s_tenko2start2 equ "Sed ullamcorper<line>dui id varius vehicula."
-s_tenko2start3 equ "Sed eget lectus sit amet urna<line>egestas lobortis sit amet at neque."
-s_tenko2start4 equ "Curabitur arcu felis, ultrices at<line>massa sed, pretium finibus dui."
-s_tenko2start5 equ "Sed feugiat facilisis quam,<line>id convallis orci convallis porta."
+s_tenko2start1 equ "Welcome."
+s_tenko2start2 equ "Are you happy to see me again?"
+s_tenko2start3 equ "Eh, I'm indifferent."
+s_tenko2start4 equ "Why, you should answer \"Yes\"<line>when asked a question like that!"
+s_tenko2start5 equ "You sure don't know how to<line>get a girl!"
 s_tenko2start6 equ "?"
-s_tenko2start7 equ "Nunc tincidunt accumsan feugiat."
+s_tenko2start7 equ "Nevermind that!<line>It's game time!"
 
-s_tenko2lose1 equ "Integer fermentum cursus turpis,<line>sit amet commodo orci."
-s_tenko2lose2 equ "Etiam aliquam tincidunt lacinia.<line>Proin quis ante dolor eleifend eleifend."
-s_tenko2lose3 equ "Ut ornare varius tellus,<line>ultrices malesuada ligula ultricies eu."
-s_tenko2lose4 equ "Ut turpis tortor, gravida ac<line>viverra ut, ornare quis orci."
+s_tenko2lose1 equ "Oh no, lost again."
+s_tenko2lose2 equ "You should be more frustrated<line>at yourself!"
+s_tenko2lose3 equ "Darn! Grrr...........<line>How's that?"
+s_tenko2lose4 equ "That's enough,<line>you go back now."
 
-s_tenko2redo1 equ "Sed sed tempus tortor,<line>ut condimentum ligula."
-s_tenko2redo2 equ "Aliquam pellente molestie tempor."
+s_tenko2redo1 equ "Hey, Loverin."
+s_tenko2redo2 equ "No, no!<line>Only after beating my minigame!"
 
-s_tenko2win1 equ "Donec vestibulum nunc sagittis,<line>faucibus lectus eget, varius diam."
-s_tenko2win2 equ "Cras elemum arcu sed pellentesque."
-s_tenko2win3 equ "Curabitur id condimentum ex."
-s_tenko2win4 equ "Fusce congue nisl et ante mattis,<line>vel ornare est sodales."
+s_tenko2win1 equ "I'm telling big brother!<line>Waaaaaaaaaaaa-"
+s_tenko2win2 equ "Tenko taught me this magic<line>trick."
+s_tenko2win3 equ "I love teaching big brother!"
+s_tenko2win4 equ "Thank you, Loverin."
 
-s_tenko3start1 equ "Phasellus erat leo, dignissim nec<line>urna iaculis, finibus feugiat nibh."
-s_tenko3start2 equ "Nullam ac volutpat sem."
-s_tenko3start3 equ "Fusce rutrum ante ullamcorper,<line>et mollis urna vehicula."
-s_tenko3start4 equ "Donec turpis massa, commodo et<line>sem sed, malesuada posuere ex."
-s_tenko3start5 equ "Aliquam placerat vitae tristique,<line>in blandit ante ultricies."
-s_tenko3start6 equ "Pellentesque laoreet neque in mauris<line>laoreet, efficitur purus consectetur."
-s_tenko3start7 equ "Ut orci metus, interdum eget<line>scelerisque et, posuere at nisi."
-s_tenko3start8 equ "Curabitur sed ante porta, ultrices<line>ante ac, dictum diam."
-s_tenko3start9 equ "Maecenas non neque erat.<line>Morbi eleifend turpis sed viverra."
-s_tenko3start10 equ "Sed vel eros lorem mollis imperdiet."
-s_tenko3start11 equ "Vivamus dolor velit, blandit id<line>nibh vitae, sodales hendrerit eros."
+s_tenko3start1 equ "Hey."
+s_tenko3start2 equ "What is it?"
+s_tenko3start3 equ "All magic is just tricks,<line>right?"
+s_tenko3start4 equ "That's an extreme assumption<line>to make."
+s_tenko3start5 equ "And magicians perform all<line>sorts of tricks, right?"
+s_tenko3start6 equ "Well, most of the time..."
+s_tenko3start7 equ "If you're the Magic Magicians, you're<line>saying the same thing twice, right?"
+s_tenko3start8 equ "Wha, what are you talking about?"
+s_tenko3start9 equ "Our magic is so amazing<line>that I'd say it twice!"
+s_tenko3start10 equ "Hmmm, okay."
+s_tenko3start11 equ "What minigame do you have<line>for me this time?"
 
-s_tenko3lose1 equ "Vestibulum ante ipsum primis<line>et ultrices posuere cubilia curae."
-s_tenko3lose2 equ "Sed quis ipsum rutrum, bibendum<line>orci eu, hendrerit lacus."
-s_tenko3lose3 equ "Nunc id purus nisl."
+s_tenko3lose1 equ "You lost because you keep<line>talking about minor details!"
+s_tenko3lose2 equ "Hmmm, I'll definitely think<line>about it."
+s_tenko3lose3 equ "Hmph, I don't get your sarcasm."
 
-s_tenko3redo1 equ "Mauris eu dolor sit amet<line>nibh feugiat tincidunt."
-s_tenko3redo2 equ "In sed blandit metus.<line>Aliquam ac urna suscipit tempor."
-s_tenko3redo3 equ "Maecenas porttitor tortor ut<line>consectetur porttitor."
+s_tenko3redo1 equ "I'm back~"
+s_tenko3redo2 equ "You should have a little more<line>sense of humility!"
+s_tenko3redo3 equ "Hmmm, I'll definitely think<line>about it."
 
-s_tenko3win1 equ "Curabitur quis mi imperdiet, rhoncus<line>sit amet, imperdiet libero."
-s_tenko3win2 equ "Vivamus tempor libero libero,<line>quis dignissim augue ultrices at."
-s_tenko3win3 equ "Vestibulum ultrices scelerisque<line>turpis quis tincidunt."
-s_tenko3win4 equ "Morbi quis tempus enim,<line>et dapibus massa."
-s_tenko3win5 equ "Nunc in diam vitae urna<line>lacinia pulvinar ut a sapien."
+s_tenko3win1 equ "Gaa-<line>Did you really beat it?"
+s_tenko3win2 equ "You looked up a strategy guide,<line>didn't you!?"
+s_tenko3win3 equ "Big brother!"
+s_tenko3win4 equ "Glad to see you're alright,<line>Gekirin!"
+s_tenko3win5 equ "Magic is amazing!<line>Gekirin is impressed!"
 
 s_naporon1start1 equ "Donec tempor non ante ut<line>condimentum."
 s_naporon1start2 equ "Nulla orci arcu, sodales in<line>lacinia a, tempor at enim."

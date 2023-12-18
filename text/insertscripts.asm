@@ -140,6 +140,13 @@ sndOffset equ 0x78 ;originally 0x40, makes more space for characters
 .org 0x08095CE4
 .byte 0x50 ;originally 0x26, deletes all text chars
 
+;--------------Animation modifications
+
+; fixes one of Tenko's animations, she no longer bobs up and down unusually fast.
+.org 0x08031B34 ::  .byte 0x10
+    .skip 0x0B  ::  .byte 0x0C  ::  .skip 0x0B  ::  .byte 0x0C
+    .skip 0x0B  ::  .byte 0x0C  ::  .skip 0x0B  ::  .byte 0x0C
+
 ;----------------- Neo Land Intermission dialogue modifications (can press A to display all text)
 
 .org 0x08095EFC

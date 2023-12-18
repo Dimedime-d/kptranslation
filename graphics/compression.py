@@ -9,7 +9,8 @@ class CompressBase(ABC):
 
 class LZ(CompressBase):
     """Custom compression routine that doesn't quite match the one in the GBA BIOS.
-    Decompression function in ROM is at offsets 0x92134 and 0x92190."""
+    Decompression function in ROM is at offsets 0x92134 and 0x92190. r0 = source, r1 = destination
+    The first function uses uncompressed length as a paremeter (r2), the second function uses compressed length """
     PREFIX_MIN_LENGTH = 3
     
     def compress(orig):
