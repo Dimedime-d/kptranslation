@@ -241,98 +241,98 @@ s_naporon3win3 equ "Ow! Fell down again."
 s_naporon3win4 equ "Pokorin, are you okay?<line>You've got to be more careful."
 s_naporon3win5 equ "Sorry for making you worry,<line>Poko..."
 
-s_baron1start1 equ "In laoreet nunc in velit<line>facilisis fermentum."
-s_baron1start2 equ "Suspendisse pretium, justo<line>eleifend maximus fermentum."
-s_baron1start3 equ "Ante turpis condimentum tortor,<line>vel hendrerit odio augue et metus."
-s_baron1start4 equ "Praesent consequat convallis urna."
-s_baron1start5 equ "Sed vestibulum lacus dictum urna<line>posuere, a elementum libero rutrum."
-s_baron1start6 equ "Ut vel sapien feugiat, elementum<line>est et, tempus libero."
+s_baron1start1 equ "Hahaha, welcome to the<line>Magic Kingdom!"
+s_baron1start2 equ "Wow! You're floating!"
+s_baron1start3 equ "I am the world famous<line>Baron Magic!!!!"
+s_baron1start4 equ "Kururin!"
+s_baron1start5 equ "Come! Challenge my minigame!"
+s_baron1start6 equ "You're on! I'll give it my all!"
 
-s_baron1lose1 equ "Phasellus sagittis diam mauris,<line>id porta sapien scelerisque vitae."
-s_baron1lose2 equ "Quisque mi magna, faucibus vitae<line>nunc rhoncus, dapibus ultricies ipsum."
-s_baron1lose3 equ "Praesent tellus ipsum, tempus in<line>fermentum quis, feugiat ut nisi."
-s_baron1lose4 equ "Aenean sapien justo, pharetra sed<line>orci sed, lobortis accumsan urna."
+s_baron1lose1 equ "Muhahahaha!"
+s_baron1lose2 equ "What's the matter?<line>You can't save your family like this!"
+s_baron1lose3 equ "Darn, I messed up real bad<line>back there..."
+s_baron1lose4 equ "Muhahahaha!"
 
-s_baron1redo1 equ "Suspendisse erat erat, rutrum et<line>posuere id, posuere sit amet orci."
-s_baron1redo2 equ "Praesent in mauris vitae ipsum<line>ornare vulputate id vel ipsum."
-s_baron1redo3 equ "Morbi eu metus feugiat, bibendum<line>dui quis, porta lacus."
-s_baron1redo4 equ "Vivamus quis ultrices odio.<line>Etiam malesuada fringilla volutpat."
+s_baron1redo1 equ "Keep coming back,<line>you're efforts might not be in vain!"
+s_baron1redo2 equ "I must commend you for fighting on."
+s_baron1redo3 equ "That's the kind of pep talk I need!"
+s_baron1redo4 equ "Let's go!"
 
-s_baron1win1 equ "Etiam pharetra convallis enim,<line>id viverra neque."
-s_baron1win2 equ "Quisque facilisis libero ut<line>urna sollicitudin commodo."
-s_baron1win3 equ "Fusce lacus metus, vestibulum amet<line>ligula non, imperdiet rhoncus libero."
-s_baron1win4 equ "Sed non massa in nisl facilisis<line>condimentum ac egestas libero."
+s_baron1win1 equ "Nooooooooooooooooo!"
+s_baron1win2 equ "You won this time, but<line>next time will be different!"
+s_baron1win3 equ "Maririn, were you here this whole time?"
+s_baron1win4 equ "This magic trick will make me<line>a star!"
 
-s_baron2start1 equ "Aliquam a dui imperdiet ultricies.<line>Sed vel volutpat lorem."
-s_baron2start2 equ "Vivamus varius magna non<line>tellus volutpat aliquam."
-s_baron2start3 equ "Nulla hendrerit, vitae elementum<line>turpis odio et tortor."
-s_baron2start4 equ "Phasellus consequat lobortis fermentum."
+s_baron2start1 equ "Hmmmmmmmmmmmmmmmm..."
+s_baron2start2 equ "I wonder, how is your adventure<line>going?"
+s_baron2start3 equ "Great! All the games are<line>really fun."
+s_baron2start4 equ "Good to hear.<line>There's more where that came from!"
 
-s_baron2lose1 equ "Ut vitae accumsan magna."
-s_baron2lose2 equ "Nunc volutpat, leo sed ultricies<line>placerat, odio ante laoreet ipsum."
-s_baron2lose3 equ "Sed tempor, ligula eu aliquam,<line>est ipsum viverra justo."
-s_baron2lose4 equ "Curabitur eget lacus tempus,<line>rutrum augue vel, accumsan nisl."
+s_baron2lose1 equ "I seem to have misjudged you,<line>Kururin."
+s_baron2lose2 equ "Your father would laugh at<line>such poor play!"
+s_baron2lose3 equ "...My father?"
+s_baron2lose4 equ "Hahahahahahahaha!"
 
-s_baron2redo1 equ "Nullam lorem, congue vulputate<line>dui a, varius facilisis enim."
-s_baron2redo2 equ "Nullam ullamcorper tempor risus<line>in egestas."
-s_baron2redo3 equ "Vestibulum pharetra tortor<line>vitae eleifend consequat."
+s_baron2redo1 equ "Back to challenge me again?"
+s_baron2redo2 equ "I won't keep you from playing<line>as much as you want!"
+s_baron2redo3 equ "I'll surely win this time!"
 
-s_baron2win1 equ "Integer iaculis eros pellentesque,<line>pharetra dignissim nulla tincidunt."
-s_baron2win2 equ "Sed placerat ornare diam<line>eget pellentesque."
-s_baron2win3 equ "Phasellus a neque sed massa<line>faucibus maximus."
-s_baron2win4 equ "Sed elementum sed eros non<line>tristique."
-s_baron2win5 equ "Morbi orci velit, rhoncus eu<line>bibendum a, tincidunt vitae ex."
-s_baron2win6 equ "Integer at felis sagittis, luctus<line>felis semper, feugiat risus."
+s_baron2win1 equ "Wha- How can a worm like<line>you clear that game!?"
+s_baron2win2 equ "I'm no worm! I'm a bird!<line>A pilot bird!"
+s_baron2win3 equ "Thank you, Kururin!"
+s_baron2win4 equ "Teacher Hare, show me a magic trick!"
+s_baron2win5 equ "I will, but you mustn't reveal<line>the secrets to anyone else."
+s_baron2win6 equ "You got it!"
 
-s_baron3start1 equ "Sed libero sapien, ullamcorper et<line>rhoncus et, dignissim quis magna."
-s_baron3start2 equ "Ut dignissim nec purus sit<line>amet vulputate."
-s_baron3start3 equ "Vivamus aliquet mollis aliquet.<line>Vestibulum id ultrices ligula."
-s_baron3start4 equ "Aliquam vestibulum pellentesque<line>turpis id aliquam. "
-s_baron3start5 equ "Cras nec turpis at est accumsan<line>commodo eleifend eget tortor."
+s_baron3start1 equ "You deserve a round of applause<line>for getting this far!"
+s_baron3start2 equ "Thanks! It was a lot of work."
+s_baron3start3 equ "But! This is far as you'll go!"
+s_baron3start4 equ "How about another magic trick?"
+s_baron3start5 equ "Only after you win<line>my minigame!"
 
-s_baron3lose1 equ "Praesent venis vehicula consectetur."
-s_baron3lose2 equ "Etiam commodo id felis a gravida.<line>Phasellus nec mauris risus."
-s_baron3lose3 equ "Nunc auctor sapien quis<line>varius pharetra."
+s_baron3lose1 equ "Oh no, I blundered..."
+s_baron3lose2 equ "What's the matter? Not quick enough?<line>Is that your limit?"
+s_baron3lose3 equ "I'll try again later."
 
-s_baron3redo1 equ "Nullam condimentum enim ut facilisis<line>aliquet."
-s_baron3redo2 equ "Etiam vehicula massa vitae dapibus<line>tincidunt."
-s_baron3redo3 equ "Sed ac magna efficitur, convallis<line>risus eu, pharetra nibh."
+s_baron3redo1 equ "Hi, can I give it another go?"
+s_baron3redo2 equ "You dare challenge my game<line>again?"
+s_baron3redo3 equ "Fufufu, it's all yours!"
 
-s_baron3win1 equ "Vestibulum auctor maximus tellus,<line>et feugiat elit maximus sed."
-s_baron3win2 equ "Duis sagittis malesuada leo.<line>Praesent eget fringilla nibh."
-s_baron3win3 equ "Donec sodales molestie sem dictum."
-s_baron3win4 equ "Suspendisse sollicitudin ullamcorper."
-s_baron3win5 equ "Cras dignissim est in lectus varius,<line>ac vehicula nunc hendrerit."
-s_baron3win6 equ "Mauris quis neque erat."
+s_baron3win1 equ "No! Nononononononono!<line>Don't think you've beaten me yet!"
+s_baron3win2 equ "Kururin, thank you for<line>all your hard work."
+s_baron3win3 equ "Mom! It's great to see you!"
+s_baron3win4 equ "Thank you, but some of your<line>siblings are still missing."
+s_baron3win5 equ "I wonder where they could be?"
+s_baron3win6 equ "Here's a magic trick I learned.<line>Keep searching!"
 
-s_baron3winlast1 equ "Pellente habitant morbi tristique<line>et malesuada fames turpis egestas." ; if the last minigame you beat is Baron Magic
-s_baron3winlast2 equ "Fusce faucibus congue lacus,<line>non tempus urna lobortis vitae."
-s_baron3winlast3 equ "In rutrum justo lacus,<line>sed rhoncus turpis vulputate vitae."
-s_baron3winlast4 equ "Praesent pretium semper purus,<line>ac hendrerit ex ultricies non."
-s_baron3winlast5 equ "Duis placerat lacus eget orci<line>facilisis ornare."
-s_baron3winlast6 equ "Quisque suscipit imperdiet purus<line>vitae eleifend."
+s_baron3winlast1 equ s_baron3win1 ; if the last minigame you beat is Baron Magic
+s_baron3winlast2 equ s_baron3win2
+s_baron3winlast3 equ s_baron3win3
+s_baron3winlast4 equ "Thank you so much for<line>finding all of us."
+s_baron3winlast5 equ "Hey, it's no big deal."
+s_baron3winlast6 equ "As a reward for finding me,<line>here's a magic trick I learned."
 
-s_intermission1 equ "Proin rutrum massa non sapien,<line>vel blandit neque fringilla."
-s_intermission2 equ "Donec lorem massa, eleifen<line>dolor ut, tincidunt porttitor mi"
-s_intermission3 equ "Suspendisse in eros id tortor<line>commodo ultrices a quis nunc."
-s_intermission4 equ "Ut quis justo erat.<line>Suspendisse non sem diam."
-s_intermission5 equ "Aliquam felis ex, mattis ornare<line>erat vel, ullamer gravida."
-s_intermission6 equ "Morbi eu purus et enim<line>scelerisque dapibus."
-s_intermission7 equ "Sed rutrum erat eget<line>porttitor auctor."
-s_intermission8 equ "Aenean turpis eros, auctor quis<line>sollic, pretium matis urna."
-s_intermission9 equ "Etiam in tortor vestibulum,<line>varius magna ac, mattis odio."
+s_intermission1 equ "Hahahahahahahaha!<line>Well done, Kururin!"
+s_intermission2 equ "You've beaten all the minigames.<line>I'm proud of you!"
+s_intermission3 equ "But! I have one last trick<line>up my sleeve!"
+s_intermission4 equ "Your adventure isn't over<line>just yet!"
+s_intermission5 equ "Try to clear this one<line>last course!"
+s_intermission6 equ "You'll find something important<line>waiting for you there!"
+s_intermission7 equ "Hahahahahahahaha!"
+s_intermission8 equ "What in the world could be<line>important to me?"
+s_intermission9 equ "Let's head on out!"
 
 s_ending1_1 equ "Oh, that's how you clear that!<line>As I'd expect from the leader's son." ;あ、あれをクリアしちゃうとは！<line>さすが団長のむすこ！<end>
 s_ending1_2 equ "...leader?" ;団長・・・？
 s_ending1_3 equ "Kururin, you've grown a lot." ;クルリン、大きくなったな
 s_ending1_4 equ "Dad! It's really you!" ;おとーさん！
 s_ending1_5 equ "Yep, he's with us magicians who travel<line>from town to town." ;そう、まちからまちへ旅をつづけるマジシャン一座
-s_ending1_6 equ "So the leader of our<line>unnamed magic group..." ;マダ魔団の団長こそが・・・
+s_ending1_6 equ "So the leader of the<line>Magic Magicians..." ;マダ魔団の団長こそが・・・
 s_ending1_7 equ "...was your father all along!" ; キミのお父さんだったのだぁ！！
 s_ending1_8 equ "I didn't know my dad was a magician!" ;おとーさんのおしごとって<line>マジシャンだったのかぁ！
 s_ending1_9 equ "You've learned a lot of magic tricks,<line>Kururin." ;たくさんのマジックを<line>おぼえたようだね、クルリン
 s_ending1_10 equ "What do you think?" ;どうだった？
-s_ending1_11 equ "Magic is amazing, dad!" ;うん、サイコーだよ！
+s_ending1_11 equ "Magic is amazing, Dad!" ;うん、サイコーだよ！
 s_ending1_12 equ "I find it really fun!" ;マジックっておもしろいね！
 s_ending1_13 equ "Good to hear." ;そうか、よかった
 s_ending1_14 equ "That's what I wanted to show you." ;それこそがおまえに<line>つたえたかったことだ
@@ -361,7 +361,7 @@ s_rankupbaronmagic5 equ "Baron Kururin... not bad!" ;クルリン男爵か・・
 
 s_rankupdad1 equ "Well done, Kururin. You've<line>surpassed your own father!" ;クルリン、よくやった<line>おまえは父をこえたな！<end>
 s_rankupdad2 equ "How about that, dad?<line>My times are amazing!" ;おとうさん！<line>どう？　ちょっとすごいでしょ！<end>
-s_rankupdad3 equ "It's a job well done, for sure." ;ほんとうに　よくやった！<end>
+s_rankupdad3 equ "It's a job well done, for sure.<line>You are a \"Master\" pilot!" ;ほんとうに　よくやった！<end>
 s_rankupdad4 equ "There is nothing more that<line>I can teach you." ;これいじょう<line>おまえにおしえることはなにもない<end>
 s_rankupdad5 equ "But don't get careless now.<line>Keep honing your skills!" ;これからも　ゆだんしないで<line>うでをみがくんだぞ！<end>
 s_rankupdad6 equ "Thank you, dad!<line>I'll give it my all!" ;おとうさん、ありがとう！<line>ボクがんばるよ！<end>
