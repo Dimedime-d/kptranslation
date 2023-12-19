@@ -1497,6 +1497,7 @@ MagicLearnDisplayHook:
     ldr r0, [r0, 0x00] ;get pointer to current SRAM file
     mov r5, 0x00
     strb r5, [r0, 0x09] ;overwrite rank
+    strb r5, [r0, 0x0B] ;overwrite seen location splashes
     b @ResetRankHookEnd
     .pool
 .endif
