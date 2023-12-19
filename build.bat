@@ -1,5 +1,8 @@
 @echo off
 
+set DebugVar=1
+set Debug="-definelabel __DEBUG__ 1"
+
 set InFile=kp.gba
 set OutFile=kp_patched.gba
 
@@ -37,7 +40,11 @@ lzss -ewo "%PayloadFile3%"
 
 echo "[INFO] Patching game, please wait..."
 
-armips.exe main.asm -sym "kp_patched.sym"
+if %DebugVar% NEQ 0 (
+	armips.exe main.asm -sym "kp_patched.sym" "%Debug%"
+) else (
+	armips.exe main.asm -sym "kp_patched.sym"
+)
 
 if %errorlevel% NEQ 0 (
 	echo "ERROR: Armips could not build the ROM."

@@ -36,7 +36,8 @@ All "graphical" text in the ROM is _not_ automatically formatted and inserted. S
 ![Intro](https://user-images.githubusercontent.com/73413313/118182581-2e549d00-b407-11eb-9249-e57a80671997.png)![Overworld Map](https://user-images.githubusercontent.com/73413313/145687335-07e6ee2a-6e1e-445d-ad79-ef9399249cbb.png)
 
 ![newpractice](https://github.com/Dimedime-d/kptranslation/assets/73413313/c2728a86-7247-4549-bf1a-c0def0d0ddf0)
-![Dialogue placeholder](https://user-images.githubusercontent.com/73413313/118183199-d4a0a280-b407-11eb-9c8c-97c9763dbac6.png)![InLevel](https://user-images.githubusercontent.com/73413313/145758653-84e19125-517c-466a-ac73-6962bdfc3aaa.png)
+![dialog](https://github.com/Dimedime-d/kptranslation/assets/73413313/c9aedc5f-0458-4db8-94c1-ff16f206b9a8)
+![InLevel](https://user-images.githubusercontent.com/73413313/145758653-84e19125-517c-466a-ac73-6962bdfc3aaa.png)
 
 ![KeyGet](https://user-images.githubusercontent.com/73413313/249255538-0c87b23d-1586-4ee4-b17d-c7962f135be7.png)
 ![Minigame menu](https://user-images.githubusercontent.com/73413313/118183148-c6528680-b407-11eb-8706-71e3966a8baa.png)![Minigame Splash](https://user-images.githubusercontent.com/73413313/145687348-8cca6643-1bc8-4d63-8a88-7d76131696d0.png)
@@ -51,10 +52,13 @@ All "graphical" text in the ROM is _not_ automatically formatted and inserted. S
 
 ## To-do List
 
-* Put in translations for the rest of the dialogue (currently, much of it is lorem ipsum)
 * Finalize level/minigame names, and hack in minigame names in overworld
 * Revise scripts/magic/minigame instructions if need be
 * Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
+
+## Other Language Support
+
+There don't appear to be glyphs of extended Latin characters in the ROM, nether in the "ASCII" font nor in the font used in dialogue. Also, I had enough trouble getting lowercase ASCII characters to load properly in some places, as they weren't loaded by default. Should anyone decide to translate into other Romance languages, you would have to implement your own glyphs and load them properly.
 
 ## License and contributions
 
