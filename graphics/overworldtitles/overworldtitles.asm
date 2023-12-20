@@ -174,7 +174,7 @@
 		owleveltitleheader	0,-1
 		inctitle	"clock1"
 	@L17:
-		owleveltitleheader	0,-1
+		owleveltitleheaderbig	0,1
 		inctitle	"clock2"
 	@L18:
 		owleveltitleheader	0,-2
@@ -219,10 +219,10 @@
 		owleveltitleheaderbig	0,1
 		inctitle	"magic4aa"
 	@L26:
-		owleveltitleheader	0,0
+		owleveltitleheader	0,1
 		inctitle	"magic4ab"
 	@L27:
-		owleveltitleheaderbig	0,1
+		owleveltitleheaderbig	0,0
 		inctitle	"neo1"
 	@L28:
 		owleveltitleheader	0,-1
