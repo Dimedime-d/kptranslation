@@ -205,10 +205,10 @@ s_credits47 equ "Tomonori Fujisawa" ;#Ì¼Þ»Ü ÄÓÉØ
 
 s_credits48 equ "Game by Nintendo & EIGHTING" ;- ¹Þ°Ñ¥¼ÅØµ¥#µÝ¶Þ¸          
 
-s_credits49 equ "English Patch Internal Build" ;ÌßÛ¸Þ×Ñ#É¾²»¸Á®»¸ -
+s_credits49 equ "English Patch" ;ÌßÛ¸Þ×Ñ#É¾²»¸Á®»¸ -
 
 
-s_credits50 equ "Hacking and Translation by" ;#ÆÝÃÝÄÞ³
+s_credits50 equ "Hack and Translation by" ;#ÆÝÃÝÄÞ³
 
 s_credits51 equ "Dimedime" ;´²Ã¨Ý¸Þ
 

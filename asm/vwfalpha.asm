@@ -101,3 +101,7 @@
 
 .org 0x0800734E
     bl PostResultsHook
+    
+.org 0x08010C92
+    bl TitleScreenVersionStrHook
+    b 0x08010CAA

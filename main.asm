@@ -8,6 +8,8 @@
 .region 0x0800000,00
 .endregion
 
+VERSION equ "v1.0"
+
 ;include all assembly files in here
 ;file paths are relative to armips.exe
 .ifdef __DEBUG__

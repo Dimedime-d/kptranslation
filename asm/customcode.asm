@@ -1505,5 +1505,42 @@ MagicLearnDisplayHook:
     b @ResetRankHookEnd
     .pool
     .align
+    
+TitleScreenVersionStrHook:
+; copy 10C92...
+    push r14
+    ldr r0, =0x030005A0
+    ldr r0, [r0, 0x04]
+    mov r1, 0x30
+    and r0, r1
+    cmp r0, 0x00
+    beq @SkipPrint
+    ldr r2, =0x08025038 ; str
+    mov r0, 0x4C ; x
+    mov r1, 0x78 ; y
+    mov r3, 0x0F ; palette
+    bl 0x080940C0
+    @SkipPrint:
+    ; new stuff!
+    ldr r2, =@s_ENG
+    mov r0, 0xD8
+    mov r1, 0x88
+    mov r3, 0x00
+    bl 0x080940C0
+    ldr r2, =@s_patchversion
+    mov r0, 0xD0
+    mov r1, 0x94
+    mov r3, 0x00
+    bl 0x080940C0
+    
+    pop r14
+    bx r14
+.pool
+.align
+
+@s_ENG:
+    .asciiz "ENG"   ::  .align
+@s_patchversion:
+    .asciiz VERSION ::  .align
 
 .endarea
