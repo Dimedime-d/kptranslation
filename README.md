@@ -3,6 +3,7 @@ This is my English translation project of the game Kururin Paradise. Check out t
 Much of the existing translations are just placeholders, and demonstrate that I can inject arbitrary English text/graphics.
 
 ## Extra Features
+
 In addition to the translation aspect of this project, there is some additional functionality:
 * You can re-watch Adventure Mode cutscenes in Practice Mode.
 * The functionality for deleting all save data / reinitializing corrupted save data has been restored. In the original ROM, if you held A, B, L, R, Start, and Select before the Nintendo logo appears, the game would crash. Same thing happens when the SRAM checksum fails. This is due to the game trying to create a buffer in a space that hasn't been initialized yet. This may matter for flashcart testing...
@@ -28,7 +29,24 @@ My "patching" program of choice is `armips`, which lets me write assembly hacks,
 
 The "encoded" text in the ROM is automatically patched using the above batch script i.e. you can change the contents of the text in the `text/` folder, and they will appear in the ROM when you manually patch.
 
-All "graphical" text in the ROM is _not_ automatically formatted and inserted. Should you change the images, there are a smattering of Python scripts in the `graphics/` folders to format the images to `.dmp` files, which has already been done. Python is my fast and dirty way of compressing data using the game's custom functions as well as operating `grit.exe`. You do not need Python to patch the ROM, only to format new images if you choose to do so.
+All "graphical" text in the ROM is _not_ automatically formatted and inserted. Should you change the images, there are a smattering of Python scripts in the `graphics/` folders to format the images to `.dmp` files, which has already been done. Python is my fast and dirty way of re-quantizing images to the same palettes used in game, compressing data using the game's custom functions as well as operating `grit.exe`. You do not need Python to patch the ROM, only to format new images if you choose to do so.
+
+## Known Bugs
+
+* Some character animations play faster than usual, due to my timing of the "rolling" text characters being faster.
+* Transferring save data from the original Japanese ROM will result in slightly glitched in-game names, as the Japanese names remain in SRAM.
+
+## ~~To-do List~~ Further Improvements
+
+I'm basically done with this patch. If I could make it better, here would be some places of revision:
+
+* The game scripts (especially the dialogue) can always be improved
+* Optimize the credits sequence to display more text at once (currently limited by GBA OAM slots)
+* Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
+
+## Other Language Support
+
+There don't appear to be glyphs of extended Latin characters in the ROM, nether in the "ASCII" font nor in the font used in dialogue. Also, I had enough trouble getting lowercase ASCII characters to load properly in some places, as they weren't loaded by default. Should anyone decide to translate into other Romance languages, you would have to implement your own glyphs and load them properly.
 
 ## Screenshots
 
@@ -46,21 +64,11 @@ All "graphical" text in the ROM is _not_ automatically formatted and inserted. S
 ![magiceng](https://github.com/Dimedime-d/kptranslation/assets/73413313/33085c03-aedf-45f0-b1cc-d96b272f0bd1)
 ![magiceng2](https://github.com/Dimedime-d/kptranslation/assets/73413313/792843a8-1fea-40dd-829c-baa4bfd1c238)
 
-## Known Bugs
-
-* Some character animations play faster than usual, due to my timing of the "rolling" text characters being faster.
-
-## To-do List
-
-* Finalize level/minigame names, and hack in minigame names in overworld
-* Revise scripts/magic/minigame instructions if need be
-* Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
-
-## Other Language Support
-
-There don't appear to be glyphs of extended Latin characters in the ROM, nether in the "ASCII" font nor in the font used in dialogue. Also, I had enough trouble getting lowercase ASCII characters to load properly in some places, as they weren't loaded by default. Should anyone decide to translate into other Romance languages, you would have to implement your own glyphs and load them properly.
-
 ## License and contributions
+
+Special thanks to **E-Sh4rk** for documenting one of the compression/decompression routines the game uses.
+
+Special thanks to **NewGBAXL** for revising the main game scripts (dialogue)
 
 Armips was created by Kingcom.
 
@@ -71,8 +79,6 @@ grit was created by cearn, Jasper Vijn
 `lzss.exe` is by CUE and licensed under GNU GPL, version 3.
 
 The text box "You got the Key for this place!" was taken from a much buggier translation patch of this game, with some slight modifications.
-
-Special thanks to **E-Sh4rk** for documenting one of the compression/decompression routines the game uses.
 
 All other files in this repository are licensed under the GNU General Public License v3 (GNU GPL-3)
 
