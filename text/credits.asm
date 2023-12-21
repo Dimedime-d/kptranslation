@@ -212,4 +212,4 @@ s_credits50 equ "Hacking and Translation by" ;#ÆÝÃÝÄÞ³
 
 s_credits51 equ "Dimedime" ;´²Ã¨Ý¸Þ
 
-s_credits52 equ "Thank you for playing!"
+s_credits52 equ "Thanks for playing!"

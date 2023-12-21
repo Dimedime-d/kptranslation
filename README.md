@@ -55,7 +55,8 @@ There don't appear to be glyphs of extended Latin characters in the ROM, nether 
 ## Screenshots
 
 ![Newtitle](https://user-images.githubusercontent.com/73413313/249013413-b3a88ca7-2922-49fc-bc88-9af111db4c3e.png)
-![Intro](https://user-images.githubusercontent.com/73413313/118182581-2e549d00-b407-11eb-9249-e57a80671997.png)![Overworld Map](https://user-images.githubusercontent.com/73413313/145687335-07e6ee2a-6e1e-445d-ad79-ef9399249cbb.png)
+![Intro](https://user-images.githubusercontent.com/73413313/118182581-2e549d00-b407-11eb-9249-e57a80671997.png)
+![overworld1](https://github.com/Dimedime-d/kptranslation/assets/73413313/efca7050-6a9e-45a8-a4b0-c50be96f043b)
 
 ![newpractice](https://github.com/Dimedime-d/kptranslation/assets/73413313/c2728a86-7247-4549-bf1a-c0def0d0ddf0)
 ![dialog](https://github.com/Dimedime-d/kptranslation/assets/73413313/c9aedc5f-0458-4db8-94c1-ff16f206b9a8)
@@ -65,7 +66,7 @@ There don't appear to be glyphs of extended Latin characters in the ROM, nether 
 ![Minigame menu](https://user-images.githubusercontent.com/73413313/118183148-c6528680-b407-11eb-8706-71e3966a8baa.png)![Minigame Splash](https://user-images.githubusercontent.com/73413313/145687348-8cca6643-1bc8-4d63-8a88-7d76131696d0.png)
 
 ![Menu](https://user-images.githubusercontent.com/73413313/249256101-db3d1cc3-6e8f-4e57-a003-8a5c84dd1b40.png)
-![magiceng](https://github.com/Dimedime-d/kptranslation/assets/73413313/33085c03-aedf-45f0-b1cc-d96b272f0bd1)
+![magicdemo](https://github.com/Dimedime-d/kptranslation/assets/73413313/7967a269-ad59-4107-b8c5-06f8f2ebc1ff)
 ![magiceng2](https://github.com/Dimedime-d/kptranslation/assets/73413313/792843a8-1fea-40dd-829c-baa4bfd1c238)
 
 ## License and contributions
