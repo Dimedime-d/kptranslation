@@ -1478,8 +1478,12 @@ MagicLearnDisplayHook:
 .pool
 .align
     
-.ifdef __DEBUG__
-    ResetRankHook:
+    PostResultsHook:
+.ifndef __DEBUG__
+    b @ResetRankHookEnd
+.else
+    .notice "[DEBUG]: Hold L during fadeout after results screen to reset your rank + seen location splashes"
+.endif
     ldr r0, =0x030005E9
     ldrb r0, [r0, 0x00]
     mov r5, 0x02
@@ -1500,6 +1504,6 @@ MagicLearnDisplayHook:
     strb r5, [r0, 0x0B] ;overwrite seen location splashes
     b @ResetRankHookEnd
     .pool
-.endif
+    .align
 
 .endarea

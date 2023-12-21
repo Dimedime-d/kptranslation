@@ -12,7 +12,7 @@
 ;file paths are relative to armips.exe
 .ifdef __DEBUG__
     .warning "Debug flag is ON"
-    .include "asm/debug.asm"
+    ; .include "asm/debug.asm" deprecated, hook is now located in vwfalpha.asm like all the other hooks
 .endif
 
 .include "graphics/menu/menumacros.asm" ; avoid repeated defines

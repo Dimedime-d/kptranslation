@@ -98,3 +98,6 @@
     bl MagicLearnDisplayHook
     b 0x08022CD4
 .endarea
+
+.org 0x0800734E
+    bl PostResultsHook
