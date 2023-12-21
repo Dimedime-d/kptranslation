@@ -86,7 +86,7 @@
 	.incbin "graphics\inlevel\dumps\flower3btitle.dmp" :: .align
 	@clock1Title: :: inleveltitleheader3
 	.incbin "graphics\inlevel\dumps\clock1title.dmp" :: .align
-	@clock2Title: :: inleveltitleheader3
+	@clock2Title: :: inleveltitleheader5
 	.incbin "graphics\inlevel\dumps\clock2title.dmp" :: .align
 	@clock3Title: :: inleveltitleheader3
 	.incbin "graphics\inlevel\dumps\clock3title.dmp" :: .align
@@ -110,7 +110,7 @@
 	.incbin "graphics\inlevel\dumps\magic4title.dmp" :: .align
 	@magic5Title: :: inleveltitleheader3
 	.incbin "graphics\inlevel\dumps\magic5title.dmp" :: .align
-	@magic6Title: :: inleveltitleheader4
+	@magic6Title: :: inleveltitleheader5
 	.incbin "graphics\inlevel\dumps\magic6title.dmp" :: .align
 	@magic4aTitle: :: inleveltitleheader4
 	.incbin "graphics\inlevel\dumps\magic4atitle.dmp" :: .align

@@ -124,8 +124,8 @@ Also format it with grit to a .dmp file?")
         files = [f"{os.path.join(TEMP_FOLDER, f'{os.path.basename(img_file[:-4])},{i}')}" for i in range(2)]
         # In order: No palette, 4bpp, tile format, NO MAP,
         # metatile reduction, 1x1 metatiles, .bin file, no header, output file
-        os.system(f"cmd /c ..\grit {img_file} -p! -gB4 -gt -m! -Mh4 -Mw4 -al0 -aw192 -at0 -ah32 -ftb -fh! -o {files[0]}")
-        os.system(f"cmd /c ..\grit {img_file} -p! -gB4 -gt -m! -Mh1 -Mw4 -al0 -aw192 -at32 -ah8 -ftb -fh! -o {files[1]}")
+        os.system(f"cmd /c ..\\grit {img_file} -p! -gB4 -gt -m! -Mh4 -Mw4 -al0 -aw192 -at0 -ah32 -ftb -fh! -o {files[0]}")
+        os.system(f"cmd /c ..\\grit {img_file} -p! -gB4 -gt -m! -Mh1 -Mw4 -al0 -aw192 -at32 -ah8 -ftb -fh! -o {files[1]}")
         
         dmp_file = os.path.join(DUMP_FOLDER, f"{os.path.basename(img_file[:-4])}.dmp")
         with open(dmp_file, "wb") as file:
