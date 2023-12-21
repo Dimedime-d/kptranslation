@@ -1,56 +1,35 @@
-This is my English translation project of the game Kururin Paradise. Check out the wiki and assorted assembly files in this repository for some documentation on the ROM.
+# Kururin Paradise Translation
 
-Much of the existing translations are just placeholders, and demonstrate that I can inject arbitrary English text/graphics.
+Ready to fly? Explore many worlds in this sequel to Kuru Kuru Kururin, piloting the Helirin with its ever-rotating propeller. In this adventure, your family went missing when they went to see a magic show. It's up to you to search for them and bring them back home. Overcome new challenges using the right shoulder button to speed up the Helirin's rotation. Between all the Helirin mazes, you will encounter the people behind the magic show and be challenged to a variety of minigames. They probably have something to do with your family, and you might even learn a magic trick or two along the way.
 
-## Extra Features
+## Patching
 
-In addition to the translation aspect of this project, there is some additional functionality:
-* You can re-watch Adventure Mode cutscenes in Practice Mode.
-* The functionality for deleting all save data / reinitializing corrupted save data has been restored. In the original ROM, if you held A, B, L, R, Start, and Select before the Nintendo logo appears, the game would crash. Same thing happens when the SRAM checksum fails. This is due to the game trying to create a buffer in a space that hasn't been initialized yet. This may matter for flashcart testing...
+* Original ROM: `Kururin Paradise (J).gba`
+* SHA-1 Hash: `73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E`
 
-## Manual Patching (Windows only)
+__bps patch (Recommended)__
+
+* Download [Floating IPS](https://www.romhacking.net/utilities/1040/)
+* Download [the latest release](https://github.com/Dimedime-d/kptranslation/releases/latest/)
+* Open Floating IPS and patch the original ROM with the bps patch.
+
+__Manual Patch (Windows only)__
 
 * Clone this repository
-* Get a ROM of Kururin Paradise. Should match these hashes:
-
-Method | Hash
-------- | ------------------------------------------------------------
-SHA256 | ED9BAC12FE065D11ADFFB08A27DE1A932E4E5A22CBF6B4B24FE28EF49F5385D2 
-SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
-
-* Rename rom to `kp.gba`
+* Rename your dumped ROM to `kp.gba`
 * Put kp.gba in the root of the repository
 * Run `build.bat`
 * Output ROM is `kp_patched.gba`
 
+## Extra Features
+
+In addition to the translation aspect of this project, there is some additional functionality on top of the base game:
+* You can re-watch Adventure Mode cutscenes in Practice Mode.
+* The functionality for deleting all save data / reinitializing corrupted save data has been restored. In the original ROM, if you held A, B, L, R, Start, and Select before the Nintendo logo appears, the game would crash. Same thing happens when the SRAM checksum fails. This is due to the game trying to create a buffer in a space that hasn't been initialized yet. This may matter for flashcart testing...
+
 ## Debug Features
 
 You change the value of `DEBUG_VAR` in `build.bat` to a nonzero number to enable one debugging feature. Currently, you can re-watch the "rank up" cutscenes and re-view the location splash screens by holding L after any "level complete" screen.
-
-## Patching Notes
-
-My "patching" program of choice is `armips`, which lets me write assembly hacks, include binaries, dynamically address labels, etc. Some chunks of the ROM are compressed via the GBA's BIOS method, so the batch script also runs `lzss` by CUE to decompress those binaries (mainly multiplayer). `armips` hacks those binaries, and `lzss` re-compresses them to be inserted into the ROM by invoking `armips` again. The whole patching process is self-contained, aside from the ROM.
-
-The "encoded" text in the ROM is automatically patched using the above batch script i.e. you can change the contents of the text in the `text/` folder, and they will appear in the ROM when you manually patch.
-
-All "graphical" text in the ROM is _not_ automatically formatted and inserted. Should you change the images, there are a smattering of Python scripts in the `graphics/` folders to format the images to `.dmp` files, which has already been done. Python is my fast and dirty way of re-quantizing images to the same palettes used in game, compressing data using the game's custom functions as well as operating `grit.exe`. You do not need Python to patch the ROM, only to format new images if you choose to do so.
-
-## Known Bugs
-
-* Some character animations play faster than usual, due to my timing of the "rolling" text characters being faster.
-* Transferring save data from the original Japanese ROM will result in slightly glitched in-game names, as the Japanese names remain in SRAM. Same thing will probably also happen if you named one of the save files with Japanese characters. I'm okay with this, as this doesn't impact the first-time experience.
-
-## ~~To-do List~~ Further Improvements
-
-I'm basically done with this patch. If I could make it better, here would be some places of revision:
-
-* The game scripts (especially the dialogue) can always be improved
-* Optimize the credits sequence to display more text at once (currently limited by GBA OAM slots)
-* Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
-
-## Other Language Support
-
-There don't appear to be glyphs of extended Latin characters in the ROM, nether in the "ASCII" font nor in the font used in dialogue. Also, I had enough trouble getting lowercase ASCII characters to load properly in some places, as they weren't loaded by default. Should anyone decide to translate into other Romance languages, you would have to implement your own glyphs and load them properly.
 
 ## Screenshots
 
@@ -68,6 +47,30 @@ There don't appear to be glyphs of extended Latin characters in the ROM, nether 
 ![Menu](https://user-images.githubusercontent.com/73413313/249256101-db3d1cc3-6e8f-4e57-a003-8a5c84dd1b40.png)
 ![magicdemo](https://github.com/Dimedime-d/kptranslation/assets/73413313/7967a269-ad59-4107-b8c5-06f8f2ebc1ff)
 ![magiceng2](https://github.com/Dimedime-d/kptranslation/assets/73413313/792843a8-1fea-40dd-829c-baa4bfd1c238)
+
+## Patching Notes
+
+My "patching" program of choice is `armips`, which lets me write assembly hacks, include binaries, dynamically address labels, etc. Some chunks of the ROM are compressed via the GBA's BIOS method, so the batch script also runs `lzss` by CUE to decompress those binaries (mainly multiplayer). `armips` hacks those binaries, and `lzss` re-compresses them to be inserted into the ROM by invoking `armips` again. The whole patching process is self-contained, aside from the ROM.
+
+The "encoded" text in the ROM is automatically patched using the above batch script i.e. you can change the contents of the text in the `text/` folder, and they will appear in the ROM when you manually patch.
+
+All "graphical" text in the ROM is _not_ automatically formatted and inserted. Should you change the images, there are a smattering of Python scripts in the `graphics/` folders to format the images to `.dmp` files, which has already been done. Python is my fast and dirty way of re-quantizing images to the same palettes used in game, compressing data using the game's custom functions as well as operating `grit.exe`. You do not need Python to patch the ROM, only to format new images if you choose to do so.
+
+## Known Bugs
+
+* Some character animations play faster than usual, due to my timing of the "rolling" text characters being faster.
+* Transferring save data from the original Japanese ROM will result in slightly glitched in-game names, as the Japanese names remain in SRAM. Same thing will probably also happen if you named one of the save files with Japanese characters. I'm okay with this, as this doesn't impact the first-time experience.
+
+## Areas of Potential Revision
+
+* The game scripts (especially the dialogue)
+* General graphical polish
+* Optimize the credits sequence to display more text at once (currently limited by GBA OAM slots)
+* Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
+
+## Other Language Support
+
+There don't appear to be glyphs of extended Latin characters in the ROM, nether in the "ASCII" font nor in the font used in dialogue. Also, I had enough trouble getting lowercase ASCII characters to load properly in some places, as they weren't loaded by default. Should anyone decide to translate into other Romance languages, you would have to implement your own glyphs and load them properly.
 
 ## License and contributions
 
