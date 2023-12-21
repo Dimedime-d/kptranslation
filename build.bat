@@ -1,6 +1,6 @@
 @echo off
 
-set DebugVar=1
+set DebugVar=0
 set Debug="-definelabel __DEBUG__ 1"
 
 set InFile=kp.gba

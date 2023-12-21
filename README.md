@@ -23,6 +23,10 @@ SHA-1 | 73BE3B930E2436D1C7BDB74AC281DD27C72E1F9E
 * Run `build.bat`
 * Output ROM is `kp_patched.gba`
 
+## Debug Features
+
+You change the value of `DEBUG_VAR` in `build.bat` to a nonzero number to enable one debugging feature. Currently, you can re-watch the "rank up" cutscenes and re-view the location splash screens by holding L after any "level complete" screen.
+
 ## Patching Notes
 
 My "patching" program of choice is `armips`, which lets me write assembly hacks, include binaries, dynamically address labels, etc. Some chunks of the ROM are compressed via the GBA's BIOS method, so the batch script also runs `lzss` by CUE to decompress those binaries (mainly multiplayer). `armips` hacks those binaries, and `lzss` re-compresses them to be inserted into the ROM by invoking `armips` again. The whole patching process is self-contained, aside from the ROM.
@@ -34,7 +38,7 @@ All "graphical" text in the ROM is _not_ automatically formatted and inserted. S
 ## Known Bugs
 
 * Some character animations play faster than usual, due to my timing of the "rolling" text characters being faster.
-* Transferring save data from the original Japanese ROM will result in slightly glitched in-game names, as the Japanese names remain in SRAM.
+* Transferring save data from the original Japanese ROM will result in slightly glitched in-game names, as the Japanese names remain in SRAM. Same thing will probably also happen if you named one of the save files with Japanese characters. I'm okay with this, as this doesn't impact the first-time experience.
 
 ## ~~To-do List~~ Further Improvements
 
