@@ -174,47 +174,16 @@ sndOffset equ 0x78 ;originally 0x40, makes more space for characters
 .org 0x080AC744
 .byte 0x30 ;max chars per line
 
-;----------------- Credits modifications
-.org 0x080A6504
-.byte 0x5D ;reposition "The end"
-
-.org 0x080A651C
-_str " FIN"
-
-;-----------------
-
-.macro S_unlockMinigame,game
-	_str "\""+game+"\""+" was added<line>to the Challenge menu!"
-.endmacro
-
-.macro S_unlockMagic,magic
-	_str "\""+magic+"\""+" was added<line> to the Magic menu!"
-.endmacro
-
-.macro loadChars,msg
-	.byte 0x0A,0x00,0x14,0x00,0x18,0xFF,0xFF,0x7F
-	_str msg
-.endmacro
+;----------------- helper macros for custom bytecode
 
 .macro loadCharsWithID,id
     .byte 0x0A,0x00,0x14,0x00,0x18,0xFF,0xFF,0x7F
 	.word id
 .endmacro
 
-.macro loadCharsInstant,msg
-	.byte 0x0A,0x00,0x1A,0x00,0x18,0xFF,0xFF,0x7F ;0x1A custom code auto-centers instantly displayed text
-	_str msg
-.endmacro
-
 .macro loadCharsInstantWithID,id
 	.byte 0x0A,0x00,0x1A,0x00,0x18,0xFF,0xFF,0x7F ;0x1A custom code auto-centers instantly displayed text
 	.word id
-.endmacro
-
-.macro loadCharsAndSfx,msg
-	loadChars msg
-	.byte 0x0F,0x00,0x04,0x00,sndOffset,0xFF,0xFF,0x7F
-	_str msg
 .endmacro
 
 .macro loadCharsAndSfxWithID,id

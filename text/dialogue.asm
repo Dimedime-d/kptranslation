@@ -385,6 +385,8 @@ s_introtime15 equ "6:08"
 s_introtime16 equ "6:12"
 s_introtime17 equ "6:15"
 
+s_creditsend equ " FIN"
+
 .macro entry,string
     @label:
     _str string
@@ -724,6 +726,7 @@ DialogueTable:
     .word @entry_label_0000011F
     .word @entry_label_00000120
     .word @entry_label_00000121
+    .word @entry_label_00000122
     .word 0x00
     
 .align 4
@@ -1049,5 +1052,6 @@ entry s_introtime14
 entry s_introtime15
 entry s_introtime16
 entry s_introtime17
+entry s_creditsend                                 ; table entry 0142
 
 .endautoregion
