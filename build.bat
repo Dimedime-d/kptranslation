@@ -41,9 +41,9 @@ lzss -ewo "%PayloadFile3%"
 echo "[INFO] Patching game, please wait..."
 
 if %DebugVar% NEQ 0 (
-	armips.exe main.asm -sym "kp_patched.sym" "%Debug%"
+	armips.exe main.asm -sym "kp_patched.sym" "%Debug%" -stat
 ) else (
-	armips.exe main.asm -sym "kp_patched.sym"
+	armips.exe main.asm -sym "kp_patched.sym" -stat
 )
 
 if %errorlevel% NEQ 0 (
