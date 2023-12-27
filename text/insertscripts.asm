@@ -217,6 +217,12 @@ _str " FIN"
 	_str msg
 .endmacro
 
+.macro loadCharsAndSfxWithID,id
+    loadCharsWithID id
+    .byte 0x0F,0x00,0x04,0x00,sndOffset,0xFF,0xFF,0x7F
+	.word id
+.endmacro
+
 .loadtable "text/kp_eng.tbl" ;original table bugs out with capital M's
 
 .include "text/dialogue.asm"

@@ -252,6 +252,34 @@ InstaText:	;pls work
 .include "asm/scriptcode/vwfInstaText.asm"
 
 .word 0x00000000
+.pool
+.align
+
+SfxParseHook1:
+    ; overwritten asm: mov r3, r8; ldrh r2, [r3, 8h]
+    ; lsl r0, r2, 10h; adds r3, 0x0A
+    mov r3, r8
+    push r3
+    ldrh r2, [r3, 8h] ; at the end, r2 should contain char, r3 the pointer to the next char
+    ; r0 is free
+    lsl r2, r2, 2h ; should now be a text ID
+    ldr r0, =DialogueTable
+    add r0,r2
+    ldr r0, [r0]
+    ldrh r2, [r0, 0h]
+    add r3, r0, 2h
+    bx r14
+   
+SfxParseHook2:
+    ; overwritten asm: adds r0, r3, 3h; subs r1, 4h; and r0, r1
+    pop r0 ; the r8 from the above hook
+    add r0, 0Ch
+    sub r1, 4h ; r1 contained 0
+    and r0, r1 ; 4-aligns r0
+    bx r14
+    
+.pool
+.align
 ;generates an additional DMA transfer to get custom
 ;Minigame Paradise titles in the Obj VRAM
 MiniParaTitleHook:

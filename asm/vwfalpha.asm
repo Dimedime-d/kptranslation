@@ -44,6 +44,15 @@
 
 .org 0x08021120 ;pointer to script parser
 	.word ScriptParse
+    
+.org 0x08022144
+    bl SfxParseHook1
+    nop
+    nop
+
+.org 0x08022230
+    bl SfxParseHook2
+    nop
 
 .org 0x08014706 ; practice mode, A button on a magic hat (normally does nothing)
 .area 4h
