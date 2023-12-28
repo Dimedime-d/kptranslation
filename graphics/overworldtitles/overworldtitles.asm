@@ -1,5 +1,9 @@
 ; this file is NOT automatically generated - you can nudge the x and y offsets so they look even...
 
+.org 0x082A0714 
+.region 0x082AAE34-.,00 ; space taken by original level titles
+.endregion
+
 .macro worldtitleheader,xOffset,yOffset
 	.byte   0x03,0x70,0x20+xOffset,0x08+yOffset, \
             0xD1,0xF9,0x24,0x08, \

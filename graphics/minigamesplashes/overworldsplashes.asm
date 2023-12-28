@@ -30,35 +30,62 @@
     .word @congratsTilesEnd - @congratsTiles :: .skip 0x08
     .word @congratsMap - 0x08138C54
 
-.autoregion
-    .align
+.autoregion :: .align    
     @entry_villageTiles:
     .incbin "graphics\minigamesplashes\dumps\entry_villageTiles.dmp" :: @entry_villageTilesEnd: :: .align
+.endautoregion
+
+.autoregion :: .align
     @entry_villageMap:
     .incbin "graphics\minigamesplashes\dumps\entry_villageMap.dmp" :: .align
+.endautoregion
 
+.autoregion :: .align    
     @entry_flowerTiles:
     .incbin "graphics\minigamesplashes\dumps\entry_flowerTiles.dmp" :: @entry_flowerTilesEnd: :: .align
+.endautoregion
+
+.autoregion :: .align
     @entry_flowerMap:
     .incbin "graphics\minigamesplashes\dumps\entry_flowerMap.dmp" :: .align
+.endautoregion
 
+.autoregion :: .align    
     @entry_clockTiles:
     .incbin "graphics\minigamesplashes\dumps\entry_clockTiles.dmp" :: @entry_clockTilesEnd: :: .align
+.endautoregion
+
+.autoregion :: .align
     @entry_clockMap:
     .incbin "graphics\minigamesplashes\dumps\entry_clockMap.dmp" :: .align
+.endautoregion
 
+.autoregion :: .align    
     @entry_magicTiles:
     .incbin "graphics\minigamesplashes\dumps\entry_magicTiles.dmp" :: @entry_magicTilesEnd: :: .align
+.endautoregion
+
+.autoregion :: .align
     @entry_magicMap:
     .incbin "graphics\minigamesplashes\dumps\entry_magicMap.dmp" :: .align
+.endautoregion
 
+.autoregion :: .align    
     @entry_neoTiles:
     .incbin "graphics\minigamesplashes\dumps\entry_neoTiles.dmp" :: @entry_neoTilesEnd: :: .align
+.endautoregion
+
+.autoregion :: .align
     @entry_neoMap:
     .incbin "graphics\minigamesplashes\dumps\entry_neoMap.dmp" :: .align
+.endautoregion
 
+.autoregion :: .align    
     @congratsTiles:
     .incbin "graphics\minigamesplashes\dumps\congratsTiles.dmp" :: @congratsTilesEnd: :: .align
+.endautoregion
+
+.autoregion :: .align
     @congratsMap:
     .incbin "graphics\minigamesplashes\dumps\congratsMap.dmp" :: .align
 .endautoregion
