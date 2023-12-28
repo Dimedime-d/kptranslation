@@ -1,5 +1,9 @@
 ; customcode.asm now pulls from the labels here.
 
+.org 0x081C6948
+.region 0x081D3D08-.,00 ; original space taken up by preview graphics
+.endregion
+
 @MagicLearn equ "graphics\learnmagic\dumps\\"
 
 .macro ImageObjHeader,palette
@@ -268,6 +272,10 @@
         .word @DontTouchStep6Map
         .word 0x00
         
+.endautoregion
+        
+.autoregion
+    .align
     @KururinShockStep1Set:  ::  .incbin @MagicLearn + "1,1.set.dmp" ::  .align
     @KururinShockStep1Map:  ::  .incbin @MagicLearn + "1,1.map.dmp" ::  .align
     @KururinShockStep2Set:  ::  .incbin @MagicLearn + "1,2.set.dmp" ::  .align
@@ -282,7 +290,10 @@
     @KururinShockStep6Map:  ::  .incbin @MagicLearn + "1,6.map.dmp" ::  .align
     @KururinShockStep7Set:  ::  .incbin @MagicLearn + "1,7.set.dmp" ::  .align
     @KururinShockStep7Map:  ::  .incbin @MagicLearn + "1,7.map.dmp" ::  .align
-         
+.endautoregion
+
+.autoregion
+    .align
     @TenAndHundredStep1Set:  ::  .incbin @MagicLearn + "2,1.set.dmp" ::  .align
     @TenAndHundredStep1Map:  ::  .incbin @MagicLearn + "2,1.map.dmp" ::  .align
     @TenAndHundredStep2Set:  ::  .incbin @MagicLearn + "2,2.set.dmp" ::  .align
@@ -301,7 +312,10 @@
     @TenAndHundredStep8Map:  ::  .incbin @MagicLearn + "2,8.map.dmp" ::  .align
     @TenAndHundredStep9Set:  ::  .incbin @MagicLearn + "2,9.set.dmp" ::  .align
     @TenAndHundredStep9Map:  ::  .incbin @MagicLearn + "2,9.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align
     @BookTestStep1Set:      ::  .incbin @MagicLearn + "3,1.set.dmp" ::  .align
     @BookTestStep1Map:      ::  .incbin @MagicLearn + "3,1.map.dmp" ::  .align
     @BookTestStep2Set:      ::  .incbin @MagicLearn + "3,2.set.dmp" ::  .align
@@ -326,7 +340,10 @@
     @BookTestStep11Map:      ::  .incbin @MagicLearn + "3,11.map.dmp" ::  .align
     @BookTestStep12Set:      ::  .incbin @MagicLearn + "3,12.set.dmp" ::  .align
     @BookTestStep12Map:      ::  .incbin @MagicLearn + "3,12.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @TimeParadoxStep1Set:      ::  .incbin @MagicLearn + "4,1.set.dmp" ::  .align
     @TimeParadoxStep1Map:      ::  .incbin @MagicLearn + "4,1.map.dmp" ::  .align
     @TimeParadoxStep2Set:      ::  .incbin @MagicLearn + "4,2.set.dmp" ::  .align
@@ -341,7 +358,10 @@
     @TimeParadoxStep6Map:      ::  .incbin @MagicLearn + "4,6.map.dmp" ::  .align
     @TimeParadoxStep7Set:      ::  .incbin @MagicLearn + "4,7.set.dmp" ::  .align
     @TimeParadoxStep7Map:      ::  .incbin @MagicLearn + "4,7.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @SoundCatchStep1Set:      ::  .incbin @MagicLearn + "5,1.set.dmp" ::  .align
     @SoundCatchStep1Map:      ::  .incbin @MagicLearn + "5,1.map.dmp" ::  .align
     @SoundCatchStep2Set:      ::  .incbin @MagicLearn + "5,2.set.dmp" ::  .align
@@ -352,7 +372,10 @@
     @SoundCatchStep4Map:      ::  .incbin @MagicLearn + "5,4.map.dmp" ::  .align
     @SoundCatchStep5Set:      ::  .incbin @MagicLearn + "5,5.set.dmp" ::  .align
     @SoundCatchStep5Map:      ::  .incbin @MagicLearn + "5,5.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @CenterPointStep1Set:      ::  .incbin @MagicLearn + "6,1.set.dmp" ::  .align
     @CenterPointStep1Map:      ::  .incbin @MagicLearn + "6,1.map.dmp" ::  .align
     @CenterPointStep2Set:      ::  .incbin @MagicLearn + "6,2.set.dmp" ::  .align
@@ -363,7 +386,10 @@
     @CenterPointStep4Map:      ::  .incbin @MagicLearn + "6,4.map.dmp" ::  .align
     @CenterPointStep5Set:      ::  .incbin @MagicLearn + "6,5.set.dmp" ::  .align
     @CenterPointStep5Map:      ::  .incbin @MagicLearn + "6,5.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @GameBoyPanicStep1Set:      ::  .incbin @MagicLearn + "7,1.set.dmp" ::  .align
     @GameBoyPanicStep1Map:      ::  .incbin @MagicLearn + "7,1.map.dmp" ::  .align
     @GameBoyPanicStep2Set:      ::  .incbin @MagicLearn + "7,2.set.dmp" ::  .align
@@ -378,7 +404,10 @@
     @GameBoyPanicStep6Map:      ::  .incbin @MagicLearn + "7,6.map.dmp" ::  .align
     @GameBoyPanicStep7Set:      ::  .incbin @MagicLearn + "7,7.set.dmp" ::  .align
     @GameBoyPanicStep7Map:      ::  .incbin @MagicLearn + "7,7.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @ImpressionStep1Set:      ::  .incbin @MagicLearn + "8,1.set.dmp" ::  .align
     @ImpressionStep1Map:      ::  .incbin @MagicLearn + "8,1.map.dmp" ::  .align
     @ImpressionStep2Set:      ::  .incbin @MagicLearn + "8,2.set.dmp" ::  .align
@@ -391,7 +420,10 @@
     @ImpressionStep5Map:      ::  .incbin @MagicLearn + "8,5.map.dmp" ::  .align
     @ImpressionStep6Set:      ::  .incbin @MagicLearn + "8,6.set.dmp" ::  .align
     @ImpressionStep6Map:      ::  .incbin @MagicLearn + "8,6.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @TwistStep1Set:      ::  .incbin @MagicLearn + "9,1.set.dmp" ::  .align
     @TwistStep1Map:      ::  .incbin @MagicLearn + "9,1.map.dmp" ::  .align
     @TwistStep2Set:      ::  .incbin @MagicLearn + "9,2.set.dmp" ::  .align
@@ -402,7 +434,10 @@
     @TwistStep4Map:      ::  .incbin @MagicLearn + "9,4.map.dmp" ::  .align
     @TwistStep5Set:      ::  .incbin @MagicLearn + "9,5.set.dmp" ::  .align
     @TwistStep5Map:      ::  .incbin @MagicLearn + "9,5.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @ImagineStep1Set:      ::  .incbin @MagicLearn + "10,1.set.dmp" ::  .align
     @ImagineStep1Map:      ::  .incbin @MagicLearn + "10,1.map.dmp" ::  .align
     @ImagineStep2Set:      ::  .incbin @MagicLearn + "10,2.set.dmp" ::  .align
@@ -415,7 +450,10 @@
     @ImagineStep5Map:      ::  .incbin @MagicLearn + "10,5.map.dmp" ::  .align
     @ImagineStep6Set:      ::  .incbin @MagicLearn + "10,6.set.dmp" ::  .align
     @ImagineStep6Map:      ::  .incbin @MagicLearn + "10,6.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @LoveTesterStep1Set:      ::  .incbin @MagicLearn + "11,1.set.dmp" ::  .align
     @LoveTesterStep1Map:      ::  .incbin @MagicLearn + "11,1.map.dmp" ::  .align
     @LoveTesterStep2Set:      ::  .incbin @MagicLearn + "11,2.set.dmp" ::  .align
@@ -424,7 +462,10 @@
     @LoveTesterStep3Map:      ::  .incbin @MagicLearn + "11,3.map.dmp" ::  .align
     @LoveTesterStep4Set:      ::  .incbin @MagicLearn + "11,4.set.dmp" ::  .align
     @LoveTesterStep4Map:      ::  .incbin @MagicLearn + "11,4.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @CaliforniaFlipStep1Set:      ::  .incbin @MagicLearn + "12,1.set.dmp" ::  .align
     @CaliforniaFlipStep1Map:      ::  .incbin @MagicLearn + "12,1.map.dmp" ::  .align
     @CaliforniaFlipStep2Set:      ::  .incbin @MagicLearn + "12,2.set.dmp" ::  .align
@@ -435,7 +476,10 @@
     @CaliforniaFlipStep4Map:      ::  .incbin @MagicLearn + "12,4.map.dmp" ::  .align
     @CaliforniaFlipStep5Set:      ::  .incbin @MagicLearn + "12,5.set.dmp" ::  .align
     @CaliforniaFlipStep5Map:      ::  .incbin @MagicLearn + "12,5.map.dmp" ::  .align
-    
+ .endautoregion
+
+.autoregion
+    .align   
     @DoctorKururinStep1Set:      ::  .incbin @MagicLearn + "13,1.set.dmp" ::  .align
     @DoctorKururinStep1Map:      ::  .incbin @MagicLearn + "13,1.map.dmp" ::  .align
     @DoctorKururinStep2Set:      ::  .incbin @MagicLearn + "13,2.set.dmp" ::  .align
@@ -446,7 +490,10 @@
     @DoctorKururinStep4Map:      ::  .incbin @MagicLearn + "13,4.map.dmp" ::  .align
     @DoctorKururinStep5Set:      ::  .incbin @MagicLearn + "13,5.set.dmp" ::  .align
     @DoctorKururinStep5Map:      ::  .incbin @MagicLearn + "13,5.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @MicrowaveStep1Set:      ::  .incbin @MagicLearn + "14,1.set.dmp" ::  .align
     @MicrowaveStep1Map:      ::  .incbin @MagicLearn + "14,1.map.dmp" ::  .align
     @MicrowaveStep2Set:      ::  .incbin @MagicLearn + "14,2.set.dmp" ::  .align
@@ -457,7 +504,10 @@
     @MicrowaveStep4Map:      ::  .incbin @MagicLearn + "14,4.map.dmp" ::  .align
     @MicrowaveStep5Set:      ::  .incbin @MagicLearn + "14,5.set.dmp" ::  .align
     @MicrowaveStep5Map:      ::  .incbin @MagicLearn + "14,5.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @UpDownStep1Set:      ::  .incbin @MagicLearn + "15,1.set.dmp" ::  .align
     @UpDownStep1Map:      ::  .incbin @MagicLearn + "15,1.map.dmp" ::  .align
     @UpDownStep2Set:      ::  .incbin @MagicLearn + "15,2.set.dmp" ::  .align
@@ -470,7 +520,10 @@
     @UpDownStep5Map:      ::  .incbin @MagicLearn + "15,5.map.dmp" ::  .align
     @UpDownStep6Set:      ::  .incbin @MagicLearn + "15,6.set.dmp" ::  .align
     @UpDownStep6Map:      ::  .incbin @MagicLearn + "15,6.map.dmp" ::  .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @DontTouchStep1Set:      ::  .incbin @MagicLearn + "16,1.set.dmp" ::  .align
     @DontTouchStep1Map:      ::  .incbin @MagicLearn + "16,1.map.dmp" ::  .align
     @DontTouchStep2Set:      ::  .incbin @MagicLearn + "16,2.set.dmp" ::  .align
@@ -483,7 +536,10 @@
     @DontTouchStep5Map:      ::  .incbin @MagicLearn + "16,5.map.dmp" ::  .align
     @DontTouchStep6Set:      ::  .incbin @MagicLearn + "16,6.set.dmp" ::  .align
     @DontTouchStep6Map:      ::  .incbin @MagicLearn + "16,6.map.dmp" ::  .align
+.endautoregion
 
+.autoregion
+    .align
     TableMagicImages:
         .word @KururinShockImages
         .word @TenAndHundredImages
@@ -584,74 +640,110 @@
         .incbin "bin/obj_RArrow.bin"
         
     .align
-    
+.endautoregion
+
+.autoregion
+    .align    
     @Preview0Tiles:
         .incbin @MagicLearn + "preview0tiles.dmp" ::    .align
     @Preview0Map:
         .incbin @MagicLearn + "preview0map.dmp"   ::    .align
+    @Preview0Palette:
+        .incbin "kp.gba",0x1C7774,0x200           ::    .align
     @Preview1Tiles:
         .incbin @MagicLearn + "preview1tiles.dmp" ::    .align
     @Preview1Map:
         .incbin @MagicLearn + "preview1map.dmp"   ::    .align
+    @Preview1Palette:
+        .incbin "kp.gba",0x1C85A4,0x200           ::    .align
     @Preview2Tiles:
         .incbin @MagicLearn + "preview2tiles.dmp" ::    .align
     @Preview2Map:
         .incbin @MagicLearn + "preview2map.dmp"   ::    .align
+    @Preview2Palette:
+        .incbin "kp.gba",0x1C92DC,0x200           ::    .align
     @Preview3Tiles:
         .incbin @MagicLearn + "preview3tiles.dmp" ::    .align
     @Preview3Map:
         .incbin @MagicLearn + "preview3map.dmp"   ::    .align
+    @Preview3Palette:
+        .incbin "kp.gba",0x1C9EEC,0x200           ::    .align
     @Preview4Tiles:
         .incbin @MagicLearn + "preview4tiles.dmp" ::    .align
     @Preview4Map:
         .incbin @MagicLearn + "preview4map.dmp"   ::    .align
+    @Preview4Palette:
+        .incbin "kp.gba",0x1CAC08,0x200           ::    .align
     @Preview5Tiles:
         .incbin @MagicLearn + "preview5tiles.dmp" ::    .align
     @Preview5Map:
         .incbin @MagicLearn + "preview5map.dmp"   ::    .align
+    @Preview5Palette:
+        .incbin "kp.gba",0x1CB928,0x200           ::    .align
     @Preview6Tiles:
         .incbin @MagicLearn + "preview6tiles.dmp" ::    .align
     @Preview6Map:
         .incbin @MagicLearn + "preview6map.dmp"   ::    .align
+    @Preview6Palette:
+        .incbin "kp.gba",0x1CC4A4,0x200           ::    .align
     @Preview7Tiles:
         .incbin @MagicLearn + "preview7tiles.dmp" ::    .align
     @Preview7Map:
         .incbin @MagicLearn + "preview7map.dmp"   ::    .align
+    @Preview7Palette:
+        .incbin "kp.gba",0x1CD34C,0x200           ::    .align
     @Preview8Tiles:
         .incbin @MagicLearn + "preview8tiles.dmp" ::    .align
     @Preview8Map:
         .incbin @MagicLearn + "preview8map.dmp"   ::    .align
+    @Preview8Palette:
+        .incbin "kp.gba",0x1CDF10,0x200           ::    .align
     @Preview9Tiles:
         .incbin @MagicLearn + "preview9tiles.dmp" ::    .align
     @Preview9Map:
         .incbin @MagicLearn + "preview9map.dmp"   ::    .align
+    @Preview9Palette:
+        .incbin "kp.gba",0x1CEAB8,0x200           ::    .align
     @Preview10Tiles:
         .incbin @MagicLearn + "preview10tiles.dmp" ::    .align
     @Preview10Map:
         .incbin @MagicLearn + "preview10map.dmp"   ::    .align
+    @Preview10Palette:
+        .incbin "kp.gba",0x1CF8E8,0x200           ::    .align
     @Preview11Tiles:
         .incbin @MagicLearn + "preview11tiles.dmp" ::    .align
     @Preview11Map:
         .incbin @MagicLearn + "preview11map.dmp"   ::    .align
+    @Preview11Palette:
+        .incbin "kp.gba",0x1D05D8,0x200           ::    .align
     @Preview12Tiles:
         .incbin @MagicLearn + "preview12tiles.dmp" ::    .align
     @Preview12Map:
         .incbin @MagicLearn + "preview12map.dmp"   ::    .align
+    @Preview12Palette:
+        .incbin "kp.gba",0x1D141C,0x200           ::    .align
     @Preview13Tiles:
         .incbin @MagicLearn + "preview13tiles.dmp" ::    .align
     @Preview13Map:
         .incbin @MagicLearn + "preview13map.dmp"   ::    .align
+    @Preview13Palette:
+        .incbin "kp.gba",0x1D1FEC,0x200           ::    .align
     @Preview14Tiles:
         .incbin @MagicLearn + "preview14tiles.dmp" ::    .align
     @Preview14Map:
         .incbin @MagicLearn + "preview14map.dmp"   ::    .align
+    @Preview14Palette:
+        .incbin "kp.gba",0x1D2E90,0x200           ::    .align
     @Preview15Tiles:
         .incbin @MagicLearn + "preview15tiles.dmp" ::    .align
     @Preview15Map:
         .incbin @MagicLearn + "preview15map.dmp"   ::    .align
-        
-        
-        
+    @Preview15Palette:
+        .incbin "kp.gba",0x1D3B08,0x200           ::    .align
+.endautoregion
+
+.autoregion
+    .align         
     @Header0Tiles:
         .incbin @MagicLearn + "header0tiles.dmp"    ::  .align
     @Header0Map:
@@ -716,9 +808,11 @@
         .incbin @MagicLearn + "header15tiles.dmp"    ::  .align
     @Header15Map:
         .incbin @MagicLearn + "header15map.dmp"      ::  .align
-        
+.endautoregion
+
+.autoregion
+    .align        
     ; this table is NOT in the original ROM (the headers used to be all 1 tileset), so it must be in the autoregion as a global variable
-    
     MagicHeaderTable:
         .word @Header0Tiles
         .word @Header0Map
@@ -782,52 +876,56 @@
 .org 0x0803C0BC
     .word @Preview0Tiles
     .word @Preview0Map
-    .skip 4 ; palette unchanged
+    .word @Preview0Palette ; palette unchanged, just changing the location and freeing the original space
     .word @Preview1Tiles
     .word @Preview1Map
-    .skip 4
+    .word @Preview1Palette
     .word @Preview2Tiles
     .word @Preview2Map
-    .skip 4
+    .word @Preview2Palette
     .word @Preview3Tiles
     .word @Preview3Map
-    .skip 4
+    .word @Preview3Palette
     .word @Preview4Tiles
     .word @Preview4Map
-    .skip 4
+    .word @Preview4Palette
     .word @Preview5Tiles
     .word @Preview5Map
-    .skip 4
+    .word @Preview5Palette
     .word @Preview6Tiles
     .word @Preview6Map
-    .skip 4
+    .word @Preview6Palette
     .word @Preview7Tiles
     .word @Preview7Map
-    .skip 4
+    .word @Preview7Palette
     .word @Preview8Tiles
     .word @Preview8Map
-    .skip 4
+    .word @Preview8Palette
     .word @Preview9Tiles
     .word @Preview9Map
-    .skip 4
+    .word @Preview9Palette
     .word @Preview10Tiles
     .word @Preview10Map
-    .skip 4
+    .word @Preview10Palette
     .word @Preview11Tiles
     .word @Preview11Map
-    .skip 4
+    .word @Preview11Palette
     .word @Preview12Tiles
     .word @Preview12Map
-    .skip 4
+    .word @Preview12Palette
     .word @Preview13Tiles
     .word @Preview13Map
-    .skip 4
+    .word @Preview13Palette
     .word @Preview14Tiles
     .word @Preview14Map
-    .skip 4
+    .word @Preview14Palette
     .word @Preview15Tiles
     .word @Preview15Map
-    .skip 4
+    .word @Preview15Palette
+    
+; repointing initial preview palette (prevent screen flash for a frame)
+.org 0x08022504
+    .word @Preview0Palette - 0x08139454
     
 ;===========Misc. Magic tricks==============
 
