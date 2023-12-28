@@ -200,138 +200,269 @@ sndOffset equ 0x78 ;originally 0x40, makes more space for characters
 
 .include "text/dialogue.asm"
 
-.autoregion
-.align 4
+.autoregion :: .align
 @NewIntroScript:
 	.include "asm/scriptcode/intro_sc.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado1start:
 	.include "asm/scriptcode/kappado/kappado1start.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado1lose:
 	.include "asm/scriptcode/kappado/kappado1lose.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado1redo:
 	.include "asm/scriptcode/kappado/kappado1redo.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado1win:
 	.include "asm/scriptcode/kappado/kappado1win.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado2start:
 	.include "asm/scriptcode/kappado/kappado2start.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado2lose:
 	.include "asm/scriptcode/kappado/kappado2lose.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado2redo:
 	.include "asm/scriptcode/kappado/kappado2redo.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado2win:
 	.include "asm/scriptcode/kappado/kappado2win.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado3start:
 	.include "asm/scriptcode/kappado/kappado3start.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado3lose:
 	.include "asm/scriptcode/kappado/kappado3lose.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado3redo:
 	.include "asm/scriptcode/kappado/kappado3redo.asm"
+.endautoregion
+.autoregion :: .align
 @Kappado3win:
 	.include "asm/scriptcode/kappado/kappado3win.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko1start:
 	.include "asm/scriptcode/tenko/tenko1start.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko1lose:
 	.include "asm/scriptcode/tenko/tenko1lose.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko1redo:
 	.include "asm/scriptcode/tenko/tenko1redo.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko1win:
 	.include "asm/scriptcode/tenko/tenko1win.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko2start:
 	.include "asm/scriptcode/tenko/tenko2start.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko2lose:
 	.include "asm/scriptcode/tenko/tenko2lose.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko2redo:
 	.include "asm/scriptcode/tenko/tenko2redo.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko2win:
 	.include "asm/scriptcode/tenko/tenko2win.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko3start:
 	.include "asm/scriptcode/tenko/tenko3start.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko3lose:
 	.include "asm/scriptcode/tenko/tenko3lose.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko3redo:
 	.include "asm/scriptcode/tenko/tenko3redo.asm"
+.endautoregion
+.autoregion :: .align
 @Tenko3win:
 	.include "asm/scriptcode/tenko/tenko3win.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon1start:
 	.include "asm/scriptcode/naporon/naporon1start.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon1lose:
 	.include "asm/scriptcode/naporon/naporon1lose.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon1redo:
 	.include "asm/scriptcode/naporon/naporon1redo.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon1win:
 	.include "asm/scriptcode/naporon/naporon1win.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon2start:
 	.include "asm/scriptcode/naporon/naporon2start.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon2lose:
 	.include "asm/scriptcode/naporon/naporon2lose.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon2redo:
 	.include "asm/scriptcode/naporon/naporon2redo.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon2win:
 	.include "asm/scriptcode/naporon/naporon2win.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon3start:
 	.include "asm/scriptcode/naporon/naporon3start.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon3lose:
 	.include "asm/scriptcode/naporon/naporon3lose.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon3redo:
+.endautoregion
+.autoregion :: .align
 	.include "asm/scriptcode/naporon/naporon3redo.asm"
+.endautoregion
+.autoregion :: .align
 @Naporon3win:
 	.include "asm/scriptcode/naporon/naporon3win.asm"
+.endautoregion
+.autoregion :: .align
 @Baron1start:
 	.include "asm/scriptcode/baron/baron1start.asm"
+.endautoregion
+.autoregion :: .align
 @Baron1lose:
 	.include "asm/scriptcode/baron/baron1lose.asm"
+.endautoregion
+.autoregion :: .align
 @Baron1redo:
 	.include "asm/scriptcode/baron/baron1redo.asm"
+.endautoregion
+.autoregion :: .align
 @Baron1win:
 	.include "asm/scriptcode/baron/baron1win.asm"
+.endautoregion
+.autoregion :: .align
 @Baron2start:
 	.include "asm/scriptcode/baron/baron2start.asm"
+.endautoregion
+.autoregion :: .align
 @Baron2lose:
 	.include "asm/scriptcode/baron/baron2lose.asm"
+.endautoregion
+.autoregion :: .align
 @Baron2redo:
 	.include "asm/scriptcode/baron/baron2redo.asm"
+.endautoregion
+.autoregion :: .align
 @Baron2win:
 	.include "asm/scriptcode/baron/baron2win.asm"
+.endautoregion
+.autoregion :: .align
 @Baron3start:
 	.include "asm/scriptcode/baron/baron3start.asm"
+.endautoregion
+.autoregion :: .align
 @Baron3lose:
 	.include "asm/scriptcode/baron/baron3lose.asm"
+.endautoregion
+.autoregion :: .align
 @Baron3redo:
 	.include "asm/scriptcode/baron/baron3redo.asm"
+.endautoregion
+.autoregion :: .align
 @Baron3win:
 	.include "asm/scriptcode/baron/baron3win.asm"
+.endautoregion
+.autoregion :: .align
 @Baron3winlast:
 	.include "asm/scriptcode/baron/baron3winlast.asm"
+.endautoregion
+.autoregion :: .align
 @Intermission:
 	.include "asm/scriptcode/intermission.asm"
+.endautoregion
+.autoregion :: .align
 @NewEndingScript:
 	.include "asm/scriptcode/ending.asm"
+.endautoregion
+.autoregion :: .align
 @TeacherHareRankUpWorld1:
     .include "asm/scriptcode/rankup/rankup_hare1.asm"
+.endautoregion
+.autoregion :: .align
 @TeacherHareRankUpWorld2:
     .include "asm/scriptcode/rankup/rankup_hare2.asm"
+.endautoregion
+.autoregion :: .align
 @TeacherHareRankUpWorld3:
     .include "asm/scriptcode/rankup/rankup_hare3.asm"
+.endautoregion
+.autoregion :: .align
 @TeacherHareRankUpWorld4:
     .include "asm/scriptcode/rankup/rankup_hare4.asm"
+.endautoregion
+.autoregion :: .align
 @BaronMagicRankUpWorld1:
     .include "asm/scriptcode/rankup/rankup_baron1.asm"
+.endautoregion
+.autoregion :: .align
 @BaronMagicRankUpWorld2:
     .include "asm/scriptcode/rankup/rankup_baron2.asm"
+.endautoregion
+.autoregion :: .align
 @BaronMagicRankUpWorld3:
     .include "asm/scriptcode/rankup/rankup_baron3.asm"
+.endautoregion
+.autoregion :: .align
 @BaronMagicRankUpWorld4:
     .include "asm/scriptcode/rankup/rankup_baron4.asm"
+.endautoregion
+.autoregion :: .align
 @DadRankUp1:
     .include "asm/scriptcode/rankup/rankup_dad1.asm"
+.endautoregion
+.autoregion :: .align
 @DadRankUp2:
     .include "asm/scriptcode/rankup/rankup_dad2.asm"
+.endautoregion
+.autoregion :: .align
 @DadRankUp3:
     .include "asm/scriptcode/rankup/rankup_dad3.asm"
+.endautoregion
+.autoregion :: .align
 @DadRankUp4:
     .include "asm/scriptcode/rankup/rankup_dad4.asm"
+.endautoregion
+.autoregion :: .align
 MinigameUnlock:
 	.include "asm/scriptcode/minigameunlock.asm"
+.endautoregion
+.autoregion :: .align
 MagicUnlock:
 	.include "asm/scriptcode/magicunlock.asm"
 .endautoregion

@@ -402,7 +402,7 @@ s_creditsend equ " FIN"
     _str "\""+magic+"\""+" was added<line>to the Magic menu!"
 .endmacro
 
-.autoregion
+.autoregion :: .align
 DialogueTable:
     .word @entry_label_00000000
     .word @entry_label_00000001
