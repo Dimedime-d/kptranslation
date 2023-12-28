@@ -11,6 +11,7 @@
 .macro repointText,ptrLoc,msg
 	.autoregion
     .align
+    .word 0x00
 	@txtPtr:
 		.stringn msg+"<end>" :: .align 4
 	.endautoregion
