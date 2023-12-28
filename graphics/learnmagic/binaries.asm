@@ -1,5 +1,9 @@
 ; customcode.asm now pulls from the labels here.
 
+.org 0x080258B0
+.region 0x08028C20-.,00 ; original space taken by old magic SJIS instructions + ascii names
+.endregion
+
 .org 0x081C6948
 .region 0x081D3D08-.,00 ; original space taken up by preview graphics
 .endregion
