@@ -1547,12 +1547,12 @@ TitleScreenVersionStrHook:
     bl 0x080940C0
     @SkipPrint:
     ; new stuff!
-    ldr r2, =@s_ENG
-    mov r0, 0xD8
+    ldr r2, =@s_patchversion
+    mov r0, 0xC0
     mov r1, 0x88
     mov r3, 0x00
     bl 0x080940C0
-    ldr r2, =@s_patchversion
+    ldr r2, =@s_ENG
     mov r0, 0xD0
     mov r1, 0x94
     mov r3, 0x00

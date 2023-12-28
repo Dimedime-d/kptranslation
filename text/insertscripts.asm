@@ -91,6 +91,10 @@
 .org 0x08010DF0
 	.word script_loc1
 	
+.org 0x080961DC
+.region 0x080A33D4-., 00 ;delete every cutscene from kappado 1 start to dad rank up 4
+.endregion
+    
 .org 0x080A77C8
 .region 0xABC1C-0xA77C8, 00 ;deletes original intro cutscene data
 .endregion
@@ -117,7 +121,7 @@
 
 ;---------------- Dialogue modifications
 .org 0x080960EA ;taken from nextscriptpointer.asm
-.byte 0x0F ;vwf code in 1st Kappado encounter (TODO: Repoint every cutscene script and change code that adds width)
+.byte 0x0F ;vwf code in 1st Kappado encounter
 
 .org 0x08096118
 .byte 0x30 ;max # characters per line (dialogue), shouldn't need this 'cause I'd just use <line>s.
