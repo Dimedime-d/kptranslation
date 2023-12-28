@@ -8,6 +8,10 @@
 .region 0x081D3D08-.,00 ; original space taken up by preview graphics
 .endregion
 
+.org 0x0828C934
+.region 0x08297EC4-.,00 ; original space taken by 88x88 helper images
+.endregion 
+
 @MagicLearn equ "graphics\learnmagic\dumps\\"
 
 .macro ImageObjHeader,palette

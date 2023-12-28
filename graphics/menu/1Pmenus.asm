@@ -109,7 +109,6 @@
  
 ;----------------------
 ;Multiplayer Menus repointing compressed GFX
-;TODO - change menu buttons for non-parent GBA's
 .org 0x08015CA8
 	.word @OneCartVersus
 .org 0x0802E644
