@@ -91,6 +91,10 @@
 .org 0x08010DF0
 	.word script_loc1
 	
+.org 0x080961DC
+.region 0x080A33D4-., 00 ;delete every cutscene from kappado 1 start to dad rank up 4
+.endregion
+    
 .org 0x080A77C8
 .region 0xABC1C-0xA77C8, 00 ;deletes original intro cutscene data
 .endregion
@@ -117,7 +121,7 @@
 
 ;---------------- Dialogue modifications
 .org 0x080960EA ;taken from nextscriptpointer.asm
-.byte 0x0F ;vwf code in 1st Kappado encounter (TODO: Repoint every cutscene script and change code that adds width)
+.byte 0x0F ;vwf code in 1st Kappado encounter
 
 .org 0x08096118
 .byte 0x30 ;max # characters per line (dialogue), shouldn't need this 'cause I'd just use <line>s.
@@ -174,37 +178,22 @@ sndOffset equ 0x78 ;originally 0x40, makes more space for characters
 .org 0x080AC744
 .byte 0x30 ;max chars per line
 
-;----------------- Credits modifications
-.org 0x080A6504
-.byte 0x5D ;reposition "The end"
+;----------------- helper macros for custom bytecode
 
-.org 0x080A651C
-_str " FIN"
-
-;-----------------
-
-.macro S_unlockMinigame,game
-	_str "\""+game+"\""+" was added<line>to the Challenge menu!"
+.macro loadCharsWithID,id
+    .byte 0x0A,0x00,0x14,0x00,0x18,0xFF,0xFF,0x7F
+	.word id
 .endmacro
 
-.macro S_unlockMagic,magic
-	_str "\""+magic+"\""+" was added<line> to the Magic menu!"
-.endmacro
-
-.macro loadChars,msg
-	.byte 0x0A,0x00,0x14,0x00,0x18,0xFF,0xFF,0x7F
-	_str msg
-.endmacro
-
-.macro loadCharsInstant,msg
+.macro loadCharsInstantWithID,id
 	.byte 0x0A,0x00,0x1A,0x00,0x18,0xFF,0xFF,0x7F ;0x1A custom code auto-centers instantly displayed text
-	_str msg
+	.word id
 .endmacro
 
-.macro loadCharsAndSfx,msg
-	loadChars msg
-	.byte 0x0F,0x00,0x04,0x00,sndOffset,0xFF,0xFF,0x7F
-	_str msg
+.macro loadCharsAndSfxWithID,id
+    loadCharsWithID id
+    .byte 0x0F,0x00,0x04,0x00,sndOffset,0xFF,0xFF,0x7F
+	.word id
 .endmacro
 
 .loadtable "text/kp_eng.tbl" ;original table bugs out with capital M's

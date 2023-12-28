@@ -8,7 +8,7 @@
 .region 0x0800000,00
 .endregion
 
-VERSION equ "v1.0"
+VERSION equ "1.0.1" ; entering a level overwrites lowercase ascii characters in VRAM -_-
 
 ;include all assembly files in here
 ;file paths are relative to armips.exe

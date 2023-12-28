@@ -65,6 +65,8 @@
 		;new - use r12 to store loc of x-coord
 		mov r1,r12
 		push r1
+        mov r1, r8
+        push r1 ; store original bytecode location
 		;new - 0x12 for scrolling text, 0x14 non-scrolling
 		mov r1,r4
 		cmp r1, 1Ah
@@ -76,6 +78,9 @@
 		b StoreToR12
 		.pool
 		StoreToR12:
+		mov r2, 0h
+		mov r11, r2 ; store width running total
+        
 		mov r12,r1
 		mov r1,r8 ;original code - r8 stores script location
 		add r1,4h
@@ -84,24 +89,17 @@
 		mov r4,r0
 		add r6,r4,1h
 		mov r1,r8
-		ldrh r3,[r1,8h] ;this loads the char - new code ahead - have a pointer ;to where the text should go
-		mov r2, 0h
-		mov r11, r2
-/*			ldr r2,[r1,0x0C] ;points to next script to parse
-			mov r9,r2
-			ldr r3,[r1,8h]
-			mov r10,r3 ;storing - end of new code - r10 contains pointer to text
-			
-			mov r2,0h	;new - use r11 to store a running total of total width of characters
-			mov r11,r2
-			
-			ldrh r3,[r3] ;points to next char within script pointer
-			mov r2, 2h
-			add r10,r2*/
+		ldrh r3,[r1,8h] ;NEW - this used to contain the string (char), now it contains a text ID
+            lsl r3,r3,2h
+            ldr r0, =DialogueTable
+            add r0,r3
+            ldr r0,[r0] ; r0 now contains pointer to string
+            ldrh r3,[r0,0h] ; new location of char
+            
+            add r0,2h
+            mov r9,r0 ; r9 stores location of the next char
+        ; r3 should still contain the char
 		lsl r0,r3,10h
-		mov r2,0Ah
-		add r2,r8
-		mov r9,r2
 		cmp r0,0h
 		beq DoneWithText ; need to change
 		lsl r1, r6, 2h
@@ -204,7 +202,6 @@
 		lsl r0, r3, 10h
 			mov r1, 2h ; increment
 		add r9, r1
-			;add r9, r1
 		cmp r0, 0h
 		bne NextChar 
 	DoneWithText: ;all done with text
@@ -215,8 +212,8 @@
 		sub r0, 1h
 		str r0, [r1] ;store number of chars?
 		bl WriteNewX
-		mov r0, r9
-		add r0, 3h ;r0 = next scriptcode to parse
+		pop r0
+        add r0, 0x0C ; bytecode command is now fixed size
 		;restore r12
 		add sp,4h
 		pop r1
@@ -255,6 +252,34 @@ InstaText:	;pls work
 .include "asm/scriptcode/vwfInstaText.asm"
 
 .word 0x00000000
+.pool
+.align
+
+SfxParseHook1:
+    ; overwritten asm: mov r3, r8; ldrh r2, [r3, 8h]
+    ; lsl r0, r2, 10h; adds r3, 0x0A
+    mov r3, r8
+    push r3
+    ldrh r2, [r3, 8h] ; at the end, r2 should contain char, r3 the pointer to the next char
+    ; r0 is free
+    lsl r2, r2, 2h ; should now be a text ID
+    ldr r0, =DialogueTable
+    add r0,r2
+    ldr r0, [r0]
+    ldrh r2, [r0, 0h]
+    add r3, r0, 2h
+    bx r14
+   
+SfxParseHook2:
+    ; overwritten asm: adds r0, r3, 3h; subs r1, 4h; and r0, r1
+    pop r0 ; the r8 from the above hook
+    add r0, 0Ch
+    sub r1, 4h ; r1 contained 0
+    and r0, r1 ; 4-aligns r0
+    bx r14
+    
+.pool
+.align
 ;generates an additional DMA transfer to get custom
 ;Minigame Paradise titles in the Obj VRAM
 MiniParaTitleHook:
@@ -1522,12 +1547,12 @@ TitleScreenVersionStrHook:
     bl 0x080940C0
     @SkipPrint:
     ; new stuff!
-    ldr r2, =@s_ENG
-    mov r0, 0xD8
+    ldr r2, =@s_patchversion
+    mov r0, 0xC0
     mov r1, 0x88
     mov r3, 0x00
     bl 0x080940C0
-    ldr r2, =@s_patchversion
+    ldr r2, =@s_ENG
     mov r0, 0xD0
     mov r1, 0x94
     mov r3, 0x00

@@ -1,6 +1,6 @@
 My assembly injections to make the translation work.
 
-* `scriptcode/` contains ***entire cutscenes*** that I dumped from the game, using directives to dynamically insert English text. This allows me to put any arbitrary (English) text into the cutscenes.
+* `scriptcode/` contains ***entire cutscene bytecode scripts*** that I dumped from the game, using directives to implement my new text ID system. This lets me put arbitrary English text in the dialogue.
 * `customcode.asm` currently uses free space located at $B0000 to implement the following:
   * Adding variable widths to SHIFT-JIS characters that are both displayed "scrolling", one by one over time (intro, dialogue) as well as characters that are displayed statically (menus)
   * Auto-centering text
