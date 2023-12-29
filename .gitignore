@@ -1,6 +1,5 @@
 /build/*
-/kp.gba
-/kp_patched.gba
+/*.gba
 /kp_patched.sym
 /flips.exe
 /flipscfg.bin

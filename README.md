@@ -66,7 +66,6 @@ All "graphical" text in the ROM is _not_ automatically formatted and inserted. S
 * The game scripts (especially the dialogue)
 * General graphical polish
 * Optimize the credits sequence to display more text at once (currently limited by GBA OAM slots)
-* Optimize the space taken up by this translation (currently, I have the ROM expanded to 16 MB for no reason)
 
 ## Other Language Support
 
