@@ -92,8 +92,8 @@
 
 .org 0x0802E7F4
     .word @chuchuPalette
-    .word @chuchu_challengeTiles
-    .word @chuchu_challengeTilesEnd - @chuchu_challengeTiles
+    .word @chuchuTiles
+    .word @chuchuTilesEnd - @chuchuTiles
     .word @chuchu_challengeMap
 
 .org 0x0802E804
@@ -188,8 +188,8 @@
 
 .org 0x0802E904
     .word @chuchuPalette
-    .word @chuchu_multiTiles
-    .word @chuchu_multiTilesEnd - @chuchu_multiTiles
+    .word @chuchuTiles
+    .word @chuchuTilesEnd - @chuchuTiles
     .word @chuchu_multiMap
 
 .org 0x0802E914
@@ -403,8 +403,8 @@
 .endautoregion
 
 .autoregion :: .align   
-    @chuchu_challengeTiles:
-    .incbin "graphics\minigamesplashes\dumps\chuchu_challengeTiles.dmp" :: @chuchu_challengeTilesEnd: :: pad
+    @chuchuTiles:
+    .incbin "graphics\minigamesplashes\dumps\chuchuTiles.dmp" :: @chuchuTilesEnd: :: pad
 .endautoregion
 
 .autoregion :: .align
@@ -560,11 +560,6 @@
 .autoregion :: .align
     @twin_challengeMap:
     .incbin "graphics\minigamesplashes\dumps\twin_challengeMap.dmp" :: pad
-.endautoregion
-
-.autoregion :: .align   
-    @chuchu_multiTiles:
-    .incbin "graphics\minigamesplashes\dumps\chuchu_multiTiles.dmp" :: @chuchu_multiTilesEnd: :: pad
 .endautoregion
 
 .autoregion :: .align
