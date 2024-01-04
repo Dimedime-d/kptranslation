@@ -1,9 +1,12 @@
 /build/*
-/*.gba
+**/*.hi
+**/*.o
+**/*.gba
+**/*.bps
+/savefix/*.exe
 /kp_patched.sym
 /flips.exe
 /flipscfg.bin
-/*.bps
 /graphics/minigamesplashes/reserve/*
 /graphics/inlevel/reserve/*
 /graphics/menu/reserve/*
