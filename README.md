@@ -1,6 +1,8 @@
 # Kururin Paradise Translation
 
-Ready to fly? Explore many worlds in this sequel to Kuru Kuru Kururin, piloting the Helirin with its ever-rotating propeller. In this adventure, your family went missing when they went to see a magic show. It's up to you to search for them and bring them back home. Overcome new challenges using the right shoulder button to speed up the Helirin's rotation. Between all the Helirin mazes, you will encounter the people behind the magic show and be challenged to a variety of minigames. They probably have something to do with your family, and you might even learn a magic trick or two along the way.
+Ready to fly? Explore many worlds in this sequel to _Kuru Kuru Kururin_, piloting the Helirin with its ever-rotating propeller. In this adventure, your family went missing when they went to see a magic show. It's up to you to search for them and bring them back home. Overcome new challenges using the right shoulder button to speed up the Helirin's rotation. Between all the Helirin mazes, you will encounter the people behind the magic show and be challenged to a variety of minigames. They probably have something to do with your family, and you might even learn a magic trick or two along the way.
+
+Play by yourself in Single Player mode, or with up to 3 friends in Single Pak Versus mode. Race through 30 challenging Helirin mazes and compete in many different minigames for some action-packed fun.
 
 ## Patching
 
@@ -27,10 +29,6 @@ In addition to the translation aspect of this project, there is some additional 
 * You can re-watch Adventure Mode cutscenes in Practice Mode.
 * The functionality for deleting all save data / reinitializing corrupted save data has been restored. In the original ROM, if you held A, B, L, R, Start, and Select before the Nintendo logo appears, the game would crash. Same thing happens when the SRAM checksum fails. This is due to the game trying to create a buffer in a space that hasn't been initialized yet. This may matter for flashcart testing...
 
-## Debug Features
-
-You change the value of `DEBUG_VAR` in `build.bat` to a nonzero number to enable one debugging feature. Currently, you can re-watch the "rank up" cutscenes and re-view the location splash screens by holding L after any "level complete" screen.
-
 ## Screenshots
 
 ![Newtitle](https://user-images.githubusercontent.com/73413313/249013413-b3a88ca7-2922-49fc-bc88-9af111db4c3e.png)
@@ -56,10 +54,14 @@ The "encoded" text in the ROM is automatically patched using the above batch scr
 
 All "graphical" text in the ROM is _not_ automatically formatted and inserted. Should you change the images, there are a smattering of Python scripts in the `graphics/` folders to format the images to `.dmp` files, which has already been done. Python is my fast and dirty way of re-quantizing images to the same palettes used in game, compressing data using the game's custom functions as well as operating `grit.exe`. You do not need Python to patch the ROM, only to format new images if you choose to do so.
 
+## Debug Features
+
+You change the value of `DEBUG_VAR` in `build.bat` to a nonzero number to enable one debugging feature. Currently, you can re-watch the "rank up" cutscenes and re-view the location splash screens by holding L after any "level complete" screen.
+
 ## Known Bugs
 
-* Some character animations play faster than usual, due to my timing of the "rolling" text characters being faster.
-* Transferring save data from the original Japanese ROM will result in slightly glitched in-game names, as the Japanese names remain in SRAM. Same thing will probably also happen if you named one of the save files with Japanese characters. I'm okay with this, as this doesn't impact the first-time experience.
+* Some character timings are slightly off, due to my timing of the "rolling" text characters being faster.
+* Transferring save data from the original Japanese ROM will result in slightly glitched in-game names, as the Japanese names remain in SRAM. Same thing will probably also happen if you named one of the save files with Japanese characters. I'm okay with this, as this doesn't impact the first-time experience. **Use the attached save file fixer for migrating save files from the original Japanese ROM.**
 
 ## Areas of Potential Revision
 

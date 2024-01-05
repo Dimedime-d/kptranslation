@@ -12,9 +12,11 @@ With some refactoring with the help of `grit` to automatically format images in 
   * Tile data for standardized English character glyphs (each glyph object's tile data should have no empty space to the top or to the left), as well as a new width table.
 * `inlevel/`
   * Level names that appear in blue and white as soon as you enter a level, and Kururin's little text box that appears on the bottom. Contains a python script to help format these dialog boxes quickly.
+* `learnmagic`
+  * Various graphics used in the Magic Menu. Contains a Python GUI to help make individual "pages" in magic instructions, as well as miscellaneous graphics.
 * `menu/`
   * Various menu buttons/options that appear in the game.
 * `minigamesplashes`
-  * Minigame instructions that appear before starting a minigame, for adventure, challenge, and multiplayer mode. Also contains splash screens for entering a new world, as they use similar logic.
+  * Minigame instructions that appear before starting a minigame, for adventure, challenge, and multiplayer mode. Also contains splash screens for entering a new world, as they use similar logic, as well as the title screen.
 * `overworldtitles`
   * Level/World names that appear in the overworld.
