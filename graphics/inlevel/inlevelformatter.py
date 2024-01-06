@@ -42,7 +42,7 @@ def make_title_dmps():
         bin_file = os.path.join(DUMP_FOLDER, f"{lvl}title")
         # In order: No palette, 4bpp, tile format, NO MAP,
         # 4x2 metatiles, .bin file, no header, output file
-        os.system(f"cmd /c ..\grit {converted_img_file} -p! -gB4 -gt -m! -Mw4 -Mh2 -ftb -fh! -o {bin_file}")
+        os.system(f"cmd /c ..\\grit {converted_img_file} -p! -gB4 -gt -m! -Mw4 -Mh2 -ftb -fh! -o {bin_file}")
         dmp_file = f"{bin_file}.dmp"
         if os.path.exists(dmp_file):
             os.remove(dmp_file)

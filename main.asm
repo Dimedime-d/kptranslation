@@ -5,7 +5,7 @@
 
 ; ROM expansion no more! It fits in 8 MB.
 
-VERSION equ "1.1.0" ; entering a level overwrites lowercase ascii characters in VRAM -_-
+VERSION equ "1.1.1" ; entering a level overwrites lowercase ascii characters in VRAM -_-
 
 ;include all assembly files in here
 ;file paths are relative to armips.exe

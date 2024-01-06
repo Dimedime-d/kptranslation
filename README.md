@@ -17,6 +17,7 @@ __bps patch (Recommended)__
 
 __Manual Patch (Windows only)__
 
+* You will need the [Visual C++ 2015 x86 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022) to run `armips`.
 * Clone this repository
 * Rename your dumped ROM to `kp.gba`
 * Put kp.gba in the root of the repository
