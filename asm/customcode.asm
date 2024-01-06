@@ -1145,7 +1145,9 @@ MagicLearnBG0Hook:
     ; goal - DMA the new BG0 tileset and tilemap showing the magic trick name in bold yellow text
     ldr r0, =MagicHeaderTable
     add r6, sp, 0x168
-    ldrh r1, [r6, 0x00] ; magic option
+    ldrh r1, [r6, 0x00] ; magic index
+    add r1, r9
+    ldrb r1, [r1] ; actual option
     lsl r1, r1, 0x03 ; each table entry, 2 dwords (8 bytes)
     add r1, r0
     mov r5, r1
@@ -1172,7 +1174,8 @@ MagicLearnInitHook:
     ; illustrations are stored at sp+0x144, in two-byte structs (00 - illustration number, 01 - line number)
     ; number of illustrations is stored at sp+0x18C
     ; max number of lines is stored at sp+0x188, as an int
-    ; current magic is stored at sp+0x158, as a short
+    ; current magic menu INDEX is stored at sp+0x158, as a short
+        ; need to add it to r9 and load byte to get the option
     ; line position is stored at sp+0x15A, as a short
     ; [sp+0x184] has y-position more precisely, allowing for the scroll effect
     
@@ -1184,8 +1187,10 @@ MagicLearnInitHook:
     ; (this can be done separately) hard-code where illustrations should be, and use the same stack locations to store illustration + line numbers (only this time, page numbers)
     
     ldr r1, =TableMagicInstructions
-    add r6, sp, 0x15C ; magic option
+    add r6, sp, 0x15C ; magic menu index
     ldrh r0, [r6, 0x00]
+    add r0, r9
+    ldrb r0, [r0] ; actual magic option
     lsl r0, r0, 0x02
     add r0, r1
     ldr r0, [r0, 0x00] ; magic option-specific instruction set
@@ -1194,7 +1199,7 @@ MagicLearnInitHook:
     
     @@Loop:
     mov r4, r0
-    mov r9, r0
+    mov r10, r0 ; r10 contained a deprecated pointer to old SJIS string for magic instruction - OK to overwrite.
     ldr r0, [r4, 0x00] ; tileset pointer for one step, tilemap pointer would be at r4+0x04
     cmp r0, 0x00
     beq @@LoopEnd
@@ -1229,7 +1234,7 @@ MagicLearnInitHook:
     mov r8, r1 ; increment loop variable
     
     ; same process for the tile map
-    mov r0, r9
+    mov r0, r10
     ldr r0, [r0, 0x04] ; tilemap pointer
     mov r5, r0
     ldmia r5!, {r1} ; tilemap length to r1, increment r5
@@ -1253,7 +1258,7 @@ MagicLearnInitHook:
     mov r8, r1
     
     mov r0, 0x08
-    add r0, r9 ; next screen!
+    add r0, r10 ; next screen!
     b @@Loop
     
     @@LoopEnd:
@@ -1272,8 +1277,10 @@ MagicLearnInitHook:
     
     ; Processing illustrations...
     ldr r1, =TableMagicImages
-    add r6, sp, 0x15C ; magic option
+    add r6, sp, 0x15C ; magic index
     ldrh r0, [r6, 0x00]
+    add r0, r9
+    ldrb r0, [r0] ; magic option
     lsl r0, r0, 0x02
     add r0, r1
     ldr r0, [r0, 0x00] ; magic option-specific image set
@@ -1414,6 +1421,8 @@ MagicLearnDisplayHook:
     mov r0, 0x00
     @@ImageLoop:
     mov r9, r0 ; number of loops
+        ; at this point, the array of magic options is no longer needed (associated graphics are already in RAM), so OK to overwrite
+        ; 
     cmp r0, r8
     bge @@FuncEnd
     
