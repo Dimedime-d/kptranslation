@@ -261,7 +261,7 @@ s_baron1redo4       equ "Let's get this on!"
 
 s_baron1win1        equ "Nooooooooooooooooo!"
 s_baron1win2        equ "You may have won this time,<line>just you wait!"
-s_baron1win3        equ "Maririn, were you here this whole time?"
+s_baron1win3        equ "Maririn, were you here<line>this whole time?"
 s_baron1win4        equ "This magic trick will make me<line>a star!"
 
 s_baron2start1      equ "Hmmmmmmmmmmmmmmmm..."
